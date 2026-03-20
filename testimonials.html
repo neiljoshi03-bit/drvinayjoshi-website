@@ -39,34 +39,71 @@
     .menu-link:hover { color:#7ab4e8; }
     /* mobile */
     @media (max-width: 768px) {
+      /* --- Navigation --- */
       #site-header > div { padding: 14px 20px !important; }
       #site-header nav { display: none !important; }
+
+      /* --- Section / container padding --- */
       [style*="padding:0 60px"] { padding-left: 20px !important; padding-right: 20px !important; }
       [style*="padding:0 40px"] { padding-left: 20px !important; padding-right: 20px !important; }
+      [style*="padding:0 80px"] { padding-left: 20px !important; padding-right: 20px !important; }
       [style*="padding:40px 60px"] { padding: 32px 20px !important; }
-      [style*="padding:72px 60px"] { padding: 48px 20px !important; }
-      [style*="padding:56px 60px"] { padding: 40px 20px !important; }
-      [style*="padding:96px 60px"] { padding: 56px 20px !important; }
-      div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 16px !important; }
+      [style*="padding:72px 60px"] { padding: 40px 20px !important; }
+      [style*="padding:68px 80px"] { padding: 40px 20px !important; }
+      section[style*="padding:72px 0"] { padding-top: 36px !important; padding-bottom: 36px !important; }
+      section[style*="padding:88px 0"] { padding-top: 40px !important; padding-bottom: 40px !important; }
+
+      /* --- Grids (div AND section) → single column --- */
+      div[style*="grid-template-columns"],
+      section[style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 20px !important; }
       .info-grid { grid-template-columns: 1fr !important; }
+      .grid-cols-4 { grid-template-columns: repeat(2,1fr) !important; }
       .grid-cols-3 { grid-template-columns: 1fr !important; }
+
+      /* --- Flex side-by-side layouts → stack vertically --- */
+      div[style*="display:flex"][style*="gap:64px"],
+      div[style*="display:flex"][style*="gap:72px"],
+      div[style*="display:flex"][style*="gap:80px"] { flex-direction: column !important; gap: 24px !important; }
+
+      /* --- Hero --- */
       section.relative[style*="height:520px"] { height: 260px !important; }
+      section.relative[style*="height:460px"] { height: 240px !important; }
       section.relative[style*="height:400px"] { height: 220px !important; }
       section.relative[style*="height:380px"] { height: 200px !important; }
-      [style*="font-size:56px"] { font-size: 28px !important; line-height:1.15 !important; }
-      [style*="font-size:46px"] { font-size: 26px !important; }
-      [style*="font-size:44px"] { font-size: 24px !important; }
-      [style*="font-size:40px"] { font-size: 22px !important; }
-      [style*="font-size:38px"] { font-size: 22px !important; }
-      [style*="font-size:36px"] { font-size: 21px !important; }
-      [style*="font-size:52px"] { font-size: 30px !important; }
-      [style*="font-size:48px"] { font-size: 28px !important; }
-      .step-item { gap: 12px !important; }
-      .testi-inner { padding: 28px 18px !important; }
-      .testi-inner blockquote { font-size: 17px !important; }
-      footer > div > div.flex { flex-direction: column !important; gap: 20px !important; }
+      /* Reduce hero inner top-padding so text sits lower than fixed header */
+      .absolute.inset-0.flex[style*="padding-top:80px"] { padding-top: 55px !important; }
+      /* Hero subtitle — shrink letter-spacing so it fits on one line */
+      .absolute.inset-0.flex [style*="letter-spacing:0.32em"] { font-size: 7px !important; letter-spacing: 0.1em !important; }
+
+      /* --- Font sizes --- */
+      [style*="font-size:58px"] { font-size: 26px !important; line-height: 1.15 !important; }
+      [style*="font-size:56px"] { font-size: 26px !important; line-height: 1.15 !important; }
+      [style*="font-size:52px"] { font-size: 24px !important; line-height: 1.2 !important; }
+      [style*="font-size:48px"] { font-size: 26px !important; }
+      [style*="font-size:46px"] { font-size: 24px !important; }
+      [style*="font-size:44px"] { font-size: 22px !important; line-height: 1.2 !important; }
+      [style*="font-size:40px"] { font-size: 20px !important; line-height: 1.2 !important; }
+      [style*="font-size:38px"] { font-size: 20px !important; line-height: 1.2 !important; }
+      [style*="font-size:36px"] { font-size: 19px !important; }
+      [style*="font-size:34px"] { font-size: 19px !important; }
+
+      /* --- Side image / sidebar boxes → full width --- */
+      div[style*="width:360px"][style*="flex-shrink:0"] { width: 100% !important; flex-shrink: 1 !important; }
+      div[style*="width:360px"][style*="flex-shrink:0"] img { width: 100% !important; height: 200px !important; object-fit: cover !important; }
+      div[style*="width:320px"] { width: 100% !important; }
+
+      /* --- Stats strip --- */
       [style*="background:#8a9bb5"] > div { flex-wrap: wrap !important; }
       [style*="background:#8a9bb5"] > div > div { width: 50% !important; flex: none !important; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.2) !important; padding: 20px 12px !important; }
+
+      /* --- Step / list items --- */
+      .step-item { gap: 12px !important; }
+
+      /* --- Testimonials --- */
+      .testi-inner { padding: 28px 18px !important; }
+
+      /* --- Footer --- */
+      footer > div > div.flex { flex-direction: column !important; gap: 20px !important; }
     }
   </style>
 </head>
