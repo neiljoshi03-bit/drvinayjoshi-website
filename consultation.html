@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book a Consultation | Dr. Vinay S. Joshi | Mumbai</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
@@ -170,24 +172,36 @@
           <h2 style="font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:300; color:#111; line-height:1.2; margin-bottom:8px;" data-anim="up">Request an Appointment</h2>
           <p style="font-size:13px; font-weight:300; color:#666; margin-bottom:36px; line-height:1.85;">Complete the form below. Our team at Kokilaben Dhirubhai Ambani Hospital will confirm your appointment within 24 hours.</p>
 
-          <form action="mailto:enquiry@kdahospital.com" method="post" enctype="text/plain" style="display:grid; gap:20px;" data-anim="up">
+          <!-- SUCCESS MESSAGE (hidden until form is submitted) -->
+          <div id="form-success" style="display:none; background:#f0f7f0; border:1px solid #b8d8b8; border-left:4px solid #2e7d32; padding:28px 28px; margin-bottom:0;">
+            <div style="font-size:11px; font-weight:700; letter-spacing:0.15em; color:#2e7d32; text-transform:uppercase; margin-bottom:10px;">Request Received</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:400; color:#1a2a3a; margin-bottom:10px;">Thank you — we'll be in touch shortly.</div>
+            <p style="font-size:13px; font-weight:300; color:#555; line-height:1.85; margin:0;">A confirmation email has been sent to your inbox. Dr. Joshi's team will contact you within 24 hours to confirm your appointment.</p>
+          </div>
+
+          <!-- ERROR MESSAGE (hidden until an error occurs) -->
+          <div id="form-error" style="display:none; background:#fff5f5; border:1px solid #f5c6c6; border-left:4px solid #c0392b; padding:20px 24px; margin-bottom:20px;">
+            <div style="font-size:12px; font-weight:500; color:#c0392b;">Something went wrong. Please try again or call us directly on <a href="tel:+912242696969" style="color:#c0392b;">+91 22 4269 6969</a>.</div>
+          </div>
+
+          <form id="consult-form" style="display:grid; gap:20px;" data-anim="up" novalidate>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
               <div>
                 <label class="form-label">Full Name *</label>
-                <input type="text" name="name" placeholder="Your full name" class="form-field" required>
+                <input id="f-name" type="text" name="name" placeholder="Your full name" class="form-field" required>
               </div>
               <div>
                 <label class="form-label">Phone Number *</label>
-                <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" class="form-field" required>
+                <input id="f-phone" type="tel" name="phone" placeholder="+91 XXXXX XXXXX" class="form-field" required>
               </div>
             </div>
             <div>
               <label class="form-label">Email Address *</label>
-              <input type="email" name="email" placeholder="your@email.com" class="form-field" required>
+              <input id="f-email" type="email" name="email" placeholder="your@email.com" class="form-field" required>
             </div>
             <div>
               <label class="form-label">Subject / Reason for Appointment *</label>
-              <select name="subject" class="form-field" required style="appearance:none; background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2210%22 height=%226%22><path d=%22M0 0l5 6 5-6z%22 fill=%22%237a8fa8%22/></svg>'); background-repeat:no-repeat; background-position:right 16px center; cursor:pointer;">
+              <select id="f-subject" name="subject" class="form-field" required style="appearance:none; background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2210%22 height=%226%22><path d=%22M0 0l5 6 5-6z%22 fill=%22%237a8fa8%22/></svg>'); background-repeat:no-repeat; background-position:right 16px center; cursor:pointer;">
                 <option value="" disabled selected>Select a reason</option>
                 <option>Knee Pain / Knee Replacement</option>
                 <option>Hip Pain / Hip Replacement</option>
@@ -201,23 +215,23 @@
             </div>
             <div>
               <label class="form-label">Message</label>
-              <textarea name="message" rows="5" placeholder="Please briefly describe your symptoms, previous treatments, or any questions for Dr. Joshi…" class="form-field" style="resize:vertical;"></textarea>
+              <textarea id="f-message" name="message" rows="5" placeholder="Please briefly describe your symptoms, previous treatments, or any questions for Dr. Joshi…" class="form-field" style="resize:vertical;"></textarea>
             </div>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
               <div>
                 <label class="form-label">Preferred Date</label>
-                <input type="date" name="date" class="form-field">
+                <input id="f-date" type="date" name="date" class="form-field">
               </div>
               <div>
                 <label class="form-label">Consultation Type</label>
-                <select name="type" class="form-field" style="appearance:none; background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2210%22 height=%226%22><path d=%22M0 0l5 6 5-6z%22 fill=%22%237a8fa8%22/></svg>'); background-repeat:no-repeat; background-position:right 16px center; cursor:pointer;">
+                <select id="f-type" name="type" class="form-field" style="appearance:none; background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2210%22 height=%226%22><path d=%22M0 0l5 6 5-6z%22 fill=%22%237a8fa8%22/></svg>'); background-repeat:no-repeat; background-position:right 16px center; cursor:pointer;">
                   <option>In-Person — KDAH Mumbai</option>
                   <option>Virtual / Video Consultation</option>
                 </select>
               </div>
             </div>
             <div style="padding-top:8px;">
-              <button type="submit" class="btn-submit">SEND APPOINTMENT REQUEST</button>
+              <button id="submit-btn" type="submit" class="btn-submit">SEND APPOINTMENT REQUEST</button>
               <p style="font-size:10px; font-weight:300; color:#999; text-align:center; margin-top:14px; letter-spacing:0.05em;">Or call directly: <a href="tel:+912242696969" style="color:#1e3a6a; font-weight:500;">+91 22 4269 6969</a></p>
             </div>
           </form>
@@ -300,6 +314,126 @@
   </footer>
 
   <script>
+    // ─────────────────────────────────────────────────────────────
+    //  EMAILJS CONFIGURATION
+    //  1. Sign up at https://www.emailjs.com
+    //  2. Create a Gmail service and connect appointments.drvinayjoshi@gmail.com
+    //  3. Create two email templates (see template instructions below)
+    //  4. Paste your IDs into the three constants below
+    // ─────────────────────────────────────────────────────────────
+
+    const EMAILJS_PUBLIC_KEY   = 'EmcVaf41DzMTTWEDx';   // ← Your EmailJS Public Key (already set)
+    const EMAILJS_SERVICE_ID   = 'service_ve586ip';      // ← Your EmailJS Service ID (already set)
+    const TEMPLATE_ID_ADMIN    = 'PASTE_ADMIN_TEMPLATE_ID_HERE';    // ← Template ID for admin notification
+    const TEMPLATE_ID_PATIENT  = 'PASTE_PATIENT_TEMPLATE_ID_HERE';  // ← Template ID for patient confirmation
+
+    // Initialise EmailJS with your public key
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    // ─────────────────────────────────────────────────────────────
+    //  FORM SUBMISSION HANDLER
+    // ─────────────────────────────────────────────────────────────
+    document.getElementById('consult-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // --- Collect field values ---
+      const name        = document.getElementById('f-name').value.trim();
+      const phone       = document.getElementById('f-phone').value.trim();
+      const email       = document.getElementById('f-email').value.trim();
+      const subject     = document.getElementById('f-subject').value;
+      const message     = document.getElementById('f-message').value.trim();
+      const date        = document.getElementById('f-date').value;
+      const consultType = document.getElementById('f-type').value;
+
+      // --- Basic validation ---
+      const errorEl = document.getElementById('form-error');
+      errorEl.style.display = 'none';
+
+      if (!name) { showError('Please enter your full name.'); return; }
+      if (!phone) { showError('Please enter your phone number.'); return; }
+      if (!email || !isValidEmail(email)) { showError('Please enter a valid email address.'); return; }
+      if (!subject) { showError('Please select a reason for your appointment.'); return; }
+
+      function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+      function showError(msg) {
+        errorEl.querySelector('div').textContent = msg;
+        errorEl.style.display = 'block';
+        errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      // --- Button loading state ---
+      const btn = document.getElementById('submit-btn');
+      btn.textContent = 'SENDING…';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+
+      // Format preferred date nicely (or show "Not specified")
+      const formattedDate = date
+        ? new Date(date + 'T00:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
+        : 'Not specified';
+
+      // Submission timestamp
+      const submittedAt = new Date().toLocaleString('en-IN', {
+        day: 'numeric', month: 'long', year: 'numeric',
+        hour: '2-digit', minute: '2-digit', timeZoneName: 'short'
+      });
+
+      // ─────────────────────────────────────────────────────────
+      //  TEMPLATE VARIABLES
+      //
+      //  Admin notification template uses:
+      //    {{patient_name}}, {{patient_email}}, {{patient_phone}},
+      //    {{subject}}, {{message}}, {{preferred_date}},
+      //    {{consult_type}}, {{submitted_at}}
+      //
+      //  Patient confirmation template uses:
+      //    {{to_email}}, {{patient_name}}, {{subject}},
+      //    {{preferred_date}}, {{consult_type}}
+      // ─────────────────────────────────────────────────────────
+
+      const adminParams = {
+        patient_name:   name,
+        patient_email:  email,
+        patient_phone:  phone,
+        subject:        subject,
+        message:        message || 'No message provided.',
+        preferred_date: formattedDate,
+        consult_type:   consultType,
+        submitted_at:   submittedAt
+      };
+
+      const patientParams = {
+        to_email:       email,
+        patient_name:   name,
+        subject:        subject,
+        preferred_date: formattedDate,
+        consult_type:   consultType
+      };
+
+      // --- Send both emails (admin first, then patient confirmation) ---
+      emailjs.send(EMAILJS_SERVICE_ID, TEMPLATE_ID_ADMIN, adminParams)
+        .then(function() {
+          // Admin email sent — now send patient confirmation
+          return emailjs.send(EMAILJS_SERVICE_ID, TEMPLATE_ID_PATIENT, patientParams);
+        })
+        .then(function() {
+          // Both sent successfully
+          document.getElementById('consult-form').style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+          document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .catch(function(err) {
+          console.error('EmailJS error:', err);
+          showError('Something went wrong. Please try again or call us directly on +91 22 4269 6969.');
+          btn.textContent = 'SEND APPOINTMENT REQUEST';
+          btn.disabled = false;
+          btn.style.opacity = '1';
+        });
+    });
+
+    // ─────────────────────────────────────────────────────────────
+    //  HEADER / MENU / SCROLL ANIMATIONS (unchanged)
+    // ─────────────────────────────────────────────────────────────
     function openMenu(){document.getElementById('menu-overlay').classList.add('open');document.body.style.overflow='hidden';}
     function closeMenu(){document.getElementById('menu-overlay').classList.remove('open');document.body.style.overflow='';}
     const header = document.getElementById('site-header');
