@@ -314,29 +314,199 @@
   </footer>
 
   <script>
-    // ─────────────────────────────────────────────────────────────
-    //  EMAILJS CONFIGURATION
-    //  1. Sign up at https://www.emailjs.com
-    //  2. Create a Gmail service and connect appointments.drvinayjoshi@gmail.com
-    //  3. Create two email templates (see template instructions below)
-    //  4. Paste your IDs into the three constants below
-    // ─────────────────────────────────────────────────────────────
+    // ════════════════════════════════════════════════════════════════
+    //  EMAILJS — IDs
+    //  Your Service ID and Public Key are already set below.
+    //  You only need to:
+    //    1. Log in to emailjs.com → Email Templates
+    //    2. Create TWO templates (instructions at the bottom of this file)
+    //    3. Paste each template's ID into the two constants below
+    // ════════════════════════════════════════════════════════════════
+    const EMAILJS_PUBLIC_KEY  = 'EmcVaf41DzMTTWEDx';           // ✓ Already set
+    const EMAILJS_SERVICE_ID  = 'service_ve586ip';              // ✓ Already set
+    const TEMPLATE_ID_ADMIN   = 'PASTE_ADMIN_TEMPLATE_ID_HERE';   // ← Paste admin template ID here
+    const TEMPLATE_ID_PATIENT = 'PASTE_PATIENT_TEMPLATE_ID_HERE'; // ← Paste patient template ID here
 
-    const EMAILJS_PUBLIC_KEY   = 'EmcVaf41DzMTTWEDx';   // ← Your EmailJS Public Key (already set)
-    const EMAILJS_SERVICE_ID   = 'service_ve586ip';      // ← Your EmailJS Service ID (already set)
-    const TEMPLATE_ID_ADMIN    = 'PASTE_ADMIN_TEMPLATE_ID_HERE';    // ← Template ID for admin notification
-    const TEMPLATE_ID_PATIENT  = 'PASTE_PATIENT_TEMPLATE_ID_HERE';  // ← Template ID for patient confirmation
-
-    // Initialise EmailJS with your public key
     emailjs.init(EMAILJS_PUBLIC_KEY);
 
-    // ─────────────────────────────────────────────────────────────
+    // ────────────────────────────────────────────────────────────────
+    //  BUILD PATIENT CONFIRMATION EMAIL (full branded HTML)
+    // ────────────────────────────────────────────────────────────────
+    function buildPatientEmail(name, subject, formattedDate, consultType) {
+      return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background-color:#f0f4f9;font-family:'Helvetica Neue',Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f4f9;padding:40px 16px;">
+  <tr><td align="center">
+    <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-top:4px solid #1e3a6a;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+
+      <!-- HEADER -->
+      <tr><td style="background:#1e3a6a;padding:40px 48px;text-align:center;">
+        <p style="margin:0 0 8px;font-size:10px;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,0.5);text-transform:uppercase;">CONSULTANT ORTHOPAEDIC SURGEON</p>
+        <p style="margin:0 0 6px;font-family:Georgia,'Times New Roman',serif;font-size:30px;font-weight:300;color:#ffffff;letter-spacing:2px;">Dr. Vinay S. Joshi</p>
+        <p style="margin:0;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,0.45);text-transform:uppercase;">MBBS &nbsp;·&nbsp; MS &nbsp;·&nbsp; DNB &nbsp;·&nbsp; FRCS &nbsp;·&nbsp; FCPS</p>
+      </td></tr>
+
+      <!-- GOLD DIVIDER -->
+      <tr><td style="background:#8a9bb5;height:3px;"></td></tr>
+
+      <!-- BODY -->
+      <tr><td style="padding:48px 48px 36px;">
+        <p style="margin:0 0 6px;font-size:10px;font-weight:700;letter-spacing:3px;color:#7a8fa8;text-transform:uppercase;">APPOINTMENT REQUEST RECEIVED</p>
+        <p style="margin:0 0 28px;font-family:Georgia,'Times New Roman',serif;font-size:26px;font-weight:300;color:#1a2a3a;line-height:1.35;">Dear ${name},<br>thank you for reaching out.</p>
+
+        <p style="margin:0 0 24px;font-size:14px;color:#555555;line-height:1.9;">We have received your appointment request. A member of Dr. Joshi's team at <strong style="color:#1a2a3a;">Kokilaben Dhirubhai Ambani Hospital</strong> will be in touch with you within <strong style="color:#1a2a3a;">24 hours</strong> to confirm your appointment details.</p>
+
+        <!-- SUMMARY BOX -->
+        <table width="100%" cellpadding="0" cellspacing="0" style="background:#f8fafc;border-left:3px solid #1e3a6a;margin:0 0 28px;">
+          <tr><td style="padding:24px 28px;">
+            <p style="margin:0 0 18px;font-size:10px;font-weight:700;letter-spacing:3px;color:#1e3a6a;text-transform:uppercase;">Your Request Summary</p>
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tr>
+                <td style="font-size:10px;font-weight:700;letter-spacing:1px;color:#7a8fa8;text-transform:uppercase;padding:0 0 10px;width:38%;">Reason</td>
+                <td style="font-size:13px;color:#333;padding:0 0 10px;">${subject}</td>
+              </tr>
+              <tr>
+                <td style="font-size:10px;font-weight:700;letter-spacing:1px;color:#7a8fa8;text-transform:uppercase;padding:0 0 10px;">Preferred Date</td>
+                <td style="font-size:13px;color:#333;padding:0 0 10px;">${formattedDate}</td>
+              </tr>
+              <tr>
+                <td style="font-size:10px;font-weight:700;letter-spacing:1px;color:#7a8fa8;text-transform:uppercase;">Consultation Type</td>
+                <td style="font-size:13px;color:#333;">${consultType}</td>
+              </tr>
+            </table>
+          </td></tr>
+        </table>
+
+        <p style="margin:0 0 28px;font-size:14px;color:#555555;line-height:1.9;">Should you need to reach us before then, please call the hospital directly and ask for Dr. Joshi's secretary.</p>
+
+        <!-- CALL BUTTON -->
+        <table cellpadding="0" cellspacing="0"><tr><td style="background:#1e3a6a;">
+          <a href="tel:+912242696969" style="display:block;padding:14px 36px;font-size:11px;font-weight:700;letter-spacing:2px;color:#ffffff;text-decoration:none;text-transform:uppercase;font-family:'Helvetica Neue',Arial,sans-serif;">+91 22 4269 6969</a>
+        </td></tr></table>
+      </td></tr>
+
+      <!-- HOSPITAL INFO -->
+      <tr><td style="background:#f0f4f9;padding:28px 48px;border-top:1px solid #dde4ec;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="width:50%;vertical-align:top;">
+              <p style="margin:0 0 6px;font-size:10px;font-weight:700;letter-spacing:2px;color:#1e3a6a;text-transform:uppercase;">Hospital</p>
+              <p style="margin:0;font-size:12px;color:#666;line-height:1.8;">Kokilaben Dhirubhai Ambani Hospital<br>Four Bungalows, Andheri West<br>Mumbai – 400053</p>
+            </td>
+            <td style="width:50%;vertical-align:top;padding-left:24px;">
+              <p style="margin:0 0 6px;font-size:10px;font-weight:700;letter-spacing:2px;color:#1e3a6a;text-transform:uppercase;">OPD Hours</p>
+              <p style="margin:0;font-size:12px;color:#666;line-height:1.8;">Monday – Saturday<br>9:00 AM – 5:00 PM</p>
+            </td>
+          </tr>
+        </table>
+      </td></tr>
+
+      <!-- FOOTER -->
+      <tr><td style="background:#1a2a3a;padding:20px 48px;text-align:center;">
+        <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;">© 2024 Dr. Vinay S. Joshi &nbsp;·&nbsp; All Rights Reserved</p>
+      </td></tr>
+
+    </table>
+  </td></tr>
+</table>
+</body></html>`;
+    }
+
+    // ────────────────────────────────────────────────────────────────
+    //  BUILD ADMIN NOTIFICATION EMAIL (full branded HTML)
+    // ────────────────────────────────────────────────────────────────
+    function buildAdminEmail(name, email, phone, subject, message, formattedDate, consultType, submittedAt) {
+      const msgHtml = message
+        ? `<p style="margin:0;font-size:13px;color:#333;line-height:1.8;white-space:pre-wrap;">${message}</p>`
+        : `<p style="margin:0;font-size:13px;color:#999;font-style:italic;">No message provided.</p>`;
+
+      return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background-color:#f0f4f9;font-family:'Helvetica Neue',Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f4f9;padding:40px 16px;">
+  <tr><td align="center">
+    <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-top:4px solid #1e3a6a;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+
+      <!-- HEADER -->
+      <tr><td style="background:#1e3a6a;padding:32px 48px;">
+        <p style="margin:0 0 4px;font-size:10px;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,0.5);text-transform:uppercase;">drvinayjoshi.com</p>
+        <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:24px;font-weight:300;color:#ffffff;letter-spacing:1px;">New Appointment Request</p>
+      </td></tr>
+
+      <!-- ALERT BANNER -->
+      <tr><td style="background:#eaf4ea;border-bottom:1px solid #c3e0c3;padding:14px 48px;">
+        <p style="margin:0;font-size:12px;font-weight:700;color:#2e7d32;letter-spacing:1px;">&#x2713; &nbsp;Submitted: ${submittedAt}</p>
+      </td></tr>
+
+      <!-- PATIENT DETAILS -->
+      <tr><td style="padding:36px 48px 0;">
+        <p style="margin:0 0 20px;font-size:10px;font-weight:700;letter-spacing:3px;color:#7a8fa8;text-transform:uppercase;">Patient Details</p>
+        <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e0e8f2;">
+          <tr style="background:#f8fafc;">
+            <td style="font-size:10px;font-weight:700;letter-spacing:1px;color:#1e3a6a;text-transform:uppercase;padding:12px 20px;width:36%;border-bottom:1px solid #e0e8f2;">Full Name</td>
+            <td style="font-size:14px;font-weight:500;color:#1a2a3a;padding:12px 20px;border-bottom:1px solid #e0e8f2;">${name}</td>
+          </tr>
+          <tr>
+            <td style="font-size:10px;font-weight:700;letter-spacing:1px;color:#1e3a6a;text-transform:uppercase;padding:12px 20px;border-bottom:1px solid #e0e8f2;">Email</td>
+            <td style="font-size:13px;color:#333;padding:12px 20px;border-bottom:1px solid #e0e8f2;"><a href="mailto:${email}" style="color:#1e3a6a;text-decoration:none;">${email}</a></td>
+          </tr>
+          <tr style="background:#f8fafc;">
+            <td style="font-size:10px;font-weight:700;letter-spacing:1px;color:#1e3a6a;text-transform:uppercase;padding:12px 20px;">Phone</td>
+            <td style="font-size:13px;color:#333;padding:12px 20px;"><a href="tel:${phone}" style="color:#1e3a6a;text-decoration:none;">${phone}</a></td>
+          </tr>
+        </table>
+      </td></tr>
+
+      <!-- APPOINTMENT DETAILS -->
+      <tr><td style="padding:28px 48px 0;">
+        <p style="margin:0 0 20px;font-size:10px;font-weight:700;letter-spacing:3px;color:#7a8fa8;text-transform:uppercase;">Appointment Details</p>
+        <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e0e8f2;">
+          <tr style="background:#f8fafc;">
+            <td style="font-size:10px;font-weight:700;letter-spacing:1px;color:#1e3a6a;text-transform:uppercase;padding:12px 20px;width:36%;border-bottom:1px solid #e0e8f2;">Reason</td>
+            <td style="font-size:13px;font-weight:500;color:#1a2a3a;padding:12px 20px;border-bottom:1px solid #e0e8f2;">${subject}</td>
+          </tr>
+          <tr>
+            <td style="font-size:10px;font-weight:700;letter-spacing:1px;color:#1e3a6a;text-transform:uppercase;padding:12px 20px;border-bottom:1px solid #e0e8f2;">Preferred Date</td>
+            <td style="font-size:13px;color:#333;padding:12px 20px;border-bottom:1px solid #e0e8f2;">${formattedDate}</td>
+          </tr>
+          <tr style="background:#f8fafc;">
+            <td style="font-size:10px;font-weight:700;letter-spacing:1px;color:#1e3a6a;text-transform:uppercase;padding:12px 20px;">Consultation Type</td>
+            <td style="font-size:13px;color:#333;padding:12px 20px;">${consultType}</td>
+          </tr>
+        </table>
+      </td></tr>
+
+      <!-- MESSAGE -->
+      <tr><td style="padding:28px 48px 36px;">
+        <p style="margin:0 0 16px;font-size:10px;font-weight:700;letter-spacing:3px;color:#7a8fa8;text-transform:uppercase;">Patient Message</p>
+        <div style="background:#f8fafc;border:1px solid #e0e8f2;border-left:3px solid #1e3a6a;padding:20px 24px;">${msgHtml}</div>
+      </td></tr>
+
+      <!-- QUICK ACTIONS -->
+      <tr><td style="background:#f0f4f9;padding:24px 48px;border-top:1px solid #dde4ec;">
+        <p style="margin:0 0 14px;font-size:10px;font-weight:700;letter-spacing:2px;color:#7a8fa8;text-transform:uppercase;">Quick Actions</p>
+        <table cellpadding="0" cellspacing="0"><tr>
+          <td style="padding-right:12px;"><a href="mailto:${email}" style="display:block;background:#1e3a6a;padding:12px 24px;font-size:11px;font-weight:700;letter-spacing:1px;color:#fff;text-decoration:none;text-transform:uppercase;">Reply to Patient</a></td>
+          <td><a href="tel:${phone}" style="display:block;border:1px solid #1e3a6a;padding:11px 24px;font-size:11px;font-weight:700;letter-spacing:1px;color:#1e3a6a;text-decoration:none;text-transform:uppercase;">Call Patient</a></td>
+        </tr></table>
+      </td></tr>
+
+      <!-- FOOTER -->
+      <tr><td style="background:#1a2a3a;padding:18px 48px;text-align:center;">
+        <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;">drvinayjoshi.com &nbsp;·&nbsp; Automated notification</p>
+      </td></tr>
+
+    </table>
+  </td></tr>
+</table>
+</body></html>`;
+    }
+
+    // ════════════════════════════════════════════════════════════════
     //  FORM SUBMISSION HANDLER
-    // ─────────────────────────────────────────────────────────────
+    // ════════════════════════════════════════════════════════════════
     document.getElementById('consult-form').addEventListener('submit', function(e) {
       e.preventDefault();
 
-      // --- Collect field values ---
       const name        = document.getElementById('f-name').value.trim();
       const phone       = document.getElementById('f-phone').value.trim();
       const email       = document.getElementById('f-email').value.trim();
@@ -345,79 +515,63 @@
       const date        = document.getElementById('f-date').value;
       const consultType = document.getElementById('f-type').value;
 
-      // --- Basic validation ---
+      // Validation
       const errorEl = document.getElementById('form-error');
       errorEl.style.display = 'none';
-
-      if (!name) { showError('Please enter your full name.'); return; }
-      if (!phone) { showError('Please enter your phone number.'); return; }
-      if (!email || !isValidEmail(email)) { showError('Please enter a valid email address.'); return; }
-      if (!subject) { showError('Please select a reason for your appointment.'); return; }
-
       function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
       function showError(msg) {
         errorEl.querySelector('div').textContent = msg;
         errorEl.style.display = 'block';
         errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
+      if (!name)                       { showError('Please enter your full name.'); return; }
+      if (!phone)                      { showError('Please enter your phone number.'); return; }
+      if (!email || !isValidEmail(email)) { showError('Please enter a valid email address.'); return; }
+      if (!subject)                    { showError('Please select a reason for your appointment.'); return; }
 
-      // --- Button loading state ---
+      // Loading state
       const btn = document.getElementById('submit-btn');
       btn.textContent = 'SENDING…';
       btn.disabled = true;
       btn.style.opacity = '0.7';
 
-      // Format preferred date nicely (or show "Not specified")
       const formattedDate = date
         ? new Date(date + 'T00:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
         : 'Not specified';
-
-      // Submission timestamp
       const submittedAt = new Date().toLocaleString('en-IN', {
         day: 'numeric', month: 'long', year: 'numeric',
         hour: '2-digit', minute: '2-digit', timeZoneName: 'short'
       });
 
-      // ─────────────────────────────────────────────────────────
-      //  TEMPLATE VARIABLES
-      //
-      //  Admin notification template uses:
-      //    {{patient_name}}, {{patient_email}}, {{patient_phone}},
-      //    {{subject}}, {{message}}, {{preferred_date}},
-      //    {{consult_type}}, {{submitted_at}}
-      //
-      //  Patient confirmation template uses:
-      //    {{to_email}}, {{patient_name}}, {{subject}},
-      //    {{preferred_date}}, {{consult_type}}
-      // ─────────────────────────────────────────────────────────
+      // Build fully-designed HTML emails
+      const adminHtml   = buildAdminEmail(name, email, phone, subject, message, formattedDate, consultType, submittedAt);
+      const patientHtml = buildPatientEmail(name, subject, formattedDate, consultType);
 
+      // Send admin notification
+      // EmailJS template for ADMIN:  To = appointments.drvinayjoshi@gmail.com
+      //   Subject field in template: {{email_subject}}
+      //   Body field in template:    {{{html_body}}}   (triple braces = unescaped HTML)
       const adminParams = {
-        patient_name:   name,
-        patient_email:  email,
-        patient_phone:  phone,
-        subject:        subject,
-        message:        message || 'No message provided.',
-        preferred_date: formattedDate,
-        consult_type:   consultType,
-        submitted_at:   submittedAt
+        to_email:      'appointments.drvinayjoshi@gmail.com',
+        email_subject: 'New Appointment Request — ' + name,
+        html_body:     adminHtml
       };
 
+      // Send patient confirmation
+      // EmailJS template for PATIENT:  To = {{to_email}}
+      //   Subject field in template: {{email_subject}}
+      //   Body field in template:    {{{html_body}}}   (triple braces = unescaped HTML)
       const patientParams = {
-        to_email:       email,
-        patient_name:   name,
-        subject:        subject,
-        preferred_date: formattedDate,
-        consult_type:   consultType
+        to_email:      email,
+        email_subject: 'Your Appointment Request — Dr. Vinay S. Joshi',
+        html_body:     patientHtml
       };
 
-      // --- Send both emails (admin first, then patient confirmation) ---
       emailjs.send(EMAILJS_SERVICE_ID, TEMPLATE_ID_ADMIN, adminParams)
         .then(function() {
-          // Admin email sent — now send patient confirmation
           return emailjs.send(EMAILJS_SERVICE_ID, TEMPLATE_ID_PATIENT, patientParams);
         })
         .then(function() {
-          // Both sent successfully
           document.getElementById('consult-form').style.display = 'none';
           document.getElementById('form-success').style.display = 'block';
           document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -431,15 +585,11 @@
         });
     });
 
-    // ─────────────────────────────────────────────────────────────
-    //  HEADER / MENU / SCROLL ANIMATIONS (unchanged)
-    // ─────────────────────────────────────────────────────────────
+    // Header / menu / scroll animations
     function openMenu(){document.getElementById('menu-overlay').classList.add('open');document.body.style.overflow='hidden';}
     function closeMenu(){document.getElementById('menu-overlay').classList.remove('open');document.body.style.overflow='';}
     const header = document.getElementById('site-header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 50);
-    });
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); });
     const _obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');_obs.unobserve(e.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
     document.querySelectorAll('[data-anim]').forEach(el=>_obs.observe(el));
   </script>
