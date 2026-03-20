@@ -327,7 +327,7 @@
     const TEMPLATE_ID_ADMIN   = 'template_q9abmvi';  // ✓ Admin notification template
     const TEMPLATE_ID_PATIENT = 'template_lqbvrsw';  // ✓ Patient confirmation template
 
-    emailjs.init(EMAILJS_PUBLIC_KEY);
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
     // ────────────────────────────────────────────────────────────────
     //  BUILD PATIENT CONFIRMATION EMAIL (full branded HTML)
