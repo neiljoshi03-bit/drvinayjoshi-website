@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Tips | Dr. Vinay S. Joshi | Joint Replacement Mumbai</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; font-weight: 300; color: #1a1a1a; line-height: 1.8; overflow-x: hidden; background: #f8fafc; }
+    #site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.35s ease, box-shadow 0.35s ease; background: rgba(10,20,35,0.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 1px 24px rgba(0,0,0,0.18); }
+    #site-header.scrolled { background: rgba(10,20,35,0.97); }
+    .section-label { font-size: 9px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: #7a8fa8; }
+    .divider { width: 40px; height: 1px; background: #7a8fa8; }
+
+    /* Tip card */
+    .tip-card { background: #fff; border: 1px solid #e0e8f2; border-top: 4px solid #1e3a6a; padding: 40px; transition: box-shadow 0.3s, transform 0.3s; }
+    .tip-card:hover { box-shadow: 0 12px 40px rgba(30,58,106,0.14); transform: translateY(-4px); }
+    .tip-number { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: #e8eef6; line-height: 1; margin-bottom: 8px; }
+    .tip-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: #1a2a3a; margin-bottom: 12px; line-height: 1.3; }
+    .tip-body { font-size: 13px; font-weight: 300; color: #555; line-height: 1.85; }
+
+    /* Section tabs */
+    .tab-btn { font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 10px 22px; border: 1px solid #dde4ec; background: #fff; color: #7a8fa8; cursor: pointer; transition: all 0.2s; }
+    .tab-btn.active, .tab-btn:hover { background: #1e3a6a; color: #fff; border-color: #1e3a6a; }
+
+    /* Accordion */
+    .accordion-item { border-bottom: 1px solid #e0e8f2; }
+    .accordion-btn { width: 100%; text-align: left; background: none; border: none; cursor: pointer; padding: 20px 0; display: flex; justify-content: space-between; align-items: center; font-family: 'Montserrat', sans-serif; }
+    .accordion-title { font-size: 14px; font-weight: 500; color: #1a2a3a; letter-spacing: 0.03em; }
+    .accordion-icon { font-size: 18px; color: #1e3a6a; font-weight: 300; transition: transform 0.3s; flex-shrink: 0; margin-left: 16px; }
+    .accordion-icon.open { transform: rotate(45deg); }
+    .accordion-body { display: none; padding: 0 0 20px 0; font-size: 13px; font-weight: 300; color: #555; line-height: 1.85; }
+    .accordion-body.open { display: block; }
+
+    /* Timeline */
+    .timeline-item { display: flex; gap: 28px; margin-bottom: 36px; }
+    .timeline-dot { flex-shrink: 0; width: 48px; height: 48px; background: #1e3a6a; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 500; color: #fff; margin-top: 2px; position: relative; z-index: 1; }
+    .timeline-line { position: absolute; left: 24px; top: 50px; bottom: -36px; width: 1px; background: #dde4ec; }
+
+    /* Checklist */
+    .checklist li { display: flex; align-items: flex-start; gap: 12px; font-size: 13px; font-weight: 300; color: #444; line-height: 1.7; margin-bottom: 12px; }
+    .checklist li::before { content: '✓'; flex-shrink: 0; width: 20px; height: 20px; background: #1e3a6a; color: #fff; font-size: 11px; display: flex; align-items: center; justify-content: center; margin-top: 2px; font-weight: 600; }
+
+    /* Scroll animations */
+    [data-anim] { opacity: 0; transition: opacity 0.7s ease, transform 0.7s ease; }
+    [data-anim="up"] { transform: translateY(28px); }
+    [data-anim="left"] { transform: translateX(-32px); }
+    [data-anim="right"] { transform: translateX(32px); }
+    [data-anim="fade"] { transform: scale(0.97); }
+    [data-anim].in { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s !important; }
+    .d2 { transition-delay: 0.2s !important; }
+    .d3 { transition-delay: 0.3s !important; }
+    .d4 { transition-delay: 0.4s !important; }
+    .d5 { transition-delay: 0.5s !important; }
+    .d6 { transition-delay: 0.6s !important; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header id="site-header">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 48px;">
+      <a href="index.html" style="text-decoration:none;flex-shrink:0;">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.22em;color:#fff;text-transform:uppercase;line-height:1.1;">DR. VINAY S. JOSHI</div>
+        <div style="font-size:7px;font-weight:400;letter-spacing:0.3em;color:rgba(255,255,255,0.65);text-transform:uppercase;margin-top:3px;">MBBS · MS · DNB · FRCS · FCPS</div>
+      </a>
+      <nav style="display:flex;align-items:center;gap:22px;">
+        <a href="index.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Home</a>
+        <a href="knee.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Knee</a>
+        <a href="hip.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Hip</a>
+        <a href="robotic.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Robotic</a>
+        <a href="revision.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Revision</a>
+        <a href="health-tips.html" style="font-size:9px;font-weight:600;letter-spacing:0.18em;color:#fff;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.6);padding-bottom:2px;">Health Tips</a>
+        <a href="testimonials.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Testimonials</a>
+        <div style="width:1px;height:18px;background:rgba(255,255,255,0.25);"></div>
+        <a href="consultation.html" style="font-size:9px;font-weight:600;letter-spacing:0.18em;color:#fff;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.45);padding:7px 16px;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.12)'" onmouseout="this.style.background='transparent'">Book Consult</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative" style="height:460px;overflow:hidden;">
+    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1440&h=460&fit=crop&crop=center"
+         onerror="this.src='https://placehold.co/1440x460/1a2a3a/4a6a8a'" alt="Health Tips" class="w-full h-full object-cover">
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,20,35,0.7) 0%,rgba(10,20,35,0.5) 100%);"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center" style="padding-top:80px;">
+      <div style="font-size:9px;font-weight:500;letter-spacing:0.32em;color:rgba(255,255,255,0.6);text-transform:uppercase;margin-bottom:16px;" data-anim="up">Dr. Vinay S. Joshi · Kokilaben Dhirubhai Ambani Hospital</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:300;color:#fff;line-height:1.1;margin-bottom:16px;" data-anim="up" class="d1">Patient Health Tips</h1>
+      <div style="width:40px;height:1px;background:rgba(255,255,255,0.5);margin:0 auto 20px;" data-anim="fade" class="d2"></div>
+      <p style="font-size:14px;font-weight:300;color:rgba(255,255,255,0.82);max-width:580px;letter-spacing:0.04em;line-height:1.8;" data-anim="up" class="d3">Expert guidance on preparing for surgery, recovering effectively, and maintaining long-term joint health — curated by Dr. Joshi for his patients.</p>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 1: BEFORE SURGERY ===== -->
+  <section id="before-surgery" style="padding:88px 0;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 60px;">
+
+      <div style="display:flex;align-items:flex-start;gap:64px;">
+        <div style="flex:1;">
+          <div class="section-label" data-anim="left">Section 01</div>
+          <div class="divider" style="margin:12px 0 24px;" data-anim="fade"></div>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#1a2a3a;line-height:1.15;margin-bottom:16px;" data-anim="left" class="d1">Preparing for<br>Your Surgery</h2>
+          <p style="font-size:13px;font-weight:300;color:#666;line-height:1.9;max-width:520px;" data-anim="left" class="d2">Proper preparation significantly improves surgical outcomes and reduces the risk of complications. Follow these evidence-based guidelines to arrive at surgery in the best possible condition.</p>
+        </div>
+        <div style="width:360px;flex-shrink:0;" data-anim="right">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=720&h=480&fit=crop" onerror="this.src='https://placehold.co/720x480/1a2a3a/4a6a8a'" alt="Pre-surgery preparation" style="width:100%;height:260px;object-fit:cover;display:block;">
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px;">
+        <div class="tip-card" data-anim="up" class="d1">
+          <div class="tip-number">01</div>
+          <div class="tip-title">Medical Fitness Assessment</div>
+          <div class="tip-body">Complete all pre-operative investigations including blood work, ECG, and any specialist consultations requested by Dr. Joshi's team. Inform your anaesthetist about all medications, including supplements and herbal remedies.</div>
+        </div>
+        <div class="tip-card" data-anim="up" class="d2">
+          <div class="tip-number">02</div>
+          <div class="tip-title">Weight Management</div>
+          <div class="tip-body">Each kilogram of body weight places 4–6 kg of force on your knee joint. Even a modest weight reduction of 5–10% before surgery can meaningfully reduce operative risk, improve implant longevity, and speed recovery.</div>
+        </div>
+        <div class="tip-card" data-anim="up" class="d3">
+          <div class="tip-number">03</div>
+          <div class="tip-title">Pre-Operative Exercises</div>
+          <div class="tip-body">Strengthening the quadriceps, hamstrings, and hip abductors before surgery — a process called "prehabilitation" — is associated with faster post-operative recovery and shorter hospital stays. Consult our physiotherapy team for a personalised programme.</div>
+        </div>
+        <div class="tip-card" data-anim="up" class="d1">
+          <div class="tip-number">04</div>
+          <div class="tip-title">Medication Adjustments</div>
+          <div class="tip-body">Blood thinners (warfarin, aspirin, clopidogrel), NSAIDs, and certain diabetes medications must be paused before surgery. Dr. Joshi's team will provide specific instructions — never stop medications without guidance.</div>
+        </div>
+        <div class="tip-card" data-anim="up" class="d2">
+          <div class="tip-number">05</div>
+          <div class="tip-title">Dental & Skin Health</div>
+          <div class="tip-body">Any active dental infection or skin condition near the surgical site must be treated before joint replacement, as bacteria can seed the new implant. Complete any outstanding dental procedures at least 3 weeks before surgery.</div>
+        </div>
+        <div class="tip-card" data-anim="up" class="d3">
+          <div class="tip-number">06</div>
+          <div class="tip-title">Home Preparation</div>
+          <div class="tip-body">Arrange your home before admission: install grab rails in the bathroom, remove trip hazards, move essentials to within easy reach, and arrange for post-discharge support. This dramatically reduces the risk of falls during early recovery.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div style="height:1px;background:linear-gradient(to right,transparent,#dde4ec,transparent);max-width:1100px;margin:0 auto;"></div>
+
+  <!-- ===== SECTION 2: RECOVERY ===== -->
+  <section id="recovery" style="padding:88px 0;background:#fff;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 60px;">
+
+      <div style="text-align:center;margin-bottom:56px;">
+        <div class="section-label" style="display:inline-block;" data-anim="up">Section 02</div>
+        <div class="divider" style="margin:12px auto 24px;" data-anim="fade"></div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#1a2a3a;line-height:1.15;" data-anim="up" class="d1">Post-Operative Recovery</h2>
+        <p style="font-size:13px;font-weight:300;color:#666;max-width:580px;margin:16px auto 0;line-height:1.9;" data-anim="up" class="d2">Recovery from joint replacement is a structured process. Understanding the milestones helps patients stay motivated and informed throughout their journey.</p>
+      </div>
+
+      <!-- Recovery Timeline -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+        <div>
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:28px;" data-anim="left">Recovery Timeline</div>
+          <div style="position:relative;">
+            <div style="position:absolute;left:23px;top:48px;bottom:0;width:1px;background:#e0e8f2;"></div>
+            <div class="timeline-item" data-anim="left" class="d1">
+              <div class="timeline-dot">1</div>
+              <div>
+                <div style="font-size:10px;font-weight:600;letter-spacing:0.15em;color:#1e3a6a;text-transform:uppercase;margin-bottom:6px;">Day 1 – In Hospital</div>
+                <div style="font-size:13px;font-weight:300;color:#555;line-height:1.8;">You will be helped to stand and take your first steps with a walker. Pain is managed with a multimodal protocol. Ice packs reduce swelling.</div>
+              </div>
+            </div>
+            <div class="timeline-item" data-anim="left" class="d2">
+              <div class="timeline-dot">2</div>
+              <div>
+                <div style="font-size:10px;font-weight:600;letter-spacing:0.15em;color:#1e3a6a;text-transform:uppercase;margin-bottom:6px;">Week 1–2 – Early Recovery</div>
+                <div style="font-size:13px;font-weight:300;color:#555;line-height:1.8;">Focus on pain control, wound care, preventing blood clots (DVT), and gentle range-of-motion exercises. Most patients walk with a stick by day 5–7.</div>
+              </div>
+            </div>
+            <div class="timeline-item" data-anim="left" class="d3">
+              <div class="timeline-dot">3</div>
+              <div>
+                <div style="font-size:10px;font-weight:600;letter-spacing:0.15em;color:#1e3a6a;text-transform:uppercase;margin-bottom:6px;">Week 3–6 – Active Rehab</div>
+                <div style="font-size:13px;font-weight:300;color:#555;line-height:1.8;">Physiotherapy intensifies. Bending (flexion) should reach 90° by week 4–6. Swimming and stationary cycling are often introduced. Most patients drive by week 4–6.</div>
+              </div>
+            </div>
+            <div class="timeline-item" data-anim="left" class="d4">
+              <div class="timeline-dot">4</div>
+              <div>
+                <div style="font-size:10px;font-weight:600;letter-spacing:0.15em;color:#1e3a6a;text-transform:uppercase;margin-bottom:6px;">Month 3–6 – Return to Life</div>
+                <div style="font-size:13px;font-weight:300;color:#555;line-height:1.8;">Most daily activities resume. Walking, stairs, and light social activities are comfortable. Swelling fully resolves. Strength continues to improve.</div>
+              </div>
+            </div>
+            <div class="timeline-item" data-anim="left" class="d5">
+              <div class="timeline-dot" style="background:#2563eb;">✓</div>
+              <div>
+                <div style="font-size:10px;font-weight:600;letter-spacing:0.15em;color:#2563eb;text-transform:uppercase;margin-bottom:6px;">12 Months – Full Recovery</div>
+                <div style="font-size:13px;font-weight:300;color:#555;line-height:1.8;">The joint reaches its final function. Patients routinely report the ability to walk long distances, travel, and engage in low-impact sports without pain.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-anim="right">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:28px;">Danger Signs to Watch For</div>
+          <div style="background:#fff;border:1px solid #e0e8f2;border-left:4px solid #e53e3e;padding:28px 28px 16px;margin-bottom:24px;">
+            <div style="font-size:12px;font-weight:600;color:#c53030;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Call Dr. Joshi's Team Immediately If:</div>
+            <ul style="list-style:none;padding:0;margin:0;">
+              <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:300;color:#444;margin-bottom:10px;line-height:1.7;"><span style="color:#c53030;font-weight:700;flex-shrink:0;">▸</span> Sudden increase in wound redness, warmth, or discharge</li>
+              <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:300;color:#444;margin-bottom:10px;line-height:1.7;"><span style="color:#c53030;font-weight:700;flex-shrink:0;">▸</span> Calf pain, swelling, or redness (possible DVT)</li>
+              <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:300;color:#444;margin-bottom:10px;line-height:1.7;"><span style="color:#c53030;font-weight:700;flex-shrink:0;">▸</span> Fever above 38.5°C (101.3°F) beyond day 3</li>
+              <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:300;color:#444;margin-bottom:10px;line-height:1.7;"><span style="color:#c53030;font-weight:700;flex-shrink:0;">▸</span> Chest pain or shortness of breath</li>
+              <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:300;color:#444;margin-bottom:10px;line-height:1.7;"><span style="color:#c53030;font-weight:700;flex-shrink:0;">▸</span> Sudden severe pain or inability to bear weight</li>
+            </ul>
+          </div>
+          <div style="background:#f0f4f9;padding:28px;border:1px solid #e0e8f2;">
+            <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:16px;">Post-Op Do's &amp; Don'ts</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+              <div>
+                <div style="font-size:10px;font-weight:600;letter-spacing:0.15em;color:#1e3a6a;text-transform:uppercase;margin-bottom:12px;">DO</div>
+                <ul class="checklist" style="list-style:none;padding:0;margin:0;">
+                  <li>Keep the wound dry until cleared by Dr. Joshi</li>
+                  <li>Wear compression stockings as prescribed</li>
+                  <li>Take all prescribed medications on schedule</li>
+                  <li>Attend every physiotherapy session</li>
+                  <li>Sleep with a pillow between your legs (hip)</li>
+                </ul>
+              </div>
+              <div>
+                <div style="font-size:10px;font-weight:600;letter-spacing:0.15em;color:#c53030;text-transform:uppercase;margin-bottom:12px;">DON'T</div>
+                <ul style="list-style:none;padding:0;margin:0;">
+                  <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:300;color:#444;margin-bottom:12px;line-height:1.7;"><span style="color:#c53030;font-weight:700;flex-shrink:0;">✕</span> Don't cross your legs (hip replacement)</li>
+                  <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:300;color:#444;margin-bottom:12px;line-height:1.7;"><span style="color:#c53030;font-weight:700;flex-shrink:0;">✕</span> Don't sit on low chairs or soft sofas</li>
+                  <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:300;color:#444;margin-bottom:12px;line-height:1.7;"><span style="color:#c53030;font-weight:700;flex-shrink:0;">✕</span> Don't squat or sit cross-legged on the floor</li>
+                  <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:300;color:#444;margin-bottom:12px;line-height:1.7;"><span style="color:#c53030;font-weight:700;flex-shrink:0;">✕</span> Don't skip blood-thinner medication</li>
+                  <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:300;color:#444;margin-bottom:12px;line-height:1.7;"><span style="color:#c53030;font-weight:700;flex-shrink:0;">✕</span> Don't return to heavy lifting before 3 months</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div style="height:1px;background:linear-gradient(to right,transparent,#dde4ec,transparent);max-width:1100px;margin:0 auto;"></div>
+
+  <!-- ===== SECTION 3: EXERCISES ===== -->
+  <section id="exercises" style="padding:88px 0;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 60px;">
+
+      <div style="text-align:center;margin-bottom:56px;">
+        <div class="section-label" style="display:inline-block;" data-anim="up">Section 03</div>
+        <div class="divider" style="margin:12px auto 24px;" data-anim="fade"></div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#1a2a3a;" data-anim="up" class="d1">Exercise & Physiotherapy</h2>
+        <p style="font-size:13px;font-weight:300;color:#666;max-width:560px;margin:16px auto 0;line-height:1.9;" data-anim="up" class="d2">Targeted exercise is the single most important factor in determining how quickly and completely you recover. These are Dr. Joshi's recommended exercises for joint replacement patients.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-bottom:56px;">
+
+        <div style="background:#fff;border:1px solid #e0e8f2;padding:40px;" data-anim="left">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.22em;color:#7a8fa8;text-transform:uppercase;margin-bottom:20px;">Knee Replacement Exercises</div>
+          <div>
+            <div class="accordion-item">
+              <button class="accordion-btn" onclick="toggleAccordion(this)">
+                <span class="accordion-title">Ankle Pumps (Day 1)</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                Pump your foot up and down (like pressing a car accelerator) continuously for 2–3 minutes every hour while awake. This is the single most important exercise to prevent dangerous blood clots (DVT) after surgery.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn" onclick="toggleAccordion(this)">
+                <span class="accordion-title">Quad Sets (Day 1–2)</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                Lying flat, tighten the thigh muscle of your operated leg and press the back of your knee into the bed. Hold for 5 seconds, relax. Repeat 10 times, 3 sets per day. This prevents muscle wasting and improves knee extension.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn" onclick="toggleAccordion(this)">
+                <span class="accordion-title">Heel Slides (Week 1)</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                Lying on your back, slide your heel toward your buttocks, bending the knee as far as comfortable. Hold for 5 seconds, return. Aim for 10–15 repetitions. This exercise directly improves knee flexion (bending) — a key recovery milestone.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn" onclick="toggleAccordion(this)">
+                <span class="accordion-title">Straight Leg Raises (Week 1–2)</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                Tighten your quad, then lift the leg to about 30–45° while keeping the knee straight. Hold briefly, lower slowly. This strengthens the quadriceps without stressing the new joint. Aim for 3 sets of 10.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn" onclick="toggleAccordion(this)">
+                <span class="accordion-title">Stationary Cycling (Week 4–6)</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                Stationary cycling is an excellent low-impact exercise that simultaneously improves knee flexion and builds quadriceps strength. Begin with a low seat (less bend) for 10 minutes and gradually progress. This is strongly recommended by Dr. Joshi.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:1px solid #e0e8f2;padding:40px;" data-anim="right">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.22em;color:#7a8fa8;text-transform:uppercase;margin-bottom:20px;">Hip Replacement Exercises</div>
+          <div>
+            <div class="accordion-item">
+              <button class="accordion-btn" onclick="toggleAccordion(this)">
+                <span class="accordion-title">Ankle Pumps & Circles (Day 1)</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                Same as knee replacement — critical for DVT prevention. Additionally, draw slow circles with your feet to improve circulation throughout the leg.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn" onclick="toggleAccordion(this)">
+                <span class="accordion-title">Hip Abduction (Week 1)</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                Lying on your back, slide the operated leg out to the side, then back to centre. Keep your toes pointing upward. This activates the hip abductor muscles essential for a stable walking pattern and prevents the "Trendelenburg" limp.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn" onclick="toggleAccordion(this)">
+                <span class="accordion-title">Standing Hip Extensions (Week 2)</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                Standing at a support, slowly move the operated leg backward, keeping the knee straight. Hold 2 seconds, return. This strengthens the gluteal muscles — vital for normal gait and hip stability.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn" onclick="toggleAccordion(this)">
+                <span class="accordion-title">Mini Squats (Week 4–6)</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                Standing with support, bend both knees to about 30–45° (not a full squat). This develops leg strength and balance. Progress gradually — never force beyond comfort. Avoid deep bending until cleared by Dr. Joshi.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn" onclick="toggleAccordion(this)">
+                <span class="accordion-title">Walking Programme (Week 2 onwards)</span>
+                <span class="accordion-icon">+</span>
+              </button>
+              <div class="accordion-body">
+                Walking is the most natural rehabilitation for a hip replacement. Begin with 5-minute walks 3× daily, progressing to 20–30 minutes by week 4. Always use the prescribed walking aid until Dr. Joshi clears you to walk unaided.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Important note -->
+      <div style="background:#f0f4f9;border:1px solid #dde4ec;border-left:4px solid #1e3a6a;padding:28px 36px;" data-anim="up">
+        <div style="display:flex;gap:20px;align-items:flex-start;">
+          <div style="font-size:28px;line-height:1;flex-shrink:0;">ⓘ</div>
+          <div>
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.15em;color:#1e3a6a;text-transform:uppercase;margin-bottom:8px;">Important Reminder</div>
+            <p style="font-size:13px;font-weight:300;color:#444;line-height:1.85;margin:0;">All exercises should be performed as directed by your physiotherapist in consultation with Dr. Joshi's guidance. Pain during exercise is normal to a degree (rate it 3–4 out of 10), but sharp or severe pain means you should stop and contact the team. Never push through extreme discomfort.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div style="height:1px;background:linear-gradient(to right,transparent,#dde4ec,transparent);max-width:1100px;margin:0 auto;"></div>
+
+  <!-- ===== SECTION 4: LONG-TERM JOINT HEALTH ===== -->
+  <section id="long-term" style="padding:88px 0;background:#fff;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 60px;">
+
+      <div style="display:flex;align-items:flex-start;gap:64px;">
+
+        <div style="width:380px;flex-shrink:0;" data-anim="left">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=760&h=560&fit=crop" onerror="this.src='https://placehold.co/760x560/1a2a3a/4a6a8a'" alt="Long-term joint health" style="width:100%;height:320px;object-fit:cover;display:block;margin-bottom:24px;">
+          <div style="background:#1e3a6a;padding:32px;">
+            <div style="font-size:9px;font-weight:600;letter-spacing:0.22em;color:rgba(255,255,255,0.5);text-transform:uppercase;margin-bottom:16px;">Implant Longevity</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:#fff;line-height:1.1;margin-bottom:12px;">15–25 Years</div>
+            <div style="font-size:12px;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.8;">Modern joint implants, when used correctly, last 15–25 years. Following these long-term health guidelines preserves your implant and avoids the need for revision surgery.</div>
+          </div>
+        </div>
+
+        <div style="flex:1;">
+          <div class="section-label" data-anim="up">Section 04</div>
+          <div class="divider" style="margin:12px 0 24px;" data-anim="fade"></div>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#1a2a3a;line-height:1.15;margin-bottom:16px;" data-anim="up" class="d1">Long-Term Joint Health</h2>
+          <p style="font-size:13px;font-weight:300;color:#666;line-height:1.9;margin-bottom:36px;" data-anim="up" class="d2">Your new joint is a precision implant — treat it well and it will serve you for decades. These lifestyle guidelines help maximise the life of your replacement.</p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+            <div style="background:#f8fafc;border:1px solid #e0e8f2;padding:28px;" data-anim="up" class="d1">
+              <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;color:#1e3a6a;text-transform:uppercase;margin-bottom:14px;">Ideal Activities</div>
+              <ul class="checklist" style="list-style:none;padding:0;margin:0;">
+                <li>Walking (flat surfaces, no limits)</li>
+                <li>Swimming and water aerobics</li>
+                <li>Stationary and road cycling</li>
+                <li>Golf (from 3 months)</li>
+                <li>Dancing and light aerobics</li>
+                <li>Yoga (modified poses only)</li>
+              </ul>
+            </div>
+            <div style="background:#f8fafc;border:1px solid #e0e8f2;padding:28px;" data-anim="up" class="d2">
+              <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;color:#c53030;text-transform:uppercase;margin-bottom:14px;">Activities to Avoid</div>
+              <ul style="list-style:none;padding:0;margin:0;">
+                <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:300;color:#444;margin-bottom:10px;line-height:1.7;"><span style="color:#c53030;font-weight:700;flex-shrink:0;">✕</span> Running and jogging on hard surfaces</li>
+                <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:300;color:#444;margin-bottom:10px;line-height:1.7;"><span style="color:#c53030;font-weight:700;flex-shrink:0;">✕</span> High-impact sports (football, squash)</li>
+                <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:300;color:#444;margin-bottom:10px;line-height:1.7;"><span style="color:#c53030;font-weight:700;flex-shrink:0;">✕</span> Heavy weightlifting</li>
+                <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:300;color:#444;margin-bottom:10px;line-height:1.7;"><span style="color:#c53030;font-weight:700;flex-shrink:0;">✕</span> Indian-style floor sitting</li>
+                <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:300;color:#444;margin-bottom:10px;line-height:1.7;"><span style="color:#c53030;font-weight:700;flex-shrink:0;">✕</span> Climbing ladders or scaffolding</li>
+              </ul>
+            </div>
+            <div style="background:#f8fafc;border:1px solid #e0e8f2;padding:28px;" data-anim="up" class="d3">
+              <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;color:#1e3a6a;text-transform:uppercase;margin-bottom:14px;">Diet & Bone Health</div>
+              <div style="font-size:13px;font-weight:300;color:#555;line-height:1.85;">Ensure adequate calcium (1,000–1,200 mg/day) and Vitamin D (800–1,000 IU/day) to maintain bone density around the implant. A Mediterranean-style diet rich in anti-inflammatory foods supports long-term joint and cardiovascular health.</div>
+            </div>
+            <div style="background:#f8fafc;border:1px solid #e0e8f2;padding:28px;" data-anim="up" class="d4">
+              <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;color:#1e3a6a;text-transform:uppercase;margin-bottom:14px;">Antibiotic Prophylaxis</div>
+              <div style="font-size:13px;font-weight:300;color:#555;line-height:1.85;">Before any dental procedure, significant surgery, or invasive investigation (endoscopy, cystoscopy), inform your doctor that you have a joint replacement. You may need a prophylactic antibiotic to prevent infection reaching the implant via the bloodstream.</div>
+            </div>
+          </div>
+
+          <div style="background:#f0f4f9;border:1px solid #dde4ec;padding:28px;margin-top:24px;display:flex;align-items:center;gap:24px;" data-anim="up">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:#1e3a6a;line-height:1;flex-shrink:0;">★</div>
+            <div>
+              <div style="font-size:11px;font-weight:600;letter-spacing:0.15em;color:#1e3a6a;text-transform:uppercase;margin-bottom:6px;">Annual Follow-Up</div>
+              <div style="font-size:13px;font-weight:300;color:#555;line-height:1.85;">An annual X-ray review with Dr. Joshi allows early detection of any implant wear or loosening — long before symptoms appear. This simple habit dramatically reduces the risk of needing emergency revision surgery.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PATIENT EDUCATION LIBRARY ===== -->
+  <section style="background:#fff;padding:96px 0;border-top:1px solid #eef2f6;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 60px;">
+      <div style="text-align:center;margin-bottom:64px;" data-anim="up">
+        <div class="section-label" style="margin-bottom:14px;">Patient Education Library</div>
+        <div class="divider" style="margin:0 auto 20px;"></div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#1a2a3a;line-height:1.2;margin-bottom:14px;">Presentations by Dr. Joshi</h2>
+        <p style="font-size:13px;font-weight:300;color:#666;max-width:580px;margin:0 auto;line-height:1.85;">Comprehensive guides authored by Dr. Vinay S. Joshi to help you understand your procedure, recovery, and long-term outcomes. View online or download for reference.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;">
+
+        <!-- PDF 1 -->
+        <div style="background:#f8fafc;border:1px solid #e0e8f2;" data-anim="up" class="d1">
+          <div style="background:#1e3a6a;padding:28px 32px;">
+            <div style="font-size:8px;font-weight:600;letter-spacing:0.25em;color:rgba(255,255,255,0.55);text-transform:uppercase;margin-bottom:10px;">Joint Replacement · FAQ Guide</div>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#fff;line-height:1.25;margin:0 0 8px;">Everything You Need to Know About Joint Replacement Surgery</h3>
+            <div style="font-size:11px;font-weight:300;color:rgba(255,255,255,0.6);">Hip &amp; Knee Replacement — Patient FAQ Guide · Dr. Vinay S. Joshi</div>
+          </div>
+          <div style="padding:0;">
+            <embed src="presentations/Frequently%20Asked%20Questions%20(FAQs)%20_compressed.pdf" type="application/pdf" width="100%" height="420px" style="display:block;border:none;">
+          </div>
+          <div style="padding:20px 28px;border-top:1px solid #e0e8f2;display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:11px;font-weight:300;color:#7a8fa8;">15 slides · PDF</span>
+            <a href="presentations/Frequently%20Asked%20Questions%20(FAQs)%20_compressed.pdf" download style="font-size:9px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#fff;background:#1e3a6a;padding:10px 22px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#162d54'" onmouseout="this.style.background='#1e3a6a'">↓ Download PDF</a>
+          </div>
+        </div>
+
+        <!-- PDF 2 -->
+        <div style="background:#f8fafc;border:1px solid #e0e8f2;" data-anim="up" class="d2">
+          <div style="background:#1a2a3a;padding:28px 32px;">
+            <div style="font-size:8px;font-weight:600;letter-spacing:0.25em;color:rgba(255,255,255,0.55);text-transform:uppercase;margin-bottom:10px;">Surgery &amp; Recovery · Complete Guide</div>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#fff;line-height:1.25;margin:0 0 8px;">Your Journey to Pain-Free Movement</h3>
+            <div style="font-size:11px;font-weight:300;color:rgba(255,255,255,0.6);">A Complete Patient Guide to Joint Replacement Surgery &amp; Recovery</div>
+          </div>
+          <div style="padding:0;">
+            <embed src="presentations/Patient's%20Journey%20and%20Recovery_compressed.pdf" type="application/pdf" width="100%" height="420px" style="display:block;border:none;">
+          </div>
+          <div style="padding:20px 28px;border-top:1px solid #e0e8f2;display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:11px;font-weight:300;color:#7a8fa8;">15 slides · PDF</span>
+            <a href="presentations/Patient's%20Journey%20and%20Recovery_compressed.pdf" download style="font-size:9px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#fff;background:#1e3a6a;padding:10px 22px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#162d54'" onmouseout="this.style.background='#1e3a6a'">↓ Download PDF</a>
+          </div>
+        </div>
+
+        <!-- PDF 3 -->
+        <div style="background:#f8fafc;border:1px solid #e0e8f2;" data-anim="up" class="d3">
+          <div style="background:#1e3a6a;padding:28px 32px;">
+            <div style="font-size:8px;font-weight:600;letter-spacing:0.25em;color:rgba(255,255,255,0.55);text-transform:uppercase;margin-bottom:10px;">Hip Replacement · Patient Guide</div>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#fff;line-height:1.25;margin:0 0 8px;">Total Hip Replacement: The Blueprint to Restored Mobility</h3>
+            <div style="font-size:11px;font-weight:300;color:rgba(255,255,255,0.6);">Comprehensive Guide by Dr. Vinay S. Joshi</div>
+          </div>
+          <div style="padding:0;">
+            <embed src="presentations/Patients%20Guide%20to%20Hip%20Replacements_compressed.pdf" type="application/pdf" width="100%" height="420px" style="display:block;border:none;">
+          </div>
+          <div style="padding:20px 28px;border-top:1px solid #e0e8f2;display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:11px;font-weight:300;color:#7a8fa8;">13 slides · PDF</span>
+            <a href="presentations/Patients%20Guide%20to%20Hip%20Replacements_compressed.pdf" download style="font-size:9px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#fff;background:#1e3a6a;padding:10px 22px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#162d54'" onmouseout="this.style.background='#1e3a6a'">↓ Download PDF</a>
+          </div>
+        </div>
+
+        <!-- PDF 4 -->
+        <div style="background:#f8fafc;border:1px solid #e0e8f2;" data-anim="up" class="d4">
+          <div style="background:#1a2a3a;padding:28px 32px;">
+            <div style="font-size:8px;font-weight:600;letter-spacing:0.25em;color:rgba(255,255,255,0.55);text-transform:uppercase;margin-bottom:10px;">Knee Replacement · Patient Guide</div>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#fff;line-height:1.25;margin:0 0 8px;">Reclaiming Pain-Free Motion</h3>
+            <div style="font-size:11px;font-weight:300;color:rgba(255,255,255,0.6);">A Comprehensive Patient Guide to Total Knee Replacement</div>
+          </div>
+          <div style="padding:0;">
+            <embed src="presentations/Patients%20Guide%20to%20Knee%20Replacements_compressed.pdf" type="application/pdf" width="100%" height="420px" style="display:block;border:none;">
+          </div>
+          <div style="padding:20px 28px;border-top:1px solid #e0e8f2;display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:11px;font-weight:300;color:#7a8fa8;">15 slides · PDF</span>
+            <a href="presentations/Patients%20Guide%20to%20Knee%20Replacements_compressed.pdf" download style="font-size:9px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#fff;background:#1e3a6a;padding:10px 22px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#162d54'" onmouseout="this.style.background='#1e3a6a'">↓ Download PDF</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:#1e3a6a;padding:80px 0;text-align:center;">
+    <div style="max-width:680px;margin:0 auto;padding:0 40px;">
+      <div style="font-size:9px;font-weight:500;letter-spacing:0.28em;color:rgba(255,255,255,0.45);text-transform:uppercase;margin-bottom:16px;" data-anim="up">Have More Questions?</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:#fff;line-height:1.2;margin-bottom:16px;" data-anim="up" class="d1">Speak Directly With Dr. Joshi</h2>
+      <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.7);line-height:1.85;margin-bottom:36px;" data-anim="up" class="d2">Every patient's situation is unique. Book a consultation to receive personalised guidance tailored to your specific diagnosis, lifestyle, and goals.</p>
+      <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;" data-anim="up" class="d3">
+        <a href="consultation.html" style="font-size:10px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;padding:16px 36px;background:#fff;color:#1e3a6a;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#f0f4f9'" onmouseout="this.style.background='#fff'">Book a Consultation</a>
+        <a href="tel:+912242696969" style="font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;padding:16px 36px;border:1px solid rgba(255,255,255,0.4);color:#fff;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='transparent'">+91 22 4269 6969</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#fff;padding:40px 60px;border-top:1px solid #eef2f6;display:flex;justify-content:space-between;align-items:center;">
+    <div>
+      <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.22em;color:#1a2a3a;text-transform:uppercase;">DR. VINAY S. JOSHI</div>
+      <div style="font-size:8px;color:#7a8fa8;letter-spacing:0.2em;text-transform:uppercase;margin-top:4px;">Consultant Orthopaedic Surgeon · Kokilaben Dhirubhai Ambani Hospital, Mumbai</div>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+      <a href="index.html" style="font-size:9px;font-weight:500;letter-spacing:0.15em;color:#7a8fa8;text-decoration:none;text-transform:uppercase;">Home</a>
+      <a href="knee.html" style="font-size:9px;font-weight:500;letter-spacing:0.15em;color:#7a8fa8;text-decoration:none;text-transform:uppercase;">Knee</a>
+      <a href="hip.html" style="font-size:9px;font-weight:500;letter-spacing:0.15em;color:#7a8fa8;text-decoration:none;text-transform:uppercase;">Hip</a>
+      <a href="robotic.html" style="font-size:9px;font-weight:500;letter-spacing:0.15em;color:#7a8fa8;text-decoration:none;text-transform:uppercase;">Robotic</a>
+      <a href="revision.html" style="font-size:9px;font-weight:500;letter-spacing:0.15em;color:#7a8fa8;text-decoration:none;text-transform:uppercase;">Revision</a>
+      <a href="testimonials.html" style="font-size:9px;font-weight:500;letter-spacing:0.15em;color:#7a8fa8;text-decoration:none;text-transform:uppercase;">Testimonials</a>
+      <a href="consultation.html" style="font-size:9px;font-weight:500;letter-spacing:0.15em;color:#7a8fa8;text-decoration:none;text-transform:uppercase;">Consultation</a>
+    </div>
+    <div style="font-size:9px;font-weight:300;color:#aaa;">© 2024 Dr. Vinay S. Joshi. All Rights Reserved.</div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    function toggleAccordion(btn) {
+      const icon = btn.querySelector('.accordion-icon');
+      const body = btn.nextElementSibling;
+      const isOpen = body.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.accordion-body.open').forEach(b => b.classList.remove('open'));
+      document.querySelectorAll('.accordion-icon.open').forEach(i => i.classList.remove('open'));
+      // Open this one if it was closed
+      if (!isOpen) {
+        body.classList.add('open');
+        icon.classList.add('open');
+      }
+    }
+
+    const obs = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-anim]').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

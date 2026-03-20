@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Testimonials | Dr. Vinay S. Joshi | Mumbai</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; font-weight: 200; color: #000; line-height: 1.75; overflow-x: hidden; }
+    #site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.35s ease, box-shadow 0.35s ease; background: transparent; }
+    #site-header.scrolled { background: rgba(15,25,40,0.96); backdrop-filter: blur(12px); box-shadow: 0 1px 24px rgba(0,0,0,0.18); }
+    .section-label { font-size: 9px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: #7a8fa8; }
+    .divider { width: 40px; height: 1px; background: #7a8fa8; margin: 0 auto; }
+    .review-card {
+      background: #fff; border: 1px solid #c8d4e4; border-top: 4px solid #1e3a6a;
+      padding: 40px 44px;
+      box-shadow: 0 4px 24px rgba(30,58,106,0.07);
+      transition: box-shadow 0.3s, border-top-color 0.3s;
+    }
+    .review-card:hover { box-shadow: 0 12px 44px rgba(30,58,106,0.15); border-top-color: #2563eb; }
+    .stars { color: #2563eb; font-size: 14px; letter-spacing: 2px; margin-bottom: 16px; }
+    .google-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 8px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #7a8fa8; margin-bottom: 20px; }
+    /* Scroll animations */
+    [data-anim]{opacity:0;transition:opacity 0.75s ease,transform 0.75s ease;}
+    [data-anim="up"]{transform:translateY(32px);}
+    [data-anim="left"]{transform:translateX(-36px);}
+    [data-anim="right"]{transform:translateX(36px);}
+    [data-anim="scale"]{transform:scale(0.96);}
+    [data-anim].in{opacity:1;transform:none;}
+    .d1{transition-delay:0.12s!important;}.d2{transition-delay:0.22s!important;}.d3{transition-delay:0.34s!important;}.d4{transition-delay:0.46s!important;}
+  </style>
+</head>
+<body style="background:#f0f4f9;">
+
+  <header id="site-header">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 48px;">
+      <a href="index.html" style="text-decoration:none;flex-shrink:0;">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.22em;color:#fff;text-transform:uppercase;line-height:1.1;">DR. VINAY S. JOSHI</div>
+        <div style="font-size:7px;font-weight:400;letter-spacing:0.3em;color:rgba(255,255,255,0.65);text-transform:uppercase;margin-top:3px;">MBBS · MS · DNB · FRCS · FCPS</div>
+      </a>
+      <nav style="display:flex;align-items:center;gap:22px;">
+        <a href="index.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Home</a>
+        <a href="knee.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Knee</a>
+        <a href="hip.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Hip</a>
+        <a href="robotic.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Robotic</a>
+        <a href="revision.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Revision</a>
+        <a href="health-tips.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Health Tips</a>
+        <a href="testimonials.html" style="font-size:9px;font-weight:600;letter-spacing:0.18em;color:#fff;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.6);padding-bottom:2px;">Testimonials</a>
+        <div style="width:1px;height:18px;background:rgba(255,255,255,0.25);"></div>
+        <a href="consultation.html" style="font-size:9px;font-weight:600;letter-spacing:0.18em;color:#fff;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.45);padding:7px 16px;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.12)'" onmouseout="this.style.background='transparent'">Book Consult</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative" style="height:400px; overflow:hidden;">
+    <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1440&h=400&fit=crop&crop=center"
+         onerror="this.src='https://placehold.co/1440x400/1a2a3a/4a6a8a'" alt="Patient Care" class="w-full h-full object-cover">
+    <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(10,20,35,0.6) 0%, rgba(10,20,35,0.5) 100%);"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center" style="padding-top:80px;">
+      <div style="font-size:9px; font-weight:500; letter-spacing:0.32em; color:rgba(255,255,255,0.65); text-transform:uppercase; margin-bottom:16px;">Google Reviews · Kokilaben Dhirubhai Ambani Hospital</div>
+      <h1 style="font-family:'Cormorant Garamond',serif; font-size:56px; font-weight:300; color:#fff; line-height:1.1; margin-bottom:16px;">Patient Testimonials</h1>
+      <div style="width:40px; height:1px; background:rgba(255,255,255,0.5); margin:0 auto 16px;"></div>
+      <p style="font-size:13px; font-weight:300; color:rgba(255,255,255,0.8); max-width:500px;">What patients say about their experience with Dr. Vinay S. Joshi.</p>
+    </div>
+  </section>
+
+  <!-- RATING SUMMARY -->
+  <section style="background:#1e3a6a; padding:48px 0; text-align:center;">
+    <div style="display:flex; align-items:center; justify-content:center; gap:60px; max-width:700px; margin:0 auto;">
+      <div data-anim="up" class="d1">
+        <div style="font-family:'Cormorant Garamond',serif; font-size:72px; font-weight:300; color:#fff; line-height:1;">4.8</div>
+        <div style="color:#2563eb; font-size:20px; letter-spacing:3px; margin:6px 0;">★★★★★</div>
+        <div style="font-size:8px; font-weight:500; letter-spacing:0.2em; color:rgba(255,255,255,0.5); text-transform:uppercase;">Google Rating</div>
+      </div>
+      <div style="width:1px; height:80px; background:rgba(255,255,255,0.15);"></div>
+      <div style="text-align:left;" data-anim="up" class="d2">
+        <div style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:#fff; margin-bottom:6px;">97%</div>
+        <div style="font-size:11px; font-weight:300; color:rgba(255,255,255,0.65); line-height:1.8;">of patients would recommend<br>Dr. Joshi to friends and family</div>
+      </div>
+      <div style="width:1px; height:80px; background:rgba(255,255,255,0.15);"></div>
+      <div style="text-align:left;" data-anim="up" class="d3">
+        <div style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:#fff; margin-bottom:6px;">4,500+</div>
+        <div style="font-size:11px; font-weight:300; color:rgba(255,255,255,0.65); line-height:1.8;">joint replacements performed<br>at Kokilaben Dhirubhai Ambani Hospital</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS GRID -->
+  <section style="padding:80px 0;">
+    <div style="max-width:1200px; margin:0 auto; padding:0 60px;">
+      <div class="text-center mb-12">
+        <div class="section-label mb-3">VERIFIED PATIENT REVIEWS</div>
+        <div class="divider"></div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px;">
+
+        <!-- Review 1 - Jinal Rathod (long, featured) -->
+        <div class="review-card d1" data-anim="up" style="grid-column:span 2;">
+          <div class="google-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Google Review · Verified Patient
+          </div>
+          <div class="stars">★★★★★</div>
+          <blockquote style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; font-style:italic; line-height:1.65; color:#1a2a3a; margin-bottom:24px;">
+            "Dr. Vinay Joshi is an exceptional orthopaedic surgeon who provided outstanding care to my mother. From the initial consultation to the successful surgery and post-operative care, everything was handled with professionalism and compassion. The surgery went smoothly, and my mother is recovering well, thanks to Dr. Vinay Joshi's expertise and attention to detail. He took the time to explain the procedure, answer our questions, and ensure we felt comfortable throughout the process. We are truly grateful for his skill, kindness, and dedication to his patients. I highly recommend Dr. Joshi to anyone in need of orthopaedic care."
+          </blockquote>
+          <div style="width:32px; height:1px; background:#1e3a6a; margin-bottom:16px;"></div>
+          <div style="font-size:12px; font-weight:600; letter-spacing:0.15em; color:#1a2a3a; text-transform:uppercase;">Jinal Rathod</div>
+          <div style="font-size:10px; font-weight:300; color:#7a8fa8; text-transform:uppercase; margin-top:4px; letter-spacing:0.1em;">Patient's Family · Kokilaben Dhirubhai Ambani Hospital</div>
+        </div>
+
+        <!-- Review 2 - Apurva Shah -->
+        <div class="review-card d1" data-anim="up">
+          <div class="google-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z"/></svg>
+            Google Review · 7 Reviews
+          </div>
+          <div class="stars">★★★★★</div>
+          <blockquote style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; font-style:italic; line-height:1.65; color:#1a2a3a; margin-bottom:24px;">
+            "Visited Dr Vinay Joshi at Kokilaben hospital with grade II AVN in my hip joint. I found him extremely efficient, knowledgeable and Kind. Have seldom seen Doctors with such humbleness and humane approach. Gave correct advice which lifted tons of weight from my mind. Will always be indebted to his kindness and empathy. Highly recommend him without any slightest of hesitation."
+          </blockquote>
+          <div style="width:32px; height:1px; background:#1e3a6a; margin-bottom:16px;"></div>
+          <div style="font-size:12px; font-weight:600; letter-spacing:0.15em; color:#1a2a3a; text-transform:uppercase;">Apurva Shah</div>
+          <div style="font-size:10px; font-weight:300; color:#7a8fa8; text-transform:uppercase; margin-top:4px; letter-spacing:0.1em;">Grade II AVN Patient</div>
+        </div>
+
+        <!-- Review 3 - Hema Vaishnav -->
+        <div class="review-card d2" data-anim="up">
+          <div class="google-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z"/></svg>
+            Google Local Guide · 27 Reviews
+          </div>
+          <div class="stars">★★★★★</div>
+          <blockquote style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; font-style:italic; line-height:1.65; color:#1a2a3a; margin-bottom:24px;">
+            "Thank you Dr. Vinay Joshi for giving me confidence to go ahead with my both Total Knee Replacement. I am very Happy and thankful with treatment and stay in Kokilaben Hospital, with very good support of Dr. Anuj and the whole team of my operation."
+          </blockquote>
+          <div style="width:32px; height:1px; background:#1e3a6a; margin-bottom:16px;"></div>
+          <div style="font-size:12px; font-weight:600; letter-spacing:0.15em; color:#1a2a3a; text-transform:uppercase;">Hema Vaishnav</div>
+          <div style="font-size:10px; font-weight:300; color:#7a8fa8; text-transform:uppercase; margin-top:4px; letter-spacing:0.1em;">Google Local Guide · Bilateral TKR Patient</div>
+        </div>
+
+        <!-- Review 4 - Neeta Poddar -->
+        <div class="review-card d1" data-anim="up">
+          <div class="google-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z"/></svg>
+            Google Review · 9 Reviews
+          </div>
+          <div class="stars">★★★★★</div>
+          <blockquote style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; font-style:italic; line-height:1.65; color:#1a2a3a; margin-bottom:24px;">
+            "Had a very pleasant experience from registration, to answers to questions asked and more importantly, Dr V. Joshi was absolutely superb! Answered every question patiently and did not suggest any unnecessary procedures or surgeries. Five stars for sure!"
+          </blockquote>
+          <div style="width:32px; height:1px; background:#1e3a6a; margin-bottom:16px;"></div>
+          <div style="font-size:12px; font-weight:600; letter-spacing:0.15em; color:#1a2a3a; text-transform:uppercase;">Neeta Poddar</div>
+          <div style="font-size:10px; font-weight:300; color:#7a8fa8; text-transform:uppercase; margin-top:4px; letter-spacing:0.1em;">Google Review · Kokilaben Dhirubhai Ambani Hospital</div>
+        </div>
+
+        <!-- Review 5 - Dr Pradnya Chaudhari -->
+        <div class="review-card d2" data-anim="up">
+          <div class="google-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z"/></svg>
+            Google Local Guide · 13 Reviews
+          </div>
+          <div class="stars">★★★★★</div>
+          <blockquote style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; font-style:italic; line-height:1.65; color:#1a2a3a; margin-bottom:24px;">
+            "I'm so fortunate and blessed to have met Dr. Vinay Joshi. He is a great orthopaedic surgeon and an amazing human being. He has gifted my father new life with knee replacement surgery — we could not be more grateful."
+          </blockquote>
+          <div style="width:32px; height:1px; background:#1e3a6a; margin-bottom:16px;"></div>
+          <div style="font-size:12px; font-weight:600; letter-spacing:0.15em; color:#1a2a3a; text-transform:uppercase;">Dr. Pradnya Chaudhari</div>
+          <div style="font-size:10px; font-weight:300; color:#7a8fa8; text-transform:uppercase; margin-top:4px; letter-spacing:0.1em;">Google Local Guide · Knee Replacement Patient's Family</div>
+        </div>
+
+        <!-- Review 6 - Rohit Chavan -->
+        <div class="review-card d1" data-anim="up">
+          <div class="google-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z"/></svg>
+            Google Review · 8 Reviews
+          </div>
+          <div class="stars">★★★★★</div>
+          <blockquote style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; font-style:italic; line-height:1.65; color:#1a2a3a; margin-bottom:24px;">
+            "Excellent Doctor. The way he takes time to explain and make us understand the intricacies — mind blowing. Had the pleasure of him operating my mother for her TKR. The best there is. Thank you Doc."
+          </blockquote>
+          <div style="width:32px; height:1px; background:#1e3a6a; margin-bottom:16px;"></div>
+          <div style="font-size:12px; font-weight:600; letter-spacing:0.15em; color:#1a2a3a; text-transform:uppercase;">Rohit Chavan</div>
+          <div style="font-size:10px; font-weight:300; color:#7a8fa8; text-transform:uppercase; margin-top:4px; letter-spacing:0.1em;">Google Review · TKR Patient's Family</div>
+        </div>
+
+        <!-- Review 7 - Mahesh Gandhi -->
+        <div class="review-card d2" data-anim="up">
+          <div class="google-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z"/></svg>
+            Google Review · 2 Reviews
+          </div>
+          <div class="stars">★★★★★</div>
+          <blockquote style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; font-style:italic; line-height:1.65; color:#1a2a3a; margin-bottom:24px;">
+            "Appreciate all departments cooperating right from doctor consultation to discharge. Doctor's expertise and friendly approach towards patients made all in our family comfortable with major surgery."
+          </blockquote>
+          <div style="width:32px; height:1px; background:#1e3a6a; margin-bottom:16px;"></div>
+          <div style="font-size:12px; font-weight:600; letter-spacing:0.15em; color:#1a2a3a; text-transform:uppercase;">Mahesh Gandhi</div>
+          <div style="font-size:10px; font-weight:300; color:#7a8fa8; text-transform:uppercase; margin-top:4px; letter-spacing:0.1em;">Google Review · Kokilaben Dhirubhai Ambani Hospital</div>
+        </div>
+
+        <!-- Review 8 - Isaac Shapurkar -->
+        <div class="review-card d1" data-anim="up">
+          <div class="google-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z"/></svg>
+            Google Review · Verified Patient
+          </div>
+          <div class="stars">★★★★★</div>
+          <blockquote style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; font-style:italic; line-height:1.65; color:#1a2a3a; margin-bottom:24px;">
+            "Dr. Joshi is polite, treating patients like family. He heard me and prescribed medications to alleviate pain, physiotherapy, and a referral to meet a Podiatrist."
+          </blockquote>
+          <div style="width:32px; height:1px; background:#1e3a6a; margin-bottom:16px;"></div>
+          <div style="font-size:12px; font-weight:600; letter-spacing:0.15em; color:#1a2a3a; text-transform:uppercase;">Isaac Shapurkar</div>
+          <div style="font-size:10px; font-weight:300; color:#7a8fa8; text-transform:uppercase; margin-top:4px; letter-spacing:0.1em;">Google Review · Kokilaben Dhirubhai Ambani Hospital</div>
+        </div>
+
+        <!-- Review 9 - Tarasankar Mitra -->
+        <div class="review-card d2" data-anim="up">
+          <div class="google-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z"/></svg>
+            Google Review · 11 Reviews
+          </div>
+          <div class="stars">★★★★★</div>
+          <blockquote style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; font-style:italic; line-height:1.65; color:#1a2a3a; margin-bottom:24px;">
+            "Very good experience. He cured my earlier problem also. He is expert and authentic in his field."
+          </blockquote>
+          <div style="width:32px; height:1px; background:#1e3a6a; margin-bottom:16px;"></div>
+          <div style="font-size:12px; font-weight:600; letter-spacing:0.15em; color:#1a2a3a; text-transform:uppercase;">Tarasankar Mitra</div>
+          <div style="font-size:10px; font-weight:300; color:#7a8fa8; text-transform:uppercase; margin-top:4px; letter-spacing:0.1em;">Google Review · Returning Patient</div>
+        </div>
+
+      </div>
+
+      <!-- Show More on Google -->
+      <div style="text-align:center; margin-top:52px;" data-anim="up">
+        <a href="https://www.google.com/search?q=Dr+Vinay+Joshi+Kokilaben+Hospital+reviews" target="_blank" rel="noopener"
+           style="display:inline-flex; align-items:center; gap:10px; border:1px solid #c8d4e4; padding:14px 32px; font-size:9px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#1e3a6a; text-decoration:none; background:#fff; transition:all 0.2s;"
+           onmouseover="this.style.background='#1e3a6a'; this.style.color='#fff'; this.style.borderColor='#1e3a6a';"
+           onmouseout="this.style.background='#fff'; this.style.color='#1e3a6a'; this.style.borderColor='#c8d4e4';">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          View All Reviews on Google →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INSPIRING PATIENT STORY ========== -->
+  <section style="background:#0d1a2e; padding:88px 0;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="text-center mb-10">
+        <div style="font-size:9px; font-weight:500; letter-spacing:0.28em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:16px;">PATIENT STORY · KNEE REPLACEMENT</div>
+        <div style="width:40px; height:1px; background:rgba(255,255,255,0.2); margin:0 auto 16px;"></div>
+        <h2 style="font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:300; color:#fff; line-height:1.15; margin-bottom:8px;" data-anim="up">An Inspiring Recovery</h2>
+        <p style="font-size:13px; font-weight:300; color:rgba(255,255,255,0.6); max-width:520px; margin:0 auto;">A patient who underwent knee replacement with Dr. Vinay Joshi — back to dancing and living fully.</p>
+      </div>
+
+      <!-- Full-width local video -->
+      <div style="position:relative; overflow:hidden; background:#000;" data-anim="scale">
+        <video controls playsinline style="width:100%; max-height:560px; object-fit:contain; display:block;">
+          <source src="Dancing patient video.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:28px 32px; margin-top:0; margin-bottom:48px;">
+        <div style="font-size:9px; font-weight:500; letter-spacing:0.22em; color:rgba(255,255,255,0.45); text-transform:uppercase; margin-bottom:12px;">Patient Story · Video</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; font-style:italic; color:#fff; line-height:1.5; margin-bottom:12px;">"I never thought I would dance again. Dr. Joshi gave me my life back."</div>
+        <div style="font-size:12px; font-weight:300; color:rgba(255,255,255,0.55); line-height:1.85;">Watch this patient's remarkable journey — from chronic knee pain to full recovery — sharing their experience with Dr. Vinay Joshi at Kokilaben Dhirubhai Ambani Hospital.</div>
+      </div>
+
+      <!-- Inspiring patient photo + review -->
+      <div style="display:grid; grid-template-columns:420px 1fr; gap:0; align-items:stretch;" data-anim="up">
+        <div style="position:relative; overflow:hidden;">
+          <img src="Inspiring patient whose knee replaced.jpeg"
+               onerror="this.src='https://placehold.co/420x500/1a2a3a/4a6a8a?text=Patient+Story'"
+               alt="Inspiring patient - knee replacement recovery"
+               style="width:100%; height:100%; min-height:400px; object-fit:cover; object-position:center top; display:block;">
+          <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 60%);"></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-left:none; padding:48px 44px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="color:#2563eb; font-size:16px; letter-spacing:3px; margin-bottom:20px;">★★★★★</div>
+          <blockquote style="font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:300; font-style:italic; color:#fff; line-height:1.65; margin-bottom:28px;">"I never thought I would be able to sit cross-legged again after my knee replacement. Dr. Joshi gave me back the life I thought I had lost forever."</blockquote>
+          <div style="width:32px; height:1px; background:rgba(255,255,255,0.3); margin-bottom:16px;"></div>
+          <div style="font-size:11px; font-weight:600; letter-spacing:0.18em; color:#fff; text-transform:uppercase;">Patient · Knee Replacement</div>
+          <div style="font-size:10px; font-weight:300; color:rgba(255,255,255,0.5); text-transform:uppercase; margin-top:4px; letter-spacing:0.1em;">Kokilaben Dhirubhai Ambani Hospital · Mumbai</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:#1e3a6a; padding:72px 0; text-align:center;">
+    <div style="max-width:560px; margin:0 auto; padding:0 40px;">
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:300; color:#fff; line-height:1.2; margin-bottom:20px;" data-anim="up">Ready to Take the First Step?</h3>
+      <p style="font-size:13px; font-weight:300; color:rgba(255,255,255,0.75); line-height:1.9; margin-bottom:32px;">Join thousands of patients who have reclaimed their mobility and quality of life with Dr. Vinay Joshi.</p>
+      <a href="tel:+912242696969" style="background:#fff; color:#1e3a6a; font-size:9px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; padding:13px 30px; display:inline-block; text-decoration:none; margin-right:12px;">+91 22 4269 6969</a>
+      <a href="index.html" style="font-size:9px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.7); text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.3); padding-bottom:2px;">Back to Main Site →</a>
+    </div>
+  </section>
+
+  <footer style="background:#fff; padding:40px 60px; border-top:1px solid #eef2f6; display:flex; justify-content:space-between; align-items:center;">
+    <div>
+      <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.22em; color:#1a2a3a; text-transform:uppercase;">DR. VINAY S. JOSHI</div>
+      <div style="font-size:8px; color:#7a8fa8; letter-spacing:0.2em; text-transform:uppercase; margin-top:4px;">Consultant Orthopaedic Surgeon · Kokilaben Dhirubhai Ambani Hospital, Mumbai</div>
+    </div>
+    <div style="font-size:9px; font-weight:300; color:#aaa;">© 2024 Dr. Vinay S. Joshi. All Rights Reserved.</div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+    const _obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');_obs.unobserve(e.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('[data-anim]').forEach(el=>_obs.observe(el));
+  </script>
+</body>
+</html>

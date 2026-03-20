@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knee Replacement Surgery | Dr. Vinay S. Joshi | Mumbai</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; font-weight: 200; color: #000; line-height: 1.75; overflow-x: hidden; }
+    #site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.35s ease, box-shadow 0.35s ease; background: transparent; }
+    #site-header.scrolled { background: rgba(15,25,40,0.96); backdrop-filter: blur(12px); box-shadow: 0 1px 24px rgba(0,0,0,0.18); }
+    .section-label { font-size: 9px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: #7a8fa8; }
+    .divider { width: 40px; height: 1px; background: #7a8fa8; margin: 0 auto; }
+    .procedure-section { border-top: 1px solid #eef2f6; }
+    .proc-number { font-family: 'Cormorant Garamond', serif; font-size: 72px; font-weight: 300; color: #eef2f6; line-height: 1; position: absolute; top: -10px; left: 0; }
+    .tag { display: inline-block; font-size: 8px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 4px 10px; border: 1px solid #1e3a6a; color: #1e3a6a; margin-bottom: 16px; }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
+    .info-box { background: #f8fafc; border: 1px solid #e0e8f2; border-left: 3px solid #1e3a6a; padding: 20px 22px; }
+    .info-box h4 { font-size: 8px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #1e3a6a; margin-bottom: 8px; }
+    .info-box p { font-size: 12px; font-weight: 300; color: #555; line-height: 1.85; margin: 0; }
+    .btn-gold { background-color: #1e3a6a; color: #fff; font-size: 9px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; padding: 13px 30px; display: inline-block; text-decoration: none; transition: background 0.2s; }
+    .btn-gold:hover { background-color: #162d54; }
+    .sub-nav a { font-size: 10px; font-weight: 400; letter-spacing: 0.12em; color: #555; text-decoration: none; padding: 8px 0; display: block; border-bottom: 1px solid #eef2f6; transition: color 0.2s; }
+    .sub-nav a:hover { color: #1e3a6a; }
+    /* Scroll animations */
+    [data-anim]{opacity:0;transition:opacity 0.75s ease,transform 0.75s ease;}
+    [data-anim="up"]{transform:translateY(32px);}
+    [data-anim="left"]{transform:translateX(-36px);}
+    [data-anim="right"]{transform:translateX(36px);}
+    [data-anim="scale"]{transform:scale(0.96);}
+    [data-anim].in{opacity:1;transform:none;}
+    .d1{transition-delay:0.12s!important;}.d2{transition-delay:0.22s!important;}.d3{transition-delay:0.34s!important;}.d4{transition-delay:0.46s!important;}
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- NAV -->
+  <header id="site-header">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 48px;">
+      <a href="index.html" style="text-decoration:none;flex-shrink:0;">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.22em;color:#fff;text-transform:uppercase;line-height:1.1;">DR. VINAY S. JOSHI</div>
+        <div style="font-size:7px;font-weight:400;letter-spacing:0.3em;color:rgba(255,255,255,0.65);text-transform:uppercase;margin-top:3px;">MBBS · MS · DNB · FRCS · FCPS</div>
+      </a>
+      <nav style="display:flex;align-items:center;gap:22px;">
+        <a href="index.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Home</a>
+        <a href="knee.html" style="font-size:9px;font-weight:600;letter-spacing:0.18em;color:#fff;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.6);padding-bottom:2px;">Knee</a>
+        <a href="hip.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Hip</a>
+        <a href="robotic.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Robotic</a>
+        <a href="revision.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Revision</a>
+        <a href="health-tips.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Health Tips</a>
+        <a href="testimonials.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Testimonials</a>
+        <div style="width:1px;height:18px;background:rgba(255,255,255,0.25);"></div>
+        <a href="consultation.html" style="font-size:9px;font-weight:600;letter-spacing:0.18em;color:#fff;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.45);padding:7px 16px;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.12)'" onmouseout="this.style.background='transparent'">Book Consult</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative" style="height:520px; overflow:hidden;">
+    <img src="Knee photo.jpg"
+         onerror="this.src='https://placehold.co/1440x520/1a2a3a/4a6a8a'" alt="Knee Replacement Surgery" class="w-full h-full object-cover" style="object-position:center center;">
+    <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(10,20,35,0.55) 0%, rgba(10,20,35,0.3) 50%, rgba(10,20,35,0.65) 100%);"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center" style="padding-top:80px;">
+      <div style="font-size:9px; font-weight:500; letter-spacing:0.32em; color:rgba(255,255,255,0.65); text-transform:uppercase; margin-bottom:16px;">Dr. Vinay S. Joshi · Kokilaben Dhirubhai Ambani Hospital</div>
+      <h1 style="font-family:'Cormorant Garamond',serif; font-size:58px; font-weight:300; color:#fff; line-height:1.1; margin-bottom:16px;">Knee Replacement Surgery</h1>
+      <div style="width:40px; height:1px; background:rgba(255,255,255,0.5); margin:0 auto 16px;"></div>
+      <p style="font-size:13px; font-weight:300; color:rgba(255,255,255,0.8); max-width:560px; letter-spacing:0.04em;">Restoring mobility, eliminating pain, and returning patients to an active life — using the most advanced techniques available in India.</p>
+    </div>
+  </section>
+
+  <!-- NAME BANNER -->
+  <div style="background:#8a9bb5; text-align:center; padding:16px 0;">
+    <div style="font-size:8px; font-weight:500; letter-spacing:0.38em; color:rgba(255,255,255,0.72); text-transform:uppercase;">KNEE REPLACEMENT SURGEON · KOKILABEN DHIRUBHAI AMBANI HOSPITAL, MUMBAI</div>
+  </div>
+
+  <!-- OVERVIEW + QUICK NAV -->
+  <section style="max-width:1200px; margin:0 auto; padding:72px 60px 64px; display:grid; grid-template-columns:1fr 320px; gap:80px;">
+    <div>
+      <div class="section-label mb-3" data-anim="up">OVERVIEW</div>
+      <div class="divider" style="margin:0 0 24px;"></div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:300; color:#111; line-height:1.2; margin-bottom:20px;" data-anim="up">Understanding Knee Replacement Surgery</h2>
+      <p style="font-size:14px; font-weight:300; color:#444; line-height:1.9; margin-bottom:16px;">
+        Knee replacement surgery — also called knee arthroplasty — is one of the most successful surgical procedures in orthopaedics. When the cartilage lining the knee joint wears away due to arthritis, injury, or degeneration, the exposed bone surfaces grind together, causing severe pain, swelling, and loss of function.
+      </p>
+      <p style="font-size:14px; font-weight:300; color:#444; line-height:1.9;">
+        Dr. Vinay S. Joshi has performed over <strong>3,500 knee replacements</strong> since 2012 at Kokilaben Dhirubhai Ambani Hospital. He specialises in the full spectrum of knee arthroplasty — from standard primary replacements to the most complex revision and deformity cases — using minimally invasive techniques for faster recovery.
+      </p>
+    </div>
+    <!-- Quick Nav -->
+    <div style="padding-top:8px;">
+      <div style="font-size:8px; font-weight:600; letter-spacing:0.25em; color:#1e3a6a; text-transform:uppercase; margin-bottom:16px;">Procedures on This Page</div>
+      <div class="sub-nav">
+        <a href="#tkr">Total Knee Replacement (TKR)</a>
+        <a href="#robotic">Robotic-Assisted TKR</a>
+        <a href="#uni">Unicompartmental Knee Replacement</a>
+        <a href="#attune">Attune TKR</a>
+        <a href="#oxinium">Oxinium TKR</a>
+        <a href="#highflex">High Flex Knee Replacement</a>
+        <a href="#gender">Gender-Specific Knee Replacement</a>
+      </div>
+      <div style="margin-top:28px; background:#1e3a6a; padding:24px 20px; text-align:center;">
+        <div style="font-size:9px; font-weight:500; letter-spacing:0.2em; color:rgba(255,255,255,0.7); text-transform:uppercase; margin-bottom:8px;">Book a Consultation</div>
+        <div style="font-size:18px; font-weight:500; color:#fff; margin-bottom:4px;">+91 22 4269 6969</div>
+        <div style="font-size:9px; font-weight:300; color:rgba(255,255,255,0.6);">Kokilaben Dhirubhai Ambani Hospital</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 1: TOTAL KNEE REPLACEMENT ===== -->
+  <section id="tkr" class="procedure-section" style="background:#f8fafc; padding:72px 0;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div style="position:relative; padding-left:0;">
+        <div class="tag" data-anim="up">Total Knee Replacement · TKR</div>
+        <h2 style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:#111; line-height:1.2; margin-bottom:20px;">Total Knee Replacement (TKR)</h2>
+        <p style="font-size:14px; font-weight:300; color:#444; line-height:1.9; max-width:820px; margin-bottom:24px;">
+          Total Knee Replacement is the gold-standard surgical treatment for end-stage knee arthritis. The procedure involves resurfacing the damaged bone and cartilage at the end of the femur (thigh bone), tibia (shin bone), and patella (kneecap) with precision-engineered metal and plastic components that recreate the smooth, pain-free motion of a healthy knee.
+        </p>
+        <div class="info-grid" style="max-width:940px;">
+          <div class="info-box d1" data-anim="up">
+            <h4>Who Needs It</h4>
+            <p>Patients with severe osteoarthritis, rheumatoid arthritis, or post-traumatic arthritis who have persistent knee pain, significant stiffness, or deformity, and who no longer respond to non-surgical treatments such as physiotherapy, medications, or injections.</p>
+          </div>
+          <div class="info-box d2" data-anim="up">
+            <h4>How It Is Performed</h4>
+            <p>Under spinal or general anaesthesia, Dr. Joshi makes a minimally invasive incision over the knee. The damaged cartilage and bone are precisely removed and the joint surfaces are reshaped to accept the implant. The femoral, tibial, and patellar components are then fitted and the knee is tested through its full range of motion before closure.</p>
+          </div>
+          <div class="info-box d3" data-anim="up">
+            <h4>What to Expect</h4>
+            <p>Most patients walk with a frame on day one post-surgery. Hospital stay averages 4–5 days. Physiotherapy begins immediately. Light activities resume at 4–6 weeks; full recovery at 3–6 months. Over 95% of patients report significant, lasting pain relief.</p>
+          </div>
+          <div class="info-box d4" data-anim="up">
+            <h4>Implant Longevity</h4>
+            <p>Modern knee implants are designed to last 20–25 years in most patients. With Dr. Joshi's precise surgical technique and optimal implant positioning, patients achieve excellent long-term outcomes and reduced risk of implant wear or loosening.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2: ROBOTIC TKR ===== -->
+  <section id="robotic" class="procedure-section" style="padding:72px 0;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="tag" data-anim="up">Robotic-Assisted · Pioneering in India</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:#111; line-height:1.2; margin-bottom:20px;">Robotic-Assisted Total Knee Replacement</h2>
+      <p style="font-size:14px; font-weight:300; color:#444; line-height:1.9; max-width:820px; margin-bottom:24px;">
+        Dr. Joshi is among India's leading pioneers in robotic-assisted knee replacement, using the <strong>VELYS Robotic-Assisted Solution</strong> at Kokilaben Dhirubhai Ambani Hospital — one of the first centres in India to adopt this technology. Robotic-assisted TKR combines a pre-operative digital plan with intra-operative real-time guidance, allowing bone cuts to be made with sub-millimetre precision far beyond what is achievable by the human hand alone.
+      </p>
+      <div class="info-grid" style="max-width:940px;">
+        <div class="info-box d1" data-anim="up">
+          <h4>How It Differs from Conventional Surgery</h4>
+          <p>Before surgery, a CT scan creates a 3D model of the patient's knee. The robotic system uses this to plan the exact angle, depth, and position of every bone cut. During surgery, real-time sensors continuously track bone movement, adjusting the robotic arm to maintain sub-millimetre accuracy at every moment.</p>
+        </div>
+        <div class="info-box d2" data-anim="up">
+          <h4>Benefits of Robotic Assistance</h4>
+          <p>Studies show robotic TKR achieves more accurate limb alignment, better component positioning, reduced soft-tissue damage, less post-operative pain, faster return to function, and a more natural-feeling knee compared to conventional techniques. Long-term implant survivorship is also improved.</p>
+        </div>
+        <div class="info-box d3" data-anim="up">
+          <h4>Is Robotic Surgery Right for You?</h4>
+          <p>Robotic-assisted TKR is suitable for most primary knee replacement patients. Dr. Joshi will review your X-rays, CT scan, and physical examination to determine the optimal approach. The robotic system is also particularly valuable in complex cases involving significant deformity or bone loss.</p>
+        </div>
+        <div class="info-box d4" data-anim="up">
+          <h4>Recovery</h4>
+          <p>Because the robotic approach causes less soft-tissue trauma, patients typically experience less pain in the first few days after surgery, faster rehabilitation progress, and a shorter hospital stay compared to conventional techniques.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3: UNICOMPARTMENTAL ===== -->
+  <section id="uni" class="procedure-section" style="background:#f8fafc; padding:72px 0;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="tag" data-anim="up">Partial Knee · Bone Conserving</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:#111; line-height:1.2; margin-bottom:20px;">Unicompartmental (Partial) Knee Replacement</h2>
+      <p style="font-size:14px; font-weight:300; color:#444; line-height:1.9; max-width:820px; margin-bottom:24px;">
+        When arthritis affects only one compartment of the knee (most commonly the medial, or inner, side), a unicompartmental knee replacement — also called a partial knee replacement — offers a bone-conserving alternative to a total knee replacement. Only the diseased compartment is replaced, preserving healthy bone, cartilage, and ligaments on the other side.
+      </p>
+      <div class="info-grid" style="max-width:940px;">
+        <div class="info-box d1" data-anim="up">
+          <h4>Who Is a Candidate</h4>
+          <p>Patients with arthritis confined to one compartment, an intact anterior cruciate ligament, minimal deformity, and a reasonable level of activity. Dr. Joshi will assess your X-rays and MRI to confirm whether your arthritis is truly limited to one compartment.</p>
+        </div>
+        <div class="info-box d2" data-anim="up">
+          <h4>Advantages over TKR</h4>
+          <p>Smaller incision and faster recovery than total knee replacement. Preserves more natural bone and ligament tissue, resulting in a knee that feels closer to normal. Lower complication rates and blood loss. Most patients are walking unaided within 2–3 weeks.</p>
+        </div>
+        <div class="info-box d3" data-anim="up">
+          <h4>The Procedure</h4>
+          <p>Through a small incision, Dr. Joshi removes only the worn cartilage and bone from the affected compartment. A thin metal component is fitted to the femur and a flat tibial tray with a smooth polyethylene surface is placed on the tibia, restoring a smooth, pain-free joint surface.</p>
+        </div>
+        <div class="info-box d4" data-anim="up">
+          <h4>Longevity and Revision</h4>
+          <p>Modern unicompartmental implants have 10–15 year survivorship in well-selected patients. If arthritis eventually spreads to other compartments, the partial replacement can be converted to a total knee replacement in a relatively straightforward procedure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 4: ATTUNE TKR ===== -->
+  <section id="attune" class="procedure-section" style="padding:72px 0;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="tag" data-anim="up">Attune · DePuy Synthes · Advanced Implant</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:#111; line-height:1.2; margin-bottom:20px;">Attune Total Knee Replacement</h2>
+      <p style="font-size:14px; font-weight:300; color:#444; line-height:1.9; max-width:820px; margin-bottom:24px;">
+        Dr. Joshi received specialist training in the <strong>Attune Knee System</strong> (DePuy Synthes) during his advanced fellowships in <strong>Canada and Singapore</strong>. The Attune system was engineered to improve the consistency of outcomes in knee arthroplasty, particularly in patients who previously reported persistent dissatisfaction after standard TKR.
+      </p>
+      <div class="info-grid" style="max-width:940px;">
+        <div class="info-box d1" data-anim="up">
+          <h4>What Makes Attune Different</h4>
+          <p>The Attune system features a gradually changing radius femoral component that mimics the natural kinematics of the knee throughout the full arc of motion. This design reduces anterior knee pain, improves stair climbing ability, and gives patients a more natural-feeling knee compared to earlier designs.</p>
+        </div>
+        <div class="info-box d2" data-anim="up">
+          <h4>Who Benefits Most</h4>
+          <p>Patients who are active, younger (under 65), or who have significant demands on their knee — including those who wish to walk long distances, travel extensively, or return to low-impact sport — tend to benefit most from the Attune system's advanced kinematics.</p>
+        </div>
+        <div class="info-box d3" data-anim="up">
+          <h4>Dr. Joshi's Attune Training</h4>
+          <p>Dr. Joshi completed dedicated fellowship training in the Attune system at leading arthroplasty centres in Canada and Singapore, giving him specialist expertise in patient selection, surgical technique, and post-operative rehabilitation for Attune TKR patients.</p>
+        </div>
+        <div class="info-box d4" data-anim="up">
+          <h4>Outcomes</h4>
+          <p>Clinical studies show Attune patients achieve higher functional scores, greater satisfaction rates, and better performance on activity-specific tasks compared to conventional TKR implants. Long-term follow-up data supports excellent implant survivorship beyond 10 years.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 5: OXINIUM TKR ===== -->
+  <section id="oxinium" class="procedure-section" style="background:#f8fafc; padding:72px 0;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="tag" data-anim="up">Oxinium · Smith & Nephew · On-Panel Specialist</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:#111; line-height:1.2; margin-bottom:20px;">Oxinium (Oxidised Zirconium) Knee Replacement</h2>
+      <p style="font-size:14px; font-weight:300; color:#444; line-height:1.9; max-width:820px; margin-bottom:24px;">
+        Dr. Joshi is an <strong>on-panel specialist</strong> for the Oxinium knee system by Smith &amp; Nephew — one of only a select group of surgeons in India certified to implant this advanced bearing surface. Oxinium uses a unique oxidised zirconium femoral component that combines the strength of metal with the smooth, wear-resistant surface of a ceramic.
+      </p>
+      <div class="info-grid" style="max-width:940px;">
+        <div class="info-box d1" data-anim="up">
+          <h4>What Is Oxinium</h4>
+          <p>Oxinium is a zirconium alloy that undergoes a proprietary oxidation process, transforming its surface into a ceramic-like layer. This surface is 4,900 times more scratch-resistant than cobalt-chrome and 49% smoother, dramatically reducing wear on the polyethylene liner and significantly extending implant life.</p>
+        </div>
+        <div class="info-box d2" data-anim="up">
+          <h4>Ideal Candidates</h4>
+          <p>Oxinium is particularly recommended for younger, more active patients (under 65) who are expected to place greater mechanical demands on their knee implant over a longer lifespan. It is also the preferred choice for patients with documented metal allergy or sensitivity to cobalt-chrome or nickel.</p>
+        </div>
+        <div class="info-box d3" data-anim="up">
+          <h4>Why It Matters for Longevity</h4>
+          <p>The primary cause of long-term implant failure is polyethylene wear debris causing bone loss (osteolysis). Oxinium's ceramic-like surface dramatically reduces this wear, with studies demonstrating up to 84% less polyethylene wear compared to standard cobalt-chrome, translating to a potentially 30+ year implant lifespan.</p>
+        </div>
+        <div class="info-box d4" data-anim="up">
+          <h4>The Surgical Experience</h4>
+          <p>The surgical procedure for an Oxinium TKR is identical to a standard TKR — the difference lies entirely in the material of the femoral component. Recovery times and protocols are the same, with patients benefiting from the same minimally invasive approach Dr. Joshi uses for all his knee replacements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 6: HIGH FLEX ===== -->
+  <section id="highflex" class="procedure-section" style="padding:72px 0;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="tag" data-anim="up">High Flex · Designed for Indian Lifestyle</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:#111; line-height:1.2; margin-bottom:20px;">High Flex Knee Replacement</h2>
+      <p style="font-size:14px; font-weight:300; color:#444; line-height:1.9; max-width:820px; margin-bottom:24px;">
+        Standard knee implants are designed to achieve approximately 120° of flexion — sufficient for Western lifestyles involving chairs and beds. However, many Indian patients require much greater knee bending for daily activities such as sitting cross-legged (sukhasana), squatting, kneeling for prayer, or using floor-level toilets. Dr. Joshi's High Flex Knee system is specifically designed for these needs.
+      </p>
+      <div class="info-grid" style="max-width:940px;">
+        <div class="info-box d1" data-anim="up">
+          <h4>What High Flex Achieves</h4>
+          <p>High Flex knee implants are engineered to allow flexion up to 150°–155°, compared to 110°–120° for standard implants. This allows patients to sit comfortably cross-legged, perform namaz (Islamic prayer), use squat-style toilets, and participate in yoga and floor-based activities with confidence.</p>
+        </div>
+        <div class="info-box d2" data-anim="up">
+          <h4>Who Needs High Flex</h4>
+          <p>Any patient whose daily life, cultural practices, or religious observance requires deep knee flexion. Dr. Joshi proactively discusses lifestyle requirements during consultation to ensure the implant selected will support the patient's full range of daily activities after recovery.</p>
+        </div>
+        <div class="info-box d3" data-anim="up">
+          <h4>Surgical Technique Requirements</h4>
+          <p>Achieving true high flexion after surgery requires not just the right implant, but meticulous soft tissue balancing and precise posterior capsule release intra-operatively. Dr. Joshi's extensive training in UK, Canada, and Singapore has given him the specialist technique needed to reliably achieve these outcomes.</p>
+        </div>
+        <div class="info-box d4" data-anim="up">
+          <h4>Rehabilitation for High Flex</h4>
+          <p>Achieving maximum flexion requires a dedicated physiotherapy programme. Dr. Joshi's team works with each patient over 3–6 months to progressively regain full range of motion. Most High Flex patients are able to sit cross-legged and kneel without assistance within 4–6 months of surgery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 7: GENDER SPECIFIC ===== -->
+  <section id="gender" class="procedure-section" style="background:#f8fafc; padding:72px 0;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="tag" data-anim="up">Gender-Specific · Anatomical Fit</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:#111; line-height:1.2; margin-bottom:20px;">Gender-Specific Knee Replacement</h2>
+      <p style="font-size:14px; font-weight:300; color:#444; line-height:1.9; max-width:820px; margin-bottom:24px;">
+        The female knee is anatomically distinct from the male knee: it is narrower relative to its height, has a differently angled femoral groove, and carries a different distribution of forces. Standard knee implants were historically designed around male anatomy, leaving many women with a component that doesn't fit their natural bone geometry. Gender-specific implants were developed to address this precisely.
+      </p>
+      <div class="info-grid" style="max-width:940px;">
+        <div class="info-box d1" data-anim="up">
+          <h4>How Female Knees Differ</h4>
+          <p>Women's knees are on average 12% narrower than men's of equivalent height. The Q-angle (angle of the quadriceps) is wider in women, altering patellar tracking. Women also have a different shaped trochlear groove. A standard implant fitted to a woman's knee may overhang the bone, causing pain and soft-tissue irritation.</p>
+        </div>
+        <div class="info-box d2" data-anim="up">
+          <h4>Benefits of Gender-Specific Implants</h4>
+          <p>A correctly sized gender-specific implant eliminates bony overhang, improves patellar tracking, reduces anterior knee pain, and provides a more natural fit. Clinical studies show higher satisfaction rates, better functional scores, and reduced pain at 2-year follow-up compared to standard implants in female patients.</p>
+        </div>
+        <div class="info-box d3" data-anim="up">
+          <h4>Who Qualifies</h4>
+          <p>Dr. Joshi carefully assesses each female patient's bone measurements during pre-operative planning. When templating confirms that the standard sizing would result in overhang or poor fit, a gender-specific system is recommended. This is particularly common in smaller women and those with significant deformity.</p>
+        </div>
+        <div class="info-box d4" data-anim="up">
+          <h4>The Surgical Experience</h4>
+          <p>The procedure is identical to a standard TKR in terms of incision, technique, and recovery time. The key difference is the implant selection — made during pre-operative planning — ensuring the component used is matched precisely to the patient's individual anatomy for the best possible outcome.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section style="background:#1e3a6a; padding:72px 0; text-align:center;">
+    <div style="max-width:600px; margin:0 auto; padding:0 40px;">
+      <div style="font-size:9px; font-weight:500; letter-spacing:0.3em; color:rgba(255,255,255,0.6); text-transform:uppercase; margin-bottom:16px;">Consult Dr. Vinay Joshi</div>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:300; color:#fff; line-height:1.2; margin-bottom:20px;" data-anim="up">Find the Right Knee Replacement for You</h3>
+      <p style="font-size:13px; font-weight:300; color:rgba(255,255,255,0.75); line-height:1.9; margin-bottom:32px;">Every patient and every knee is different. Dr. Joshi will recommend the most appropriate implant and technique based on your anatomy, lifestyle, and goals after a thorough clinical assessment.</p>
+      <a href="tel:+912242696969" class="btn-gold" style="background:#fff; color:#1e3a6a; margin-right:12px;">+91 22 4269 6969</a>
+      <a href="index.html" style="font-size:9px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.7); text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.3); padding-bottom:2px;">Back to Main Site →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#fff; padding:40px 60px; border-top:1px solid #eef2f6; display:flex; justify-content:space-between; align-items:center; max-width:none;">
+    <div>
+      <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.22em; color:#1a2a3a; text-transform:uppercase;">DR. VINAY S. JOSHI</div>
+      <div style="font-size:8px; color:#7a8fa8; letter-spacing:0.2em; text-transform:uppercase; margin-top:4px;">Consultant Orthopaedic Surgeon · Kokilaben Dhirubhai Ambani Hospital, Mumbai</div>
+    </div>
+    <div style="font-size:9px; font-weight:300; color:#aaa;">© 2024 Dr. Vinay S. Joshi. All Rights Reserved.</div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+    const _obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');_obs.unobserve(e.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('[data-anim]').forEach(el=>_obs.observe(el));
+  </script>
+</body>
+</html>

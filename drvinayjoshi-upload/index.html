@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Vinay S. Joshi | Joint Replacement Surgeon Mumbai</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; font-weight: 200; color: #000; line-height: 1.75; overflow-x: hidden; }
+
+    #site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease; background: transparent; }
+    #site-header.scrolled { background: rgba(15,25,40,0.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 1px 24px rgba(0,0,0,0.18); }
+
+    /* ── Full-screen menu overlay ── */
+    #menu-overlay {
+      position: fixed; inset: 0; background: rgba(8,16,30,0.98);
+      z-index: 200; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    #menu-overlay.open { opacity: 1; pointer-events: all; }
+    .menu-link {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px; font-weight: 300;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      display: block; padding: 6px 0;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .menu-link:hover { color: #7ab4e8; }
+    .menu-sub-link {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.25em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+      text-decoration: none; display: inline-block;
+      padding: 6px 14px; border: 1px solid rgba(255,255,255,0.15);
+      margin: 4px; transition: all 0.2s;
+    }
+    .menu-sub-link:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+    /* ── Testimonials carousel ── */
+    .testimonials-track { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
+    .testimonial-card { flex-shrink: 0; width: 100%; }
+    .testi-nav-btn { width: 42px; height: 42px; border: 1px solid #dde4ec; background: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; font-size: 16px; color: #1e3a6a; }
+    .testi-nav-btn:hover { background: #1e3a6a; color: #fff; border-color: #1e3a6a; }
+    .testi-dot { width: 6px; height: 6px; border-radius: 50%; background: #c8d4e4; cursor: pointer; transition: background 0.2s, transform 0.2s; }
+    .testi-dot.active { background: #1e3a6a; transform: scale(1.3); }
+
+    /* ── Gallery slideshow ── */
+    .gallery-track { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
+    .gallery-slide { flex-shrink: 0; width: 33.333%; padding: 0 6px; }
+    .gallery-slide img { width: 100%; height: 360px; object-fit: cover; object-position: center center; display: block; }
+
+    .gold-bg { background-color: #8a9bb5; }
+    .btn-gold { background-color: #1e3a6a; color: #fff; font-size: 9px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; padding: 13px 30px; display: inline-block; transition: background 0.2s; text-decoration: none; }
+    .btn-gold:hover { background-color: #162d54; }
+    .btn-outline { border: 1px solid #1e3a6a; color: #1e3a6a; font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 10px 20px; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s; text-decoration: none; }
+    .btn-outline:hover { background: #1e3a6a; color: #fff; }
+    .btn-dark-outline { border: 1px solid #333; color: #333; font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 10px 20px; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+    .section-label { font-size: 9px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: #7a8fa8; }
+    .hero-overlay { background: linear-gradient(to bottom, rgba(10,20,35,0.45) 0%, rgba(10,20,35,0.15) 55%, rgba(10,20,35,0.5) 100%); }
+    .drop-cap::first-letter { font-family: 'Cormorant Garamond', serif; font-size: 5em; font-weight: 300; float: left; line-height: 0.72; margin-right: 8px; margin-top: 6px; color: #000; }
+    .procedure-card img { transition: transform 0.5s ease; }
+    .procedure-card:hover img { transform: scale(1.05); }
+    a.procedure-card { display: block; text-decoration: none; color: inherit; }
+
+    /* ── Procedure panels (inspiration layout) ── */
+    .proc-panel { position:relative; overflow:hidden; cursor:pointer; }
+    .proc-panel img { width:100%; height:100%; object-fit:cover; object-position:center; transition:transform 0.65s ease; display:block; }
+    .proc-panel:hover img { transform:scale(1.05); }
+    .proc-gradient { position:absolute; inset:0; background:linear-gradient(to top, rgba(8,16,28,0.80) 0%, rgba(8,16,28,0.04) 58%); z-index:1; transition:opacity 0.4s ease; }
+    .proc-panel:hover .proc-gradient { opacity:0; }
+    .proc-default-label { position:absolute; bottom:0; left:0; right:0; padding:0 24px 32px; text-align:center; z-index:2; transition:opacity 0.3s ease; }
+    .proc-panel:hover .proc-default-label { opacity:0; }
+    .proc-hover-overlay { position:absolute; inset:0; background:rgba(8,16,28,0.87); opacity:0; z-index:3; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px 32px; transition:opacity 0.4s ease; }
+    .proc-panel:hover .proc-hover-overlay { opacity:1; }
+    .proc-hover-link { display:block; font-size:8.5px; font-weight:500; letter-spacing:0.22em; color:rgba(255,255,255,0.72); text-transform:uppercase; text-decoration:none; padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.1); width:100%; text-align:center; transition:color 0.2s, letter-spacing 0.2s; }
+    .proc-hover-link:hover { color:#fff; letter-spacing:0.28em; }
+    .proc-view-all { display:block; font-size:8.5px; font-weight:600; letter-spacing:0.3em; color:#a8c4e4; text-transform:uppercase; text-decoration:none; padding:14px 0 0; width:100%; text-align:center; transition:color 0.2s; }
+    .proc-view-all:hover { color:#fff; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; color: #fff; line-height: 1; }
+
+    @keyframes cardFadeIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .testi-inner {
+      animation: cardFadeIn 0.55s cubic-bezier(0.4,0,0.2,1) both;
+      background: #fff; border: 1px solid #c8d4e4; border-top: 4px solid #1e3a6a;
+      padding: 52px 60px; text-align: center; position: relative;
+      box-shadow: 0 8px 40px rgba(30,58,106,0.10);
+      transition: box-shadow 0.3s ease, border-top-color 0.3s;
+    }
+    .testi-inner:hover { box-shadow: 0 16px 56px rgba(30,58,106,0.18); border-top-color: #2563eb; }
+    .testi-stars { color: #2563eb; font-size: 16px; letter-spacing: 3px; margin-bottom: 20px; }
+    .why-card:hover { box-shadow: 0 8px 32px rgba(30,58,106,0.15); transform: translateY(-4px); border-color: #1e3a6a; }
+    .divider { width: 40px; height: 1px; background: #7a8fa8; margin: 0 auto; }
+
+    /* Media cards */
+    .media-card { background: #fff; border: 1px solid #e0e8f2; overflow: hidden; transition: box-shadow 0.3s; }
+    .media-card:hover { box-shadow: 0 8px 32px rgba(30,58,106,0.12); }
+    .media-card iframe { display: block; width: 100%; height: 220px; border: none; }
+
+    /* ── Scroll animations ── */
+    [data-anim] { opacity: 0; transition: opacity 0.75s ease, transform 0.75s ease; }
+    [data-anim="fade-up"] { transform: translateY(32px); }
+    [data-anim="fade-left"] { transform: translateX(-40px); }
+    [data-anim="fade-right"] { transform: translateX(40px); }
+    [data-anim="fade-in"] { transform: scale(0.97); }
+    [data-anim].anim-in { opacity: 1 !important; transform: none !important; }
+    .anim-delay-1 { transition-delay: 0.1s !important; }
+    .anim-delay-2 { transition-delay: 0.2s !important; }
+    .anim-delay-3 { transition-delay: 0.3s !important; }
+    .anim-delay-4 { transition-delay: 0.4s !important; }
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- ========== MENU OVERLAY ========== -->
+  <div id="menu-overlay">
+    <button onclick="closeMenu()" style="position:absolute; top:32px; right:48px; font-size:28px; color:rgba(255,255,255,0.6); background:none; border:none; cursor:pointer; font-weight:300; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">✕</button>
+    <div style="text-align:center; margin-bottom:24px;">
+      <div style="font-size:8px; font-weight:500; letter-spacing:0.35em; color:rgba(255,255,255,0.35); text-transform:uppercase; margin-bottom:20px;">DR. VINAY S. JOSHI · KOKILABEN DHIRUBHAI AMBANI HOSPITAL</div>
+      <a href="index.html" class="menu-link">Home</a>
+      <a href="knee.html" class="menu-link">Knee Replacement</a>
+      <a href="hip.html" class="menu-link">Hip Replacement</a>
+      <a href="robotic.html" class="menu-link">Robotic Surgery</a>
+      <a href="revision.html" class="menu-link">Revision Surgery</a>
+      <a href="health-tips.html" class="menu-link">Health Tips</a>
+      <a href="testimonials.html" class="menu-link">Testimonials</a>
+      <a href="consultation.html" class="menu-link">Consultation</a>
+    </div>
+    <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap; justify-content:center; max-width:520px;">
+      <a href="knee.html" class="menu-sub-link">Total Knee Replacement</a>
+      <a href="knee.html#robotic" class="menu-sub-link">Robotic TKR</a>
+      <a href="knee.html#highflex" class="menu-sub-link">High Flex Knee</a>
+      <a href="hip.html#ceramic" class="menu-sub-link">Ceramic Hip</a>
+      <a href="hip.html#regrow" class="menu-sub-link">Regrow Therapy (AVN)</a>
+      <a href="revision.html" class="menu-sub-link">Complex Revision</a>
+    </div>
+    <div style="margin-top:40px; text-align:center;">
+      <a href="tel:+912242696969" style="font-size:20px; font-weight:500; color:#fff; text-decoration:none; letter-spacing:0.05em;">+91 22 4269 6969</a>
+      <div style="font-size:8px; letter-spacing:0.2em; color:rgba(255,255,255,0.35); text-transform:uppercase; margin-top:6px;">Book a Consultation</div>
+    </div>
+  </div>
+
+  <!-- ========== NAVIGATION ========== -->
+  <header id="site-header">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 48px;">
+      <div style="flex-shrink:0;">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.22em;color:#fff;text-transform:uppercase;line-height:1.1;">DR. VINAY S. JOSHI</div>
+        <div style="font-size:7px;font-weight:400;letter-spacing:0.3em;color:rgba(255,255,255,0.65);text-transform:uppercase;margin-top:3px;">MBBS · MS · DNB · FRCS · FCPS</div>
+      </div>
+      <nav style="display:flex;align-items:center;gap:22px;">
+        <a href="index.html" style="font-size:9px;font-weight:600;letter-spacing:0.18em;color:#fff;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.6);padding-bottom:2px;">Home</a>
+        <a href="knee.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Knee</a>
+        <a href="hip.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Hip</a>
+        <a href="robotic.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Robotic</a>
+        <a href="revision.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Revision</a>
+        <a href="health-tips.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Health Tips</a>
+        <a href="testimonials.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Testimonials</a>
+        <div style="width:1px;height:18px;background:rgba(255,255,255,0.25);"></div>
+        <a href="consultation.html" style="font-size:9px;font-weight:600;letter-spacing:0.18em;color:#fff;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.45);padding:7px 16px;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.12)'" onmouseout="this.style.background='transparent'">Book Consult</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
+        <button onclick="openMenu()" style="font-size:10px;font-weight:500;letter-spacing:0.15em;color:#fff;text-transform:uppercase;background:none;border:none;cursor:pointer;padding:0;">Menu ≡</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="relative" style="height:640px; overflow:hidden;">
+    <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=1440&h=640&fit=crop&crop=center"
+         onerror="this.src='https://placehold.co/1440x640/1a2a3a/4a6a8a'"
+         alt="Dr. Vinay S. Joshi" class="w-full h-full object-cover object-center">
+    <div class="hero-overlay absolute inset-0"></div>
+    <div class="absolute bottom-0 left-0 right-0" style="padding-bottom:56px;">
+      <div class="flex items-center justify-center gap-12">
+        <div style="text-align:center;">
+          <div style="font-size:9px; font-weight:300; letter-spacing:0.2em; color:rgba(255,255,255,0.6); text-transform:uppercase;">International Training</div>
+          <div style="font-size:12px; font-weight:500; letter-spacing:0.12em; color:#fff; margin-top:2px;">UK · USA · CANADA · ITALY</div>
+        </div>
+        <div style="width:1px; height:36px; background:rgba(255,255,255,0.3);"></div>
+        <div style="text-align:center;">
+          <div style="font-size:22px; font-weight:300; color:#fff; font-family:'Cormorant Garamond',serif; line-height:1;">4,500+</div>
+          <div style="font-size:8px; font-weight:400; letter-spacing:0.2em; color:rgba(255,255,255,0.7); text-transform:uppercase; margin-top:2px;">Joint Replacements</div>
+        </div>
+        <div style="width:1px; height:36px; background:rgba(255,255,255,0.3);"></div>
+        <div style="text-align:center;">
+          <div style="font-size:22px; font-weight:300; color:#fff; font-family:'Cormorant Garamond',serif; line-height:1;">28+</div>
+          <div style="font-size:8px; font-weight:400; letter-spacing:0.2em; color:rgba(255,255,255,0.7); text-transform:uppercase; margin-top:2px;">Years Experience</div>
+        </div>
+        <div style="width:1px; height:36px; background:rgba(255,255,255,0.3);"></div>
+        <div style="text-align:center;">
+          <div style="font-size:22px; font-weight:300; color:#fff; font-family:'Cormorant Garamond',serif; line-height:1;">97%</div>
+          <div style="font-size:8px; font-weight:400; letter-spacing:0.2em; color:rgba(255,255,255,0.7); text-transform:uppercase; margin-top:2px;">Patient Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Name banner -->
+  <div class="gold-bg text-center py-5">
+    <div style="font-size:21px; font-weight:300; letter-spacing:0.38em; color:#fff; text-transform:uppercase; font-family:'Montserrat',sans-serif;">Dr. Vinay S. Joshi</div>
+    <div style="font-size:8px; font-weight:500; letter-spacing:0.38em; color:rgba(255,255,255,0.72); text-transform:uppercase; margin-top:4px;">CONSULTANT ORTHOPAEDIC SURGEON · KOKILABEN DHIRUBHAI AMBANI HOSPITAL, MUMBAI</div>
+  </div>
+
+  <!-- ========== RECOGNITION STRIP ========== -->
+  <section class="relative bg-white py-7" style="border-bottom: 1px solid #f0f0f0;">
+    <div class="flex justify-center px-14" style="align-items:stretch;">
+      <div style="text-align:center; padding:0 28px; border-right:1px solid #e8e8e8; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;">
+        <div style="font-size:7px; font-weight:600; letter-spacing:0.2em; color:#7a8fa8; text-transform:uppercase;">Lead Surgeon</div>
+        <div style="font-size:11px; font-weight:700; color:#222; letter-spacing:0.02em;">Kokilaben Ambani</div>
+        <div style="font-size:8px; font-weight:300; color:#888; letter-spacing:0.1em;">Hospital, Mumbai</div>
+      </div>
+      <div style="text-align:center; padding:0 28px; border-right:1px solid #e8e8e8; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;">
+        <div style="font-size:7px; font-weight:600; letter-spacing:0.2em; color:#7a8fa8; text-transform:uppercase;">Fellow</div>
+        <div style="font-size:11px; font-weight:700; color:#222;">FRCS</div>
+        <div style="font-size:8px; font-weight:300; color:#888;">Royal College of Surgeons</div>
+      </div>
+      <div style="text-align:center; padding:0 28px; border-right:1px solid #e8e8e8; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;">
+        <div style="font-size:7px; font-weight:600; letter-spacing:0.2em; color:#7a8fa8; text-transform:uppercase;">Certified</div>
+        <div style="font-size:11px; font-weight:700; color:#222;">DNB · FCPS</div>
+        <div style="font-size:8px; font-weight:300; color:#888;">National Board · Mumbai</div>
+      </div>
+      <div style="text-align:center; padding:0 28px; border-right:1px solid #e8e8e8; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;">
+        <div style="font-size:7px; font-weight:600; letter-spacing:0.2em; color:#7a8fa8; text-transform:uppercase;">Advanced</div>
+        <div style="font-size:11px; font-weight:700; color:#222;">Robotic Surgery</div>
+        <div style="font-size:8px; font-weight:300; color:#888;">VELYS · Minimally Invasive</div>
+      </div>
+      <div style="text-align:center; padding:0 28px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;">
+        <div style="font-size:7px; font-weight:600; letter-spacing:0.2em; color:#7a8fa8; text-transform:uppercase;">Training</div>
+        <div style="font-size:11px; font-weight:700; color:#222;">UK · Canada · Italy</div>
+        <div style="font-size:8px; font-weight:300; color:#888;">Singapore · USA</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BIO SECTION ========== -->
+  <section style="max-width:1000px; margin:0 auto; padding:96px 60px 88px;">
+    <div class="text-center mb-8">
+      <div class="section-label">JOINT REPLACEMENT SURGEON · KOKILABEN DHIRUBHAI AMBANI HOSPITAL · MUMBAI</div>
+      <div class="divider mt-5 mb-8"></div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:46px; font-weight:300; line-height:1.15; color:#111; margin-bottom:6px;">
+        Mumbai's Best Joint Replacement Surgeon
+      </h2>
+      <div style="font-size:12px; font-weight:300; letter-spacing:0.18em; color:#7a8fa8; text-transform:uppercase; margin-bottom:40px;">Dr. Vinay S. Joshi · Lead Arthroplasty Surgeon · Kokilaben Dhirubhai Ambani Hospital</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px 64px;">
+      <div>
+        <p style="font-size:15px; font-weight:300; line-height:2.0; color:#333;">
+          Dr. Vinay S. Joshi is Mumbai's foremost consultant orthopaedic surgeon. He leads the Arthroplasty &amp; Joint Replacement team at Kokilaben Dhirubhai Ambani Hospital as its <strong>most senior joint replacement specialist</strong> — heading a world-class surgical team in one of India's premier hospitals.
+        </p>
+      </div>
+      <div>
+        <p style="font-size:15px; font-weight:300; line-height:2.0; color:#333;">
+          He spent <strong>12 years training at five of the United Kingdom's finest orthopaedic centres</strong>, with additional fellowships in Canada, Italy, Singapore and the USA. Since joining KDAH in July 2012, he has performed more than <strong>4,500 joint replacements</strong> using minimally invasive techniques — exclusively primary and complex revision surgeries.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SPECIALTY HEADING ========== -->
+  <div style="text-align:center; padding:64px 0 40px;" data-anim="fade-up">
+    <div class="section-label">KNEE · HIP · REVISION · ROBOTIC JOINT REPLACEMENT SURGERY · MUMBAI</div>
+    <div class="divider mt-4"></div>
+  </div>
+
+  <!-- ========== DR. JOSHI PROFILE ========== -->
+  <section class="relative bg-white" style="min-height:600px; overflow:hidden; padding:0;">
+    <div class="absolute gold-bg" style="right:80px; top:30px; width:340px; height:340px; z-index:0; opacity:0.92;"></div>
+    <div class="relative flex items-start" style="max-width:1200px; margin:0 auto; padding:68px 80px; z-index:2; position:relative;">
+      <div style="flex-shrink:0; width:360px; position:relative; z-index:3;">
+        <img src="Profile picture.png"
+             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=360&h=520&fit=crop&crop=face,top';"
+             alt="Dr. Vinay S. Joshi" style="width:360px; height:520px; object-fit:cover; object-position:top center;">
+      </div>
+      <div style="flex:1; padding-left:72px; padding-top:16px; position:relative; z-index:4;">
+        <div class="flex gap-3 mb-10">
+          <a href="https://www.youtube.com/watch?v=iQm3wvjTJDs" target="_blank" rel="noopener" class="btn-dark-outline" style="font-size:10px; padding:12px 28px;">MEET DR. JOSHI →</a>
+        </div>
+        <div class="grid grid-cols-3 gap-3 mb-8" style="max-width:460px;">
+          <div style="border:1px solid #dde4ec; padding:14px 10px; text-align:center; background:#1e3a6a; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+            <div style="font-size:7px; font-weight:600; letter-spacing:0.15em; color:rgba(255,255,255,0.7); text-transform:uppercase;">MS Ortho</div>
+            <div style="font-size:13px; font-weight:700; color:#fff; line-height:1.15; margin-top:4px;">Mumbai<br>University</div>
+            <div style="font-size:7px; font-weight:300; color:rgba(255,255,255,0.65); margin-top:5px; letter-spacing:0.08em;">Distinction</div>
+          </div>
+          <div style="border:1px solid #dde4ec; padding:14px 10px; text-align:center; background:#1a2a3a;">
+            <div style="font-size:7px; font-weight:600; letter-spacing:0.18em; color:#7a9fbe; text-transform:uppercase; margin-bottom:4px;">FELLOW</div>
+            <div style="font-size:18px; font-weight:700; color:#fff; line-height:1;">FRCS</div>
+            <div style="width:20px; height:1px; background:#7a8fa8; margin:6px auto;"></div>
+            <div style="font-size:7px; font-weight:300; color:rgba(255,255,255,0.65); letter-spacing:0.1em; text-transform:uppercase;">Royal College<br>of Surgeons</div>
+          </div>
+          <div style="border:1px solid #dde4ec; padding:14px 10px; text-align:center; background:#f8fafc;">
+            <div style="font-size:7px; font-weight:600; letter-spacing:0.18em; color:#7a8fa8; text-transform:uppercase; margin-bottom:4px;">CERTIFIED</div>
+            <div style="font-size:18px; font-weight:700; color:#1a2a3a; line-height:1;">DNB</div>
+            <div style="font-size:7px; font-weight:300; color:#888; margin-top:5px; letter-spacing:0.08em;">National Board<br>of Examination</div>
+          </div>
+          <div style="border:1px solid #dde4ec; padding:12px 16px; display:flex; align-items:center; justify-content:center; gap:20px; grid-column:span 2;">
+            <div style="text-align:center;">
+              <div style="font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:300; color:#1e3a6a; line-height:1;">4,500<span style="font-size:20px;">+</span></div>
+              <div style="font-size:7px; font-weight:500; letter-spacing:0.18em; color:#888; text-transform:uppercase; margin-top:2px;">Surgeries</div>
+            </div>
+            <div style="width:1px; height:36px; background:#e0e8f0;"></div>
+            <div style="text-align:center;">
+              <div style="font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:300; color:#1e3a6a; line-height:1;">28<span style="font-size:20px;">+</span></div>
+              <div style="font-size:7px; font-weight:500; letter-spacing:0.18em; color:#888; text-transform:uppercase; margin-top:2px;">Yrs. Exp.</div>
+            </div>
+          </div>
+          <div style="border:1px solid #dde4ec; padding:14px 10px; text-align:center; background:#1e3a6a; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+            <div style="font-size:7px; font-weight:600; letter-spacing:0.18em; color:rgba(255,255,255,0.7); text-transform:uppercase; margin-bottom:4px;">FELLOW</div>
+            <div style="font-size:18px; font-weight:700; color:#fff; line-height:1;">FCPS</div>
+            <div style="font-size:7px; font-weight:300; color:rgba(255,255,255,0.75); margin-top:5px; letter-spacing:0.08em;">Mumbai</div>
+          </div>
+        </div>
+        <p style="font-size:11.5px; font-weight:300; line-height:1.95; color:#555; max-width:460px;">
+          Dr. Joshi is a recognised leader in robotic joint replacement surgery in India, utilising the VELYS robotic platform to deliver precision outcomes at the forefront of the specialty. Outside of clinical practice, Dr. Joshi advances the specialty through peer-reviewed publications, the post-graduate mentorship of orthopaedic surgeons, and by presenting at leading conferences across India and internationally. He is recognised by colleagues and patients alike as the definitive choice for joint replacement surgery in India.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONSULTATIONS TEXT ========== -->
+  <section style="background:#f5f8fa; border-top:1px solid #eef2f6; border-bottom:1px solid #eef2f6;" data-anim="fade-up">
+  <div style="padding:72px 40px 80px; max-width:760px; margin:0 auto; text-align:center;">
+    <h3 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; margin-bottom:24px; color:#111;">Consultations with Dr. Vinay Joshi</h3>
+    <div style="width:40px; height:1px; background:#7a8fa8; margin:0 auto 28px;"></div>
+    <p style="font-size:15px; font-weight:300; line-height:1.95; color:#555; max-width:620px; margin:0 auto 36px;">We believe every patient deserves to live without pain. We offer comprehensive consultations with Dr. Joshi, both in-person at Kokilaben Dhirubhai Ambani Hospital and virtually. Our team is available to schedule a consultation at a time most convenient for you.</p>
+    <a href="consultation.html" class="btn-gold">BOOK A CONSULTATION</a>
+  </div>
+  </section>
+
+  <!-- ========== PROCEDURE CATEGORIES ========== -->
+  <section style="background:#fff; padding:72px 60px 80px;">
+    <div style="max-width:1320px; margin:0 auto;">
+      <div class="text-center" style="margin-bottom:48px;">
+        <div class="section-label">KNEE · HIP · ROBOTIC · REVISION</div>
+        <div class="divider mt-4"></div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
+
+        <!-- KNEE -->
+        <div class="proc-panel" style="height:480px;" onclick="window.location='knee.html'">
+          <img src="Knee photo.jpg"
+               onerror="this.src='https://placehold.co/400x480/1a2a3a/4a6a8a?text=Knee'"
+               alt="Knee Replacement">
+          <div class="proc-gradient"></div>
+          <div class="proc-default-label">
+            <span style="font-size:11px; font-weight:600; letter-spacing:0.38em; color:#fff; text-transform:uppercase; display:block; margin-bottom:3px;">Knee</span>
+            <span style="font-size:7px; font-weight:300; letter-spacing:0.22em; color:rgba(255,255,255,0.6); text-transform:uppercase; display:block;">Replacement</span>
+          </div>
+          <div class="proc-hover-overlay">
+            <div style="font-size:11px; font-weight:600; letter-spacing:0.42em; color:#fff; text-transform:uppercase; margin-bottom:18px;">Knee</div>
+            <div style="width:24px; height:1px; background:rgba(255,255,255,0.28); margin-bottom:18px;"></div>
+            <a href="knee.html" class="proc-hover-link" onclick="event.stopPropagation()">Total Knee Replacement</a>
+            <a href="knee.html#robotic" class="proc-hover-link" onclick="event.stopPropagation()">Robotic TKR</a>
+            <a href="knee.html#highflex" class="proc-hover-link" onclick="event.stopPropagation()">High Flex Knee</a>
+            <a href="knee.html" class="proc-view-all" onclick="event.stopPropagation()">View All &rarr;</a>
+          </div>
+        </div>
+
+        <!-- HIP -->
+        <div class="proc-panel" style="height:480px;" onclick="window.location='hip.html'">
+          <img src="Hip Image.jpg"
+               onerror="this.src='https://placehold.co/400x480/2a1a3a/6a4a8a?text=Hip'"
+               alt="Hip Replacement">
+          <div class="proc-gradient"></div>
+          <div class="proc-default-label">
+            <span style="font-size:11px; font-weight:600; letter-spacing:0.38em; color:#fff; text-transform:uppercase; display:block; margin-bottom:3px;">Hip</span>
+            <span style="font-size:7px; font-weight:300; letter-spacing:0.22em; color:rgba(255,255,255,0.6); text-transform:uppercase; display:block;">Replacement</span>
+          </div>
+          <div class="proc-hover-overlay">
+            <div style="font-size:11px; font-weight:600; letter-spacing:0.42em; color:#fff; text-transform:uppercase; margin-bottom:18px;">Hip</div>
+            <div style="width:24px; height:1px; background:rgba(255,255,255,0.28); margin-bottom:18px;"></div>
+            <a href="hip.html" class="proc-hover-link" onclick="event.stopPropagation()">Total Hip Replacement</a>
+            <a href="hip.html#ceramic" class="proc-hover-link" onclick="event.stopPropagation()">Ceramic Hip</a>
+            <a href="hip.html#regrow" class="proc-hover-link" onclick="event.stopPropagation()">Regrow Therapy (AVN)</a>
+            <a href="hip.html" class="proc-view-all" onclick="event.stopPropagation()">View All &rarr;</a>
+          </div>
+        </div>
+
+        <!-- ROBOTIC -->
+        <div class="proc-panel" style="height:480px;" onclick="window.location='robotic.html'">
+          <img src="RoboticSurgery.jpg"
+               onerror="this.src='https://placehold.co/400x480/1a2a1a/4a8a4a?text=Robotic'"
+               alt="Robotic Surgery">
+          <div class="proc-gradient"></div>
+          <div class="proc-default-label">
+            <span style="font-size:11px; font-weight:600; letter-spacing:0.38em; color:#fff; text-transform:uppercase; display:block; margin-bottom:3px;">Robotic</span>
+            <span style="font-size:7px; font-weight:300; letter-spacing:0.22em; color:rgba(255,255,255,0.6); text-transform:uppercase; display:block;">Surgery</span>
+          </div>
+          <div class="proc-hover-overlay">
+            <div style="font-size:11px; font-weight:600; letter-spacing:0.42em; color:#fff; text-transform:uppercase; margin-bottom:18px;">Robotic</div>
+            <div style="width:24px; height:1px; background:rgba(255,255,255,0.28); margin-bottom:18px;"></div>
+            <a href="robotic.html" class="proc-hover-link" onclick="event.stopPropagation()">VELYS Robotic System</a>
+            <a href="robotic.html" class="proc-hover-link" onclick="event.stopPropagation()">Computer Navigation</a>
+            <a href="robotic.html" class="proc-hover-link" onclick="event.stopPropagation()">Precision Outcomes</a>
+            <a href="robotic.html" class="proc-view-all" onclick="event.stopPropagation()">View All &rarr;</a>
+          </div>
+        </div>
+
+        <!-- REVISION -->
+        <div class="proc-panel" style="height:480px;" onclick="window.location='revision.html'">
+          <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=400&h=480&fit=crop&crop=center"
+               onerror="this.src='https://placehold.co/400x480/2a1a1a/8a4a4a?text=Revision'"
+               alt="Revision Surgery">
+          <div class="proc-gradient"></div>
+          <div class="proc-default-label">
+            <span style="font-size:11px; font-weight:600; letter-spacing:0.38em; color:#fff; text-transform:uppercase; display:block; margin-bottom:3px;">Revision</span>
+            <span style="font-size:7px; font-weight:300; letter-spacing:0.22em; color:rgba(255,255,255,0.6); text-transform:uppercase; display:block;">Surgery</span>
+          </div>
+          <div class="proc-hover-overlay">
+            <div style="font-size:11px; font-weight:600; letter-spacing:0.42em; color:#fff; text-transform:uppercase; margin-bottom:18px;">Revision</div>
+            <div style="width:24px; height:1px; background:rgba(255,255,255,0.28); margin-bottom:18px;"></div>
+            <a href="revision.html" class="proc-hover-link" onclick="event.stopPropagation()">Complex Revision</a>
+            <a href="revision.html" class="proc-hover-link" onclick="event.stopPropagation()">Failed Implant Cases</a>
+            <a href="revision.html" class="proc-hover-link" onclick="event.stopPropagation()">Bone Reconstruction</a>
+            <a href="revision.html" class="proc-view-all" onclick="event.stopPropagation()">View All &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TRAINING JOURNEY ========== -->
+  <section style="background:#f5f8fa; padding:88px 0; border-top:1px solid #eef2f6;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="text-center mb-4">
+        <div class="section-label">INTERNATIONAL TRAINING · EDUCATION · EXPERTISE</div>
+        <div class="divider mt-4 mb-8"></div>
+      </div>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:56px; color:#111;">A Surgeon Trained at the World's Finest Institutions</h3>
+      <div style="position:relative;">
+        <div style="position:absolute; left:50%; top:0; bottom:0; width:1px; background:#dde4ec; transform:translateX(-50%);"></div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px 80px;">
+          <div style="text-align:right; padding-right:40px; padding-bottom:40px; position:relative;" data-anim="fade-right">
+            <div style="position:absolute; right:-8px; top:6px; width:14px; height:14px; background:#7a8fa8; border-radius:50%; border:2px solid #fff; box-shadow:0 0 0 2px #7a8fa8;"></div>
+            <div style="font-size:8px; font-weight:600; letter-spacing:0.2em; color:#7a8fa8; text-transform:uppercase; margin-bottom:6px;">Foundation · Mumbai</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:#1a2a3a; margin-bottom:8px;">Topiwala National Medical College &amp; Nair Hospital</div>
+            <div style="font-size:13px; font-weight:300; color:#555; line-height:1.8;">MBBS &amp; primary orthopaedic training. Built a rigorous foundation in musculoskeletal surgery and trauma care.</div>
+          </div>
+          <div style="padding-bottom:40px;"></div>
+          <div style="padding-bottom:40px;"></div>
+          <div style="padding-left:40px; padding-bottom:40px; position:relative;" data-anim="fade-left">
+            <div style="position:absolute; left:-8px; top:6px; width:14px; height:14px; background:#7a8fa8; border-radius:50%; border:2px solid #fff; box-shadow:0 0 0 2px #7a8fa8;"></div>
+            <div style="font-size:8px; font-weight:600; letter-spacing:0.2em; color:#7a8fa8; text-transform:uppercase; margin-bottom:6px;">12 Years · United Kingdom</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:#1a2a3a; margin-bottom:8px;">FRCS · Royal College of Surgeons &amp; 5 Specialist Centres</div>
+            <div style="font-size:13px; font-weight:300; color:#555; line-height:1.8;">Specialised joint replacement training across five of the UK's leading orthopaedic hospitals, including a locum consultant post at Chase Farm Hospital.</div>
+          </div>
+          <div style="text-align:right; padding-right:40px; padding-bottom:40px; position:relative;" data-anim="fade-right">
+            <div style="position:absolute; right:-8px; top:6px; width:14px; height:14px; background:#7a8fa8; border-radius:50%; border:2px solid #fff; box-shadow:0 0 0 2px #7a8fa8;"></div>
+            <div style="font-size:8px; font-weight:600; letter-spacing:0.2em; color:#7a8fa8; text-transform:uppercase; margin-bottom:6px;">Advanced Training · Global</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:#1a2a3a; margin-bottom:8px;">Canada · Italy · Singapore · USA</div>
+            <div style="font-size:13px; font-weight:300; color:#555; line-height:1.8;">Advanced courses in cutting-edge joint replacement techniques, implant technology, and minimally invasive approaches at international centres of excellence.</div>
+          </div>
+          <div style="padding-bottom:40px;"></div>
+          <div style="padding-bottom:40px;"></div>
+          <div style="padding-left:40px; position:relative;" data-anim="fade-left">
+            <div style="position:absolute; left:-8px; top:6px; width:14px; height:14px; background:#1e3a6a; border-radius:50%; border:2px solid #fff; box-shadow:0 0 0 2px #1e3a6a;"></div>
+            <div style="font-size:8px; font-weight:600; letter-spacing:0.2em; color:#1e3a6a; text-transform:uppercase; margin-bottom:6px;">Lead Surgeon · Since July 2012</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:#1a2a3a; margin-bottom:8px;">Kokilaben Dhirubhai Ambani Hospital, Mumbai</div>
+            <div style="font-size:13px; font-weight:300; color:#555; line-height:1.8;">Head of the Arthroplasty team. Over 4,500 joint replacements performed using minimally invasive techniques at one of India's premier medical institutions.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE DR. JOSHI ========== -->
+  <section style="background:#fff; padding:88px 0; border-top:1px solid #eef2f6;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="text-center mb-4">
+        <div class="section-label">EXPERTISE · OUTCOMES · CARE</div>
+        <div class="divider mt-4 mb-8"></div>
+      </div>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:56px; color:#111;">Why Patients Choose Dr. Joshi</h3>
+      <div class="grid grid-cols-4 gap-6">
+        <div class="why-card" style="background:#f8fafc; border:1px solid #e0e8f2; padding:36px 28px; text-align:center; transition: all 0.3s ease; cursor:default;" data-anim="fade-up">
+          <div style="margin-bottom:18px; display:flex; justify-content:center;">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 4C19 4 10 10 10 20C10 25.52 14.48 30 20 30C25.52 30 30 25.52 30 20C30 14 22 8 19 4Z" stroke="#1e3a6a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 22C14 22 16 26 20 26C24 26 26 22 26 22" stroke="#1e3a6a" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M16 18H24" stroke="#1e3a6a" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div style="font-size:10px; font-weight:600; letter-spacing:0.18em; color:#7a8fa8; text-transform:uppercase; margin-bottom:10px;">Sub-specialist</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:#1a2a3a; margin-bottom:10px;">Dedicated Joint Replacement Focus</div>
+          <div style="font-size:12px; font-weight:300; color:#555; line-height:1.75;">Exclusively performs primary and complex revision joint replacements — no general orthopaedics.</div>
+        </div>
+        <div class="why-card anim-delay-1" style="background:#f8fafc; border:1px solid #e0e8f2; padding:36px 28px; text-align:center; transition: all 0.3s ease; cursor:default;" data-anim="fade-up">
+          <div style="margin-bottom:18px; display:flex; justify-content:center;">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="19" cy="19" r="8" stroke="#1e3a6a" stroke-width="1.5"/>
+              <circle cx="19" cy="19" r="3" fill="#1e3a6a"/>
+              <line x1="19" y1="4" x2="19" y2="10" stroke="#1e3a6a" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="19" y1="28" x2="19" y2="34" stroke="#1e3a6a" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="4" y1="19" x2="10" y2="19" stroke="#1e3a6a" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="28" y1="19" x2="34" y2="19" stroke="#1e3a6a" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div style="font-size:10px; font-weight:600; letter-spacing:0.18em; color:#7a8fa8; text-transform:uppercase; margin-bottom:10px;">Technology</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:#1a2a3a; margin-bottom:10px;">Robotic &amp; Computer-Navigated Surgery</div>
+          <div style="font-size:12px; font-weight:300; color:#555; line-height:1.75;">Uses the VELYS robotic platform and computer navigation for sub-millimetre precision in implant positioning.</div>
+        </div>
+        <div class="why-card anim-delay-2" style="background:#f8fafc; border:1px solid #e0e8f2; padding:36px 28px; text-align:center; transition: all 0.3s ease; cursor:default;" data-anim="fade-up">
+          <div style="margin-bottom:18px; display:flex; justify-content:center;">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 8v6M19 24v2M12 19H8M28 19h2M14.5 13.5l-2-2M23.5 24.5l2 2M14.5 24.5l-2 2M23.5 13.5l2-2" stroke="#1e3a6a" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="19" cy="19" r="4" stroke="#1e3a6a" stroke-width="1.5"/>
+              <circle cx="19" cy="19" r="11" stroke="#1e3a6a" stroke-width="1" stroke-dasharray="2 2"/>
+            </svg>
+          </div>
+          <div style="font-size:10px; font-weight:600; letter-spacing:0.18em; color:#7a8fa8; text-transform:uppercase; margin-bottom:10px;">Recovery</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:#1a2a3a; margin-bottom:10px;">Minimally Invasive Technique</div>
+          <div style="font-size:12px; font-weight:300; color:#555; line-height:1.75;">Small incisions mean less blood loss, reduced pain, faster recovery and shorter hospital stays — on average just 5 days.</div>
+        </div>
+        <div class="why-card anim-delay-3" style="background:#f8fafc; border:1px solid #e0e8f2; padding:36px 28px; text-align:center; transition: all 0.3s ease; cursor:default;" data-anim="fade-up">
+          <div style="margin-bottom:18px; display:flex; justify-content:center;">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="19" cy="12" r="5" stroke="#1e3a6a" stroke-width="1.5"/>
+              <path d="M9 32c0-5.52 4.48-10 10-10s10 4.48 10 10" stroke="#1e3a6a" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M28 8l2 2-6 6" stroke="#1e3a6a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div style="font-size:10px; font-weight:600; letter-spacing:0.18em; color:#7a8fa8; text-transform:uppercase; margin-bottom:10px;">Credentials</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:#1a2a3a; margin-bottom:10px;">Internationally Trained</div>
+          <div style="font-size:12px; font-weight:300; color:#555; line-height:1.75;">FRCS from Royal College of Surgeons (UK). Trained across 6 countries — bringing world-class expertise to Mumbai.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PATIENT TESTIMONIALS CAROUSEL ========== -->
+  <section style="background:#f0f4f9; padding:96px 0 88px;">
+    <div style="max-width:1000px; margin:0 auto; padding:0 60px;">
+      <div class="text-center mb-3" data-anim="fade-up">
+        <div class="section-label">PATIENT TESTIMONIALS · GOOGLE REVIEWS · KOKILABEN DHIRUBHAI AMBANI HOSPITAL</div>
+      </div>
+      <div class="divider mb-10"></div>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:12px; color:#111; line-height:1.2;" data-anim="fade-up">Patient Testimonials</h3>
+      <div style="text-align:center; margin-bottom:48px;" data-anim="fade-up">
+        <a href="testimonials.html" style="font-size:9px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#1e3a6a; text-decoration:none; border-bottom:1px solid #1e3a6a; padding-bottom:2px;">View All Reviews →</a>
+      </div>
+
+      <div style="position:relative; overflow:hidden;" id="testi-viewport" data-anim="fade-up">
+        <div class="testimonials-track" id="testi-track">
+
+          <div class="testimonial-card" style="padding:0 4px;">
+            <div class="testi-inner">
+              <div style="font-size:80px; font-family:'Cormorant Garamond',serif; font-weight:300; color:#c8d4e4; line-height:0.6; margin-bottom:28px; user-select:none;">"</div>
+              <div class="testi-stars">★★★★★</div>
+              <blockquote style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:300; font-style:italic; line-height:1.55; color:#1a2a3a; margin-bottom:32px; max-width:680px; margin-left:auto; margin-right:auto;">
+                Dr. Vinay joshi is an exceptional orthopaedic surgeon who provided outstanding care to my mother. From the initial consultation to the successful surgery and post-operative care, everything was handled with professionalism and compassion.
+              </blockquote>
+              <div style="width:32px; height:1px; background:#1e3a6a; margin:0 auto 20px;"></div>
+              <div style="font-size:11px; font-weight:600; letter-spacing:0.18em; color:#1a2a3a; text-transform:uppercase;">Jinal Rathod</div>
+              <div style="font-size:9px; font-weight:300; letter-spacing:0.12em; color:#7a8fa8; text-transform:uppercase; margin-top:4px;">Google Review · Kokilaben Dhirubhai Ambani Hospital</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" style="padding:0 4px;">
+            <div class="testi-inner">
+              <div style="font-size:80px; font-family:'Cormorant Garamond',serif; font-weight:300; color:#c8d4e4; line-height:0.6; margin-bottom:28px; user-select:none;">"</div>
+              <div class="testi-stars">★★★★★</div>
+              <blockquote style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:300; font-style:italic; line-height:1.55; color:#1a2a3a; margin-bottom:32px; max-width:680px; margin-left:auto; margin-right:auto;">
+                Visited Dr Vinay Joshi with grade II AVN in my hip. I found him extremely efficient, knowledgeable and Kind — have seldom seen doctors with such humbleness and humane approach. I will always be indebted to his kindness and empathy.
+              </blockquote>
+              <div style="width:32px; height:1px; background:#1e3a6a; margin:0 auto 20px;"></div>
+              <div style="font-size:11px; font-weight:600; letter-spacing:0.18em; color:#1a2a3a; text-transform:uppercase;">Apurva Shah</div>
+              <div style="font-size:9px; font-weight:300; letter-spacing:0.12em; color:#7a8fa8; text-transform:uppercase; margin-top:4px;">Google Review · Grade II AVN Patient</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" style="padding:0 4px;">
+            <div class="testi-inner">
+              <div style="font-size:80px; font-family:'Cormorant Garamond',serif; font-weight:300; color:#c8d4e4; line-height:0.6; margin-bottom:28px; user-select:none;">"</div>
+              <div class="testi-stars">★★★★★</div>
+              <blockquote style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:300; font-style:italic; line-height:1.55; color:#1a2a3a; margin-bottom:32px; max-width:680px; margin-left:auto; margin-right:auto;">
+                Thank you Dr. Vinay Joshi for giving me confidence to go ahead with my both Total Knee Replacement. I am very happy and thankful with the treatment and stay in Kokilaben Hospital, with very good support of the whole team.
+              </blockquote>
+              <div style="width:32px; height:1px; background:#1e3a6a; margin:0 auto 20px;"></div>
+              <div style="font-size:11px; font-weight:600; letter-spacing:0.18em; color:#1a2a3a; text-transform:uppercase;">Hema Vaishnav</div>
+              <div style="font-size:9px; font-weight:300; letter-spacing:0.12em; color:#7a8fa8; text-transform:uppercase; margin-top:4px;">Google Local Guide · Bilateral TKR Patient</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" style="padding:0 4px;">
+            <div class="testi-inner">
+              <div style="font-size:80px; font-family:'Cormorant Garamond',serif; font-weight:300; color:#c8d4e4; line-height:0.6; margin-bottom:28px; user-select:none;">"</div>
+              <div class="testi-stars">★★★★★</div>
+              <blockquote style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:300; font-style:italic; line-height:1.55; color:#1a2a3a; margin-bottom:32px; max-width:680px; margin-left:auto; margin-right:auto;">
+                Dr V. Joshi was absolutely superb! Answered every question patiently and did not suggest any unnecessary procedures or surgeries. Five stars for sure!
+              </blockquote>
+              <div style="width:32px; height:1px; background:#1e3a6a; margin:0 auto 20px;"></div>
+              <div style="font-size:11px; font-weight:600; letter-spacing:0.18em; color:#1a2a3a; text-transform:uppercase;">Neeta Poddar</div>
+              <div style="font-size:9px; font-weight:300; letter-spacing:0.12em; color:#7a8fa8; text-transform:uppercase; margin-top:4px;">Google Review · Kokilaben Dhirubhai Ambani Hospital</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" style="padding:0 4px;">
+            <div class="testi-inner">
+              <div style="font-size:80px; font-family:'Cormorant Garamond',serif; font-weight:300; color:#c8d4e4; line-height:0.6; margin-bottom:28px; user-select:none;">"</div>
+              <div class="testi-stars">★★★★★</div>
+              <blockquote style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:300; font-style:italic; line-height:1.55; color:#1a2a3a; margin-bottom:32px; max-width:680px; margin-left:auto; margin-right:auto;">
+                Excellent Doctor. The way he takes time to explain and make us understand the intricacies — mind blowing. Had the pleasure of him operating my mother for her TKR. The best there is.
+              </blockquote>
+              <div style="width:32px; height:1px; background:#1e3a6a; margin:0 auto 20px;"></div>
+              <div style="font-size:11px; font-weight:600; letter-spacing:0.18em; color:#1a2a3a; text-transform:uppercase;">Rohit Chavan</div>
+              <div style="font-size:9px; font-weight:300; letter-spacing:0.12em; color:#7a8fa8; text-transform:uppercase; margin-top:4px;">Google Review · TKR Patient's Family</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" style="padding:0 4px;">
+            <div class="testi-inner">
+              <div style="font-size:80px; font-family:'Cormorant Garamond',serif; font-weight:300; color:#c8d4e4; line-height:0.6; margin-bottom:28px; user-select:none;">"</div>
+              <div class="testi-stars">★★★★★</div>
+              <blockquote style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:300; font-style:italic; line-height:1.55; color:#1a2a3a; margin-bottom:32px; max-width:680px; margin-left:auto; margin-right:auto;">
+                I'm so fortunate and blessed to have met Dr. Vinay Joshi. He is a great orthopaedic surgeon and an amazing human being — he gifted my father a new life through knee replacement surgery.
+              </blockquote>
+              <div style="width:32px; height:1px; background:#1e3a6a; margin:0 auto 20px;"></div>
+              <div style="font-size:11px; font-weight:600; letter-spacing:0.18em; color:#1a2a3a; text-transform:uppercase;">Dr. Pradnya Chaudhari</div>
+              <div style="font-size:9px; font-weight:300; letter-spacing:0.12em; color:#7a8fa8; text-transform:uppercase; margin-top:4px;">Google Local Guide · Knee Replacement Patient's Family</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between" style="margin-top:36px;">
+        <div class="flex gap-2">
+          <button class="testi-nav-btn" id="testi-prev">&#8592;</button>
+          <button class="testi-nav-btn" id="testi-next">&#8594;</button>
+        </div>
+        <div class="flex gap-2" id="testi-dots">
+          <div class="testi-dot active" data-index="0"></div>
+          <div class="testi-dot" data-index="1"></div>
+          <div class="testi-dot" data-index="2"></div>
+          <div class="testi-dot" data-index="3"></div>
+          <div class="testi-dot" data-index="4"></div>
+          <div class="testi-dot" data-index="5"></div>
+        </div>
+        <div style="font-size:9px; font-weight:300; letter-spacing:0.2em; color:#aaa;"><span id="testi-current">1</span> / 6</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STATS STRIP ========== -->
+  <section style="background:#8a9bb5; padding:56px 0;">
+    <div style="max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:center;">
+      <div style="flex:1; text-align:center; padding:0 24px; border-right:1px solid rgba(255,255,255,0.35);">
+        <div style="font-family:'Cormorant Garamond',serif; font-size:52px; font-weight:300; color:#fff; line-height:1;">3,500<span style="font-size:24px; font-weight:400;">+</span></div>
+        <div style="font-size:8px; font-weight:600; letter-spacing:0.25em; color:rgba(255,255,255,0.82); text-transform:uppercase; margin-top:8px;">Total Knee<br>Replacements</div>
+      </div>
+      <div style="flex:1; text-align:center; padding:0 24px; border-right:1px solid rgba(255,255,255,0.35);">
+        <div style="font-family:'Cormorant Garamond',serif; font-size:52px; font-weight:300; color:#fff; line-height:1;">1,000<span style="font-size:24px; font-weight:400;">+</span></div>
+        <div style="font-size:8px; font-weight:600; letter-spacing:0.25em; color:rgba(255,255,255,0.82); text-transform:uppercase; margin-top:8px;">Total Hip<br>Replacements</div>
+      </div>
+      <div style="flex:1; text-align:center; padding:0 24px; border-right:1px solid rgba(255,255,255,0.35);">
+        <div style="font-family:'Cormorant Garamond',serif; font-size:52px; font-weight:300; color:#fff; line-height:1;">60<span style="font-size:24px; font-weight:400;">+</span></div>
+        <div style="font-size:8px; font-weight:600; letter-spacing:0.25em; color:rgba(255,255,255,0.82); text-transform:uppercase; margin-top:8px;">Ceramic Hip<br>Replacements</div>
+      </div>
+      <div style="flex:1; text-align:center; padding:0 24px; border-right:1px solid rgba(255,255,255,0.35);">
+        <div style="font-family:'Cormorant Garamond',serif; font-size:52px; font-weight:300; color:#fff; line-height:1;">97<span style="font-size:24px; font-weight:400;">%</span></div>
+        <div style="font-size:8px; font-weight:600; letter-spacing:0.25em; color:rgba(255,255,255,0.82); text-transform:uppercase; margin-top:8px;">Patient<br>Satisfaction</div>
+      </div>
+      <div style="flex:1; text-align:center; padding:0 24px;">
+        <div style="font-family:'Cormorant Garamond',serif; font-size:52px; font-weight:300; color:#fff; line-height:1;">5</div>
+        <div style="font-size:8px; font-weight:600; letter-spacing:0.25em; color:rgba(255,255,255,0.82); text-transform:uppercase; margin-top:8px;">Days Avg.<br>Hospital Stay</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MEDIA COVERAGE ========== -->
+  <section style="background:#fff; padding:88px 0; border-top:1px solid #eef2f6;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="text-center mb-4" data-anim="fade-up">
+        <div class="section-label">MEDIA · INTERVIEWS · PATIENT STORIES</div>
+        <div class="divider mt-4 mb-8"></div>
+      </div>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:52px; color:#111;" data-anim="fade-up">Dr. Joshi in the Media</h3>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+
+        <!-- YouTube 1 -->
+        <a href="https://www.youtube.com/watch?v=WuDiSgkgWxQ" target="_blank" rel="noopener" class="media-card" style="display:block; text-decoration:none;" data-anim="fade-up">
+          <div style="position:relative; height:220px; overflow:hidden; background:#0a0a0a;">
+            <img src="https://img.youtube.com/vi/WuDiSgkgWxQ/maxresdefault.jpg"
+                 onerror="this.src='https://img.youtube.com/vi/WuDiSgkgWxQ/hqdefault.jpg'"
+                 alt="Patient Story" style="width:100%; height:100%; object-fit:cover; display:block;">
+            <div style="position:absolute; inset:0; background:rgba(0,0,0,0.25); display:flex; align-items:center; justify-content:center;">
+              <div style="width:56px; height:56px; background:rgba(255,0,0,0.92); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(0,0,0,0.4);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+            <div style="position:absolute; bottom:10px; right:12px; background:rgba(0,0,0,0.75); padding:3px 8px; border-radius:2px;">
+              <svg width="48" height="12" viewBox="0 0 90 20" fill="white"><text x="0" y="16" font-family="Arial" font-size="16" font-weight="bold">YouTube</text></svg>
+            </div>
+          </div>
+          <div style="padding:20px 24px;">
+            <div style="font-size:8px; font-weight:600; letter-spacing:0.2em; color:#1e3a6a; text-transform:uppercase; margin-bottom:6px;">Patient Story · YouTube</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:#1a2a3a; margin-bottom:6px;">Inspiring Recovery After Knee Replacement</div>
+            <div style="font-size:11px; font-weight:300; color:#666;">A patient shares their journey back to full mobility following surgery with Dr. Vinay Joshi.</div>
+          </div>
+        </a>
+
+        <!-- YouTube 2 -->
+        <a href="https://www.youtube.com/watch?v=GflyAn-G17s" target="_blank" rel="noopener" class="media-card" style="display:block; text-decoration:none;" data-anim="fade-up" class="anim-delay-1">
+          <div style="position:relative; height:220px; overflow:hidden; background:#0a0a0a;">
+            <img src="https://img.youtube.com/vi/GflyAn-G17s/maxresdefault.jpg"
+                 onerror="this.src='https://img.youtube.com/vi/GflyAn-G17s/hqdefault.jpg'"
+                 alt="Expert Interview" style="width:100%; height:100%; object-fit:cover; display:block;">
+            <div style="position:absolute; inset:0; background:rgba(0,0,0,0.25); display:flex; align-items:center; justify-content:center;">
+              <div style="width:56px; height:56px; background:rgba(255,0,0,0.92); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(0,0,0,0.4);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+            <div style="position:absolute; bottom:10px; right:12px; background:rgba(0,0,0,0.75); padding:3px 8px; border-radius:2px;">
+              <svg width="48" height="12" viewBox="0 0 90 20" fill="white"><text x="0" y="16" font-family="Arial" font-size="16" font-weight="bold">YouTube</text></svg>
+            </div>
+          </div>
+          <div style="padding:20px 24px;">
+            <div style="font-size:8px; font-weight:600; letter-spacing:0.2em; color:#1e3a6a; text-transform:uppercase; margin-bottom:6px;">Expert Interview · YouTube</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:#1a2a3a; margin-bottom:6px;">Joint Replacement — What Patients Need to Know</div>
+            <div style="font-size:11px; font-weight:300; color:#666;">Dr. Joshi answers the questions every joint replacement patient should ask before surgery.</div>
+          </div>
+        </a>
+
+        <!-- YouTube 3 -->
+        <a href="https://www.youtube.com/watch?v=7TlaYuSl-AQ" target="_blank" rel="noopener" class="media-card" style="display:block; text-decoration:none;" data-anim="fade-up" class="anim-delay-2">
+          <div style="position:relative; height:220px; overflow:hidden; background:#0a0a0a;">
+            <img src="https://img.youtube.com/vi/7TlaYuSl-AQ/maxresdefault.jpg"
+                 onerror="this.src='https://img.youtube.com/vi/7TlaYuSl-AQ/hqdefault.jpg'"
+                 alt="Robotic Surgery" style="width:100%; height:100%; object-fit:cover; display:block;">
+            <div style="position:absolute; inset:0; background:rgba(0,0,0,0.25); display:flex; align-items:center; justify-content:center;">
+              <div style="width:56px; height:56px; background:rgba(255,0,0,0.92); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(0,0,0,0.4);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+            <div style="position:absolute; bottom:10px; right:12px; background:rgba(0,0,0,0.75); padding:3px 8px; border-radius:2px;">
+              <svg width="48" height="12" viewBox="0 0 90 20" fill="white"><text x="0" y="16" font-family="Arial" font-size="16" font-weight="bold">YouTube</text></svg>
+            </div>
+          </div>
+          <div style="padding:20px 24px;">
+            <div style="font-size:8px; font-weight:600; letter-spacing:0.2em; color:#1e3a6a; text-transform:uppercase; margin-bottom:6px;">Robotic Surgery · YouTube</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:#1a2a3a; margin-bottom:6px;">Robotic-Assisted Joint Replacement at KDAH</div>
+            <div style="font-size:11px; font-weight:300; color:#666;">Dr. Joshi explains how robotic technology is transforming precision and outcomes in knee replacement.</div>
+          </div>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/reel/DIRI6Ixt_Qn/" target="_blank" rel="noopener" class="media-card" style="display:block; text-decoration:none;" data-anim="fade-up" class="anim-delay-3">
+          <div style="height:220px; background:linear-gradient(135deg, #405de6 0%, #5851db 20%, #833ab4 40%, #c13584 60%, #e1306c 80%, #fd1d1d 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px;">
+            <svg width="52" height="52" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="20" height="20" rx="6" stroke="white" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="white"/>
+            </svg>
+            <div style="font-size:11px; font-weight:500; letter-spacing:0.15em; color:rgba(255,255,255,0.9); text-transform:uppercase;">Watch Reel</div>
+          </div>
+          <div style="padding:20px 24px;">
+            <div style="font-size:8px; font-weight:600; letter-spacing:0.2em; color:#1e3a6a; text-transform:uppercase; margin-bottom:6px;">Instagram Reel</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:#1a2a3a; margin-bottom:6px;">Misconceptions of Robotic Surgery</div>
+            <div style="font-size:11px; font-weight:300; color:#666;">Watch Dr. Joshi's latest reel on Instagram →</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RESEARCH & PUBLICATIONS ========== -->
+  <section style="background:#f5f8fa; padding:88px 0; border-top:1px solid #eef2f6;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="text-center mb-4" data-anim="fade-up">
+        <div class="section-label">RESEARCH · PUBLICATIONS · ACADEMIC CONTRIBUTIONS</div>
+        <div class="divider mt-4 mb-8"></div>
+      </div>
+      <div class="text-center mb-12" data-anim="fade-up">
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; line-height:1.35; max-width:580px; margin:0 auto; color:#111;">Advancing the science of joint replacement through peer-reviewed research.</h3>
+      </div>
+      <div class="grid grid-cols-3 gap-8">
+        <div style="background:#fff; border:1px solid #e0e8f2; border-left:4px solid #1e3a6a; padding:32px 28px; transition:box-shadow 0.3s;" onmouseover="this.style.boxShadow='0 8px 32px rgba(30,58,106,0.12)'" onmouseout="this.style.boxShadow='none'" data-anim="fade-up">
+          <div style="font-size:7px; font-weight:600; letter-spacing:0.22em; color:#1e3a6a; text-transform:uppercase; margin-bottom:12px;">Journal of Shoulder &amp; Elbow Surgery</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:500; color:#1a2a3a; line-height:1.55; margin-bottom:14px;">Use of a partial humeral head resurfacing system for management of osseous mechanical block to glenohumeral joint range of movement</div>
+          <div style="font-size:9px; font-weight:300; color:#888; letter-spacing:0.08em;">Peer-Reviewed Publication</div>
+        </div>
+        <div style="background:#fff; border:1px solid #e0e8f2; border-left:4px solid #1e3a6a; padding:32px 28px; transition:box-shadow 0.3s;" onmouseover="this.style.boxShadow='0 8px 32px rgba(30,58,106,0.12)'" onmouseout="this.style.boxShadow='none'" data-anim="fade-up" class="anim-delay-1">
+          <div style="font-size:7px; font-weight:600; letter-spacing:0.22em; color:#1e3a6a; text-transform:uppercase; margin-bottom:12px;">Bombay Hospital Journal · 1996</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:500; color:#1a2a3a; line-height:1.55; margin-bottom:14px;">A study of 25 cases of T-Y Intercondylar Fracture Humerus treated with Bipillar Plating</div>
+          <div style="font-size:9px; font-weight:300; color:#888; letter-spacing:0.08em;">Clinical Study</div>
+        </div>
+        <div style="background:#fff; border:1px solid #e0e8f2; border-left:4px solid #1e3a6a; padding:32px 28px; transition:box-shadow 0.3s;" onmouseover="this.style.boxShadow='0 8px 32px rgba(30,58,106,0.12)'" onmouseout="this.style.boxShadow='none'" data-anim="fade-up" class="anim-delay-2">
+          <div style="font-size:7px; font-weight:600; letter-spacing:0.22em; color:#1e3a6a; text-transform:uppercase; margin-bottom:12px;">Injury Journal</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:500; color:#1a2a3a; line-height:1.55; margin-bottom:14px;">Case report: Missed presentation of rare isolated trochlea fracture — diagnosis, management and outcome</div>
+          <div style="font-size:9px; font-weight:300; color:#888; letter-spacing:0.08em;">Case Report</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ SECTION ========== -->
+  <section style="background:#fff; padding:88px 0; border-top:1px solid #eef2f6;">
+    <div style="max-width:860px; margin:0 auto; padding:0 60px;">
+      <div class="text-center mb-4">
+        <div class="section-label">FREQUENTLY ASKED QUESTIONS</div>
+        <div class="divider mt-4 mb-8"></div>
+      </div>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:52px; color:#111;">Common Questions About Joint Replacement</h3>
+      <div id="faq-list">
+        <div class="faq-item" style="border-bottom:1px solid #dde4ec; padding:24px 0;">
+          <button onclick="toggleFAQ(this)" style="width:100%; text-align:left; display:flex; justify-content:space-between; align-items:center; background:none; border:none; cursor:pointer; padding:0;">
+            <span style="font-size:15px; font-weight:400; color:#1a2a3a;">Am I a candidate for knee or hip replacement?</span>
+            <span class="faq-icon" style="font-size:20px; color:#1e3a6a; transition:transform 0.3s; flex-shrink:0; margin-left:16px;">+</span>
+          </button>
+          <div class="faq-answer" style="display:none; padding-top:16px; font-size:13px; font-weight:300; color:#555; line-height:1.9;">You may be a candidate if you have persistent joint pain limiting daily activities, significant stiffness, or non-surgical treatments are no longer providing relief. Dr. Joshi will assess your X-rays, clinical history, and functional status to advise on the best approach.</div>
+        </div>
+        <div class="faq-item" style="border-bottom:1px solid #dde4ec; padding:24px 0;">
+          <button onclick="toggleFAQ(this)" style="width:100%; text-align:left; display:flex; justify-content:space-between; align-items:center; background:none; border:none; cursor:pointer; padding:0;">
+            <span style="font-size:15px; font-weight:400; color:#1a2a3a;">What is the difference between robotic and conventional joint replacement?</span>
+            <span class="faq-icon" style="font-size:20px; color:#1e3a6a; transition:transform 0.3s; flex-shrink:0; margin-left:16px;">+</span>
+          </button>
+          <div class="faq-answer" style="display:none; padding-top:16px; font-size:13px; font-weight:300; color:#555; line-height:1.9;">Robotic-assisted surgery uses real-time intra-operative bone tracking and robotic guidance to position the implant with sub-millimetre accuracy — with no pre-operative CT scan required. The VELYS system maps the patient's anatomy live during surgery itself. This results in better alignment, improved functional outcomes, and a more natural-feeling joint. Dr. Joshi uses the VELYS robotic system for eligible patients at KDAH.</div>
+        </div>
+        <div class="faq-item" style="border-bottom:1px solid #dde4ec; padding:24px 0;">
+          <button onclick="toggleFAQ(this)" style="width:100%; text-align:left; display:flex; justify-content:space-between; align-items:center; background:none; border:none; cursor:pointer; padding:0;">
+            <span style="font-size:15px; font-weight:400; color:#1a2a3a;">How long is the recovery after a knee replacement?</span>
+            <span class="faq-icon" style="font-size:20px; color:#1e3a6a; transition:transform 0.3s; flex-shrink:0; margin-left:16px;">+</span>
+          </button>
+          <div class="faq-answer" style="display:none; padding-top:16px; font-size:13px; font-weight:300; color:#555; line-height:1.9;">Most patients walk with assistance the day after surgery. Average hospital stay is 5 days. Light activities resume at 4–6 weeks; full recovery at 3–6 months.</div>
+        </div>
+        <div class="faq-item" style="border-bottom:1px solid #dde4ec; padding:24px 0;">
+          <button onclick="toggleFAQ(this)" style="width:100%; text-align:left; display:flex; justify-content:space-between; align-items:center; background:none; border:none; cursor:pointer; padding:0;">
+            <span style="font-size:15px; font-weight:400; color:#1a2a3a;">What is a high-flex knee replacement and who is it for?</span>
+            <span class="faq-icon" style="font-size:20px; color:#1e3a6a; transition:transform 0.3s; flex-shrink:0; margin-left:16px;">+</span>
+          </button>
+          <div class="faq-answer" style="display:none; padding-top:16px; font-size:13px; font-weight:300; color:#555; line-height:1.9;">A high-flex knee implant allows bending up to 150° — essential for Indian patients who sit cross-legged, kneel for prayer, or squat. Dr. Joshi specialises in high-flex knee replacements to ensure patients resume traditional activities comfortably.</div>
+        </div>
+        <div class="faq-item" style="padding:24px 0;">
+          <button onclick="toggleFAQ(this)" style="width:100%; text-align:left; display:flex; justify-content:space-between; align-items:center; background:none; border:none; cursor:pointer; padding:0;">
+            <span style="font-size:15px; font-weight:400; color:#1a2a3a;">Can I book a virtual consultation with Dr. Joshi?</span>
+            <span class="faq-icon" style="font-size:20px; color:#1e3a6a; transition:transform 0.3s; flex-shrink:0; margin-left:16px;">+</span>
+          </button>
+          <div class="faq-answer" style="display:none; padding-top:16px; font-size:13px; font-weight:300; color:#555; line-height:1.9;">Yes. Dr. Joshi offers both in-person consultations at Kokilaben Dhirubhai Ambani Hospital (Andheri West, Mumbai) and virtual consultations. Call +91 22 4269 6969 to schedule.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PHOTO GALLERY ========== -->
+  <section style="background:#0d1a2e; padding:80px 0;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px 40px;">
+      <div class="text-center mb-4">
+        <div style="font-size:9px; font-weight:500; letter-spacing:0.28em; text-transform:uppercase; color:rgba(255,255,255,0.4);">PHOTO GALLERY · DR. VINAY S. JOSHI</div>
+        <div style="width:40px; height:1px; background:rgba(255,255,255,0.2); margin:16px auto 0;"></div>
+      </div>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:48px; color:#fff;">In the Operating Theatre &amp; Beyond</h3>
+    </div>
+
+    <!-- Gallery viewport -->
+    <div style="position:relative; overflow:hidden; padding:0 60px;" id="gallery-viewport">
+      <div class="gallery-track" id="gallery-track">
+        <div class="gallery-slide"><img src="Gallery 1.jpeg" alt="Dr. Vinay Joshi in his clinic" style="width:100%; height:360px; object-fit:cover;"></div>
+        <div class="gallery-slide"><img src="Gallery 2.jpeg" alt="Dr. Joshi with international colleague" style="width:100%; height:360px; object-fit:cover;"></div>
+        <div class="gallery-slide"><img src="Gallery 3.jpeg" alt="Dr. Joshi at FRCS graduation" style="width:100%; height:360px; object-fit:cover;"></div>
+        <div class="gallery-slide"><img src="Gallery 4.jpeg" alt="Surgical team with VELYS robot" style="width:100%; height:360px; object-fit:cover;"></div>
+        <div class="gallery-slide"><img src="Gallery 5.jpeg" alt="International conference" style="width:100%; height:360px; object-fit:cover;"></div>
+        <div class="gallery-slide"><img src="Gallery 6.jpeg" alt="VELYS robotic surgery team" style="width:100%; height:360px; object-fit:cover;"></div>
+        <div class="gallery-slide"><img src="Gallery 7.jpeg" alt="Post-surgery with colleague" style="width:100%; height:360px; object-fit:cover;"></div>
+        <div class="gallery-slide"><img src="Gallery 8.jpeg" alt="Teaching in the operating theatre" style="width:100%; height:360px; object-fit:cover;"></div>
+      </div>
+    </div>
+
+    <!-- Gallery controls -->
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px; display:flex; align-items:center; justify-content:space-between; margin-top:28px;">
+      <button id="gallery-prev" style="width:44px; height:44px; border:1px solid rgba(255,255,255,0.2); background:transparent; color:rgba(255,255,255,0.7); font-size:18px; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">&#8592;</button>
+      <div id="gallery-dots" style="display:flex; gap:8px;">
+        <div class="g-dot" data-index="0" style="width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.8); cursor:pointer;"></div>
+        <div class="g-dot" data-index="1" style="width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.3); cursor:pointer;"></div>
+        <div class="g-dot" data-index="2" style="width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.3); cursor:pointer;"></div>
+        <div class="g-dot" data-index="3" style="width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.3); cursor:pointer;"></div>
+        <div class="g-dot" data-index="4" style="width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.3); cursor:pointer;"></div>
+        <div class="g-dot" data-index="5" style="width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.3); cursor:pointer;"></div>
+      </div>
+      <button id="gallery-next" style="width:44px; height:44px; border:1px solid rgba(255,255,255,0.2); background:transparent; color:rgba(255,255,255,0.7); font-size:18px; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">&#8594;</button>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-white" style="padding:72px 0 40px; border-top:1px solid #eef2f6;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="flex items-start justify-between" style="margin-bottom:44px;">
+        <div>
+          <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:16px; letter-spacing:0.22em; color:#1a2a3a; text-transform:uppercase; line-height:1.1;">DR. VINAY S. JOSHI</div>
+          <div style="font-size:7px; font-weight:400; letter-spacing:0.28em; color:#7a8fa8; text-transform:uppercase; margin-top:5px;">MBBS · MS · DNB · FRCS · FCPS</div>
+          <div style="font-size:8px; font-weight:300; letter-spacing:0.15em; color:#888; text-transform:uppercase; margin-top:10px;">Consultant Orthopaedic Surgeon</div>
+          <div style="font-size:8px; font-weight:300; color:#888; margin-top:4px;">Kokilaben Dhirubhai Ambani Hospital</div>
+        </div>
+        <div>
+          <div style="font-size:8px; font-weight:600; letter-spacing:0.25em; color:#7a8fa8; text-transform:uppercase; margin-bottom:12px;">Contact</div>
+          <div style="font-size:13px; font-weight:500; color:#1a2a3a;">+91 22 4269 6969</div>
+          <div style="font-size:12px; font-weight:300; color:#666; margin-top:6px; line-height:1.9;">Rao Saheb Achutrao Patwardhan Marg,<br>Four Bungalows, Andheri West,<br>Mumbai – 400053, Maharashtra</div>
+        </div>
+        <div>
+          <div style="font-size:8px; font-weight:600; letter-spacing:0.25em; color:#7a8fa8; text-transform:uppercase; margin-bottom:12px;">Specialties</div>
+          <ul style="font-size:12px; font-weight:300; color:#666; line-height:2.2; list-style:none; padding:0;">
+            <li><a href="knee.html" style="color:#666; text-decoration:none;">Total Knee Replacement</a></li>
+            <li><a href="hip.html" style="color:#666; text-decoration:none;">Total Hip Replacement</a></li>
+            <li><a href="robotic.html" style="color:#666; text-decoration:none;">Robotic Joint Replacement</a></li>
+            <li><a href="revision.html" style="color:#666; text-decoration:none;">Revision Joint Surgery</a></li>
+            <li><a href="testimonials.html" style="color:#666; text-decoration:none;">Patient Testimonials</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top:1px solid #eef2f6; padding-top:20px; display:flex; justify-content:space-between; align-items:center;">
+        <div style="font-size:9px; font-weight:300; color:#aaa; letter-spacing:0.08em;">© 2024 Dr. Vinay S. Joshi. Kokilaben Dhirubhai Ambani Hospital. All Rights Reserved.</div>
+        <div style="font-size:9px; font-weight:300; color:#aaa; letter-spacing:0.08em;">kokilabenhospital.com</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Menu ──
+    function openMenu() { document.getElementById('menu-overlay').classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeMenu() { document.getElementById('menu-overlay').classList.remove('open'); document.body.style.overflow = ''; }
+    document.getElementById('menu-overlay').addEventListener('click', function(e) { if (e.target === this) closeMenu(); });
+
+    // ── Sticky header ──
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+
+    // ── Testimonials carousel ──
+    const track = document.getElementById('testi-track');
+    const dots = document.querySelectorAll('.testi-dot');
+    const counter = document.getElementById('testi-current');
+    const total = dots.length;
+    let current = 0;
+    function goTo(n) {
+      current = (n + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      counter.textContent = current + 1;
+    }
+    document.getElementById('testi-prev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('testi-next').addEventListener('click', () => goTo(current + 1));
+    dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.index)));
+    setInterval(() => goTo(current + 1), 6000);
+
+    // ── Gallery slideshow (3 visible, slides by 1) ──
+    const galleryTrack = document.getElementById('gallery-track');
+    const gDots = document.querySelectorAll('.g-dot');
+    const totalSlides = 8;
+    const visibleSlides = 3;
+    const maxIndex = totalSlides - visibleSlides; // 5
+    let gCurrent = 0;
+    function goGallery(n) {
+      gCurrent = Math.max(0, Math.min(n, maxIndex));
+      galleryTrack.style.transform = `translateX(-${gCurrent * (100 / visibleSlides)}%)`;
+      gDots.forEach((d, i) => {
+        d.style.background = i === gCurrent ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.3)';
+      });
+    }
+    document.getElementById('gallery-prev').addEventListener('click', () => goGallery(gCurrent - 1));
+    document.getElementById('gallery-next').addEventListener('click', () => goGallery(gCurrent + 1));
+    gDots.forEach(d => d.addEventListener('click', () => goGallery(+d.dataset.index)));
+
+    // ── FAQ accordion ──
+    function toggleFAQ(btn) {
+      const answer = btn.parentElement.querySelector('.faq-answer');
+      const icon = btn.querySelector('.faq-icon');
+      const open = answer.style.display === 'block';
+      document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+      document.querySelectorAll('.faq-icon').forEach(i => { i.textContent = '+'; });
+      if (!open) { answer.style.display = 'block'; icon.textContent = '−'; }
+    }
+
+    // ── Scroll reveal animations ──
+    const animObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('anim-in');
+          animObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-anim]').forEach(el => animObserver.observe(el));
+  </script>
+</body>
+</html>

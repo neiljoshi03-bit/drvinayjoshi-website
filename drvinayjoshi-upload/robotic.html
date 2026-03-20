@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robotic Joint Replacement Surgery | Dr. Vinay S. Joshi | Mumbai</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; font-weight: 200; color: #000; line-height: 1.75; overflow-x: hidden; }
+    #site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.35s ease, box-shadow 0.35s ease; background: transparent; }
+    #site-header.scrolled { background: rgba(15,25,40,0.96); backdrop-filter: blur(12px); box-shadow: 0 1px 24px rgba(0,0,0,0.18); }
+    .section-label { font-size: 9px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: #7a8fa8; }
+    .divider { width: 40px; height: 1px; background: #7a8fa8; margin: 0 auto; }
+    .procedure-section { border-top: 1px solid #eef2f6; }
+    .tag { display: inline-block; font-size: 8px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 4px 10px; border: 1px solid #1e3a6a; color: #1e3a6a; margin-bottom: 16px; }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
+    .info-box { background: #f8fafc; border: 1px solid #e0e8f2; border-left: 3px solid #1e3a6a; padding: 20px 22px; }
+    .info-box h4 { font-size: 8px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #1e3a6a; margin-bottom: 8px; }
+    .info-box p { font-size: 12px; font-weight: 300; color: #555; line-height: 1.85; margin: 0; }
+    .step-item { display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid #eef2f6; align-items: flex-start; }
+    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: #1e3a6a; line-height: 1; flex-shrink: 0; width: 44px; }
+    .sub-nav a { font-size: 10px; font-weight: 400; letter-spacing: 0.12em; color: #555; text-decoration: none; padding: 8px 0; display: block; border-bottom: 1px solid #eef2f6; transition: color 0.2s; }
+    .sub-nav a:hover { color: #1e3a6a; }
+    /* Scroll animations */
+    [data-anim]{opacity:0;transition:opacity 0.75s ease,transform 0.75s ease;}
+    [data-anim="up"]{transform:translateY(32px);}
+    [data-anim="left"]{transform:translateX(-36px);}
+    [data-anim="right"]{transform:translateX(36px);}
+    [data-anim="scale"]{transform:scale(0.96);}
+    [data-anim].in{opacity:1;transform:none;}
+    .d1{transition-delay:0.12s!important;}.d2{transition-delay:0.22s!important;}.d3{transition-delay:0.34s!important;}.d4{transition-delay:0.46s!important;}
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- NAV -->
+  <header id="site-header">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 48px;">
+      <a href="index.html" style="text-decoration:none;flex-shrink:0;">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.22em;color:#fff;text-transform:uppercase;line-height:1.1;">DR. VINAY S. JOSHI</div>
+        <div style="font-size:7px;font-weight:400;letter-spacing:0.3em;color:rgba(255,255,255,0.65);text-transform:uppercase;margin-top:3px;">MBBS · MS · DNB · FRCS · FCPS</div>
+      </a>
+      <nav style="display:flex;align-items:center;gap:22px;">
+        <a href="index.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Home</a>
+        <a href="knee.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Knee</a>
+        <a href="hip.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Hip</a>
+        <a href="robotic.html" style="font-size:9px;font-weight:600;letter-spacing:0.18em;color:#fff;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.6);padding-bottom:2px;">Robotic</a>
+        <a href="revision.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Revision</a>
+        <a href="health-tips.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Health Tips</a>
+        <a href="testimonials.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Testimonials</a>
+        <div style="width:1px;height:18px;background:rgba(255,255,255,0.25);"></div>
+        <a href="consultation.html" style="font-size:9px;font-weight:600;letter-spacing:0.18em;color:#fff;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.45);padding:7px 16px;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.12)'" onmouseout="this.style.background='transparent'">Book Consult</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative" style="height:520px; overflow:hidden;">
+    <img src="RoboticSurgery.jpg"
+         onerror="this.src='https://placehold.co/1440x520/1a2a3a/4a6a8a'"
+         alt="Robotic Surgery" class="w-full h-full object-cover" style="object-position:center center;">
+    <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(10,20,35,0.55) 0%, rgba(10,20,35,0.25) 45%, rgba(10,20,35,0.70) 100%);"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center" style="padding-top:80px;">
+      <div style="font-size:9px; font-weight:500; letter-spacing:0.32em; color:rgba(255,255,255,0.65); text-transform:uppercase; margin-bottom:16px;">Dr. Vinay S. Joshi · Kokilaben Dhirubhai Ambani Hospital · Pioneering in India</div>
+      <h1 style="font-family:'Cormorant Garamond',serif; font-size:56px; font-weight:300; color:#fff; line-height:1.1; margin-bottom:16px;">Robotic Joint Replacement</h1>
+      <div style="width:40px; height:1px; background:rgba(255,255,255,0.5); margin:0 auto 16px;"></div>
+      <p style="font-size:13px; font-weight:300; color:rgba(255,255,255,0.8); max-width:580px; letter-spacing:0.04em;">Sub-millimetre precision. Digital pre-operative planning. Real-time intra-operative guidance. The future of joint replacement is here — at Kokilaben Dhirubhai Ambani Hospital, Mumbai.</p>
+    </div>
+  </section>
+
+  <!-- NAME BANNER -->
+  <div style="background:#8a9bb5; text-align:center; padding:16px 0;">
+    <div style="font-size:8px; font-weight:500; letter-spacing:0.38em; color:rgba(255,255,255,0.72); text-transform:uppercase;">ROBOTIC JOINT REPLACEMENT · VELYS SYSTEM · KOKILABEN DHIRUBHAI AMBANI HOSPITAL, MUMBAI</div>
+  </div>
+
+  <!-- OVERVIEW + QUICK NAV -->
+  <section style="max-width:1200px; margin:0 auto; padding:72px 60px 64px; display:grid; grid-template-columns:1fr 320px; gap:80px;">
+    <div>
+      <div class="section-label mb-3" data-anim="up">OVERVIEW</div>
+      <div class="divider" style="margin:0 0 24px;"></div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:300; color:#111; line-height:1.2; margin-bottom:20px;" data-anim="up">Precision Beyond the Human Hand</h2>
+      <p style="font-size:14px; font-weight:300; color:#444; line-height:1.9; margin-bottom:16px;">
+        Robotic-assisted joint replacement represents the most significant advance in arthroplasty surgery in a generation. By combining real-time intra-operative anatomy mapping with robotic guidance, Dr. Joshi achieves implant positioning accuracy of within <strong>0.5–1mm</strong> — consistently surpassing what is achievable by conventional manual techniques in even the most experienced hands.
+      </p>
+      <p style="font-size:14px; font-weight:300; color:#444; line-height:1.9;">
+        Dr. Vinay S. Joshi uses the <strong>VELYS Robotic-Assisted Solution</strong> by DePuy Synthes (Johnson &amp; Johnson) at Kokilaben Dhirubhai Ambani Hospital — one of the first centres in India to offer this technology. He is among India's <strong>pioneering robotic joint replacement surgeons</strong>, and continues to be involved in training other orthopaedic surgeons in robotic technique.
+      </p>
+    </div>
+    <div style="padding-top:8px;">
+      <div style="font-size:8px; font-weight:600; letter-spacing:0.25em; color:#1e3a6a; text-transform:uppercase; margin-bottom:16px;">On This Page</div>
+      <div class="sub-nav">
+        <a href="#what-is">What Is Robotic Surgery?</a>
+        <a href="#velys">The VELYS System</a>
+        <a href="#how-it-works">How It Works — Step by Step</a>
+        <a href="#benefits">Clinical Benefits</a>
+        <a href="#candidates">Who Is a Candidate?</a>
+        <a href="#evidence">The Clinical Evidence</a>
+      </div>
+      <div style="margin-top:28px; background:#1e3a6a; padding:24px 20px; text-align:center;">
+        <div style="font-size:9px; font-weight:500; letter-spacing:0.2em; color:rgba(255,255,255,0.7); text-transform:uppercase; margin-bottom:8px;">Book a Robotic Consultation</div>
+        <div style="font-size:18px; font-weight:500; color:#fff; margin-bottom:4px;">+91 22 4269 6969</div>
+        <div style="font-size:9px; font-weight:300; color:rgba(255,255,255,0.6);">Kokilaben Dhirubhai Ambani Hospital</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROBO IMAGE -->
+  <section style="background:#f0f4f9; padding:56px 60px; text-align:center;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <img src="Robo.jpeg"
+           onerror="this.src='https://placehold.co/1100x500/1a2a3a/4a6a8a?text=Robotic+Surgery'"
+           alt="Robotic Surgery at Kokilaben Dhirubhai Ambani Hospital"
+           data-anim="scale"
+           style="width:100%; height:auto; max-height:520px; object-fit:contain; display:block; margin:0 auto;">
+      <div style="font-size:9px; font-weight:500; letter-spacing:0.22em; color:#7a8fa8; text-transform:uppercase; margin-top:16px;">VELYS Robotic-Assisted Surgery · Dr. Vinay S. Joshi · Kokilaben Dhirubhai Ambani Hospital</div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT IS ROBOTIC SURGERY ===== -->
+  <section id="what-is" class="procedure-section" style="background:#f8fafc; padding:72px 0;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="tag" data-anim="up">What Is Robotic Surgery</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:#111; line-height:1.2; margin-bottom:20px;">Robotic-Assisted Surgery Explained</h2>
+      <p style="font-size:14px; font-weight:300; color:#444; line-height:1.9; max-width:820px; margin-bottom:24px;">
+        Robotic-assisted surgery does not mean a robot performs the operation. <strong>The surgeon remains fully in control at all times.</strong> The robotic system acts as an intelligent tool — continuously measuring, tracking, and guiding — that extends the surgeon's precision far beyond what hands alone can achieve. Think of it as GPS for surgery: it does not drive the car, but ensures every movement is exactly on course.
+      </p>
+      <div class="info-grid" style="max-width:940px;">
+        <div class="info-box d1" data-anim="up">
+          <h4>The Problem with Conventional Surgery</h4>
+          <p>Even in expert hands, conventional joint replacement relies on manual measurements, handheld cutting guides, and the surgeon's eye for alignment. Studies show that 20–30% of conventionally placed implants fall outside the optimal alignment zone, which is associated with higher wear, earlier loosening, and persistent post-operative pain.</p>
+        </div>
+        <div class="info-box d2" data-anim="up">
+          <h4>What Robotic Assistance Solves</h4>
+          <p>The robotic system tracks bone position 500 times per second using sensors attached to the patient's bone during surgery. If the bone moves — even by fractions of a millimetre — the system instantly compensates, maintaining the pre-planned cut position with perfect accuracy throughout the entire procedure.</p>
+        </div>
+        <div class="info-box d3" data-anim="up">
+          <h4>No Pre-Operative Scan Required</h4>
+          <p>A key advantage of the VELYS system is that no pre-operative CT scan is needed — unlike older robotic platforms. The system maps the patient's bone anatomy live during surgery itself using optical tracking, creating a real-time 3D model intra-operatively. The robotic guidance then ensures every cut is made with continuous feedback and automatic error correction based on that live map.</p>
+        </div>
+        <div class="info-box d4" data-anim="up">
+          <h4>Surgeon Skill Still Matters</h4>
+          <p>The robotic system amplifies surgical expertise — it cannot replace it. The quality of the pre-operative plan, the surgical approach, soft-tissue management, and the post-operative rehabilitation programme all still depend entirely on the surgeon's knowledge, judgement, and experience. Dr. Joshi's extensive training ensures these elements are optimised alongside the robotic technology.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VELYS SYSTEM ===== -->
+  <section id="velys" class="procedure-section" style="padding:72px 0;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="tag" data-anim="up">VELYS · DePuy Synthes · Johnson & Johnson MedTech</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:#111; line-height:1.2; margin-bottom:20px;">The VELYS Robotic-Assisted Solution</h2>
+      <p style="font-size:14px; font-weight:300; color:#444; line-height:1.9; max-width:820px; margin-bottom:24px;">
+        The VELYS system by DePuy Synthes (Johnson &amp; Johnson MedTech) is purpose-built for knee arthroplasty and represents the most advanced robotics platform available in India. A key differentiator: <strong>VELYS requires no pre-operative CT scan whatsoever.</strong> It uses optical bone tracking technology to create a real-time 3D map of the patient's anatomy live during surgery — eliminating the cost, radiation, and inconvenience of a pre-operative scan while delivering the same precision.
+      </p>
+      <div class="info-grid" style="max-width:940px;">
+        <div class="info-box d1" data-anim="up">
+          <h4>Key Features of VELYS</h4>
+          <p>No pre-operative CT scan required — anatomy mapped live during surgery. Real-time bone tracking at 500Hz using optical sensors. Robotic-controlled cutting guide that adjusts automatically to bone movement. Ligament tension monitoring to ensure perfect soft-tissue balance. Haptic feedback to the surgeon. A compact footprint suited to the KDAH operating theatre environment.</p>
+        </div>
+        <div class="info-box d2" data-anim="up">
+          <h4>Soft Tissue Balancing</h4>
+          <p>One of VELYS's most advanced features is real-time ligament tension assessment. The system measures the tension in the medial and lateral knee ligaments throughout the range of motion during surgery, allowing Dr. Joshi to fine-tune soft-tissue releases and ensure the knee tracks symmetrically — a key determinant of long-term patient satisfaction.</p>
+        </div>
+        <div class="info-box d3" data-anim="up">
+          <h4>Why VELYS at KDAH</h4>
+          <p>Kokilaben Dhirubhai Ambani Hospital was among the first hospitals in India to adopt VELYS, reflecting its commitment to world-class patient care. The investment in this technology, combined with Dr. Joshi's specialist robotic training, means Mumbai patients can now access robotic knee replacement at the same standard as the world's leading arthroplasty centres in the USA, UK, and Australia.</p>
+        </div>
+        <div class="info-box d4" data-anim="up">
+          <h4>The VELYS Difference in Numbers</h4>
+          <p>Clinical data on VELYS demonstrates: 98% of implants placed within 3° of target alignment (vs 72% conventional); 4× reduction in outlier component positioning; significantly lower intra-operative blood loss; mean hospital stay of 3.8 days vs 5.1 days for conventional TKR at comparable centres.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="how-it-works" class="procedure-section" style="background:#f8fafc; padding:72px 0;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="tag" data-anim="up">Step by Step · What to Expect</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:#111; line-height:1.2; margin-bottom:40px;">How Robotic TKR Works — From Consultation to Recovery</h2>
+      <div style="max-width:820px;">
+        <div class="step-item">
+          <div class="step-num">01</div>
+          <div>
+            <div style="font-size:12px; font-weight:600; letter-spacing:0.12em; color:#1a2a3a; margin-bottom:6px; text-transform:uppercase;">Consultation &amp; Pre-Operative Assessment</div>
+            <p style="font-size:13px; font-weight:300; color:#555; line-height:1.85; margin:0;">Dr. Joshi meets with the patient, reviews standard X-rays, examines the knee, and discusses the personalised surgical approach. <strong>No CT scan is required</strong> — one of the key advantages of the VELYS system over older robotic platforms. This saves cost, time, and radiation exposure before surgery.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">02</div>
+          <div>
+            <div style="font-size:12px; font-weight:600; letter-spacing:0.12em; color:#1a2a3a; margin-bottom:6px; text-transform:uppercase;">Implant Selection &amp; Surgical Planning</div>
+            <p style="font-size:13px; font-weight:300; color:#555; line-height:1.85; margin:0;">Dr. Joshi selects the appropriate implant size and confirms alignment targets based on X-rays and clinical assessment. The intra-operative robotic system will then use this framework alongside live bone mapping during surgery to guide every cut with precision — no pre-operative scan required.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">03</div>
+          <div>
+            <div style="font-size:12px; font-weight:600; letter-spacing:0.12em; color:#1a2a3a; margin-bottom:6px; text-transform:uppercase;">Intra-Operative Anatomy Mapping</div>
+            <p style="font-size:13px; font-weight:300; color:#555; line-height:1.85; margin:0;">At the start of surgery, optical tracking arrays are temporarily attached to the femur and tibia. The VELYS system maps the patient's actual bone anatomy in real time — building a live 3D model during the operation itself. This map continuously updates throughout the procedure, tracking every movement of the bone with no reliance on pre-operative imaging.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">04</div>
+          <div>
+            <div style="font-size:12px; font-weight:600; letter-spacing:0.12em; color:#1a2a3a; margin-bottom:6px; text-transform:uppercase;">Robotic-Guided Bone Preparation</div>
+            <p style="font-size:13px; font-weight:300; color:#555; line-height:1.85; margin:0;">Dr. Joshi makes all bone cuts using the robotic-assisted cutting guide, which automatically repositions itself in real time to maintain the planned angle, depth, and orientation regardless of any bone movement. The system locks out cuts that would deviate from the plan, providing an active safety boundary.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">05</div>
+          <div>
+            <div style="font-size:12px; font-weight:600; letter-spacing:0.12em; color:#1a2a3a; margin-bottom:6px; text-transform:uppercase;">Ligament Balancing and Trial Reduction</div>
+            <p style="font-size:13px; font-weight:300; color:#555; line-height:1.85; margin:0;">Trial implants are inserted and the knee is taken through its full range of motion. The VELYS system quantitatively measures ligament tension throughout this arc. Dr. Joshi uses this data to make precise soft-tissue adjustments, ensuring the knee feels naturally balanced and tracks correctly before final implant fixation.</p>
+          </div>
+        </div>
+        <div class="step-item" style="border-bottom:none;">
+          <div class="step-num">06</div>
+          <div>
+            <div style="font-size:12px; font-weight:600; letter-spacing:0.12em; color:#1a2a3a; margin-bottom:6px; text-transform:uppercase;">Final Implantation and Recovery</div>
+            <p style="font-size:13px; font-weight:300; color:#555; line-height:1.85; margin:0;">The final implants are cemented or press-fit into position. The wound is closed in layers and a compression bandage applied. Physiotherapy begins the next morning. The robotic approach causes less soft-tissue trauma, resulting in less pain, faster rehabilitation, and a shorter hospital stay compared to conventional TKR.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BENEFITS ===== -->
+  <section id="benefits" class="procedure-section" style="padding:72px 0;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="tag" data-anim="up">Clinical Benefits · Outcomes</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:#111; line-height:1.2; margin-bottom:20px;">Why Robotic Surgery Produces Better Outcomes</h2>
+      <p style="font-size:14px; font-weight:300; color:#444; line-height:1.9; max-width:820px; margin-bottom:32px;">
+        The superior outcomes of robotic-assisted knee replacement are now documented in multiple high-quality clinical studies and national joint registries. The benefits are most significant in the short-to-medium term (faster recovery, less pain) and long-term (better alignment, longer implant life).
+      </p>
+      <div class="info-grid" style="max-width:940px;">
+        <div class="info-box d1" data-anim="up">
+          <h4>More Accurate Alignment</h4>
+          <p>Optimal mechanical alignment (within 3° of neutral) is achieved in 95–98% of robotic cases vs 70–72% of conventional cases. Even small alignment errors compound over millions of steps, accelerating wear and loosening. Correct alignment from day one dramatically extends implant life.</p>
+        </div>
+        <div class="info-box d2" data-anim="up">
+          <h4>Less Pain, Faster Recovery</h4>
+          <p>The controlled, precise bone cuts of robotic surgery cause less thermal damage and micro-fracturing to surrounding bone, reducing early post-operative pain. Patients typically require less pain medication, mobilise faster, and have a 20–30% shorter hospital stay compared to conventional TKR patients.</p>
+        </div>
+        <div class="info-box d3" data-anim="up">
+          <h4>More Natural-Feeling Knee</h4>
+          <p>The most common complaint after conventional TKR is that the knee feels "artificial." Robotic precision, combined with VELYS's ligament balancing technology, produces a more symmetric, naturally balanced knee that patients report feels closer to their original joint — resulting in higher satisfaction scores.</p>
+        </div>
+        <div class="info-box d4" data-anim="up">
+          <h4>Longer Implant Survival</h4>
+          <p>Poor alignment is the leading cause of early implant failure. By achieving consistently optimal positioning, robotic surgery is projected to significantly extend implant survivorship beyond the 15–20 year benchmark of conventional TKR — an especially important consideration for younger patients who may otherwise require a revision surgery in their lifetime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CANDIDATES ===== -->
+  <section id="candidates" class="procedure-section" style="background:#f8fafc; padding:72px 0;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="tag" data-anim="up">Candidacy · Who Qualifies</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:#111; line-height:1.2; margin-bottom:20px;">Is Robotic Surgery Right for You?</h2>
+      <p style="font-size:14px; font-weight:300; color:#444; line-height:1.9; max-width:820px; margin-bottom:24px;">
+        Robotic-assisted TKR is suitable for the vast majority of patients who are candidates for knee replacement. The technology is particularly valuable for specific patient groups, though Dr. Joshi will discuss the most appropriate approach for your individual situation during consultation.
+      </p>
+      <div class="info-grid" style="max-width:940px;">
+        <div class="info-box d1" data-anim="up">
+          <h4>Best Candidates</h4>
+          <p>Younger patients (under 65) who will place greater long-term demands on their implant; patients with significant deformity where conventional alignment guides are less reliable; patients who want the highest possible chance of a natural-feeling knee; patients for whom a revision surgery would be particularly difficult or risky.</p>
+        </div>
+        <div class="info-box d2" data-anim="up">
+          <h4>Pre-Operative Assessment</h4>
+          <p>Robotic TKR with VELYS requires only standard X-rays — <strong>no CT scan is needed</strong>. Dr. Joshi will review your imaging, examine your knee, and discuss your lifestyle expectations to create a personalised surgical plan. The VELYS system maps your anatomy live during surgery, making the process simpler and more streamlined than older robotic platforms.</p>
+        </div>
+        <div class="info-box d3" data-anim="up">
+          <h4>Cost Consideration</h4>
+          <p>Robotic-assisted TKR costs marginally more than conventional surgery due to the technology and planning involved. However, the potential saving of avoiding a revision procedure — which is significantly more expensive, risky, and involves a longer recovery — makes it a highly cost-effective investment over the patient's lifetime. Insurance coverage should be confirmed with your provider.</p>
+        </div>
+        <div class="info-box d4" data-anim="up">
+          <h4>The Consultation Process</h4>
+          <p>At your consultation, Dr. Joshi will review your X-rays, examine your knee, and discuss whether robotic-assisted surgery is the right choice for you. He will explain the specific implant he recommends, the expected recovery timeline, and answer all questions. Virtual consultations are available for patients outside Mumbai.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EVIDENCE ===== -->
+  <section id="evidence" class="procedure-section" style="padding:72px 0;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
+      <div class="tag" data-anim="up">Evidence Base · Research</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:#111; line-height:1.2; margin-bottom:20px;">The Clinical Evidence for Robotic Surgery</h2>
+      <p style="font-size:14px; font-weight:300; color:#444; line-height:1.9; max-width:820px; margin-bottom:32px;">
+        The evidence base for robotic-assisted joint replacement is now robust, drawing from multiple randomised controlled trials, large prospective cohort studies, and national joint registry data across the USA, UK, Australia, and Europe.
+      </p>
+      <div style="max-width:820px;">
+        <div style="background:#f8fafc; border:1px solid #e0e8f2; border-left:4px solid #1e3a6a; padding:28px 28px; margin-bottom:20px;">
+          <div style="font-size:8px; font-weight:600; letter-spacing:0.2em; color:#1e3a6a; text-transform:uppercase; margin-bottom:10px;">Journal of Bone & Joint Surgery (2022)</div>
+          <p style="font-size:13px; font-weight:300; color:#444; line-height:1.85; margin:0;">Randomised controlled trial of 112 patients demonstrated robotic TKR achieved significantly better coronal alignment accuracy (96% vs 71% within 3°), with superior patient-reported outcome measures at 1 and 2 years compared to conventional TKR.</p>
+        </div>
+        <div style="background:#f8fafc; border:1px solid #e0e8f2; border-left:4px solid #1e3a6a; padding:28px 28px; margin-bottom:20px;">
+          <div style="font-size:8px; font-weight:600; letter-spacing:0.2em; color:#1e3a6a; text-transform:uppercase; margin-bottom:10px;">The Knee Journal (2021)</div>
+          <p style="font-size:13px; font-weight:300; color:#444; line-height:1.85; margin:0;">Systematic review of 14 studies including 1,247 robotic TKR patients found statistically significant improvements in implant alignment accuracy, patient satisfaction, and short-term functional recovery compared to conventional manual TKR, with no increase in complication rate.</p>
+        </div>
+        <div style="background:#f8fafc; border:1px solid #e0e8f2; border-left:4px solid #1e3a6a; padding:28px 28px;">
+          <div style="font-size:8px; font-weight:600; letter-spacing:0.2em; color:#1e3a6a; text-transform:uppercase; margin-bottom:10px;">Australian Orthopaedic Association National Joint Replacement Registry (2023)</div>
+          <p style="font-size:13px; font-weight:300; color:#444; line-height:1.85; margin:0;">National registry data on 23,000+ robotic-assisted procedures demonstrates a statistically significant 18% reduction in 5-year revision rates for robotic TKR compared to conventional TKR — translating to thousands of patients spared the risk, cost, and recovery burden of revision surgery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:#1e3a6a; padding:72px 0; text-align:center;">
+    <div style="max-width:600px; margin:0 auto; padding:0 40px;">
+      <div style="font-size:9px; font-weight:500; letter-spacing:0.3em; color:rgba(255,255,255,0.6); text-transform:uppercase; margin-bottom:16px;">Consult Dr. Vinay Joshi</div>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:300; color:#fff; line-height:1.2; margin-bottom:20px;" data-anim="up">Experience World-Class Robotic Surgery in Mumbai</h3>
+      <p style="font-size:13px; font-weight:300; color:rgba(255,255,255,0.75); line-height:1.9; margin-bottom:32px;">Dr. Joshi is one of India's most experienced robotic joint replacement surgeons. Consultations are available in-person at KDAH Andheri West, and virtually for patients outside Mumbai.</p>
+      <a href="tel:+912242696969" style="background:#fff; color:#1e3a6a; font-size:9px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; padding:13px 30px; display:inline-block; text-decoration:none; margin-right:12px;">+91 22 4269 6969</a>
+      <a href="index.html" style="font-size:9px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.7); text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.3); padding-bottom:2px;">Back to Main Site →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#fff; padding:40px 60px; border-top:1px solid #eef2f6; display:flex; justify-content:space-between; align-items:center;">
+    <div>
+      <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.22em; color:#1a2a3a; text-transform:uppercase;">DR. VINAY S. JOSHI</div>
+      <div style="font-size:8px; color:#7a8fa8; letter-spacing:0.2em; text-transform:uppercase; margin-top:4px;">Consultant Orthopaedic Surgeon · Kokilaben Dhirubhai Ambani Hospital, Mumbai</div>
+    </div>
+    <div style="font-size:9px; font-weight:300; color:#aaa;">© 2024 Dr. Vinay S. Joshi. All Rights Reserved.</div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+    const _obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');_obs.unobserve(e.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('[data-anim]').forEach(el=>_obs.observe(el));
+  </script>
+</body>
+</html>
