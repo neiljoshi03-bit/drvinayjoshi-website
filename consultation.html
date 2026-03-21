@@ -578,7 +578,8 @@
         })
         .catch(function(err) {
           console.error('EmailJS error:', err);
-          showError('Something went wrong. Please try again or call us directly on +91 22 4269 6969.');
+          const errDetail = (err && err.text) ? err.text : (err && err.message) ? err.message : (typeof err === 'string' ? err : JSON.stringify(err));
+          showError('Email error: ' + errDetail + ' — or call +91 22 4269 6969.');
           btn.textContent = 'SEND APPOINTMENT REQUEST';
           btn.disabled = false;
           btn.style.opacity = '1';
