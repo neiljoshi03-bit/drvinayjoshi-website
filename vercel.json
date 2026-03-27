@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.drvinayjoshi.com"
+        }
+      ],
+      "destination": "https://drvinayjoshi.com/:path*",
+      "permanent": true
+    }
+  ]
+}
