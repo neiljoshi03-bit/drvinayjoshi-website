@@ -76,10 +76,47 @@
     .testi-dot { width: 6px; height: 6px; border-radius: 50%; background: #c8d4e4; cursor: pointer; transition: background 0.2s, transform 0.2s; }
     .testi-dot.active { background: #1e3a6a; transform: scale(1.3); }
 
-    /* ── Gallery slideshow ── */
-    .gallery-track { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
-    .gallery-slide { flex-shrink: 0; width: 33.333%; padding: 0 6px; }
-    .gallery-slide img { width: 100%; height: 360px; object-fit: cover; object-position: center center; display: block; }
+    /* ── Gallery carousel (2-row) ── */
+    .gallery-carousel { position:relative; margin:0 -20px; padding:0 20px; }
+    .gallery-track {
+      display:grid;
+      grid-template-rows:repeat(2, 240px);
+      grid-auto-flow:column;
+      grid-auto-columns:240px;
+      gap:10px;
+      overflow-x:auto;
+      overflow-y:hidden;
+      scroll-behavior:smooth;
+      scrollbar-width:none;
+      -ms-overflow-style:none;
+      padding:4px 0 8px;
+    }
+    .gallery-track::-webkit-scrollbar { display:none; }
+    .gallery-item { position:relative; overflow:hidden; cursor:pointer; background:#1a2a3a; }
+    .gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; display:block; }
+    .gallery-item:hover img { transform:scale(1.05); }
+    .gallery-item::after { content:''; position:absolute; inset:0; background:rgba(13,26,46,0); transition:background 0.3s ease; }
+    .gallery-item:hover::after { background:rgba(13,26,46,0.18); }
+    .gallery-nav {
+      position:absolute; top:50%; transform:translateY(-50%);
+      width:52px; height:52px; border-radius:50%;
+      background:rgba(255,255,255,0.95); color:#0d1a2e; border:1px solid rgba(255,255,255,0.3);
+      cursor:pointer; z-index:5; transition:background 0.2s, transform 0.2s;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 20px rgba(0,0,0,0.35);
+    }
+    .gallery-nav:hover { background:#fff; transform:translateY(-50%) scale(1.08); }
+    .gallery-nav.prev { left:-12px; }
+    .gallery-nav.next { right:-12px; }
+    .gallery-nav svg { width:18px; height:18px; }
+    #gallery-lightbox { position:fixed; inset:0; background:rgba(6,12,22,0.96); z-index:9999; display:none; align-items:center; justify-content:center; padding:40px; }
+    #gallery-lightbox.open { display:flex; }
+    #gallery-lightbox img { max-width:100%; max-height:100%; object-fit:contain; box-shadow:0 8px 60px rgba(0,0,0,0.4); }
+    #gallery-lightbox .lb-close { position:absolute; top:24px; right:32px; background:none; border:none; color:rgba(255,255,255,0.8); font-size:32px; cursor:pointer; padding:8px; }
+    #gallery-lightbox .lb-nav { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); color:#fff; width:48px; height:48px; cursor:pointer; font-size:20px; transition:background 0.2s; }
+    #gallery-lightbox .lb-nav:hover { background:rgba(255,255,255,0.18); }
+    #gallery-lightbox .lb-prev { left:24px; }
+    #gallery-lightbox .lb-next { right:24px; }
 
     .gold-bg { background-color: #8a9bb5; }
     .btn-gold { background-color: #1e3a6a; color: #fff; font-size: 9px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; padding: 13px 30px; display: inline-block; transition: background 0.2s; text-decoration: none; }
@@ -215,7 +252,15 @@
       .testi-inner blockquote { font-size: 17px !important; }
 
       /* Gallery */
-      .gallery-slide { width: 100% !important; }
+      .gallery-track { grid-template-rows:repeat(2, 160px)!important; grid-auto-columns:160px!important; gap:6px!important; }
+      .gallery-carousel { margin:0 -20px!important; padding:0 20px!important; }
+      .gallery-nav { width:40px!important; height:40px!important; }
+      .gallery-nav.prev { left:4px!important; }
+      .gallery-nav.next { right:4px!important; }
+      #gallery-lightbox { padding:16px!important; }
+      #gallery-lightbox .lb-nav { width:40px!important; height:40px!important; }
+      #gallery-lightbox .lb-prev { left:8px!important; }
+      #gallery-lightbox .lb-next { right:8px!important; }
 
       /* Training timeline — single column, no centre line */
       section .grid.grid-cols-2 > div[style*="padding-bottom:40px"]:not([data-anim]) { display: none !important; }
@@ -968,43 +1013,66 @@
   </section>
 
   <!-- ========== PHOTO GALLERY ========== -->
-  <section style="background:#0d1a2e; padding:80px 0;">
-    <div style="max-width:1100px; margin:0 auto; padding:0 60px 40px;">
-      <div class="text-center mb-4">
-        <div style="font-size:9px; font-weight:500; letter-spacing:0.28em; text-transform:uppercase; color:rgba(255,255,255,0.4);">PHOTO GALLERY · DR. VINAY S. JOSHI</div>
-        <div style="width:40px; height:1px; background:rgba(255,255,255,0.2); margin:16px auto 0;"></div>
+  <section style="background:#0d1a2e; padding:88px 0;">
+    <div style="max-width:1400px; margin:0 auto; padding:0 40px;">
+      <div style="text-align:center; margin-bottom:48px;">
+        <p style="font-size:9px; font-weight:500; letter-spacing:0.28em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:14px;">PHOTO GALLERY</p>
+        <h2 style="font-family:'Cormorant Garamond',serif; font-size:44px; font-weight:300; color:#fff; line-height:1.15;">Conferences, Publications &amp; More</h2>
       </div>
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:48px; color:#fff;">In the Operating Theatre &amp; Beyond</h3>
-    </div>
-
-    <!-- Gallery viewport -->
-    <div style="position:relative; overflow:hidden; padding:0 60px;" id="gallery-viewport">
-      <div class="gallery-track" id="gallery-track">
-        <div class="gallery-slide"><img src="Gallery 1.jpeg" alt="Dr. Vinay Joshi in his clinic" style="width:100%; height:360px; object-fit:cover;"></div>
-        <div class="gallery-slide"><img src="Gallery 2.jpeg" alt="Dr. Joshi with international colleague" style="width:100%; height:360px; object-fit:cover;"></div>
-        <div class="gallery-slide"><img src="Gallery 3.jpeg" alt="Dr. Joshi at FRCS graduation" style="width:100%; height:360px; object-fit:cover;"></div>
-        <div class="gallery-slide"><img src="Gallery 4.jpeg" alt="Surgical team with VELYS robot" style="width:100%; height:360px; object-fit:cover;"></div>
-        <div class="gallery-slide"><img src="Gallery 5.jpeg" alt="International conference" style="width:100%; height:360px; object-fit:cover;"></div>
-        <div class="gallery-slide"><img src="Gallery 6.jpeg" alt="VELYS robotic surgery team" style="width:100%; height:360px; object-fit:cover;"></div>
-        <div class="gallery-slide"><img src="Gallery 7.jpeg" alt="Post-surgery with colleague" style="width:100%; height:360px; object-fit:cover;"></div>
-        <div class="gallery-slide"><img src="Gallery 8.jpeg" alt="Teaching in the operating theatre" style="width:100%; height:360px; object-fit:cover;"></div>
+      <div class="gallery-carousel">
+        <button class="gallery-nav prev" onclick="scrollGallery(-1)" aria-label="Previous photos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="gallery-nav next" onclick="scrollGallery(1)" aria-label="Next photos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+        <div class="gallery-track" id="gallery-track">
+          <div class="gallery-item" onclick="openLightbox(0)"><img src="gallery/gallery-01.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 1"></div>
+          <div class="gallery-item" onclick="openLightbox(1)"><img src="gallery/gallery-02.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 2"></div>
+          <div class="gallery-item" onclick="openLightbox(2)"><img src="gallery/gallery-03.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 3"></div>
+          <div class="gallery-item" onclick="openLightbox(3)"><img src="gallery/gallery-04.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 4"></div>
+          <div class="gallery-item" onclick="openLightbox(4)"><img src="gallery/gallery-05.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 5"></div>
+          <div class="gallery-item" onclick="openLightbox(5)"><img src="gallery/gallery-06.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 6"></div>
+          <div class="gallery-item" onclick="openLightbox(6)"><img src="gallery/gallery-07.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 7"></div>
+          <div class="gallery-item" onclick="openLightbox(7)"><img src="gallery/gallery-08.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 8"></div>
+          <div class="gallery-item" onclick="openLightbox(8)"><img src="gallery/gallery-09.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 9"></div>
+          <div class="gallery-item" onclick="openLightbox(9)"><img src="gallery/gallery-10.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 10"></div>
+          <div class="gallery-item" onclick="openLightbox(10)"><img src="gallery/gallery-11.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 11"></div>
+          <div class="gallery-item" onclick="openLightbox(11)"><img src="gallery/gallery-12.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 12"></div>
+          <div class="gallery-item" onclick="openLightbox(12)"><img src="gallery/gallery-13.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 13"></div>
+          <div class="gallery-item" onclick="openLightbox(13)"><img src="gallery/gallery-14.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 14"></div>
+          <div class="gallery-item" onclick="openLightbox(14)"><img src="gallery/gallery-15.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 15"></div>
+          <div class="gallery-item" onclick="openLightbox(15)"><img src="gallery/gallery-16.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 16"></div>
+          <div class="gallery-item" onclick="openLightbox(16)"><img src="gallery/gallery-17.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 17"></div>
+          <div class="gallery-item" onclick="openLightbox(17)"><img src="gallery/gallery-18.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 18"></div>
+          <div class="gallery-item" onclick="openLightbox(18)"><img src="gallery/gallery-19.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 19"></div>
+          <div class="gallery-item" onclick="openLightbox(19)"><img src="gallery/gallery-20.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 20"></div>
+          <div class="gallery-item" onclick="openLightbox(20)"><img src="gallery/gallery-21.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 21"></div>
+          <div class="gallery-item" onclick="openLightbox(21)"><img src="gallery/gallery-22.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 22"></div>
+          <div class="gallery-item" onclick="openLightbox(22)"><img src="gallery/gallery-23.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 23"></div>
+          <div class="gallery-item" onclick="openLightbox(23)"><img src="gallery/gallery-24.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 24"></div>
+          <div class="gallery-item" onclick="openLightbox(24)"><img src="gallery/gallery-25.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 25"></div>
+          <div class="gallery-item" onclick="openLightbox(25)"><img src="gallery/gallery-26.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 26"></div>
+          <div class="gallery-item" onclick="openLightbox(26)"><img src="gallery/gallery-27.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 27"></div>
+          <div class="gallery-item" onclick="openLightbox(27)"><img src="gallery/gallery-28.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 28"></div>
+          <div class="gallery-item" onclick="openLightbox(28)"><img src="gallery/gallery-29.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 29"></div>
+          <div class="gallery-item" onclick="openLightbox(29)"><img src="gallery/gallery-30.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 30"></div>
+          <div class="gallery-item" onclick="openLightbox(30)"><img src="gallery/gallery-31.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 31"></div>
+          <div class="gallery-item" onclick="openLightbox(31)"><img src="gallery/gallery-32.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 32"></div>
+          <div class="gallery-item" onclick="openLightbox(32)"><img src="gallery/gallery-33.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 33"></div>
+          <div class="gallery-item" onclick="openLightbox(33)"><img src="gallery/gallery-34.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 34"></div>
+        </div>
       </div>
-    </div>
-
-    <!-- Gallery controls -->
-    <div style="max-width:1100px; margin:0 auto; padding:0 60px; display:flex; align-items:center; justify-content:space-between; margin-top:28px;">
-      <button id="gallery-prev" style="width:44px; height:44px; border:1px solid rgba(255,255,255,0.2); background:transparent; color:rgba(255,255,255,0.7); font-size:18px; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">&#8592;</button>
-      <div id="gallery-dots" style="display:flex; gap:8px;">
-        <div class="g-dot" data-index="0" style="width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.8); cursor:pointer;"></div>
-        <div class="g-dot" data-index="1" style="width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.3); cursor:pointer;"></div>
-        <div class="g-dot" data-index="2" style="width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.3); cursor:pointer;"></div>
-        <div class="g-dot" data-index="3" style="width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.3); cursor:pointer;"></div>
-        <div class="g-dot" data-index="4" style="width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.3); cursor:pointer;"></div>
-        <div class="g-dot" data-index="5" style="width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.3); cursor:pointer;"></div>
-      </div>
-      <button id="gallery-next" style="width:44px; height:44px; border:1px solid rgba(255,255,255,0.2); background:transparent; color:rgba(255,255,255,0.7); font-size:18px; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">&#8594;</button>
     </div>
   </section>
+
+  <!-- Lightbox -->
+  <div id="gallery-lightbox" onclick="if(event.target.id==='gallery-lightbox')closeLightbox()">
+    <button class="lb-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+    <button class="lb-nav lb-prev" onclick="navLightbox(-1)" aria-label="Previous">&lsaquo;</button>
+    <img id="lb-img" src="" alt="">
+    <button class="lb-nav lb-next" onclick="navLightbox(1)" aria-label="Next">&rsaquo;</button>
+  </div>
 
   <!-- ========== FOOTER ========== -->
   <footer class="bg-white" style="padding:72px 0 40px; border-top:1px solid #eef2f6;">
@@ -1066,25 +1134,34 @@
     dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.index)));
     setInterval(() => goTo(current + 1), 6000);
 
-    // ── Gallery slideshow (3 visible on desktop, 1 on mobile) ──
-    const galleryTrack = document.getElementById('gallery-track');
-    const gDots = document.querySelectorAll('.g-dot');
-    const totalSlides = 8;
-    let gCurrent = 0;
-    function getVisibleSlides() { return window.innerWidth <= 768 ? 1 : 3; }
-    function goGallery(n) {
-      const vis = getVisibleSlides();
-      const maxIndex = totalSlides - vis;
-      gCurrent = Math.max(0, Math.min(n, maxIndex));
-      galleryTrack.style.transform = `translateX(-${gCurrent * (100 / vis)}%)`;
-      gDots.forEach((d, i) => {
-        d.style.background = i === gCurrent ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.3)';
-      });
+    // ── Gallery 2-row carousel ──
+    function scrollGallery(dir) {
+      const track = document.getElementById('gallery-track');
+      if (!track) return;
+      track.scrollBy({ left: track.clientWidth * 0.8 * dir, behavior: 'smooth' });
     }
-    document.getElementById('gallery-prev').addEventListener('click', () => goGallery(gCurrent - 1));
-    document.getElementById('gallery-next').addEventListener('click', () => goGallery(gCurrent + 1));
-    gDots.forEach(d => d.addEventListener('click', () => goGallery(+d.dataset.index)));
-    window.addEventListener('resize', () => goGallery(0));
+    const galleryPhotos = Array.from({length:34}, (_,i) => 'gallery/gallery-' + String(i+1).padStart(2,'0') + '.jpg');
+    let lbIndex = 0;
+    function openLightbox(i) {
+      lbIndex = i;
+      document.getElementById('lb-img').src = galleryPhotos[i];
+      document.getElementById('gallery-lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('gallery-lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function navLightbox(dir) {
+      lbIndex = (lbIndex + dir + galleryPhotos.length) % galleryPhotos.length;
+      document.getElementById('lb-img').src = galleryPhotos[lbIndex];
+    }
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('gallery-lightbox').classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navLightbox(-1);
+      if (e.key === 'ArrowRight') navLightbox(1);
+    });
 
     // ── FAQ accordion ──
     function toggleFAQ(btn) {
