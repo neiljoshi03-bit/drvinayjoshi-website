@@ -11,18 +11,22 @@ The `[DOCTOR TO CONFIRM]` items appear on the live pages inside a visible amber 
 cannot be missed and cannot be published by accident unnoticed. **Every one must be resolved
 (answered or deleted) before deployment.**
 
+**Seven boxes remain across six pages, down from ten across eight.** The three price-related
+confirms are resolved: both cost articles have been rewritten so that no fee of yours or KDAH's is
+stated or implied anywhere on the site.
+
 ---
 
 ## Summary
 
 | # | Page | Words | Confirm items | Reviewed |
 |---|------|-------|---------------|----------|
-| 1 | [Knee Replacement Cost in Mumbai](articles/knee-replacement-cost-mumbai.html) | ~1,450 | 2 | ☐ |
+| 1 | [Knee Replacement Cost in Mumbai](articles/knee-replacement-cost-mumbai.html) | ~1,500 | 0 | ☐ |
 | 2 | [Robotic Knee Replacement in Mumbai](articles/robotic-knee-replacement-mumbai.html) | ~1,350 | 0 | ☐ |
 | 3 | [Knee Replacement Recovery Time](articles/knee-replacement-recovery-time.html) | ~1,200 | 1 | ☐ |
 | 4 | [Exercises After Knee Replacement](articles/exercises-after-knee-replacement.html) | ~1,300 | 1 | ☐ |
 | 5 | [High Flex Knee Replacement](articles/high-flex-knee-replacement.html) | ~1,250 | 1 | ☐ |
-| 6 | [Hip Replacement Cost in Mumbai](articles/hip-replacement-cost-mumbai.html) | ~1,250 | 1 | ☐ |
+| 6 | [Hip Replacement Cost in Mumbai](articles/hip-replacement-cost-mumbai.html) | ~1,500 | 0 | ☐ |
 | 7 | [AVN Hip Treatment in Mumbai](articles/avn-hip-treatment-mumbai.html) | ~1,300 | 1 | ☐ |
 | 8 | [Signs You May Need a Knee Replacement](articles/signs-you-need-knee-replacement.html) | ~1,350 | 0 | ☐ |
 | 9 | [Best Age for Knee Replacement](articles/best-age-for-knee-replacement.html) | ~1,150 | 0 | ☐ |
@@ -37,33 +41,13 @@ cannot be missed and cannot be published by accident unnoticed. **Every one must
 
 ## Every `[DOCTOR TO CONFIRM]` item, in full
 
-### 1. Knee replacement package cost — `knee-replacement-cost-mumbai.html`
-> The current all-inclusive package range for a single (unilateral) total knee replacement, and
-> for a bilateral (both knees) procedure, at KDAH under Dr. Joshi.
-
-**Options:** publish figures, publish a range, or delete the box and let the page direct patients
-to call. The page is written so that it works either way. *Cost queries are among the highest-volume
-searches in this market — publishing a range, even a wide one, is a significant ranking advantage
-over competitors who publish nothing.*
-
-### 2. Cashless insurers and TPAs — `knee-replacement-cost-mumbai.html`
-> Which insurers and TPAs currently have live cashless tie-ups with KDAH for arthroplasty, and
-> whether robotic assistance is reimbursed by any of them.
-
-*This changes periodically. If it is too volatile to publish, delete the box — the surrounding
-text explains the process without naming insurers.*
-
-### 3. Hip replacement package cost — `hip-replacement-cost-mumbai.html`
-> Current all-inclusive package ranges at KDAH for: uncemented total hip replacement,
-> ceramic-on-ceramic hip replacement, and revision hip replacement.
-
-### 4. Driving and return-to-work clearance — `knee-replacement-recovery-time.html`
+### 1. Driving and return-to-work clearance — `knee-replacement-recovery-time.html`
 > Dr. Joshi's preferred driving clearance protocol, and his guidance on return to work for manual
 > and standing occupations.
 
 *The page currently gives the general 4–6 week range. Your specific protocol would be stronger.*
 
-### 5. Deep flexion guidance — `exercises-after-knee-replacement.html` **and** `high-flex-knee-replacement.html`
+### 2. Deep flexion guidance — `exercises-after-knee-replacement.html` **and** `high-flex-knee-replacement.html`
 > **This is a genuine contradiction already live on the site and should be resolved first.**
 >
 > `health-tips.html` lists *"Indian-style floor sitting"* under **Activities to Avoid**.
@@ -74,19 +58,19 @@ text explains the process without naming insurers.*
 > implants — and whether deep flexion is unrestricted long-term or advised in moderation to protect
 > implant longevity.
 
-### 6. Hip precautions and surgical approach — `exercises-after-hip-replacement.html`
+### 3. Hip precautions and surgical approach — `exercises-after-hip-replacement.html`
 > Which surgical approach you use most commonly, and the precise precaution protocol and duration
 > you prescribe. The site notes training in posterior, direct lateral and direct anterior approaches,
 > and precautions differ meaningfully between them.
 
 *The article currently gives standard posterior-approach precautions, labelled as such.*
 
-### 7. Regrow therapy volume and outcomes — `avn-hip-treatment-mumbai.html`
+### 4. Regrow therapy volume and outcomes — `avn-hip-treatment-mumbai.html`
 > The number of Regrow therapy procedures performed to date, and your own outcome data if you wish
 > to publish it. The 70–80% arrest-of-progression figure currently on `hip.html` is a literature-based
 > range; your own series would be considerably stronger.
 
-### 8. Conference presentations — `about.html`
+### 5. Conference presentations — `about.html`
 > Exact titles, dates and locations. Three have been identified from photographs in the site gallery
 > and from the OrthoTV video record, and are stated on the page:
 > - Image-less, saw-based robotic knee replacement — **International Symposium on Robotic Joint Replacement (ISRJR)**
@@ -96,7 +80,7 @@ text explains the process without naming insurers.*
 > Please confirm or correct, and add any invited lectures, faculty positions or teaching appointments
 > you would like listed.
 
-### 9. Publications — `about.html` and `index.html`
+### 6. Publications — `about.html` and `index.html`
 > **A factual correction has been made.** The shoulder paper was listed on this site as appearing in
 > the *Journal of Shoulder & Elbow Surgery*. The indexed record shows it was published in the
 > **International Journal of Shoulder Surgery**, 2011;5(1):17–20 — PMID 21660193, DOI 10.4103/0973-6042.80465,
@@ -121,6 +105,7 @@ text explains the process without naming insurers.*
 | D | `index.html` | **Video cards 2 and 3 pointed at the same video** (`GflyAn-G17s` and `7TlaYuSl-AQ` are both *"Knee surgery — All questions answered (Part 2)"*). Card 3 now points at the Kokilaben Hospital film and is labelled accordingly. |
 | E | `testimonials.html` | **`AggregateRating` (4.8) and three `Review` blocks removed from the structured data.** Self-serving reviews hosted on a business's own site are ineligible for rich results under Google's policy and can attract a manual action. The visible testimonials are unchanged. The route to star ratings in search is the Google Business Profile — see `MANUAL-TASKS.md`. |
 | F | `index.html` | Meta title changed from *"Dr. Vinay Joshi - Best Joint Replacement Surgeon in Mumbai…"* to *"Dr. Vinay Joshi \| Joint Replacement Surgeon, Mumbai"*. Two reasons: the original was 79 characters and truncated in search results, and a self-superlative in a title tag sits awkwardly with NMC advertising standards. **That query is now targeted compliantly by article 12**, which is framed as the patient's question. Revert if you prefer. |
+| G2 | `knee-replacement-cost-mumbai.html`, `hip-replacement-cost-mumbai.html` | **Both cost articles rewritten.** Every `[DOCTOR TO CONFIRM]` price placeholder is gone, along with any implication of your or KDAH's specific fees. Each page now opens with a direct answer giving **city-wide Mumbai private-hospital ranges, explicitly labelled as market context rather than this practice's fees**, states plainly that you do not publish fees, and routes patients to a consultation for a written estimate. The one hard figure used is the government NPPA implant price ceiling, which applies to every hospital in India equally and is cited to Business Standard. |
 | G | `health-tips.html` | The recovery timeline and the knee/hip exercise sections were **moved** into articles 3, 4 and 11 — not deleted — and the page is now a hub linking to all twelve guides. **The URL is unchanged**, so the printed QR code still works. |
 
 ---
