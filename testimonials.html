@@ -145,6 +145,12 @@
       .review-card blockquote { font-size: 16px !important; }
       div[style*="grid-template-columns:420px"] > div:last-child blockquote { font-size: 18px !important; }
     }
+
+    .pg-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; max-width:1080px; margin:0 auto; }
+    .pg-card { display:block; background:#fff; border:1px solid #e0e8f2; border-left:3px solid #1e3a6a; padding:22px 24px; text-decoration:none; transition:box-shadow .25s, transform .25s; }
+    .pg-card:hover { box-shadow:0 10px 30px rgba(30,58,106,.12); transform:translateY(-3px); }
+    @media (max-width:1024px){ .pg-grid { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:700px){ .pg-grid { grid-template-columns:1fr; } }
   </style>
   <link rel="preload" as="image" href="gallery/gallery-12.jpg" fetchpriority="high">
   <script type="application/ld+json">
@@ -656,6 +662,35 @@
       <p style="font-size:13px; font-weight:300; color:rgba(255,255,255,0.75); line-height:1.9; margin-bottom:32px;">Join thousands of patients who have reclaimed their mobility and quality of life with Dr. Vinay Joshi.</p>
       <a href="tel:+912242696969" style="background:#fff; color:#1e3a6a; font-size:9px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; padding:13px 30px; display:inline-block; text-decoration:none; margin-right:12px;">+91 22 4269 6969</a>
       <a href="https://drvinayjoshi.com/" style="font-size:9px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.7); text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.3); padding-bottom:2px;">Back to Main Site →</a>
+    </div>
+  </section>
+
+  <!-- ========== RELATED PATIENT GUIDES ========== -->
+  <section style="background:#f5f8fa;padding:76px 0;border-top:1px solid #eef2f6;">
+    <div style="max-width:1180px;margin:0 auto;padding:0 60px;">
+      <div style="text-align:center;margin-bottom:36px;">
+        <div class="section-label">Patient Guides</div>
+        <div class="divider" style="margin:14px auto 22px;"></div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#111;line-height:1.25;">Read More on This Topic</h2>
+      </div>
+      <div class="pg-grid">
+        <a class="pg-card" href="https://drvinayjoshi.com/articles/how-to-choose-a-joint-replacement-surgeon-in-mumbai.html">
+          <div style="font-size:7.5px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:8px;">Choosing Care</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:#1a2a3a;line-height:1.35;">How to Choose a Joint Replacement Surgeon in Mumbai</div>
+        </a>
+        <a class="pg-card" href="https://drvinayjoshi.com/about.html">
+          <div style="font-size:7.5px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:8px;">About</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:#1a2a3a;line-height:1.35;">Dr. Vinay S. Joshi — Training & Publications</div>
+        </a>
+        <a class="pg-card" href="https://drvinayjoshi.com/articles/knee-replacement-recovery-time.html">
+          <div style="font-size:7.5px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:8px;">Recovery</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:#1a2a3a;line-height:1.35;">Knee Replacement Recovery Time — Week by Week</div>
+        </a>
+        <a class="pg-card" href="https://drvinayjoshi.com/articles/avn-hip-treatment-mumbai.html">
+          <div style="font-size:7.5px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:8px;">AVN</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:#1a2a3a;line-height:1.35;">Avascular Necrosis of the Hip — Stages & Treatment</div>
+        </a>
+      </div>
     </div>
   </section>
 
