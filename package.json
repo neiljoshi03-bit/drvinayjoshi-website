@@ -2,12 +2,16 @@
   "name": "drvinayjoshi-website",
   "version": "1.0.0",
   "private": true,
-  "description": "Static site for drvinayjoshi.com. Tailwind is compiled to assets/tw.css and committed — no build step is required at deploy time.",
+  "description": "Static site for drvinayjoshi.com. Tailwind is compiled to assets/tw.css and WebP siblings are generated alongside each JPEG \u2014 all committed, so no build runs at deploy time. Run `npm run build` after adding images or changing markup.",
   "scripts": {
     "build:css": "tailwindcss -i ./src/tw-input.css -o ./assets/tw.css --minify",
-    "watch:css": "tailwindcss -i ./src/tw-input.css -o ./assets/tw.css --watch"
+    "watch:css": "tailwindcss -i ./src/tw-input.css -o ./assets/tw.css --watch",
+    "build:webp": "node scripts/build-webp.mjs",
+    "build:picture": "node scripts/wrap-picture.mjs",
+    "build": "npm run build:css && npm run build:webp && npm run build:picture"
   },
   "devDependencies": {
+    "sharp": "^0.35.3",
     "tailwindcss": "^3.4.17"
   }
 }

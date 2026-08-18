@@ -129,7 +129,7 @@
        Moving this link earlier would change every line-height on the page.
        Rebuild with: npm run build:css -->
   <link rel="stylesheet" href="assets/tw.css">
-  <link rel="preload" as="image" href="robotic-surgery-mumbai.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="robotic-surgery-mumbai.webp" type="image/webp" fetchpriority="high">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -413,8 +413,8 @@
 
   <!-- HERO -->
   <section class="relative" style="height:520px; overflow:hidden;">
-    <img decoding="async" fetchpriority="high" width="670" height="375" src="robotic-surgery-mumbai.jpg"
-         alt="Robotic Surgery" class="w-full h-full object-cover" style="object-position:center center;">
+    <picture><source srcset="robotic-surgery-mumbai.webp" type="image/webp"><img decoding="async" fetchpriority="high" width="670" height="375" src="robotic-surgery-mumbai.jpg"
+         alt="Robotic Surgery" class="w-full h-full object-cover" style="object-position:center center;"></picture>
     <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(10,20,35,0.55) 0%, rgba(10,20,35,0.25) 45%, rgba(10,20,35,0.70) 100%);"></div>
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center" style="padding-top:80px;">
       <div style="font-size:9px; font-weight:500; letter-spacing:0.32em; color:rgba(255,255,255,0.65); text-transform:uppercase; margin-bottom:16px;">Dr. Vinay S. Joshi · Kokilaben Dhirubhai Ambani Hospital · Pioneering in India</div>
@@ -466,10 +466,10 @@
   <!-- ROBO IMAGE -->
   <section style="background:#f0f4f9; padding:56px 60px; text-align:center;">
     <div style="max-width:1100px; margin:0 auto;">
-      <img decoding="async" loading="lazy" width="960" height="1280" src="robotic-joint-replacement-velys-mumbai.jpg"
+      <picture><source srcset="robotic-joint-replacement-velys-mumbai.webp" type="image/webp"><img decoding="async" loading="lazy" width="960" height="1280" src="robotic-joint-replacement-velys-mumbai.jpg"
            alt="Robotic Surgery at Kokilaben Dhirubhai Ambani Hospital"
            data-anim="scale"
-           style="width:100%; height:auto; max-height:520px; object-fit:contain; display:block; margin:0 auto;">
+           style="width:100%; height:auto; max-height:520px; object-fit:contain; display:block; margin:0 auto;"></picture>
       <div style="font-size:9px; font-weight:500; letter-spacing:0.22em; color:#7a8fa8; text-transform:uppercase; margin-top:16px;">VELYS Robotic-Assisted Surgery · Dr. Vinay S. Joshi · Kokilaben Dhirubhai Ambani Hospital</div>
     </div>
   </section>

@@ -157,7 +157,7 @@
        Moving this link earlier would change every line-height on the page.
        Rebuild with: npm run build:css -->
   <link rel="stylesheet" href="assets/tw.css">
-  <link rel="preload" as="image" href="gallery/gallery-12.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="gallery/gallery-12.webp" type="image/webp" fetchpriority="high">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -428,7 +428,7 @@
 
   <!-- HERO -->
   <section class="relative" style="height:400px; overflow:hidden;">
-    <img decoding="async" fetchpriority="high" width="1280" height="616" src="gallery/gallery-12.jpg" alt="Dr. Vinay Joshi with a joint replacement patient and their family at Kokilaben Hospital, Mumbai" class="w-full h-full object-cover">
+    <picture><source srcset="gallery/gallery-12.webp" type="image/webp"><img decoding="async" fetchpriority="high" width="1280" height="616" src="gallery/gallery-12.jpg" alt="Dr. Vinay Joshi with a joint replacement patient and their family at Kokilaben Hospital, Mumbai" class="w-full h-full object-cover"></picture>
     <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(10,20,35,0.6) 0%, rgba(10,20,35,0.5) 100%);"></div>
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center" style="padding-top:80px;">
       <div style="font-size:9px; font-weight:500; letter-spacing:0.32em; color:rgba(255,255,255,0.65); text-transform:uppercase; margin-bottom:16px;">Google Reviews · Kokilaben Dhirubhai Ambani Hospital</div>
@@ -644,9 +644,9 @@
       <!-- Inspiring patient photo + review -->
       <div style="display:grid; grid-template-columns:420px 1fr; gap:0; align-items:stretch;" data-anim="up">
         <div style="position:relative; overflow:hidden;">
-          <img decoding="async" loading="lazy" width="1280" height="960" src="high-flex-knee-replacement-patient-mumbai.jpg"
+          <picture><source srcset="high-flex-knee-replacement-patient-mumbai.webp" type="image/webp"><img decoding="async" loading="lazy" width="1280" height="960" src="high-flex-knee-replacement-patient-mumbai.jpg"
                alt="Patient recovered from knee replacement surgery sitting cross-legged - Dr. Vinay Joshi Mumbai"
-               style="width:100%; height:100%; min-height:400px; object-fit:cover; object-position:center top; display:block;">
+               style="width:100%; height:100%; min-height:400px; object-fit:cover; object-position:center top; display:block;"></picture>
           <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 60%);"></div>
         </div>
         <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-left:none; padding:48px 44px; display:flex; flex-direction:column; justify-content:center;">
