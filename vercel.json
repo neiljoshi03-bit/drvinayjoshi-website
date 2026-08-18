@@ -10,6 +10,29 @@
       ],
       "destination": "https://drvinayjoshi.com/:path*",
       "permanent": true
+    },
+
+    { "source": "/presentations/Frequently Asked Questions (FAQs) _compressed.pdf", "destination": "/presentations/joint-replacement-faq-guide.pdf", "permanent": true },
+    { "source": "/presentations/Patient's Journey and Recovery_compressed.pdf", "destination": "/presentations/joint-replacement-patient-journey-recovery.pdf", "permanent": true },
+    { "source": "/presentations/Patients Guide to Hip Replacements_compressed.pdf", "destination": "/presentations/hip-replacement-patient-guide.pdf", "permanent": true },
+    { "source": "/presentations/Patients Guide to Knee Replacements_compressed.pdf", "destination": "/presentations/knee-replacement-patient-guide.pdf", "permanent": true },
+
+    { "source": "/Knee photo.jpg", "destination": "/knee-replacement-mumbai.jpg", "permanent": true },
+    { "source": "/Hip Image.jpg", "destination": "/hip-replacement-mumbai.jpg", "permanent": true },
+    { "source": "/Hip .jpg", "destination": "/hip-replacement-surgery-mumbai.jpg", "permanent": true },
+    { "source": "/Prof.jpeg", "destination": "/dr-vinay-joshi-orthopaedic-surgeon.jpg", "permanent": true },
+    { "source": "/Robo.jpeg", "destination": "/robotic-joint-replacement-velys-mumbai.jpg", "permanent": true },
+    { "source": "/RoboticSurgery.jpg", "destination": "/robotic-surgery-mumbai.jpg", "permanent": true },
+    { "source": "/Inspiring patient whose knee replaced.jpeg", "destination": "/high-flex-knee-replacement-patient-mumbai.jpg", "permanent": true },
+    { "source": "/Dancing patient video.mp4", "destination": "/knee-replacement-patient-recovery-mumbai.mp4", "permanent": true },
+    { "source": "/Profile picture.png", "destination": "/dr-vinay-joshi-profile-mumbai.png", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.(jpg|jpeg|png|webp|svg|mp4|pdf)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
     }
   ]
 }
