@@ -147,6 +147,18 @@
     .guide-card:hover { box-shadow:0 14px 40px rgba(30,58,106,.13); transform:translateY(-4px); }
     @media (max-width:1024px){ .guide-grid { grid-template-columns:repeat(2,1fr); } }
     @media (max-width:700px){ .guide-grid { grid-template-columns:1fr; } }
+
+    /* ── Mobile horizontal-overflow guard (≤420px) ───────────────────────────
+       Two causes on this page:
+       1. horizontal scroll-entry animations parked outside the viewport, and
+       2. the long-term-joint-health panel is a fixed `width:380px; flex-shrink:0`
+          flex item, so it cannot shrink below 380px even once the row has been
+          stacked to a column — wider than a 360px screen on its own. */
+    @media (max-width: 420px) {
+      [data-anim="left"],
+      [data-anim="right"] { transform: translateY(24px); }
+      div[style*="width:380px"][style*="flex-shrink:0"] { width: 100% !important; }
+    }
   </style>
   <!-- Tailwind: compiled and minified from tailwind.config.js. Loaded AFTER the inline
        styles on purpose: the old in-browser JIT build injected its stylesheet last, so

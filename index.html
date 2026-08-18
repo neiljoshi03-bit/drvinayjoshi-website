@@ -270,6 +270,19 @@
     .pg-card:hover { box-shadow:0 10px 30px rgba(30,58,106,.12); transform:translateY(-3px); }
     @media (max-width:1024px){ .pg-grid { grid-template-columns:repeat(2,1fr); } }
     @media (max-width:700px){ .pg-grid { grid-template-columns:1fr; } }
+
+    /* ── Mobile horizontal-overflow guard (≤420px) ───────────────────────────
+       The scroll-entry animations offset elements horizontally (translateX 40px)
+       and hold them there until they scroll into view. On a narrow viewport that
+       pushes a full-width element past the right edge — 320px content + 60px
+       offset = 380px on a 360px screen — producing horizontal scroll on the whole
+       page. Enter vertically instead; the animation is preserved, the overflow is
+       removed at source. NOT solved with overflow-x:hidden, which would only hide
+       it and would break position:sticky. */
+    @media (max-width: 420px) {
+      [data-anim="fade-left"],
+      [data-anim="fade-right"] { transform: translateY(24px); }
+    }
   </style>
   <!-- Tailwind: compiled and minified from tailwind.config.js. Loaded AFTER the inline
        styles on purpose: the old in-browser JIT build injected its stylesheet last, so

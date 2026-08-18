@@ -119,6 +119,25 @@
     .pg-card:hover { box-shadow:0 10px 30px rgba(30,58,106,.12); transform:translateY(-3px); }
     @media (max-width:1024px){ .pg-grid { grid-template-columns:repeat(2,1fr); } }
     @media (max-width:700px){ .pg-grid { grid-template-columns:1fr; } }
+
+    /* ── Mobile horizontal-overflow guard (≤420px) ───────────────────────────
+       [data-anim="right"] holds elements at translateX(36px) until they scroll
+       into view: 320px content + 56px offset = 376px on a 360px screen. Enter
+       vertically instead so nothing is ever parked outside the viewport. */
+    @media (max-width: 420px) {
+      [data-anim="left"],
+      [data-anim="right"] { transform: translateY(24px); }
+
+      /* The footer is a 3-column flex row (identity / nav / copyright) with no
+         stacking rule — the existing `footer > div > div.flex` selector matches a
+         structure this page does not have. At 360px the copyright column is pushed
+         past the right edge. Stack the row instead. */
+      footer[style*="display:flex"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 20px !important;
+      }
+    }
   </style>
   <!-- Tailwind: compiled and minified from tailwind.config.js. Loaded AFTER the inline
        styles on purpose: the old in-browser JIT build injected its stylesheet last, so
