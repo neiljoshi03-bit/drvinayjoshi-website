@@ -23,20 +23,16 @@ of how well it ranks on Google.
 - Sign up at `bing.com/webmasters`, verify the domain, submit the same sitemap.
 - You can import the property directly from Google Search Console once step 1 is done.
 
-## 3. Check Vercel is not blocking AI crawlers — **silent failure risk**
+## 3. ~~Check Vercel is not blocking AI crawlers~~ — **DONE**
 
-`robots.txt` now explicitly welcomes GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-User,
-PerplexityBot, Google-Extended, Applebot-Extended, CCBot and others. **A firewall rule overrides
-robots.txt.** If Vercel's bot protection is challenging them, the invitation is meaningless.
+**Verified:** Vercel Bot Protection is **off** and AI Bots are **allowed**. `robots.txt` explicitly
+welcomes GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-User, PerplexityBot, Google-Extended,
+Applebot-Extended, CCBot and others, and no firewall rule overrides it.
 
-- Vercel dashboard → your project → **Firewall**. Confirm Bot Protection / Attack Challenge Mode is
-  **off**, or that AI crawlers are allow-listed.
-- Verify from outside afterwards:
-  ```
-  curl -A "GPTBot" -I https://drvinayjoshi.com/articles/robotic-knee-replacement-mumbai.html
-  curl -A "PerplexityBot" -I https://drvinayjoshi.com/
-  ```
-  Both must return `HTTP/2 200`. A `403` means the firewall is blocking them.
+Worth re-checking after any Vercel plan or security-settings change, with:
+```
+curl -A "GPTBot" -I https://drvinayjoshi.com/articles/robotic-knee-replacement-mumbai.html
+```
 
 ## 4. Claim directory profiles, then add them to the schema
 
@@ -61,9 +57,8 @@ Four Bungalows, Andheri West, Mumbai 400053, Maharashtra
 +91 22 4269 6969
 ```
 
-Once claimed, add the URLs to the `sameAs` array. It appears in **every** page's JSON-LD, generated
-from one place — `schema_lib.py`, `PHYSICIAN["sameAs"]` — so add them there and regenerate, or
-find-and-replace the array across all 21 pages.
+Once claimed, add the URLs to the `sameAs` array. It appears in **every** page's JSON-LD, so find-and-replace the `sameAs` array across all 21 HTML
+files (it is identical in each).
 
 ## 5. Request a backlink from the Kokilaben hospital profile
 
@@ -75,18 +70,29 @@ Ask KDAH's marketing/digital team to add the website URL to the profile page.
 
 ---
 
-## 6. Social profiles — schema placeholders pending
+## 6. Dr. Joshi has no personal YouTube or Instagram account
 
-The site links to an Instagram reel and three YouTube videos. **None are on Dr. Joshi's own
-accounts** — the reel belongs to `@kokilabenhospital`, and the videos to the Kokilaben channel,
-OrthoTV and Bhagyashree Dassani respectively.
+**Investigated and resolved as far as the data allows.** All four videos and the Instagram reel on
+the site belong to **other people's channels**:
 
-- If Dr. Joshi has a personal professional Instagram or YouTube channel, supply the URLs and they
-  will be added to `sameAs`.
-- If he does not, consider whether one is wanted. It is not essential, but a first-party video
-  presence is a strong asset for AI answer engines.
-- **Do not** add the hospital's social accounts to his `sameAs` — `sameAs` must describe the same
-  entity, and a hospital account is a different entity.
+| Content | Actually published by |
+|---|---|
+| *Case Presentations Primary or Complex THA, ROC 2023* | Ortho TV — `youtube.com/@orthoTV` |
+| *Knee surgery — All questions answered (Part 2)* | Bhagyashree Dassani |
+| *Dr Vinay Joshi: Joint and Knee replacement Surgery* | Kokilaben Hospital — `youtube.com/@Kokilabenhospitalmumbai` |
+| Robotic surgery misconceptions reel | Kokilaben Hospital — `instagram.com/kokilabenhospital` |
+
+**What was done:** each channel is now recorded as the `publisher` of its own `VideoObject`, which is
+factually correct. The Kokilaben channel has been added to the **Hospital** entity's `sameAs`.
+
+**What was deliberately NOT done:** none of these went into `Physician.sameAs`. `sameAs` must point at
+pages that unambiguously identify *that entity* — a hospital's or a third party's channel identifies a
+different entity, and asserting otherwise would corrupt the entity graph rather than strengthen it.
+
+**Outstanding — needs Dr. Joshi:** if he has (or creates) a personal professional YouTube channel or
+Instagram account, supply the URL and it goes straight into `Physician.sameAs`. A first-party video
+presence is one of the stronger remaining assets for AI answer engines. If he has neither, nothing
+further is needed here.
 
 ## 7. Star ratings in search results
 
@@ -111,19 +117,33 @@ doing work they were not shot for, and would benefit from purpose-shot replaceme
 **Patient consent:** several gallery images show identifiable patients. Please confirm written
 consent is on file for each image used on the public site.
 
-## 9. WebP conversion — deferred, not done
+## 9. WebP conversion — still outstanding
 
-Requested in the brief but **not completed**: this machine has no `cwebp`, no Python Pillow, and
-this version of `sips` cannot write WebP. Adding a Node toolchain to a repo with no build step
-seemed the wrong trade to make unasked.
+Requested in the original brief but **not completed**: this machine has no `cwebp`, no Python Pillow,
+and this version of `sips` cannot write WebP.
 
-Total image weight is currently ~6.1 MB across 40+ files, with no single file above 190 KB, so this
-is an optimisation rather than a problem. Options:
+Now that `npm` and a `package.json` exist in the repo (added for the Tailwind build), this is
+straightforward to finish:
 
-- `brew install webp`, then generate `.webp` alongside each JPEG and add `<picture>` elements; or
-- run the images through Squoosh or TinyPNG manually; or
-- leave as is — with `Cache-Control: immutable` now set on all assets (in `vercel.json`),
-  repeat visitors re-download nothing.
+```
+npm i -D sharp
+```
+…then generate a `.webp` sibling for each JPEG and wrap the `<img>` tags in `<picture>` elements.
+
+Total image weight is ~6.1 MB across 40+ files with nothing above 190 KB, so this remains an
+optimisation rather than a problem — and `Cache-Control: immutable` (set in `vercel.json`) means
+repeat visitors re-download nothing.
+
+## 9a. Pre-existing mobile horizontal overflow — not introduced by this work
+
+`index.html` and `consultation.html` scroll horizontally on a 390 px viewport (scrollWidth 410 px and
+406 px respectively). **Verified present on `main` before any of this work**, at identical values, so
+it has been left alone rather than fixed — correcting it means changing layout, which was outside the
+SEO remit.
+
+It is worth fixing: horizontal overflow on mobile is a real usability signal for Google. On
+`index.html` the offending element extends to 520 px. `about.html` had the same problem at 456 px and
+**has been fixed** as part of the Tailwind migration.
 
 ## 10. Housekeeping
 

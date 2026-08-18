@@ -135,8 +135,11 @@
     @media (max-width:1024px){ .pg-grid { grid-template-columns:repeat(2,1fr); } }
     @media (max-width:700px){ .pg-grid { grid-template-columns:1fr; } }
   </style>
-  <!-- Tailwind: compiled, minified. Loaded after the inline styles to preserve
-       the cascade order the cdn.tailwindcss.com build produced. Rebuild: npm run build:css -->
+  <!-- Tailwind: compiled and minified from tailwind.config.js. Loaded AFTER the inline
+       styles on purpose: the old in-browser JIT build injected its stylesheet last, so
+       preflight's body{line-height:inherit} won over this page's body{line-height:1.75}.
+       Moving this link earlier would change every line-height on the page.
+       Rebuild with: npm run build:css -->
   <link rel="stylesheet" href="assets/tw.css">
   <link rel="preload" as="image" href="hip-replacement-surgery-mumbai.jpg" fetchpriority="high">
   <script type="application/ld+json">

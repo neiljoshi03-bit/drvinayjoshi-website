@@ -236,3 +236,89 @@ External image hosts        0
   personal social accounts are pending claim; logged as `MANUAL-TASKS.md` item 4.
 - **Cost figures unpublished** — no figures were invented. Nine `[DOCTOR TO CONFIRM]` boxes are
   visible on the affected pages and listed in `ARTICLES-FOR-REVIEW.md`.
+
+---
+
+# Follow-Up Work (18 August 2026, same day)
+
+## VideoObject schema completed
+
+Upload dates were extracted from each video's **own embedded YouTube metadata** (`itemprop="uploadDate"`
+and the `uploadDate` field in the watch page's player response) — not guessed, not inferred from
+"N years ago" strings.
+
+| Video ID | uploadDate | Duration | Published by |
+|---|---|---|---|
+| `WuDiSgkgWxQ` | 2024-03-21T04:07:18-07:00 | PT9M5S | Ortho TV : Orthopaedic Video Channel |
+| `GflyAn-G17s` | 2022-10-11T02:51:47-07:00 | PT8M43S | Bhagyashree Dassani |
+| `iQm3wvjTJDs` | 2020-05-13T02:10:57-07:00 | PT3M58S | Kokilaben Dhirubhai Ambani Hospital |
+
+All three now carry `name`, `description`, `thumbnailUrl` (maxresdefault + hqdefault, both verified
+HTTP 200), `embedUrl`, `contentUrl`, `uploadDate`, `duration` and `publisher`.
+
+**A stray reference was also fixed:** the third video card's `onerror` thumbnail fallback still pointed
+at `7TlaYuSl-AQ`, the duplicate video removed earlier. All thumbnail hosts normalised to `i.ytimg.com`.
+
+**`Physician.sameAs` was deliberately not extended.** None of the three channels belong to Dr. Joshi —
+they are a conference video channel, a wellness influencer and the hospital. `sameAs` must point at
+pages that unambiguously identify the same entity, so each channel is recorded as the `publisher` of
+its own video, and the Kokilaben channel was added to the **Hospital** entity's `sameAs`. See
+`MANUAL-TASKS.md` item 6.
+
+## Tailwind CDN replaced with compiled CSS
+
+`cdn.tailwindcss.com` — the in-browser JIT compiler, roughly 120 KB of render-blocking JavaScript that
+Tailwind documents as never-for-production — was removed from all 21 pages and replaced with a
+compiled, minified **8 KB** `assets/tw.css`.
+
+- **No inline `tailwind.config` existed** on any page, so no custom theme, colours or fonts needed
+  carrying over. The palette and typography live in each page's inline `<style>`, which still loads.
+- **30 Tailwind utilities** are used across the markup and all 30 compiled. Coverage was verified by
+  extracting every class name from every page and matching it against the compiled selectors.
+- **Five classes matched no rule**, all correctly so: `cyear`, `faq-item`, `faq-icon` and `faq-answer`
+  are JavaScript hooks whose styling is inline — and `about-hero`, which was a **genuine gap**. It was
+  a responsive selector referenced but never written, causing a 456 px horizontal overflow on a 390 px
+  viewport. Now fixed.
+
+### The cascade subtlety that mattered
+
+Placing the `<link>` where the `<script>` had been **silently changed every line-height on the site**.
+
+Tailwind's preflight ships `body{line-height:inherit}`, which ties on specificity with the site's own
+`body{line-height:1.75}` — so **source order decides**. The CDN injected its stylesheet *after* each
+page's inline `<style>`, so preflight won and the site actually rendered at `1.5`. A `<link>` in the
+old script position let the page's `1.75` win instead, growing every page by 1–2%.
+
+The stylesheet is therefore linked **after** the inline `<style>` block, reproducing the CDN's
+effective cascade exactly. There is an HTML comment above each link recording why, so nobody
+"tidies" it back up into the head.
+
+**Verification:** 0 of 241 elements differ in computed style versus the CDN build (17 properties
+compared per element), and 13 of 14 full-page screenshots are byte-identical at both 1440 px and
+390 px. The 14th is `about.html` on mobile, which differs only because of the overflow fix above.
+
+*(Note: the Task 2 commit message lost two CSS snippets to shell backtick expansion — the sentence
+beginning "so preflight's … beat the page's …" should read `body{line-height:inherit}` and
+`body{line-height:1.75}`. Recorded here rather than by amending the commit.)*
+
+## Build
+
+`package.json`, `tailwind.config.js` and `src/tw-input.css` are committed; `node_modules/` is
+gitignored. **The compiled CSS ships in the repo — no build runs at deploy time.** To rebuild after
+markup changes: `npm install && npm run build:css`.
+
+## Re-verification after the follow-up work
+
+```
+Pages                      21
+H1 per page               1/1
+Physician + Breadcrumb   21/21
+VideoObject                 3   all with uploadDate, duration, publisher
+FAQPage                    14   all matching visible text exactly
+Internal links            825   all resolve, 0 broken
+Images                     78   all resolve
+Tailwind CDN script tags    0
+tw.css cascade position  21/21  after inline styles
+Sitemap                    21   matches disk, lastmod 2026-08-18 (accurate — all changed today)
+JSON-LD blocks           21/21  parse cleanly
+```
