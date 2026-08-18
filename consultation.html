@@ -7,14 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book a Consultation | Dr. Vinay Joshi | Joint Replacement Surgeon Mumbai</title>
   <meta name="description" content="Book a consultation with Dr. Vinay Joshi, Mumbai's leading joint replacement surgeon at Kokilaben Dhirubhai Ambani Hospital. Request an appointment online.">
-  <meta name="keywords" content="book appointment Dr Vinay Joshi, joint replacement consultation Mumbai, orthopaedic surgeon appointment Mumbai">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Dr. Vinay S. Joshi">
   <meta property="og:site_name" content="Dr. Vinay Joshi - Joint Replacement Surgeon Mumbai">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Book a Consultation | Dr. Vinay Joshi Mumbai">
   <meta property="og:description" content="Book a consultation with Dr. Vinay Joshi, Mumbai's leading joint replacement surgeon at Kokilaben Dhirubhai Ambani Hospital. Request an appointment online.">
-  <meta property="og:image" content="https://drvinayjoshi.com/hero.png">
+  <meta property="og:image" content="https://drvinayjoshi.com/dr-vinay-joshi-joint-replacement-surgeon-mumbai.jpg">
   <meta property="og:url" content="https://drvinayjoshi.com/consultation.html">
   <link rel="canonical" href="https://drvinayjoshi.com/consultation.html">
   <script type="application/ld+json">
@@ -184,6 +183,7 @@
       footer > div > div.flex { flex-direction: column !important; gap: 20px !important; }
     }
   </style>
+  <link rel="preload" as="image" href="gallery/gallery-07.jpg" fetchpriority="high">
 </head>
 <body style="background:#f0f4f9;">
   <!-- MENU OVERLAY -->
@@ -229,8 +229,7 @@
 
   <!-- HERO -->
   <section class="relative" style="height:380px; overflow:hidden;">
-    <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1440&h=380&fit=crop&crop=center"
-         onerror="this.src='https://placehold.co/1440x380/1a2a3a/4a6a8a'" alt="Consultation" class="w-full h-full object-cover">
+    <img decoding="async" fetchpriority="high" width="1280" height="960" src="gallery/gallery-07.jpg" alt="Dr. Vinay Joshi, consultant joint replacement surgeon, at Kokilaben Dhirubhai Ambani Hospital, Andheri West, Mumbai" class="w-full h-full object-cover">
     <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(10,20,35,0.65) 0%, rgba(10,20,35,0.55) 100%);"></div>
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center" style="padding-top:80px;">
       <div style="font-size:9px; font-weight:500; letter-spacing:0.32em; color:rgba(255,255,255,0.65); text-transform:uppercase; margin-bottom:16px;">Kokilaben Dhirubhai Ambani Hospital · Mumbai</div>
@@ -383,6 +382,7 @@
     <div>
       <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.22em; color:#1a2a3a; text-transform:uppercase;">DR. VINAY S. JOSHI</div>
       <div style="font-size:8px; color:#7a8fa8; letter-spacing:0.2em; text-transform:uppercase; margin-top:4px;">Consultant Orthopaedic Surgeon · Kokilaben Dhirubhai Ambani Hospital, Mumbai</div>
+      <div style="font-size:11px; font-weight:300; color:#666; margin-top:8px; line-height:1.8;">Kokilaben Dhirubhai Ambani Hospital, Rao Saheb Achutrao Patwardhan Marg, Four Bungalows, Andheri West, Mumbai &ndash; 400053, Maharashtra<br><a href="tel:+912242696969" style="color:#1a2a3a; text-decoration:none; font-weight:500;">+91 22 4269 6969</a></div>
     </div>
     <div style="display:flex; gap:20px; align-items:center;">
       <a href="https://drvinayjoshi.com/" style="font-size:9px; font-weight:500; letter-spacing:0.15em; color:#7a8fa8; text-decoration:none; text-transform:uppercase;">Home</a>
@@ -390,7 +390,7 @@
       <a href="https://drvinayjoshi.com/hip.html" style="font-size:9px; font-weight:500; letter-spacing:0.15em; color:#7a8fa8; text-decoration:none; text-transform:uppercase;">Hip</a>
       <a href="https://drvinayjoshi.com/testimonials.html" style="font-size:9px; font-weight:500; letter-spacing:0.15em; color:#7a8fa8; text-decoration:none; text-transform:uppercase;">Testimonials</a>
     </div>
-    <div style="font-size:9px; font-weight:300; color:#aaa;">© 2024 Dr. Vinay S. Joshi. All Rights Reserved.</div>
+    <div style="font-size:9px; font-weight:300; color:#aaa;">© <span class="cyear">2026</span> Dr. Vinay S. Joshi. All Rights Reserved.</div>
   </footer>
 
   <script>
@@ -483,12 +483,14 @@
 
       <!-- FOOTER -->
       <tr><td style="background:#1a2a3a;padding:20px 48px;text-align:center;">
-        <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;">© 2024 Dr. Vinay S. Joshi &nbsp;·&nbsp; All Rights Reserved</p>
+        <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;">© <span class="cyear">2026</span> Dr. Vinay S. Joshi &nbsp;·&nbsp; All Rights Reserved</p>
       </td></tr>
 
     </table>
   </td></tr>
 </table>
+
+  <script>document.querySelectorAll(".cyear").forEach(function(e){e.textContent=new Date().getFullYear();});</script>
 </body></html>`;
     }
 

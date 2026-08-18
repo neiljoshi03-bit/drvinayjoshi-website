@@ -7,14 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patient Testimonials | Dr. Vinay Joshi | Joint Replacement Mumbai</title>
   <meta name="description" content="Read patient testimonials and success stories from Dr. Vinay Joshi's joint replacement patients at Kokilaben Dhirubhai Ambani Hospital, Mumbai.">
-  <meta name="keywords" content="Dr Vinay Joshi reviews, joint replacement testimonials Mumbai, knee replacement patient stories, hip replacement success stories Mumbai">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Dr. Vinay S. Joshi">
   <meta property="og:site_name" content="Dr. Vinay Joshi - Joint Replacement Surgeon Mumbai">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Patient Testimonials | Dr. Vinay Joshi Mumbai">
   <meta property="og:description" content="Read patient testimonials and success stories from Dr. Vinay Joshi's joint replacement patients at Kokilaben Dhirubhai Ambani Hospital, Mumbai.">
-  <meta property="og:image" content="https://drvinayjoshi.com/hero.png">
+  <meta property="og:image" content="https://drvinayjoshi.com/dr-vinay-joshi-joint-replacement-surgeon-mumbai.jpg">
   <meta property="og:url" content="https://drvinayjoshi.com/testimonials.html">
   <link rel="canonical" href="https://drvinayjoshi.com/testimonials.html">
   <script type="application/ld+json">
@@ -200,6 +199,7 @@
       div[style*="grid-template-columns:420px"] > div:last-child blockquote { font-size: 18px !important; }
     }
   </style>
+  <link rel="preload" as="image" href="gallery/gallery-12.jpg" fetchpriority="high">
 </head>
 <body style="background:#f0f4f9;">
   <!-- MENU OVERLAY -->
@@ -245,8 +245,7 @@
 
   <!-- HERO -->
   <section class="relative" style="height:400px; overflow:hidden;">
-    <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1440&h=400&fit=crop&crop=center"
-         onerror="this.src='https://placehold.co/1440x400/1a2a3a/4a6a8a'" alt="Patient Care" class="w-full h-full object-cover">
+    <img decoding="async" fetchpriority="high" width="1280" height="616" src="gallery/gallery-12.jpg" alt="Dr. Vinay Joshi with a joint replacement patient and their family at Kokilaben Hospital, Mumbai" class="w-full h-full object-cover">
     <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(10,20,35,0.6) 0%, rgba(10,20,35,0.5) 100%);"></div>
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center" style="padding-top:80px;">
       <div style="font-size:9px; font-weight:500; letter-spacing:0.32em; color:rgba(255,255,255,0.65); text-transform:uppercase; margin-bottom:16px;">Google Reviews · Kokilaben Dhirubhai Ambani Hospital</div>
@@ -462,8 +461,7 @@
       <!-- Inspiring patient photo + review -->
       <div style="display:grid; grid-template-columns:420px 1fr; gap:0; align-items:stretch;" data-anim="up">
         <div style="position:relative; overflow:hidden;">
-          <img src="high-flex-knee-replacement-patient-mumbai.jpg"
-               onerror="this.src='https://placehold.co/420x500/1a2a3a/4a6a8a?text=Patient+Story'"
+          <img decoding="async" loading="lazy" width="1280" height="960" src="high-flex-knee-replacement-patient-mumbai.jpg"
                alt="Patient recovered from knee replacement surgery sitting cross-legged - Dr. Vinay Joshi Mumbai"
                style="width:100%; height:100%; min-height:400px; object-fit:cover; object-position:center top; display:block;">
           <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 60%);"></div>
@@ -493,8 +491,9 @@
     <div>
       <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.22em; color:#1a2a3a; text-transform:uppercase;">DR. VINAY S. JOSHI</div>
       <div style="font-size:8px; color:#7a8fa8; letter-spacing:0.2em; text-transform:uppercase; margin-top:4px;">Consultant Orthopaedic Surgeon · Kokilaben Dhirubhai Ambani Hospital, Mumbai</div>
+      <div style="font-size:11px; font-weight:300; color:#666; margin-top:8px; line-height:1.8;">Kokilaben Dhirubhai Ambani Hospital, Rao Saheb Achutrao Patwardhan Marg, Four Bungalows, Andheri West, Mumbai &ndash; 400053, Maharashtra<br><a href="tel:+912242696969" style="color:#1a2a3a; text-decoration:none; font-weight:500;">+91 22 4269 6969</a></div>
     </div>
-    <div style="font-size:9px; font-weight:300; color:#aaa;">© 2024 Dr. Vinay S. Joshi. All Rights Reserved.</div>
+    <div style="font-size:9px; font-weight:300; color:#aaa;">© <span class="cyear">2026</span> Dr. Vinay S. Joshi. All Rights Reserved.</div>
   </footer>
 
   <script>
@@ -505,5 +504,7 @@
     const _obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');_obs.unobserve(e.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
     document.querySelectorAll('[data-anim]').forEach(el=>_obs.observe(el));
   </script>
+
+  <script>document.querySelectorAll(".cyear").forEach(function(e){e.textContent=new Date().getFullYear();});</script>
 </body>
 </html>
