@@ -322,3 +322,66 @@ tw.css cascade position  21/21  after inline styles
 Sitemap                    21   matches disk, lastmod 2026-08-18 (accurate — all changed today)
 JSON-LD blocks           21/21  parse cleanly
 ```
+
+---
+
+# Second Follow-Up (18 August 2026)
+
+## WebP delivery
+
+All 42 raster images the site serves now ship a WebP sibling via `<picture>`, JPEG as fallback.
+
+```
+Images converted            42 / 42   (none discarded — WebP won every time)
+Payload                4.48 MB -> 3.17 MB   (-29.2%)
+Best saving                 -83%   hip-replacement-surgery-mumbai
+Worst saving                -18%   gallery-23
+<picture> elements            77
+<source> targets resolving    77 / 77
+Hero preloads repointed       21   (href -> .webp, type="image/webp", fetchpriority kept)
+```
+
+`og:image` and the schema `image` fields stay on JPEG on purpose — social scrapers handle WebP
+inconsistently.
+
+Two scripts under `/scripts/` do this and are idempotent, so they can be re-run whenever new
+photographs land: `build-webp.mjs` (sharp, q80, discards any WebP that loses on size) and
+`wrap-picture.mjs` (wraps `<img>` preserving every attribute; re-running wraps 0).
+
+### The two CSS rules this depends on
+
+`<picture>` generates a box by default, which silently broke the layout in two different ways:
+
+| Rule | Without it |
+|---|---|
+| `picture { display: contents }` | Every image sized `height:100%` against its parent — the hero and all 34 gallery tiles — resolves against the `<picture>` instead and collapses. |
+| `picture > source { display: none }` | `<source>` computes to `display:block`; with `display:contents` it is promoted into the parent flex container as a real item, adding a stray gap. This cost the article author box exactly one 16px gap. |
+
+Both live in `src/tw-input.css` and are commented in place. **Do not remove them.**
+
+**Verified:** all 21 pages geometrically identical to the previous commit at 1440px *and* 390px —
+0 elements moved, identical body heights.
+
+## Mobile horizontal overflow — resolved
+
+`index.html` (410px), `consultation.html` (406px) and `health-tips.html` (368px at 360) scrolled
+horizontally. The cause was not layout width, which is what it looked like at first.
+
+| # | Root cause | Pages | Fix |
+|---|---|---|---|
+| 1 | Scroll-entry animations hold elements at `translateX(40px)` / `(36px)` until they intersect the viewport, parking a full-width element outside it — 320px content + 60px offset = 380px on a 360px screen | index, consultation, health-tips | `≤420px` media query: enter with `translateY(24px)` instead |
+| 2 | Long-term-joint-health panel is `width:380px; flex-shrink:0`, unable to shrink below 380px even once the row stacked | health-tips | `width:100%` at `≤420px` |
+| 3 | Footer is a three-column flex row; the existing stacking selector `footer > div > div.flex` matches a structure that page does not have, so the copyright column was pushed off the right edge | consultation | stack the footer at `≤420px` |
+
+`overflow-x: hidden` was **not** used — it hides the symptom, breaks `position:sticky` in some
+browsers and clips tap targets.
+
+```
+scrollWidth <= viewport @ 390px    21 / 21
+scrollWidth <= viewport @ 360px    21 / 21
+1440px geometry vs before          21 / 21 identical (0 elements moved)
+```
+
+**Still open:** at 320px (iPhone SE 1st gen), `index.html`, `consultation.html` and two article pages
+still overflow. That needs real layout work — chiefly the 500px decorative circle in the homepage
+hero — rather than a guard, and was outside the 390/360 scope. Logged in `MANUAL-TASKS.md` item 9a.

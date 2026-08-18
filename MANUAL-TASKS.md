@@ -117,33 +117,52 @@ doing work they were not shot for, and would benefit from purpose-shot replaceme
 **Patient consent:** several gallery images show identifiable patients. Please confirm written
 consent is on file for each image used on the public site.
 
-## 9. WebP conversion — still outstanding
+## 9. ~~WebP conversion~~ — **DONE**
 
-Requested in the original brief but **not completed**: this machine has no `cwebp`, no Python Pillow,
-and this version of `sips` cannot write WebP.
+All 42 raster images the site serves now have a WebP sibling, delivered through `<picture>` with the
+original JPEG as fallback. **4.48 MB → 3.17 MB (−29.2%)** on the image payload. None were discarded:
+WebP beat the JPEG in every case, by between 18% and 83%.
 
-Now that `npm` and a `package.json` exist in the repo (added for the Tailwind build), this is
-straightforward to finish:
+Two committed, rerunnable scripts do the work — run them whenever new photographs are added:
 
 ```
-npm i -D sharp
+npm run build:webp      # scripts/build-webp.mjs   — sharp @ q80, skips WebP that lose on size
+npm run build:picture   # scripts/wrap-picture.mjs — wraps <img> in <picture>, idempotent
+npm run build           # css + webp + picture, all three
 ```
-…then generate a `.webp` sibling for each JPEG and wrap the `<img>` tags in `<picture>` elements.
 
-Total image weight is ~6.1 MB across 40+ files with nothing above 190 KB, so this remains an
-optimisation rather than a problem — and `Cache-Control: immutable` (set in `vercel.json`) means
-repeat visitors re-download nothing.
+Both are idempotent, so re-running is always safe. `node_modules/` is gitignored; the generated
+`.webp` files and `assets/tw.css` are committed, so **no build runs at deploy time**.
 
-## 9a. Pre-existing mobile horizontal overflow — not introduced by this work
+Two CSS rules in `src/tw-input.css` are load-bearing and must not be removed:
+`picture { display: contents }` (otherwise the wrapper box breaks every image sized `height:100%`
+against its parent) and `picture > source { display: none }` (without it `<source>` becomes a real
+flex item and adds a stray gap).
 
-`index.html` and `consultation.html` scroll horizontally on a 390 px viewport (scrollWidth 410 px and
-406 px respectively). **Verified present on `main` before any of this work**, at identical values, so
-it has been left alone rather than fixed — correcting it means changing layout, which was outside the
-SEO remit.
+**`og:image` and the schema `image` fields deliberately stay on JPEG** — social scrapers handle WebP
+inconsistently.
 
-It is worth fixing: horizontal overflow on mobile is a real usability signal for Google. On
-`index.html` the offending element extends to 520 px. `about.html` had the same problem at 456 px and
-**has been fixed** as part of the Tailwind migration.
+## 9a. ~~Pre-existing mobile horizontal overflow~~ — **DONE**
+
+`index.html`, `consultation.html` and `health-tips.html` no longer scroll horizontally. All 21 pages
+now satisfy `scrollWidth <= viewport` at both 390px and 360px, and desktop rendering at 1440px is
+geometrically identical to before.
+
+Three root causes, all fixed at source with `≤420px` media queries (never `overflow-x: hidden`):
+
+1. **Scroll-entry animations.** `[data-anim="fade-right"]` / `[data-anim="right"]` park elements at
+   `translateX(40px)` / `(36px)` until they scroll into view — 320px of content plus a 60px offset is
+   380px on a 360px screen. They now enter vertically on narrow viewports.
+2. **A fixed-width flex item.** The long-term-joint-health panel on `health-tips.html` is
+   `width:380px; flex-shrink:0`, so it could not shrink below 380px even once the row had stacked.
+3. **An unstacked footer.** `consultation.html`'s footer is a three-column flex row whose stacking
+   rule (`footer > div > div.flex`) targets a structure that page does not have, so the copyright
+   column was pushed off the right edge.
+
+**Still open, lower priority:** at **320px** (iPhone SE 1st gen, ~0.5% of traffic) `index.html`,
+`consultation.html` and two article pages still overflow. This needs real layout work rather than a
+guard — chiefly the 500px decorative circle in the homepage hero and some fixed-width cards — and was
+outside the 390/360 scope agreed for this pass.
 
 ## 10. Housekeeping
 
