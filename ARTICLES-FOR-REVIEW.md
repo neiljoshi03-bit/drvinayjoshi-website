@@ -12,8 +12,9 @@ cannot be missed and cannot be published by accident unnoticed. **Every one must
 (answered or deleted) before deployment.**
 
 **Seven boxes remain across six pages, down from ten across eight.** The three price-related
-confirms are resolved: both cost articles have been rewritten so that no fee of yours or KDAH's is
-stated or implied anywhere on the site.
+confirms are resolved. **No monetary figure now appears anywhere on the site** — not your fees, not
+KDAH's, and not third-party city-wide ranges. Cost is discussed only at consultation, and the two
+cost pages say so plainly. No sign-off on published price ranges is required.
 
 ---
 
@@ -105,7 +106,7 @@ stated or implied anywhere on the site.
 | D | `index.html` | **Video cards 2 and 3 pointed at the same video** (`GflyAn-G17s` and `7TlaYuSl-AQ` are both *"Knee surgery — All questions answered (Part 2)"*). Card 3 now points at the Kokilaben Hospital film and is labelled accordingly. |
 | E | `testimonials.html` | **`AggregateRating` (4.8) and three `Review` blocks removed from the structured data.** Self-serving reviews hosted on a business's own site are ineligible for rich results under Google's policy and can attract a manual action. The visible testimonials are unchanged. The route to star ratings in search is the Google Business Profile — see `MANUAL-TASKS.md`. |
 | F | `index.html` | Meta title changed from *"Dr. Vinay Joshi - Best Joint Replacement Surgeon in Mumbai…"* to *"Dr. Vinay Joshi \| Joint Replacement Surgeon, Mumbai"*. Two reasons: the original was 79 characters and truncated in search results, and a self-superlative in a title tag sits awkwardly with NMC advertising standards. **That query is now targeted compliantly by article 12**, which is framed as the patient's question. Revert if you prefer. |
-| G2 | `knee-replacement-cost-mumbai.html`, `hip-replacement-cost-mumbai.html` | **Both cost articles rewritten.** Every `[DOCTOR TO CONFIRM]` price placeholder is gone, along with any implication of your or KDAH's specific fees. Each page now opens with a direct answer giving **city-wide Mumbai private-hospital ranges, explicitly labelled as market context rather than this practice's fees**, states plainly that you do not publish fees, and routes patients to a consultation for a written estimate. The one hard figure used is the government NPPA implant price ceiling, which applies to every hospital in India equally and is cited to Business Standard. |
+| G2 | `knee-replacement-cost-mumbai.html`, `hip-replacement-cost-mumbai.html` | **Both cost articles rewritten to carry no monetary figure of any kind.** Every `[DOCTOR TO CONFIRM]` price placeholder, every rupee amount, every city-wide band and the aggregator-sourced figures and their citation have been removed. Each page now opens by answering the query honestly — that any figure quoted before a clinical assessment would be a guess, which is why a written personalised estimate follows consultation — then explains qualitatively what determines cost, how insurance and cashless work, what a package includes, and the exact steps to obtain an estimate. The NPPA narrative is retained as **regulation, not pricing**: knee implants are under statutory price control, hip implants never were, which is why hip quotations vary more and implant sub-limits matter more on a hip. No amounts are stated. |
 | G | `health-tips.html` | The recovery timeline and the knee/hip exercise sections were **moved** into articles 3, 4 and 11 — not deleted — and the page is now a hub linking to all twelve guides. **The URL is unchanged**, so the printed QR code still works. |
 
 ---
