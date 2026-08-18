@@ -16,21 +16,7 @@
   <meta property="og:image" content="https://drvinayjoshi.com/dr-vinay-joshi-joint-replacement-surgeon-mumbai.jpg">
   <meta property="og:url" content="https://drvinayjoshi.com/">
   <link rel="canonical" href="https://drvinayjoshi.com/">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://drvinayjoshi.com/"
-      }
-    ]
-  }
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
@@ -280,35 +266,308 @@
       footer > div > div.flex.items-center { flex-direction: column !important; gap: 12px !important; text-align: center !important; }
     }
   </style>
+<link rel="preload" as="image" href="header-photo.jpeg" fetchpriority="high">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Physician",
-    "name": "Dr. Vinay S. Joshi",
-    "url": "https://drvinayjoshi.com",
-    "description": "Mumbai's leading joint replacement surgeon specialising in hip and knee replacement at Kokilaben Dhirubhai Ambani Hospital",
-    "medicalSpecialty": "Orthopedic Surgery",
-    "image": "https://drvinayjoshi.com/dr-vinay-joshi-joint-replacement-surgeon-mumbai.jpg",
-    "telephone": "+91-22-4269-6969",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Kokilaben Dhirubhai Ambani Hospital, Four Bunglows",
-      "addressLocality": "Andheri West",
-      "addressRegion": "Mumbai",
-      "postalCode": "400053",
-      "addressCountry": "IN"
-    },
-    "worksFor": {
-      "@type": "Hospital",
-      "name": "Kokilaben Dhirubhai Ambani Hospital",
-      "url": "https://www.kokilabenhospital.com"
-    },
-    "alumniOf": "Royal College of Surgeons",
-    "hasCredential": ["FRCS", "MS Ortho", "DNB", "FCPS"],
-    "knowsAbout": ["Hip Replacement", "Knee Replacement", "Robotic Joint Replacement", "Revision Surgery", "Minimally Invasive Surgery"]
+    "@graph": [
+      {
+        "@type": "Physician",
+        "@id": "https://drvinayjoshi.com/#physician",
+        "name": "Dr. Vinay S. Joshi",
+        "honorificPrefix": "Dr.",
+        "honorificSuffix": "MBBS, MS (Orth), DNB, FRCS, FCPS",
+        "url": "https://drvinayjoshi.com/",
+        "image": "https://drvinayjoshi.com/dr-vinay-joshi-orthopaedic-surgeon.jpg",
+        "description": "Dr. Vinay S. Joshi is a consultant orthopaedic and joint replacement surgeon who leads the Arthroplasty team at Kokilaben Dhirubhai Ambani Hospital, Mumbai. He practises exclusively in primary and complex revision hip and knee replacement, has performed more than 4,500 joint replacements, and uses the VELYS robotic-assisted platform.",
+        "medicalSpecialty": [
+          "Orthopedic",
+          "https://schema.org/Orthopedic"
+        ],
+        "jobTitle": "Consultant Orthopaedic & Joint Replacement Surgeon",
+        "telephone": "+91-22-4269-6969",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rao Saheb Achutrao Patwardhan Marg, Four Bungalows, Andheri West",
+          "addressLocality": "Mumbai",
+          "addressRegion": "Maharashtra",
+          "postalCode": "400053",
+          "addressCountry": "IN"
+        },
+        "worksFor": {
+          "@id": "https://drvinayjoshi.com/#hospital"
+        },
+        "memberOf": {
+          "@id": "https://drvinayjoshi.com/#hospital"
+        },
+        "hospitalAffiliation": {
+          "@id": "https://drvinayjoshi.com/#hospital"
+        },
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Topiwala National Medical College & Nair Hospital",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Mumbai",
+              "addressCountry": "IN"
+            }
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "Royal College of Surgeons of England",
+            "url": "https://www.rcseng.ac.uk/",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "London",
+              "addressCountry": "GB"
+            }
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "College of Physicians and Surgeons of Mumbai",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Mumbai",
+              "addressCountry": "IN"
+            }
+          }
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "MBBS"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "MS (Orthopaedics)"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "DNB (Orthopaedics)"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Fellowship",
+            "name": "FRCS — Fellow of the Royal College of Surgeons of England"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Fellowship",
+            "name": "FCPS — Fellow of the College of Physicians and Surgeons, Mumbai"
+          }
+        ],
+        "knowsAbout": [
+          "Knee replacement surgery",
+          "Total knee replacement",
+          "Hip replacement surgery",
+          "Total hip replacement",
+          "Robotic joint replacement",
+          "VELYS robotic-assisted knee replacement",
+          "Revision knee replacement",
+          "Revision hip replacement",
+          "Complex primary arthroplasty",
+          "Avascular necrosis of the hip",
+          "Osteonecrosis of the femoral head",
+          "High flex knee replacement",
+          "Unicompartmental knee replacement",
+          "Ceramic-on-ceramic hip replacement",
+          "Periprosthetic joint infection",
+          "Minimally invasive joint replacement",
+          "Gender-specific knee replacement"
+        ],
+        "knowsLanguage": [
+          "English",
+          "Hindi",
+          "Marathi",
+          "Gujarati"
+        ],
+        "availableService": [
+          {
+            "@type": "MedicalProcedure",
+            "name": "Total Knee Replacement",
+            "procedureType": "https://schema.org/SurgicalProcedure",
+            "url": "https://drvinayjoshi.com/knee.html"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Total Hip Replacement",
+            "procedureType": "https://schema.org/SurgicalProcedure",
+            "url": "https://drvinayjoshi.com/hip.html"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Robotic-Assisted Joint Replacement (VELYS)",
+            "procedureType": "https://schema.org/SurgicalProcedure",
+            "url": "https://drvinayjoshi.com/robotic.html"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Revision Joint Replacement",
+            "procedureType": "https://schema.org/SurgicalProcedure",
+            "url": "https://drvinayjoshi.com/revision.html"
+          }
+        ],
+        "sameAs": [
+          "https://www.kokilabenhospital.com/professionals/vinaysjoshi.html"
+        ]
+      },
+      {
+        "@type": "Hospital",
+        "@id": "https://drvinayjoshi.com/#hospital",
+        "name": "Kokilaben Dhirubhai Ambani Hospital",
+        "url": "https://www.kokilabenhospital.com",
+        "telephone": "+91-22-4269-6969",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rao Saheb Achutrao Patwardhan Marg, Four Bungalows, Andheri West",
+          "addressLocality": "Mumbai",
+          "addressRegion": "Maharashtra",
+          "postalCode": "400053",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 19.1307,
+          "longitude": 72.8253
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://drvinayjoshi.com/#website",
+        "url": "https://drvinayjoshi.com/",
+        "name": "Dr. Vinay S. Joshi — Joint Replacement Surgeon, Mumbai",
+        "inLanguage": "en-GB",
+        "publisher": {
+          "@id": "https://drvinayjoshi.com/#physician"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://drvinayjoshi.com/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Am I a candidate for knee or hip replacement?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You may be a candidate if you have persistent joint pain limiting daily activities, significant stiffness, or non-surgical treatments are no longer providing relief. Dr. Joshi will assess your X-rays, clinical history, and functional status to advise on the best approach."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between robotic and conventional joint replacement?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Robotic-assisted surgery uses real-time intra-operative bone tracking and robotic guidance to position the implant with sub-millimetre accuracy — with no pre-operative CT scan required. The VELYS system maps the patient's anatomy live during surgery itself. This results in better alignment, improved functional outcomes, and a more natural-feeling joint. Dr. Joshi uses the VELYS robotic system for eligible patients at KDAH."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long is the recovery after a knee replacement?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most patients walk with assistance the day after surgery. Average hospital stay is 4 days. Light activities resume at 4–6 weeks; full recovery at 2–3 months."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a high-flex knee replacement and who is it for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A high-flex knee implant allows bending up to 150° — essential for Indian patients who sit cross-legged, kneel for prayer, or squat. Dr. Joshi specialises in high-flex knee replacements to ensure patients resume traditional activities comfortably."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I book a virtual consultation with Dr. Joshi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Dr. Joshi offers both in-person consultations at Kokilaben Dhirubhai Ambani Hospital (Andheri West, Mumbai) and virtual consultations. Call +91 22 4269 6969 to schedule."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Case Presentations: Primary or Complex THA — Dr. Vinay Joshi, ROC 2023",
+        "description": "Dr. Vinay Joshi presents primary and complex total hip arthroplasty case studies at ROC 2023.",
+        "thumbnailUrl": [
+          "https://i.ytimg.com/vi/WuDiSgkgWxQ/maxresdefault.jpg"
+        ],
+        "embedUrl": "https://www.youtube.com/embed/WuDiSgkgWxQ",
+        "contentUrl": "https://www.youtube.com/watch?v=WuDiSgkgWxQ",
+        "about": {
+          "@id": "https://drvinayjoshi.com/#physician"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Knee Surgery — All Your Questions Answered",
+        "description": "Dr. Vinay Joshi answers the questions patients most often ask before knee replacement surgery.",
+        "thumbnailUrl": [
+          "https://i.ytimg.com/vi/GflyAn-G17s/maxresdefault.jpg"
+        ],
+        "embedUrl": "https://www.youtube.com/embed/GflyAn-G17s",
+        "contentUrl": "https://www.youtube.com/watch?v=GflyAn-G17s",
+        "about": {
+          "@id": "https://drvinayjoshi.com/#physician"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Dr. Vinay Joshi: Joint and Knee Replacement Surgery",
+        "description": "Dr. Vinay Joshi introduces his approach to joint and knee replacement surgery at Kokilaben Dhirubhai Ambani Hospital, Mumbai.",
+        "thumbnailUrl": [
+          "https://i.ytimg.com/vi/iQm3wvjTJDs/maxresdefault.jpg"
+        ],
+        "embedUrl": "https://www.youtube.com/embed/iQm3wvjTJDs",
+        "contentUrl": "https://www.youtube.com/watch?v=iQm3wvjTJDs",
+        "about": {
+          "@id": "https://drvinayjoshi.com/#physician"
+        }
+      },
+      {
+        "@type": [
+          "MedicalWebPage",
+          "WebPage"
+        ],
+        "@id": "https://drvinayjoshi.com/#webpage",
+        "url": "https://drvinayjoshi.com/",
+        "name": "Dr. Vinay Joshi — Joint Replacement Surgeon, Mumbai",
+        "description": "Consultant joint replacement surgeon at Kokilaben Dhirubhai Ambani Hospital, Mumbai.",
+        "inLanguage": "en-GB",
+        "isPartOf": {
+          "@id": "https://drvinayjoshi.com/#website"
+        },
+        "about": {
+          "@id": "https://drvinayjoshi.com/#physician"
+        },
+        "reviewedBy": {
+          "@id": "https://drvinayjoshi.com/#physician"
+        },
+        "lastReviewed": "2026-08-18",
+        "audience": {
+          "@type": "MedicalAudience",
+          "audienceType": "Patient"
+        }
+      }
+    ]
   }
   </script>
-  <link rel="preload" as="image" href="header-photo.jpeg" fetchpriority="high">
 </head>
 <body class="bg-white">
 
