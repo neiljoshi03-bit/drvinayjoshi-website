@@ -612,7 +612,7 @@
           <li><strong>Swimming and stationary cycling</strong> — introduced once the wound is fully healed, usually from week four.</li>
           <li><strong>Desk work</strong> — many patients return part-time between weeks four and six.</li>
         </ul>
-        <div class="confirm"><strong>[DOCTOR TO CONFIRM]</strong> Dr. Joshi's preferred driving clearance protocol and his guidance on return to work for manual and standing occupations, so patients get his specific advice rather than a general range.</div>
+        <div class="confirm" id="confirm-7"><strong>[DOCTOR TO CONFIRM]</strong> Dr. Joshi's preferred driving clearance protocol and his guidance on return to work for manual and standing occupations, so patients get his specific advice rather than a general range.</div>
         <h2 id="months-3-to-6-returning-to-normal-life">Months 3 to 6: returning to normal life</h2>
         <p>By three months most daily activities are comfortable — walking, stairs, shopping, social activities and travel. Residual swelling settles, the limp resolves, and strength continues to build. Patients needing deep flexion for floor sitting or prayer generally achieve it in this window with dedicated physiotherapy, particularly with a high-flex implant.</p>
         <p>Air travel is usually cleared from around six weeks, with movement and hydration during the flight; long-haul travel is more comfortable from three months.</p>
@@ -762,6 +762,14 @@
       if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
     }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('[data-anim]').forEach(el => obs.observe(el));
+    // A hash in the URL is resolved before the webfonts swap in; the reflow that
+    // follows leaves the target off-screen. Re-run the jump once fonts settle.
+    if (location.hash) {
+      var _t = location.hash.slice(1);
+      var _jump = function () { var el = document.getElementById(_t); if (el) el.scrollIntoView(); };
+      window.addEventListener('load', _jump);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(_jump);
+    }
     document.querySelectorAll(".cyear").forEach(function(e){e.textContent=new Date().getFullYear();});
   </script>
 

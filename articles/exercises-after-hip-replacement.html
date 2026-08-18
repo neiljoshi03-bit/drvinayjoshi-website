@@ -592,7 +592,7 @@
         <p>Precautions depend on the surgical approach used. The posterior approach — the most commonly used in India — carries a small risk of posterior dislocation in the early weeks while the soft tissues heal. Dr. Joshi will tell you which approach was used and which precautions apply to you specifically.</p>
         <div class="callout"><div class="k">Standard posterior-approach precautions, typically for six weeks</div><p>Do not bend the hip beyond 90° · do not cross your legs at the knee or ankle · do not rotate the operated leg inwards · sleep with a pillow between your legs · avoid low chairs, low sofas and low toilet seats · do not squat or sit cross-legged on the floor.</p></div>
         <p>In practical terms this means using a raised toilet seat, sitting in a firm chair with arms, keeping the knee below hip level, and using a long-handled aid rather than bending to reach your feet. These restrictions are temporary — they exist to protect the healing soft-tissue envelope, not to be permanent limitations.</p>
-        <div class="confirm"><strong>[DOCTOR TO CONFIRM]</strong> Which surgical approach Dr. Joshi uses most commonly, and the precise precaution protocol and duration he prescribes. The site notes he is trained in posterior, direct lateral and direct anterior approaches, and precautions differ meaningfully between them.</div>
+        <div class="confirm" id="confirm-4"><strong>[DOCTOR TO CONFIRM]</strong> Which surgical approach Dr. Joshi uses most commonly, and the precise precaution protocol and duration he prescribes. The site notes he is trained in posterior, direct lateral and direct anterior approaches, and precautions differ meaningfully between them.</div>
         <h2 id="day-1-circulation-and-activation">Day 1: circulation and activation</h2>
         <h3>Ankle pumps and circles</h3>
         <p>Pump the foot up and down for two to three minutes every hour while awake, and draw slow circles with the foot. This drives the calf muscle pump and is the principal defence against deep vein thrombosis. Begin the day of surgery and continue for at least six weeks.</p>
@@ -775,6 +775,14 @@
       if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
     }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('[data-anim]').forEach(el => obs.observe(el));
+    // A hash in the URL is resolved before the webfonts swap in; the reflow that
+    // follows leaves the target off-screen. Re-run the jump once fonts settle.
+    if (location.hash) {
+      var _t = location.hash.slice(1);
+      var _jump = function () { var el = document.getElementById(_t); if (el) el.scrollIntoView(); };
+      window.addEventListener('load', _jump);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(_jump);
+    }
     document.querySelectorAll(".cyear").forEach(function(e){e.textContent=new Date().getFullYear();});
   </script>
 

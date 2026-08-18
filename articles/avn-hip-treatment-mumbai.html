@@ -620,7 +620,7 @@
         <p>The best candidates are patients with stage I or stage IIA disease, in whom the femoral head is still spherical and intact, typically under 50, with a necrotic lesion occupying less than about 30% of the head. Lesion size and location matter as much as stage — a large lesion under the weight-bearing dome carries a worse prognosis than a small medial one.</p>
         <h3>Results and follow-up</h3>
         <p>In appropriately selected patients, arrest of progression is achieved in roughly 70–80% of cases, with many patients reporting significant pain relief within three to six months. Serial MRI at six and twelve months monitors healing. If the disease progresses despite treatment, hip replacement remains fully available — the joint-preserving attempt does not compromise a later replacement.</p>
-        <div class="confirm"><strong>[DOCTOR TO CONFIRM]</strong> The number of Regrow therapy procedures Dr. Joshi has performed to date, and his own outcome data if he wishes to publish it. The 70–80% figure currently on the hip page is a literature-based range; confirming his own series would be considerably stronger.</div>
+        <div class="confirm" id="confirm-3"><strong>[DOCTOR TO CONFIRM]</strong> The number of Regrow therapy procedures Dr. Joshi has performed to date, and his own outcome data if he wishes to publish it. The 70–80% figure currently on the hip page is a literature-based range; confirming his own series would be considerably stronger.</div>
         <h2 id="hip-replacement-for-collapsed-avn">Hip replacement for collapsed AVN</h2>
         <p>Once the femoral head has collapsed — stage III or IV — replacement becomes necessary. AVN replacement is technically distinct from replacement for ordinary osteoarthritis in three ways: the bone geometry is abnormal, there is bone deficiency in the necrotic zone, and the patient is usually young enough to need exceptional implant longevity.</p>
         <p>Dr. Joshi typically uses uncemented fixation with a ceramic-on-ceramic bearing for AVN patients. The reasoning is durability: ceramic-on-ceramic produces up to 4,000 times less wear debris than metal-on-polyethylene, and wear debris is what ultimately loosens a hip. For a patient who needs a 25 to 30 year implant life, that difference is decisive. Costs for each bearing option are set out in the <a href="https://drvinayjoshi.com/articles/hip-replacement-cost-mumbai.html">hip replacement cost guide</a>.</p>
@@ -759,6 +759,14 @@
       if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
     }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('[data-anim]').forEach(el => obs.observe(el));
+    // A hash in the URL is resolved before the webfonts swap in; the reflow that
+    // follows leaves the target off-screen. Re-run the jump once fonts settle.
+    if (location.hash) {
+      var _t = location.hash.slice(1);
+      var _jump = function () { var el = document.getElementById(_t); if (el) el.scrollIntoView(); };
+      window.addEventListener('load', _jump);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(_jump);
+    }
     document.querySelectorAll(".cyear").forEach(function(e){e.textContent=new Date().getFullYear();});
   </script>
 

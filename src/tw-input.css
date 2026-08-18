@@ -18,3 +18,12 @@
     display: none;
   }
 }
+
+@layer base {
+  /* The site header is fixed (~66px). Without this, any in-page anchor — every
+     article's table of contents, and every #id deep link — scrolls the target
+     to y=0, i.e. underneath the header, leaving the heading invisible. */
+  [id] {
+    scroll-margin-top: 88px;
+  }
+}

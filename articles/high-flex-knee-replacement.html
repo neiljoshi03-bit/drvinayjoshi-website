@@ -619,7 +619,7 @@
         <p>Pre-operative range of motion is the strongest single predictor of post-operative range. A patient who can already bend to 120° before surgery has a far better prospect of deep flexion afterwards than one who arrives at 80° with a long-stiff knee. Significant deformity, previous surgery, or a very stiff arthritic knee all reduce what is realistically achievable, and Dr. Joshi will say so plainly rather than promise an outcome the anatomy will not support.</p>
         <h2 id="setting-realistic-expectations">Setting realistic expectations</h2>
         <p>Two things are worth saying clearly. First, a high-flex implant improves the ceiling of what is possible; it does not guarantee that you reach it. Second, deep flexion should be comfortable rather than forced — a knee that only reaches 150° by being pushed into pain is not a knee you will use that way in daily life.</p>
-        <div class="confirm"><strong>[DOCTOR TO CONFIRM]</strong> Dr. Joshi's own guidance on long-term deep flexion after high-flex TKR — specifically whether he advises unrestricted cross-legged sitting and squatting indefinitely, or recommends moderation to protect implant longevity. The health-tips page currently lists Indian-style floor sitting under activities to avoid, which reads as contradictory alongside this page.</div>
+        <div class="confirm" id="confirm-6"><strong>[DOCTOR TO CONFIRM]</strong> Dr. Joshi's own guidance on long-term deep flexion after high-flex TKR — specifically whether he advises unrestricted cross-legged sitting and squatting indefinitely, or recommends moderation to protect implant longevity. The health-tips page currently lists Indian-style floor sitting under activities to avoid, which reads as contradictory alongside this page.</div>
         <h2 id="high-flex-and-robotic-surgery-together">High flex and robotic surgery together</h2>
         <p>These two technologies address different halves of the same problem. The high-flex implant provides the geometry that permits deep bend; robotic assistance provides the precision in bone preparation and the measured ligament balance that lets the knee actually use it. For a patient whose priority is returning to floor sitting, the combination is the strongest option Dr. Joshi can offer. The <a href="https://drvinayjoshi.com/knee.html">knee replacement page</a> sets out the full range of implant systems available.</p>
 
@@ -755,6 +755,14 @@
       if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
     }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('[data-anim]').forEach(el => obs.observe(el));
+    // A hash in the URL is resolved before the webfonts swap in; the reflow that
+    // follows leaves the target off-screen. Re-run the jump once fonts settle.
+    if (location.hash) {
+      var _t = location.hash.slice(1);
+      var _jump = function () { var el = document.getElementById(_t); if (el) el.scrollIntoView(); };
+      window.addEventListener('load', _jump);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(_jump);
+    }
     document.querySelectorAll(".cyear").forEach(function(e){e.textContent=new Date().getFullYear();});
   </script>
 

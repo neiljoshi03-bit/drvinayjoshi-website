@@ -631,7 +631,7 @@
           <li><strong>Kneeling directly on a hard floor</strong> in the early months, which is uncomfortable and can irritate the wound.</li>
           <li><strong>Pushing through sharp pain.</strong> Discomfort is expected; sharp pain is information.</li>
         </ul>
-        <div class="confirm"><strong>[DOCTOR TO CONFIRM]</strong> Dr. Joshi's position on deep squatting and floor sitting in the long term. The current health-tips page lists Indian-style floor sitting under activities to avoid, while the knee replacement page describes high-flex implants as enabling exactly that. Patients notice the inconsistency — please confirm the guidance you want published for standard implants versus high-flex implants.</div>
+        <div class="confirm" id="confirm-5"><strong>[DOCTOR TO CONFIRM]</strong> Dr. Joshi's position on deep squatting and floor sitting in the long term. The current health-tips page lists Indian-style floor sitting under activities to avoid, while the knee replacement page describes high-flex implants as enabling exactly that. Patients notice the inconsistency — please confirm the guidance you want published for standard implants versus high-flex implants.</div>
         <h2 id="when-to-stop-and-call-the-team">When to stop and call the team</h2>
         <div class="callout"><div class="k">Contact Dr. Joshi's team at +91 22 4269 6969 if</div><p>Pain is sharp, severe or sudden rather than a working discomfort · the knee becomes suddenly more swollen, hot or red · you develop calf pain or swelling · your range of motion goes backwards over consecutive days · the knee gives way or feels unstable. Losing flexion in the first six weeks is the situation most worth catching early, because it is far easier to treat then than later.</p></div>
 
@@ -767,6 +767,14 @@
       if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
     }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('[data-anim]').forEach(el => obs.observe(el));
+    // A hash in the URL is resolved before the webfonts swap in; the reflow that
+    // follows leaves the target off-screen. Re-run the jump once fonts settle.
+    if (location.hash) {
+      var _t = location.hash.slice(1);
+      var _jump = function () { var el = document.getElementById(_t); if (el) el.scrollIntoView(); };
+      window.addEventListener('load', _jump);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(_jump);
+    }
     document.querySelectorAll(".cyear").forEach(function(e){e.textContent=new Date().getFullYear();});
   </script>
 
