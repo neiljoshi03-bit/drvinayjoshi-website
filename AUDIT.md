@@ -168,3 +168,71 @@ VELYS is CT-free (imageless); the `knee.html` text describes an older CT-based p
 The site is **well-built and content-rich but structurally invisible to AI search and absent from the entire mid-funnel of organic search.** The four service pages contain genuinely authoritative clinical detail (VELYS no-CT workflow, Oxinium, Paprosky/AORI classifications, two-stage PJI revision, Regrow for early AVN) that no competitor page in Mumbai matches — but none of it is marked up as structured data, none of it is reachable via a query-shaped URL, and the doctor's own entity (`Physician`) appears on only a quarter of the site with no `sameAs` graph linking it to his Instagram, YouTube, or hospital profile.
 
 Priorities, in order: **S1** (broken image on every page), **S11/S12** (AI-crawler access), **S3/S4** (entity + FAQ schema), **S14** (article layer), **S13** (about page).
+
+---
+---
+
+# Post-Work Verification (18 August 2026)
+
+Re-crawled after all four phases. **21 pages** now on the site (was 8).
+
+## Sitewide defects — resolution
+
+| # | Defect | Status |
+|---|--------|--------|
+| S1 | Broken `hero.png` on all 8 pages | **Fixed** — new 1200×630 `dr-vinay-joshi-joint-replacement-surgeon-mumbai.jpg`; 0 references remain |
+| S2 | Hotlinked Unsplash images | **Fixed** — 0 external image hosts sitewide; replaced with real practice photographs |
+| S3 | `Physician` schema on 2 of 8 pages | **Fixed** — unified `@graph` with `Physician` + `Hospital` + `WebSite` on **21/21** pages |
+| S4 | Visible FAQ with no `FAQPage` schema | **Fixed** — 14 pages carry `FAQPage` matching visible text exactly |
+| S5 | No `VideoObject` | **Fixed** — 3 `VideoObject` nodes on the homepage |
+| S6 | `© 2024` | **Fixed** — 0 remaining; auto-updating via `.cyear` |
+| S7 | `meta keywords` | **Fixed** — 0 remaining |
+| S8 | No image dimensions | **Fixed** — every `<img>` except the empty lightbox target carries width/height |
+| S9 | Lazy-loading / hero priority | **Fixed** — below-fold images lazy, heroes `fetchpriority="high"` + preloaded |
+| S10 | Filenames with spaces/case | **Fixed** — 13 assets renamed to kebab-case keyword names, 14 redirects added |
+| S11 | No AI-crawler declarations | **Fixed** — 23 user-agent groups incl. GPTBot, ClaudeBot, PerplexityBot, Google-Extended |
+| S12 | No `llms.txt` | **Fixed** — 94-line entity summary at root |
+| S13 | No `about.html` | **Fixed** — full biography with verified PubMed-linked publication |
+| S14 | No article layer | **Fixed** — 12 articles under `/articles/`, ~1,150–1,600 words each |
+| S15 | Footer NAP inconsistent | **Fixed** — full street address + phone on **21/21** pages |
+| S16 | External `onerror` fallbacks | **Fixed** — all removed |
+
+## Content contradiction
+
+**Resolved.** `knee.html` no longer claims a pre-operative CT scan is required for robotic TKR;
+corrected to the VELYS imageless workflow, consistent with `robotic.html` and the homepage FAQ.
+
+## Additional issues found and fixed during the work
+
+| Issue | Detail |
+|---|---|
+| Two homepage video cards pointed at the same video | `GflyAn-G17s` and `7TlaYuSl-AQ` are the same film. Card 3 repointed and relabelled. |
+| A conference lecture was labelled a patient story | `WuDiSgkgWxQ` is *"Case Presentations Primary or Complex THA — ROC 2023"* on OrthoTV, not a patient testimonial. Relabelled. |
+| Publication misattributed | The shoulder paper was credited to the *Journal of Shoulder & Elbow Surgery*; the indexed record (PMID 21660193) shows *International Journal of Shoulder Surgery* 2011;5(1):17–20. Corrected and linked. |
+| `consultation.html` had invisible FAQ schema | 5 Q&As were marked up but not shown on the page — a Google policy breach. A matching visible FAQ accordion was added. |
+| Self-serving `AggregateRating` | Removed from `testimonials.html`; ineligible for rich results and a manual-action risk. |
+| 4.1 MB video auto-loading | `testimonials.html` video now `preload="none"` with a poster image. |
+
+## Final structural state
+
+```
+Pages                     21   (8 existing + 12 articles + about.html)
+H1 per page              1/1   on all 21
+Heading hierarchy          ok   no skipped levels anywhere (86 H4s promoted to H3)
+Internal links            804   all resolve, 0 broken
+JSON-LD blocks           21/21  all parse, 0 trailing commas
+Sitemap                    21   matches pages on disk exactly
+Titles                  ≤62ch   all 21
+Descriptions        135–168ch   all 21
+Canonicals               21/21
+External image hosts        0
+```
+
+## Known gaps
+
+- **WebP not generated** — no tooling available on this machine without adding a build dependency.
+  Logged in `MANUAL-TASKS.md` item 9.
+- **`sameAs` has one URL** — only the KDAH profile is verified. Practo/Credihealth/Justdial and any
+  personal social accounts are pending claim; logged as `MANUAL-TASKS.md` item 4.
+- **Cost figures unpublished** — no figures were invented. Nine `[DOCTOR TO CONFIRM]` boxes are
+  visible on the affected pages and listed in `ARTICLES-FOR-REVIEW.md`.
