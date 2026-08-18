@@ -1,0 +1,13 @@
+{
+  "name": "drvinayjoshi-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static site for drvinayjoshi.com. Tailwind is compiled to assets/tw.css and committed — no build step is required at deploy time.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/tw-input.css -o ./assets/tw.css --minify",
+    "watch:css": "tailwindcss -i ./src/tw-input.css -o ./assets/tw.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
