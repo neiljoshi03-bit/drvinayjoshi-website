@@ -11,88 +11,87 @@ The `[DOCTOR TO CONFIRM]` items appear on the live pages inside a visible amber 
 cannot be missed and cannot be published by accident unnoticed. **Every one must be resolved
 (answered or deleted) before deployment.**
 
-**Seven boxes remain across six pages, down from ten across eight.** The three price-related
-confirms are resolved. **No monetary figure now appears anywhere on the site** — not your fees, not
-KDAH's, and not third-party city-wide ranges. Cost is discussed only at consultation, and the two
-cost pages say so plainly. No sign-off on published price ranges is required.
+**All seven are now answered — zero `[DOCTOR TO CONFIRM]` boxes remain on the site.**
+Dr. Joshi's answers were received on 28 August 2026 and applied in full. What he said, and what
+changed as a result, is recorded below. Six of the seven came straight from him; the seventh he did
+not answer, and is flagged.
 
 ---
 
-## Summary
+## His answers, and what changed
 
-| # | Page | Words | Confirm items | Reviewed |
-|---|------|-------|---------------|----------|
-| 1 | [Knee Replacement Cost in Mumbai](articles/knee-replacement-cost-mumbai.html) | ~1,500 | 0 | ☐ |
-| 2 | [Robotic Knee Replacement in Mumbai](articles/robotic-knee-replacement-mumbai.html) | ~1,350 | 0 | ☐ |
-| 3 | [Knee Replacement Recovery Time](articles/knee-replacement-recovery-time.html) | ~1,200 | 1 | ☐ |
-| 4 | [Exercises After Knee Replacement](articles/exercises-after-knee-replacement.html) | ~1,300 | 1 | ☐ |
-| 5 | [High Flex Knee Replacement](articles/high-flex-knee-replacement.html) | ~1,250 | 1 | ☐ |
-| 6 | [Hip Replacement Cost in Mumbai](articles/hip-replacement-cost-mumbai.html) | ~1,500 | 0 | ☐ |
-| 7 | [AVN Hip Treatment in Mumbai](articles/avn-hip-treatment-mumbai.html) | ~1,300 | 1 | ☐ |
-| 8 | [Signs You May Need a Knee Replacement](articles/signs-you-need-knee-replacement.html) | ~1,350 | 0 | ☐ |
-| 9 | [Best Age for Knee Replacement](articles/best-age-for-knee-replacement.html) | ~1,150 | 0 | ☐ |
-| 10 | [Revision Knee Replacement in Mumbai](articles/revision-knee-replacement-mumbai.html) | ~1,350 | 0 | ☐ |
-| 11 | [Exercises After Hip Replacement](articles/exercises-after-hip-replacement.html) | ~1,350 | 1 | ☐ |
-| 12 | [How to Choose a Joint Replacement Surgeon in Mumbai](articles/how-to-choose-a-joint-replacement-surgeon-in-mumbai.html) | ~1,600 | 0 | ☐ |
-| 13 | [About Dr. Vinay S. Joshi](about.html) | ~1,150 | 2 | ☐ |
-| 14 | [Patient Guides hub](health-tips.html) — restructured | — | 0 | ☐ |
-| 15 | [Book a Consultation](consultation.html) — new visible FAQ | — | 0 | ☐ |
+### 1. Conference presentations — ANSWERED
+> *"Regularly teach on cadaveric robotic course at Bangkok and Bangalore. I am a routine faculty at
+> ROC conferences every year. Also participated in debates at WIROC conferences."*
 
----
+The three presentations previously listed had been inferred from gallery photographs, and he did not
+confirm them — so they were **replaced** with the roles he actually stated. The ROC 2023 hip
+arthroplasty case presentations are retained, since he confirms he is ROC faculty annually and the
+talk is independently verifiable on OrthoTV. The Singapore Orthopaedic Association meeting and the
+robotic symposium were **dropped** rather than published unconfirmed.
 
-## Every `[DOCTOR TO CONFIRM]` item, in full
+Names verified before publishing: **ROC** is the Ranawat Orthopaedic Course, the annual Mumbai
+meeting on joint replacement; **WIROC** is the Western India Regional Orthopaedic Conference, the
+annual meeting of the Bombay Orthopaedic Society.
 
-### 1. Driving and return-to-work clearance — `knee-replacement-recovery-time.html`
-> Dr. Joshi's preferred driving clearance protocol, and his guidance on return to work for manual
-> and standing occupations.
+### 2. Publications — ANSWERED
+> *"Remove the Bombay Hospital Journal, it's not my work. Also remove Trochlea fracture case report."*
 
-*The page currently gives the general 4–6 week range. Your specific protocol would be stronger.*
+Both removed from `about.html` and `index.html`. This leaves **one** peer-reviewed publication — the
+*International Journal of Shoulder Surgery* paper, PMID 21660193, which is verified and linked.
 
-### 2. Deep flexion guidance — `exercises-after-knee-replacement.html` **and** `high-flex-knee-replacement.html`
-> **This is a genuine contradiction already live on the site and should be resolved first.**
->
-> `health-tips.html` lists *"Indian-style floor sitting"* under **Activities to Avoid**.
-> `knee.html`, the homepage FAQ and the new high-flex article all describe high-flex implants as
-> **enabling** cross-legged sitting, kneeling for namaz and squatting.
->
-> Patients notice this. Please confirm the guidance for **(a)** standard implants and **(b)** high-flex
-> implants — and whether deep flexion is unrestricted long-term or advised in moderation to protect
-> implant longevity.
+Consequence worth noting: the homepage section previously read *"Advancing the science of joint
+replacement through peer-reviewed research"* above three cards. One shoulder paper does not support
+that claim, so the section was reframed to **"Training other surgeons, and contributing to the
+literature"**, with the two vacated cards filled by his teaching roles from answer 1. That is both
+accurate and a stronger credential than the two removed papers were.
 
-### 3. Hip precautions and surgical approach — `exercises-after-hip-replacement.html`
-> Which surgical approach you use most commonly, and the precise precaution protocol and duration
-> you prescribe. The site notes training in posterior, direct lateral and direct anterior approaches,
-> and precautions differ meaningfully between them.
+### 3. Regrow therapy — ANSWERED
+> *"No. Please quote the published data. I do not have my own data with Regrow."*
 
-*The article currently gives standard posterior-approach precautions, labelled as such.*
+The 70–80% figure stays, now explicitly attributed to published series rather than to his practice,
+with a sentence stating he does not hold separate outcome data and prefers to quote the evidence base.
 
-### 4. Regrow therapy volume and outcomes — `avn-hip-treatment-mumbai.html`
-> The number of Regrow therapy procedures performed to date, and your own outcome data if you wish
-> to publish it. The 70–80% arrest-of-progression figure currently on `hip.html` is a literature-based
-> range; your own series would be considerably stronger.
+### 4. Hip approach and precautions — ANSWERED, and this one was a real correction
+> *"My routine approach is modified Hardinge's lateral approach, which has precautions like not to
+> sit on the ground and not to cross legs for 6 weeks."*
 
-### 5. Conference presentations — `about.html`
-> Exact titles, dates and locations. Three have been identified from photographs in the site gallery
-> and from the OrthoTV video record, and are stated on the page:
-> - Image-less, saw-based robotic knee replacement — **International Symposium on Robotic Joint Replacement (ISRJR)**
-> - Case presentations, primary and complex THA — **ROC 2023** (published on OrthoTV)
-> - **45th Annual Scientific Meeting, Singapore Orthopaedic Association**
->
-> Please confirm or correct, and add any invited lectures, faculty positions or teaching appointments
-> you would like listed.
+**The page was giving the wrong precautions.** It carried the standard *posterior*-approach protocol
+(no flexion beyond 90°, no internal rotation, pillow between the legs). His approach is the modified
+Hardinge — a direct lateral, abductor-split exposure — and his precautions are two: **no floor
+sitting and no crossing the legs, for six weeks.** Rewritten accordingly, along with three FAQ answers
+that had been built around posterior-approach risk.
 
-### 6. Publications — `about.html` and `index.html`
-> **A factual correction has been made.** The shoulder paper was listed on this site as appearing in
-> the *Journal of Shoulder & Elbow Surgery*. The indexed record shows it was published in the
-> **International Journal of Shoulder Surgery**, 2011;5(1):17–20 — PMID 21660193, DOI 10.4103/0973-6042.80465,
-> authors Eleftheriou K, Al-Hadithy N, **Joshi V**, Rossouw D. Both pages have been corrected and now link to PubMed.
->
-> Still outstanding:
-> - **Bombay Hospital Journal, 1996** (T-Y intercondylar fracture humerus) — not PubMed-indexed, which is
->   expected for that journal. Listed as text. Supply a scan or URL if you have one.
-> - ***Injury*, isolated trochlea fracture case report** — **could not be located in PubMed** under any
->   author-name search. Please supply the citation or DOI, or confirm whether it was submitted rather
->   than published. It is currently listed as "citation to be confirmed".
+Two things were added that follow from the approach and are supported by the literature: the direct
+lateral approach has a **lower dislocation rate** than the posterior (reported under 1%), and because
+the abductor is divided and repaired, **abductor rehabilitation matters more and earlier** — which
+now has a stated reason rather than being generic advice.
+
+### 5 & 6. Floor sitting, squatting and deep flexion — ANSWERED (one answer, both questions)
+> *"One can squat and sit cross-legged after high flex knees, but not advisable on a daily basis as
+> it will decrease the life of the prosthesis."*
+
+This resolves the contradiction that ran across the site. The published position is now consistent
+everywhere: **possible after a high-flex knee, occasional rather than daily, because repeated deep
+flexion shortens implant life** — and with a standard implant the question does not arise, since a
+standard knee reaches around 110–120° against the 130–150° these postures require.
+
+Applied to `health-tips.html` (the "Indian-style floor sitting" avoid-line that started it),
+`knee.html` (text and procedure schema), `index.html` (FAQ answer and its FAQPage schema),
+`exercises-after-knee-replacement.html` and `high-flex-knee-replacement.html`.
+
+### 7. Driving clearance and return to work — NOT ANSWERED
+He left this blank. Rather than attribute a protocol to him that he has not given, the page now
+presents **general guidance grounded in the published evidence** and says so plainly: braking studies
+after knee replacement find reaction time back to pre-operative levels at around four weeks, with
+brake pedal force taking closer to six — which is where the four-to-six-week range comes from.
+
+A callout states that clearance is judged case by case and confirmed by him at follow-up, that
+desk work commonly resumes part-time from four to six weeks while standing and manual work commonly
+takes around three months, and that patients should check their motor insurer's position.
+
+**If he wants his own rule published here, it would replace this section.** That is the one remaining
+thing on this page that would benefit from his word — everything else is settled.
 
 ---
 
