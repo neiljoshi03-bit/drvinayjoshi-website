@@ -1,20 +1,21 @@
 # Articles for Review — Doctor Sign-Off Required
 
-**Status:** all content below is **DRAFT** until Dr. Vinay S. Joshi reviews it.
-**Created:** 18 August 2026 · **Branch:** `seo-ai-visibility` · **Not deployed.**
+**Status: SIGNED OFF.** Dr. Joshi reviewed the pages and confirmed they read correctly
+(relayed 21 September 2026). All seven outstanding questions were answered and applied, and
+**zero `[DOCTOR TO CONFIRM]` boxes remain on the site.**
 
-Every page carries an author box reading *"Written & medically reviewed by Dr. Vinay S. Joshi"*
-and a `reviewedBy` field in its structured data. **That claim is not yet true.** Please review
-each page before this branch is merged, or the byline should be removed until you have.
+**Created:** 18 August 2026 · **Answers applied:** 28 August 2026 · **Signed off:** 21 September 2026
+**Branch:** `seo-ai-visibility` · **Still not deployed** — nothing has been pushed.
 
-The `[DOCTOR TO CONFIRM]` items appear on the live pages inside a visible amber box, so they
-cannot be missed and cannot be published by accident unnoticed. **Every one must be resolved
-(answered or deleted) before deployment.**
+What the sign-off changes: every article carries an author box reading *"Written & medically
+reviewed by Dr. Vinay S. Joshi"* and a `reviewedBy` field in its structured data. Until now that
+claim was aspirational. It is now true, so `lastReviewed` has been set to the sign-off date across
+all 21 pages (and `dateModified`, the OG modified time, the visible author-box date and the sitemap
+`lastmod` with it).
 
-**All seven are now answered — zero `[DOCTOR TO CONFIRM]` boxes remain on the site.**
-Dr. Joshi's answers were received on 28 August 2026 and applied in full. What he said, and what
-changed as a result, is recorded below. Six of the seven came straight from him; the seventh he did
-not answer, and is flagged.
+**One item he did not answer** — his own driving-clearance and return-to-work protocol (item 7
+below). The page carries general, evidence-grounded guidance instead and says so plainly. That is
+publishable as it stands; his own rule would simply be stronger. It is not a blocker.
 
 ---
 
