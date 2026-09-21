@@ -5,33 +5,17 @@
       <link rel="shortcut icon" href="favicon.svg">
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Vinay Joshi - Best Joint Replacement Surgeon in Mumbai | Kokilaben Hospital</title>
-  <meta name="description" content="Dr. Vinay Joshi is Mumbai's leading joint replacement surgeon at Kokilaben Dhirubhai Ambani Hospital. Specialist in hip replacement, knee replacement and robotic joint surgery with 4,500+ procedures performed.">
-  <meta name="keywords" content="joint replacement surgeon Mumbai, hip replacement Mumbai, knee replacement Mumbai, best orthopaedic surgeon Mumbai, robotic joint replacement, Dr Vinay Joshi, Kokilaben Hospital orthopaedic">
-  <meta name="robots" content="index, follow">
+  <title>Dr. Vinay Joshi | Joint Replacement Surgeon, Mumbai</title>
+  <meta name="description" content="Dr. Vinay Joshi is a consultant knee and hip replacement surgeon at Kokilaben Hospital, Mumbai. 4,500+ joint replacements, VELYS robotic surgery, 28+ years.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <meta name="author" content="Dr. Vinay S. Joshi">
   <meta property="og:site_name" content="Dr. Vinay Joshi - Joint Replacement Surgeon Mumbai">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Dr. Vinay Joshi - Best Joint Replacement Surgeon in Mumbai">
-  <meta property="og:description" content="Dr. Vinay Joshi is Mumbai's leading joint replacement surgeon at Kokilaben Dhirubhai Ambani Hospital. Specialist in hip replacement, knee replacement and robotic joint surgery with 4,500+ procedures performed.">
-  <meta property="og:image" content="https://drvinayjoshi.com/hero.png">
+  <meta property="og:title" content="Dr. Vinay Joshi | Joint Replacement Surgeon, Mumbai">
+  <meta property="og:description" content="Dr. Vinay Joshi is a consultant knee and hip replacement surgeon at Kokilaben Hospital, Mumbai. 4,500+ joint replacements, VELYS robotic surgery, 28+ years.">
+  <meta property="og:image" content="https://drvinayjoshi.com/dr-vinay-joshi-joint-replacement-surgeon-mumbai.jpg">
   <meta property="og:url" content="https://drvinayjoshi.com/">
   <link rel="canonical" href="https://drvinayjoshi.com/">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://drvinayjoshi.com/"
-      }
-    ]
-  }
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
@@ -280,33 +264,359 @@
       footer > div > div.flex.items-start { flex-direction: column !important; gap: 20px !important; }
       footer > div > div.flex.items-center { flex-direction: column !important; gap: 12px !important; text-align: center !important; }
     }
+
+    .pg-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; max-width:1080px; margin:0 auto; }
+    .pg-card { display:block; background:#fff; border:1px solid #e0e8f2; border-left:3px solid #1e3a6a; padding:24px 26px; text-decoration:none; transition:box-shadow .25s, transform .25s; }
+    .pg-card:hover { box-shadow:0 10px 30px rgba(30,58,106,.12); transform:translateY(-3px); }
+    @media (max-width:1024px){ .pg-grid { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:700px){ .pg-grid { grid-template-columns:1fr; } }
+
+    /* ── Mobile horizontal-overflow guard (≤420px) ───────────────────────────
+       The scroll-entry animations offset elements horizontally (translateX 40px)
+       and hold them there until they scroll into view. On a narrow viewport that
+       pushes a full-width element past the right edge — 320px content + 60px
+       offset = 380px on a 360px screen — producing horizontal scroll on the whole
+       page. Enter vertically instead; the animation is preserved, the overflow is
+       removed at source. NOT solved with overflow-x:hidden, which would only hide
+       it and would break position:sticky. */
+    @media (max-width: 420px) {
+      [data-anim="fade-left"],
+      [data-anim="fade-right"] { transform: translateY(24px); }
+    }
   </style>
+  <!-- Tailwind: compiled and minified from tailwind.config.js. Loaded AFTER the inline
+       styles on purpose: the old in-browser JIT build injected its stylesheet last, so
+       preflight's body{line-height:inherit} won over this page's body{line-height:1.75}.
+       Moving this link earlier would change every line-height on the page.
+       Rebuild with: npm run build:css -->
+  <link rel="stylesheet" href="assets/tw.css">
+<link rel="preload" as="image" href="header-photo.webp" type="image/webp" fetchpriority="high">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Physician",
-    "name": "Dr. Vinay S. Joshi",
-    "url": "https://drvinayjoshi.com",
-    "description": "Mumbai's leading joint replacement surgeon specialising in hip and knee replacement at Kokilaben Dhirubhai Ambani Hospital",
-    "medicalSpecialty": "Orthopedic Surgery",
-    "image": "https://drvinayjoshi.com/hero.png",
-    "telephone": "+91-22-4269-6969",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Kokilaben Dhirubhai Ambani Hospital, Four Bunglows",
-      "addressLocality": "Andheri West",
-      "addressRegion": "Mumbai",
-      "postalCode": "400053",
-      "addressCountry": "IN"
-    },
-    "worksFor": {
-      "@type": "Hospital",
-      "name": "Kokilaben Dhirubhai Ambani Hospital",
-      "url": "https://www.kokilabenhospital.com"
-    },
-    "alumniOf": "Royal College of Surgeons",
-    "hasCredential": ["FRCS", "MS Ortho", "DNB", "FCPS"],
-    "knowsAbout": ["Hip Replacement", "Knee Replacement", "Robotic Joint Replacement", "Revision Surgery", "Minimally Invasive Surgery"]
+    "@graph": [
+      {
+        "@type": "Physician",
+        "@id": "https://drvinayjoshi.com/#physician",
+        "name": "Dr. Vinay S. Joshi",
+        "honorificPrefix": "Dr.",
+        "honorificSuffix": "MBBS, MS (Orth), DNB, FRCS, FCPS",
+        "url": "https://drvinayjoshi.com/",
+        "image": "https://drvinayjoshi.com/dr-vinay-joshi-orthopaedic-surgeon.jpg",
+        "description": "Dr. Vinay S. Joshi is a consultant orthopaedic and joint replacement surgeon who leads the Arthroplasty team at Kokilaben Dhirubhai Ambani Hospital, Mumbai. He practises exclusively in primary and complex revision hip and knee replacement, has performed more than 4,500 joint replacements, and uses the VELYS robotic-assisted platform.",
+        "medicalSpecialty": [
+          "Orthopedic",
+          "https://schema.org/Orthopedic"
+        ],
+        "jobTitle": "Consultant Orthopaedic & Joint Replacement Surgeon",
+        "telephone": "+91-22-4269-6969",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rao Saheb Achutrao Patwardhan Marg, Four Bungalows, Andheri West",
+          "addressLocality": "Mumbai",
+          "addressRegion": "Maharashtra",
+          "postalCode": "400053",
+          "addressCountry": "IN"
+        },
+        "worksFor": {
+          "@id": "https://drvinayjoshi.com/#hospital"
+        },
+        "memberOf": {
+          "@id": "https://drvinayjoshi.com/#hospital"
+        },
+        "hospitalAffiliation": {
+          "@id": "https://drvinayjoshi.com/#hospital"
+        },
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Topiwala National Medical College & Nair Hospital",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Mumbai",
+              "addressCountry": "IN"
+            }
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "Royal College of Surgeons of England",
+            "url": "https://www.rcseng.ac.uk/",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "London",
+              "addressCountry": "GB"
+            }
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "College of Physicians and Surgeons of Mumbai",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Mumbai",
+              "addressCountry": "IN"
+            }
+          }
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "MBBS"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "MS (Orthopaedics)"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "DNB (Orthopaedics)"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Fellowship",
+            "name": "FRCS — Fellow of the Royal College of Surgeons of England"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Fellowship",
+            "name": "FCPS — Fellow of the College of Physicians and Surgeons, Mumbai"
+          }
+        ],
+        "knowsAbout": [
+          "Knee replacement surgery",
+          "Total knee replacement",
+          "Hip replacement surgery",
+          "Total hip replacement",
+          "Robotic joint replacement",
+          "VELYS robotic-assisted knee replacement",
+          "Revision knee replacement",
+          "Revision hip replacement",
+          "Complex primary arthroplasty",
+          "Avascular necrosis of the hip",
+          "Osteonecrosis of the femoral head",
+          "High flex knee replacement",
+          "Unicompartmental knee replacement",
+          "Ceramic-on-ceramic hip replacement",
+          "Periprosthetic joint infection",
+          "Minimally invasive joint replacement",
+          "Gender-specific knee replacement"
+        ],
+        "knowsLanguage": [
+          "English",
+          "Hindi",
+          "Marathi",
+          "Gujarati"
+        ],
+        "availableService": [
+          {
+            "@type": "MedicalProcedure",
+            "name": "Total Knee Replacement",
+            "procedureType": "https://schema.org/SurgicalProcedure",
+            "url": "https://drvinayjoshi.com/knee.html"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Total Hip Replacement",
+            "procedureType": "https://schema.org/SurgicalProcedure",
+            "url": "https://drvinayjoshi.com/hip.html"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Robotic-Assisted Joint Replacement (VELYS)",
+            "procedureType": "https://schema.org/SurgicalProcedure",
+            "url": "https://drvinayjoshi.com/robotic.html"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Revision Joint Replacement",
+            "procedureType": "https://schema.org/SurgicalProcedure",
+            "url": "https://drvinayjoshi.com/revision.html"
+          }
+        ],
+        "sameAs": [
+          "https://www.kokilabenhospital.com/professionals/vinaysjoshi.html"
+        ]
+      },
+      {
+        "@type": "Hospital",
+        "@id": "https://drvinayjoshi.com/#hospital",
+        "name": "Kokilaben Dhirubhai Ambani Hospital",
+        "url": "https://www.kokilabenhospital.com",
+        "telephone": "+91-22-4269-6969",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rao Saheb Achutrao Patwardhan Marg, Four Bungalows, Andheri West",
+          "addressLocality": "Mumbai",
+          "addressRegion": "Maharashtra",
+          "postalCode": "400053",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 19.1307,
+          "longitude": 72.8253
+        },
+        "sameAs": [
+          "https://www.youtube.com/@Kokilabenhospitalmumbai"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://drvinayjoshi.com/#website",
+        "url": "https://drvinayjoshi.com/",
+        "name": "Dr. Vinay S. Joshi — Joint Replacement Surgeon, Mumbai",
+        "inLanguage": "en-GB",
+        "publisher": {
+          "@id": "https://drvinayjoshi.com/#physician"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://drvinayjoshi.com/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Am I a candidate for knee or hip replacement?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You may be a candidate if you have persistent joint pain limiting daily activities, significant stiffness, or non-surgical treatments are no longer providing relief. Dr. Joshi will assess your X-rays, clinical history, and functional status to advise on the best approach."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between robotic and conventional joint replacement?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Robotic-assisted surgery uses real-time intra-operative bone tracking and robotic guidance to position the implant with sub-millimetre accuracy — with no pre-operative CT scan required. The VELYS system maps the patient's anatomy live during surgery itself. This results in better alignment, improved functional outcomes, and a more natural-feeling joint. Dr. Joshi uses the VELYS robotic system for eligible patients at KDAH."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long is the recovery after a knee replacement?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most patients walk with assistance the day after surgery. Average hospital stay is 4 days. Light activities resume at 4–6 weeks; full recovery at 2–3 months."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a high-flex knee replacement and who is it for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A high-flex knee implant allows bending up to 150° — essential for Indian patients who sit cross-legged, kneel for prayer, or squat. Dr. Joshi specialises in high-flex knee replacements so that patients can resume these activities. His advice is that they are done occasionally rather than every day: repeated deep flexion loads the implant and shortens the life of the prosthesis."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I book a virtual consultation with Dr. Joshi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Dr. Joshi offers both in-person consultations at Kokilaben Dhirubhai Ambani Hospital (Andheri West, Mumbai) and virtual consultations. Call +91 22 4269 6969 to schedule."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Case Presentations: Primary or Complex THA — Dr. Vinay Joshi, ROC 2023",
+        "description": "Dr. Vinay Joshi presents primary and complex total hip arthroplasty case studies at ROC 2023.",
+        "thumbnailUrl": [
+          "https://i.ytimg.com/vi/WuDiSgkgWxQ/maxresdefault.jpg",
+          "https://i.ytimg.com/vi/WuDiSgkgWxQ/hqdefault.jpg"
+        ],
+        "embedUrl": "https://www.youtube.com/embed/WuDiSgkgWxQ",
+        "contentUrl": "https://www.youtube.com/watch?v=WuDiSgkgWxQ",
+        "about": {
+          "@id": "https://drvinayjoshi.com/#physician"
+        },
+        "uploadDate": "2024-03-21T04:07:18-07:00",
+        "duration": "PT9M5S",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ortho TV : Orthopaedic Video Channel",
+          "url": "https://www.youtube.com/@orthoTV"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Knee Surgery — All Your Questions Answered",
+        "description": "Dr. Vinay Joshi answers the questions patients most often ask before knee replacement surgery.",
+        "thumbnailUrl": [
+          "https://i.ytimg.com/vi/GflyAn-G17s/maxresdefault.jpg",
+          "https://i.ytimg.com/vi/GflyAn-G17s/hqdefault.jpg"
+        ],
+        "embedUrl": "https://www.youtube.com/embed/GflyAn-G17s",
+        "contentUrl": "https://www.youtube.com/watch?v=GflyAn-G17s",
+        "about": {
+          "@id": "https://drvinayjoshi.com/#physician"
+        },
+        "uploadDate": "2022-10-11T02:51:47-07:00",
+        "duration": "PT8M43S",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Bhagyashree Dassani",
+          "url": "https://www.youtube.com/@BhagyashreeDassani"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Dr. Vinay Joshi: Joint and Knee Replacement Surgery",
+        "description": "Dr. Vinay Joshi introduces his approach to joint and knee replacement surgery at Kokilaben Dhirubhai Ambani Hospital, Mumbai.",
+        "thumbnailUrl": [
+          "https://i.ytimg.com/vi/iQm3wvjTJDs/maxresdefault.jpg",
+          "https://i.ytimg.com/vi/iQm3wvjTJDs/hqdefault.jpg"
+        ],
+        "embedUrl": "https://www.youtube.com/embed/iQm3wvjTJDs",
+        "contentUrl": "https://www.youtube.com/watch?v=iQm3wvjTJDs",
+        "about": {
+          "@id": "https://drvinayjoshi.com/#physician"
+        },
+        "uploadDate": "2020-05-13T02:10:57-07:00",
+        "duration": "PT3M58S",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Kokilaben Dhirubhai Ambani Hospital & Medical Research Institute",
+          "url": "https://www.youtube.com/@Kokilabenhospitalmumbai"
+        }
+      },
+      {
+        "@type": [
+          "MedicalWebPage",
+          "WebPage"
+        ],
+        "@id": "https://drvinayjoshi.com/#webpage",
+        "url": "https://drvinayjoshi.com/",
+        "name": "Dr. Vinay Joshi — Joint Replacement Surgeon, Mumbai",
+        "description": "Consultant joint replacement surgeon at Kokilaben Dhirubhai Ambani Hospital, Mumbai.",
+        "inLanguage": "en-GB",
+        "isPartOf": {
+          "@id": "https://drvinayjoshi.com/#website"
+        },
+        "about": {
+          "@id": "https://drvinayjoshi.com/#physician"
+        },
+        "reviewedBy": {
+          "@id": "https://drvinayjoshi.com/#physician"
+        },
+        "lastReviewed": "2026-09-21",
+        "audience": {
+          "@type": "MedicalAudience",
+          "audienceType": "Patient"
+        }
+      }
+    ]
   }
   </script>
 </head>
@@ -317,22 +627,23 @@
     <button onclick="closeMenu()" style="position:absolute; top:32px; right:48px; font-size:28px; color:rgba(255,255,255,0.6); background:none; border:none; cursor:pointer; font-weight:300; transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">✕</button>
     <div style="text-align:center; margin-bottom:24px;">
       <div style="font-size:8px; font-weight:500; letter-spacing:0.35em; color:rgba(255,255,255,0.35); text-transform:uppercase; margin-bottom:20px;">DR. VINAY S. JOSHI · KOKILABEN DHIRUBHAI AMBANI HOSPITAL</div>
-      <a href="https://drvinayjoshi.com/" class="menu-link">Home</a>
-      <a href="https://drvinayjoshi.com/knee.html" class="menu-link">Knee Replacement</a>
-      <a href="https://drvinayjoshi.com/hip.html" class="menu-link">Hip Replacement</a>
-      <a href="https://drvinayjoshi.com/robotic.html" class="menu-link">Robotic Surgery</a>
-      <a href="https://drvinayjoshi.com/revision.html" class="menu-link">Revision Surgery</a>
-      <a href="https://drvinayjoshi.com/health-tips.html" class="menu-link">Health Tips</a>
-      <a href="https://drvinayjoshi.com/testimonials.html" class="menu-link">Testimonials</a>
-      <a href="https://drvinayjoshi.com/consultation.html" class="menu-link">Consultation</a>
+      <a href="/" class="menu-link">Home</a>
+      <a href="/about.html" class="menu-link">About Dr. Joshi</a>
+      <a href="/knee.html" class="menu-link">Knee Replacement</a>
+      <a href="/hip.html" class="menu-link">Hip Replacement</a>
+      <a href="/robotic.html" class="menu-link">Robotic Surgery</a>
+      <a href="/revision.html" class="menu-link">Revision Surgery</a>
+      <a href="/health-tips.html" class="menu-link">Health Tips</a>
+      <a href="/testimonials.html" class="menu-link">Testimonials</a>
+      <a href="/consultation.html" class="menu-link">Consultation</a>
     </div>
     <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap; justify-content:center; max-width:520px;">
-      <a href="https://drvinayjoshi.com/knee.html" class="menu-sub-link">Total Knee Replacement</a>
-      <a href="https://drvinayjoshi.com/knee.html#robotic" class="menu-sub-link">Robotic TKR</a>
-      <a href="https://drvinayjoshi.com/knee.html#highflex" class="menu-sub-link">High Flex Knee</a>
-      <a href="https://drvinayjoshi.com/hip.html#ceramic" class="menu-sub-link">Ceramic Hip</a>
-      <a href="https://drvinayjoshi.com/hip.html#regrow" class="menu-sub-link">Regrow Therapy (AVN)</a>
-      <a href="https://drvinayjoshi.com/revision.html" class="menu-sub-link">Complex Revision</a>
+      <a href="/knee.html" class="menu-sub-link">Total Knee Replacement</a>
+      <a href="/knee.html#robotic" class="menu-sub-link">Robotic TKR</a>
+      <a href="/knee.html#highflex" class="menu-sub-link">High Flex Knee</a>
+      <a href="/hip.html#ceramic" class="menu-sub-link">Ceramic Hip</a>
+      <a href="/hip.html#regrow" class="menu-sub-link">Regrow Therapy (AVN)</a>
+      <a href="/revision.html" class="menu-sub-link">Complex Revision</a>
     </div>
     <div style="margin-top:40px; text-align:center;">
       <a href="tel:+912242696969" style="font-size:20px; font-weight:500; color:#fff; text-decoration:none; letter-spacing:0.05em;">+91 22 4269 6969</a>
@@ -348,15 +659,16 @@
         <div style="font-size:7px;font-weight:400;letter-spacing:0.3em;color:rgba(255,255,255,0.65);text-transform:uppercase;margin-top:3px;">MBBS · MS · DNB · FRCS · FCPS</div>
       </div>
       <nav style="display:flex;align-items:center;gap:22px;">
-        <a href="https://drvinayjoshi.com/" style="font-size:9px;font-weight:600;letter-spacing:0.18em;color:#fff;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.6);padding-bottom:2px;">Home</a>
-        <a href="https://drvinayjoshi.com/knee.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Knee</a>
-        <a href="https://drvinayjoshi.com/hip.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Hip</a>
-        <a href="https://drvinayjoshi.com/robotic.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Robotic</a>
-        <a href="https://drvinayjoshi.com/revision.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Revision</a>
-        <a href="https://drvinayjoshi.com/health-tips.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Health Tips</a>
-        <a href="https://drvinayjoshi.com/testimonials.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Testimonials</a>
+        <a href="/" style="font-size:9px;font-weight:600;letter-spacing:0.18em;color:#fff;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.6);padding-bottom:2px;">Home</a>
+        <a href="/about.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">About</a>
+        <a href="/knee.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Knee</a>
+        <a href="/hip.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Hip</a>
+        <a href="/robotic.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Robotic</a>
+        <a href="/revision.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Revision</a>
+        <a href="/health-tips.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Health Tips</a>
+        <a href="/testimonials.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Testimonials</a>
         <div style="width:1px;height:18px;background:rgba(255,255,255,0.25);"></div>
-        <a href="https://drvinayjoshi.com/consultation.html" style="font-size:9px;font-weight:600;letter-spacing:0.18em;color:#fff;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.45);padding:7px 16px;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.12)'" onmouseout="this.style.background='transparent'">Book Consult</a>
+        <a href="/consultation.html" style="font-size:9px;font-weight:600;letter-spacing:0.18em;color:#fff;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.45);padding:7px 16px;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.12)'" onmouseout="this.style.background='transparent'">Book Consult</a>
       </nav>
       <div style="display:flex;align-items:center;gap:16px;flex-shrink:0;">
         <button onclick="openMenu()" style="font-size:10px;font-weight:500;letter-spacing:0.15em;color:#fff;text-transform:uppercase;background:none;border:none;cursor:pointer;padding:0;">Menu ≡</button>
@@ -368,7 +680,7 @@
   <section class="relative hero-split" style="height:640px;background:linear-gradient(135deg, #1e3a6a 0%, #0d1a2e 60%, #060d1a 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;">
     <!-- Right-side portrait image -->
     <div class="hero-img-wrap" style="position:absolute;top:0;right:0;bottom:0;width:50%;z-index:0;overflow:hidden;">
-      <img src="header-photo.jpeg" alt="Dr. Vinay Joshi performing joint replacement surgery at Kokilaben Hospital Mumbai" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
+      <picture><source srcset="header-photo.webp" type="image/webp"><img decoding="async" fetchpriority="high" width="1280" height="960" src="header-photo.jpeg" alt="Dr. Vinay Joshi performing joint replacement surgery at Kokilaben Hospital Mumbai" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;"></picture>
       <div style="position:absolute;inset:0;background:linear-gradient(to left, rgba(13,26,46,0.15) 0%, rgba(13,26,46,0.45) 60%, rgba(13,26,46,0.95) 100%);"></div>
     </div>
     <!-- Decorative pattern -->
@@ -384,7 +696,7 @@
       <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.65);max-width:560px;margin:0 auto 36px;">Kokilaben Dhirubhai Ambani Hospital, Mumbai</p>
       <div>
         <a href="#about" style="background:#fff;color:#0d1a2e;font-size:9px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;padding:13px 30px;display:inline-block;text-decoration:none;margin-right:14px;transition:background 0.2s;" onmouseover="this.style.background='#e8eef7'" onmouseout="this.style.background='#fff'">Meet Dr. Joshi</a>
-        <a href="https://drvinayjoshi.com/consultation.html" style="font-size:9px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:2px;">Book Consultation →</a>
+        <a href="/consultation.html" style="font-size:9px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:2px;">Book Consultation →</a>
       </div>
     </div>
     <!-- Stats bar -->
@@ -446,9 +758,9 @@
     <div class="text-center mb-8">
       <div class="section-label">JOINT REPLACEMENT SURGEON · KOKILABEN DHIRUBHAI AMBANI HOSPITAL · MUMBAI</div>
       <div class="divider mt-5 mb-8"></div>
-      <h1 style="font-family:'Cormorant Garamond',serif; font-size:46px; font-weight:300; line-height:1.15; color:#111; margin-bottom:6px;">
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:46px; font-weight:300; line-height:1.15; color:#111; margin-bottom:6px;">
         Dr. Vinay Joshi — Mumbai's Leading Joint Replacement Surgeon
-      </h1>
+      </h2>
       <div style="font-size:12px; font-weight:300; letter-spacing:0.18em; color:#7a8fa8; text-transform:uppercase; margin-bottom:40px;">Dr. Vinay S. Joshi · Lead Arthroplasty Surgeon · Kokilaben Dhirubhai Ambani Hospital</div>
     </div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px 64px;">
@@ -476,9 +788,8 @@
     <div class="absolute gold-bg" style="right:80px; top:30px; width:340px; height:340px; z-index:0; opacity:0.92;"></div>
     <div class="relative flex items-start" style="max-width:1200px; margin:0 auto; padding:68px 80px; z-index:2; position:relative;">
       <div style="flex-shrink:0; width:360px; position:relative; z-index:3;">
-        <img src="Prof.jpeg"
-             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=360&h=520&fit=crop&crop=face,top';"
-             alt="Dr. Vinay Joshi — Consultant Orthopaedic Surgeon, Kokilaben Hospital Mumbai" style="width:360px; height:520px; object-fit:cover; object-position:top center;">
+        <picture><source srcset="dr-vinay-joshi-orthopaedic-surgeon.webp" type="image/webp"><img decoding="async" loading="lazy" width="1056" height="1280" src="dr-vinay-joshi-orthopaedic-surgeon.jpg"
+             alt="Dr. Vinay Joshi — Consultant Orthopaedic Surgeon, Kokilaben Hospital Mumbai" style="width:360px; height:520px; object-fit:cover; object-position:top center;"></picture>
       </div>
       <div style="flex:1; padding-left:72px; padding-top:16px; position:relative; z-index:4;">
         <div class="flex gap-3 mb-10">
@@ -506,7 +817,7 @@
             <div style="font-size:18px; font-weight:700; color:#fff; line-height:1;">FCPS</div>
             <div style="font-size:7px; font-weight:300; color:rgba(255,255,255,0.75); margin-top:5px; letter-spacing:0.08em;">Mumbai</div>
           </div>
-          <div style="border:1px solid #dde4ec; padding:12px 16px; display:flex; align-items:center; justify-content:center; gap:20px; grid-column:span 2;">
+          <div style="background:#fff; border:1px solid #dde4ec; padding:12px 16px; display:flex; align-items:center; justify-content:center; gap:20px; grid-column:span 2;">
             <div style="text-align:center;">
               <div style="font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:300; color:#1e3a6a; line-height:1;">4,500<span style="font-size:20px;">+</span></div>
               <div style="font-size:7px; font-weight:500; letter-spacing:0.18em; color:#888; text-transform:uppercase; margin-top:2px;">Surgeries</div>
@@ -528,10 +839,10 @@
   <!-- ========== CONSULTATIONS TEXT ========== -->
   <section style="background:#f5f8fa; border-top:1px solid #eef2f6; border-bottom:1px solid #eef2f6;" data-anim="fade-up">
   <div style="padding:72px 40px 80px; max-width:760px; margin:0 auto; text-align:center;">
-    <h3 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; margin-bottom:24px; color:#111;">Consultations with Dr. Vinay Joshi</h3>
+    <h2 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; margin-bottom:24px; color:#111;">Consultations with Dr. Vinay Joshi</h2>
     <div style="width:40px; height:1px; background:#7a8fa8; margin:0 auto 28px;"></div>
     <p style="font-size:15px; font-weight:300; line-height:1.95; color:#555; max-width:620px; margin:0 auto 36px;">We believe every patient deserves to live without pain. We offer comprehensive consultations with Dr. Joshi, both in-person at Kokilaben Dhirubhai Ambani Hospital and virtually. Our team is available to schedule a consultation at a time most convenient for you.</p>
-    <a href="https://drvinayjoshi.com/consultation.html" class="btn-gold">BOOK A CONSULTATION</a>
+    <a href="/consultation.html" class="btn-gold">BOOK A CONSULTATION</a>
   </div>
   </section>
 
@@ -546,9 +857,8 @@
 
         <!-- KNEE -->
         <div class="proc-panel" style="height:480px;" onclick="window.location='https://drvinayjoshi.com/knee.html'">
-          <img src="Knee photo.jpg"
-               onerror="this.src='https://placehold.co/400x480/1a2a3a/4a6a8a?text=Knee'"
-               alt="Knee Replacement">
+          <picture><source srcset="knee-replacement-mumbai.webp" type="image/webp"><img decoding="async" loading="lazy" width="822" height="400" src="knee-replacement-mumbai.jpg"
+               alt="Total knee replacement surgery in Mumbai by Dr. Vinay Joshi"></picture>
           <div class="proc-gradient"></div>
           <div class="proc-default-label">
             <span style="font-size:11px; font-weight:600; letter-spacing:0.38em; color:#fff; text-transform:uppercase; display:block; margin-bottom:3px;">Knee</span>
@@ -557,18 +867,17 @@
           <div class="proc-hover-overlay">
             <div style="font-size:11px; font-weight:600; letter-spacing:0.42em; color:#fff; text-transform:uppercase; margin-bottom:18px;">Knee</div>
             <div style="width:24px; height:1px; background:rgba(255,255,255,0.28); margin-bottom:18px;"></div>
-            <a href="https://drvinayjoshi.com/knee.html" class="proc-hover-link" onclick="event.stopPropagation()">Total Knee Replacement</a>
-            <a href="https://drvinayjoshi.com/knee.html#robotic" class="proc-hover-link" onclick="event.stopPropagation()">Robotic TKR</a>
-            <a href="https://drvinayjoshi.com/knee.html#highflex" class="proc-hover-link" onclick="event.stopPropagation()">High Flex Knee</a>
-            <a href="https://drvinayjoshi.com/knee.html" class="proc-view-all" onclick="event.stopPropagation()">View All &rarr;</a>
+            <a href="/knee.html" class="proc-hover-link" onclick="event.stopPropagation()">Total Knee Replacement</a>
+            <a href="/knee.html#robotic" class="proc-hover-link" onclick="event.stopPropagation()">Robotic TKR</a>
+            <a href="/knee.html#highflex" class="proc-hover-link" onclick="event.stopPropagation()">High Flex Knee</a>
+            <a href="/knee.html" class="proc-view-all" onclick="event.stopPropagation()">View All &rarr;</a>
           </div>
         </div>
 
         <!-- HIP -->
         <div class="proc-panel" style="height:480px;" onclick="window.location='https://drvinayjoshi.com/hip.html'">
-          <img src="Hip Image.jpg"
-               onerror="this.src='https://placehold.co/400x480/2a1a3a/6a4a8a?text=Hip'"
-               alt="Hip Replacement">
+          <picture><source srcset="hip-replacement-mumbai.webp" type="image/webp"><img decoding="async" loading="lazy" width="1366" height="768" src="hip-replacement-mumbai.jpg"
+               alt="Total hip replacement surgery in Mumbai by Dr. Vinay Joshi"></picture>
           <div class="proc-gradient"></div>
           <div class="proc-default-label">
             <span style="font-size:11px; font-weight:600; letter-spacing:0.38em; color:#fff; text-transform:uppercase; display:block; margin-bottom:3px;">Hip</span>
@@ -577,18 +886,17 @@
           <div class="proc-hover-overlay">
             <div style="font-size:11px; font-weight:600; letter-spacing:0.42em; color:#fff; text-transform:uppercase; margin-bottom:18px;">Hip</div>
             <div style="width:24px; height:1px; background:rgba(255,255,255,0.28); margin-bottom:18px;"></div>
-            <a href="https://drvinayjoshi.com/hip.html" class="proc-hover-link" onclick="event.stopPropagation()">Total Hip Replacement</a>
-            <a href="https://drvinayjoshi.com/hip.html#ceramic" class="proc-hover-link" onclick="event.stopPropagation()">Ceramic Hip</a>
-            <a href="https://drvinayjoshi.com/hip.html#regrow" class="proc-hover-link" onclick="event.stopPropagation()">Regrow Therapy (AVN)</a>
-            <a href="https://drvinayjoshi.com/hip.html" class="proc-view-all" onclick="event.stopPropagation()">View All &rarr;</a>
+            <a href="/hip.html" class="proc-hover-link" onclick="event.stopPropagation()">Total Hip Replacement</a>
+            <a href="/hip.html#ceramic" class="proc-hover-link" onclick="event.stopPropagation()">Ceramic Hip</a>
+            <a href="/hip.html#regrow" class="proc-hover-link" onclick="event.stopPropagation()">Regrow Therapy (AVN)</a>
+            <a href="/hip.html" class="proc-view-all" onclick="event.stopPropagation()">View All &rarr;</a>
           </div>
         </div>
 
         <!-- ROBOTIC -->
         <div class="proc-panel" style="height:480px;" onclick="window.location='https://drvinayjoshi.com/robotic.html'">
-          <img src="RoboticSurgery.jpg"
-               onerror="this.src='https://placehold.co/400x480/1a2a1a/4a8a4a?text=Robotic'"
-               alt="Robotic Surgery">
+          <picture><source srcset="robotic-surgery-mumbai.webp" type="image/webp"><img decoding="async" loading="lazy" width="670" height="375" src="robotic-surgery-mumbai.jpg"
+               alt="VELYS robotic-assisted joint replacement surgery in Mumbai by Dr. Vinay Joshi"></picture>
           <div class="proc-gradient"></div>
           <div class="proc-default-label">
             <span style="font-size:11px; font-weight:600; letter-spacing:0.38em; color:#fff; text-transform:uppercase; display:block; margin-bottom:3px;">Robotic</span>
@@ -597,18 +905,17 @@
           <div class="proc-hover-overlay">
             <div style="font-size:11px; font-weight:600; letter-spacing:0.42em; color:#fff; text-transform:uppercase; margin-bottom:18px;">Robotic</div>
             <div style="width:24px; height:1px; background:rgba(255,255,255,0.28); margin-bottom:18px;"></div>
-            <a href="https://drvinayjoshi.com/robotic.html" class="proc-hover-link" onclick="event.stopPropagation()">VELYS Robotic System</a>
-            <a href="https://drvinayjoshi.com/robotic.html" class="proc-hover-link" onclick="event.stopPropagation()">Computer Navigation</a>
-            <a href="https://drvinayjoshi.com/robotic.html" class="proc-hover-link" onclick="event.stopPropagation()">Precision Outcomes</a>
-            <a href="https://drvinayjoshi.com/robotic.html" class="proc-view-all" onclick="event.stopPropagation()">View All &rarr;</a>
+            <a href="/robotic.html" class="proc-hover-link" onclick="event.stopPropagation()">VELYS Robotic System</a>
+            <a href="/robotic.html" class="proc-hover-link" onclick="event.stopPropagation()">Computer Navigation</a>
+            <a href="/robotic.html" class="proc-hover-link" onclick="event.stopPropagation()">Precision Outcomes</a>
+            <a href="/robotic.html" class="proc-view-all" onclick="event.stopPropagation()">View All &rarr;</a>
           </div>
         </div>
 
         <!-- REVISION -->
         <div class="proc-panel" style="height:480px;" onclick="window.location='https://drvinayjoshi.com/revision.html'">
-          <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=400&h=480&fit=crop&crop=center"
-               onerror="this.src='https://placehold.co/400x480/2a1a1a/8a4a4a?text=Revision'"
-               alt="Revision Surgery">
+          <picture><source srcset="hip-replacement-surgery-mumbai.webp" type="image/webp"><img decoding="async" loading="lazy" width="500" height="333" src="hip-replacement-surgery-mumbai.jpg"
+               alt="Joint replacement implant components of the kind revised in complex revision surgery"></picture>
           <div class="proc-gradient"></div>
           <div class="proc-default-label">
             <span style="font-size:11px; font-weight:600; letter-spacing:0.38em; color:#fff; text-transform:uppercase; display:block; margin-bottom:3px;">Revision</span>
@@ -617,10 +924,10 @@
           <div class="proc-hover-overlay">
             <div style="font-size:11px; font-weight:600; letter-spacing:0.42em; color:#fff; text-transform:uppercase; margin-bottom:18px;">Revision</div>
             <div style="width:24px; height:1px; background:rgba(255,255,255,0.28); margin-bottom:18px;"></div>
-            <a href="https://drvinayjoshi.com/revision.html" class="proc-hover-link" onclick="event.stopPropagation()">Complex Revision</a>
-            <a href="https://drvinayjoshi.com/revision.html" class="proc-hover-link" onclick="event.stopPropagation()">Failed Implant Cases</a>
-            <a href="https://drvinayjoshi.com/revision.html" class="proc-hover-link" onclick="event.stopPropagation()">Bone Reconstruction</a>
-            <a href="https://drvinayjoshi.com/revision.html" class="proc-view-all" onclick="event.stopPropagation()">View All &rarr;</a>
+            <a href="/revision.html" class="proc-hover-link" onclick="event.stopPropagation()">Complex Revision</a>
+            <a href="/revision.html" class="proc-hover-link" onclick="event.stopPropagation()">Failed Implant Cases</a>
+            <a href="/revision.html" class="proc-hover-link" onclick="event.stopPropagation()">Bone Reconstruction</a>
+            <a href="/revision.html" class="proc-view-all" onclick="event.stopPropagation()">View All &rarr;</a>
           </div>
         </div>
 
@@ -635,7 +942,7 @@
         <div class="section-label">INTERNATIONAL TRAINING · EDUCATION · EXPERTISE</div>
         <div class="divider mt-4 mb-8"></div>
       </div>
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:56px; color:#111;">A Surgeon Trained at the World's Finest Institutions</h3>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:56px; color:#111;">A Surgeon Trained at the World's Finest Institutions</h2>
       <div style="position:relative;">
         <div style="position:absolute; left:50%; top:0; bottom:0; width:1px; background:#dde4ec; transform:translateX(-50%);"></div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px 80px;">
@@ -679,7 +986,7 @@
         <div class="section-label">EXPERTISE · OUTCOMES · CARE</div>
         <div class="divider mt-4 mb-8"></div>
       </div>
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:56px; color:#111;">Why Patients Choose Dr. Joshi</h3>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:56px; color:#111;">Why Patients Choose Dr. Joshi</h2>
       <div class="grid grid-cols-4 gap-6">
         <div class="why-card" style="background:#f8fafc; border:1px solid #e0e8f2; padding:36px 28px; text-align:center; transition: all 0.3s ease; cursor:default;" data-anim="fade-up">
           <div style="margin-bottom:18px; display:flex; justify-content:center;">
@@ -743,9 +1050,9 @@
         <div class="section-label">PATIENT TESTIMONIALS · GOOGLE REVIEWS · KOKILABEN DHIRUBHAI AMBANI HOSPITAL</div>
       </div>
       <div class="divider mb-10"></div>
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:12px; color:#111; line-height:1.2;" data-anim="fade-up">Patient Testimonials</h3>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:12px; color:#111; line-height:1.2;" data-anim="fade-up">Patient Testimonials</h2>
       <div style="text-align:center; margin-bottom:48px;" data-anim="fade-up">
-        <a href="https://drvinayjoshi.com/testimonials.html" style="font-size:9px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#1e3a6a; text-decoration:none; border-bottom:1px solid #1e3a6a; padding-bottom:2px;">View All Reviews →</a>
+        <a href="/testimonials.html" style="font-size:9px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#1e3a6a; text-decoration:none; border-bottom:1px solid #1e3a6a; padding-bottom:2px;">View All Reviews →</a>
       </div>
 
       <div style="position:relative; overflow:hidden;" id="testi-viewport" data-anim="fade-up">
@@ -858,16 +1165,16 @@
         <div class="section-label">MEDIA · INTERVIEWS · PATIENT STORIES</div>
         <div class="divider mt-4 mb-8"></div>
       </div>
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:52px; color:#111;" data-anim="fade-up">Dr. Joshi in the Media</h3>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:52px; color:#111;" data-anim="fade-up">Dr. Joshi in the Media</h2>
 
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
 
         <!-- YouTube 1 -->
         <a href="https://www.youtube.com/watch?v=WuDiSgkgWxQ" target="_blank" rel="noopener" class="media-card" style="display:block; text-decoration:none;" data-anim="fade-up">
           <div style="position:relative; height:220px; overflow:hidden; background:#0a0a0a;">
-            <img src="https://img.youtube.com/vi/WuDiSgkgWxQ/maxresdefault.jpg"
-                 onerror="this.src='https://img.youtube.com/vi/WuDiSgkgWxQ/hqdefault.jpg'"
-                 alt="Patient Story" style="width:100%; height:100%; object-fit:cover; display:block;">
+            <img decoding="async" loading="lazy" width="1280" height="720" src="https://i.ytimg.com/vi/WuDiSgkgWxQ/maxresdefault.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/WuDiSgkgWxQ/hqdefault.jpg'"
+                 alt="Dr. Vinay Joshi presenting complex primary and revision hip arthroplasty case studies at ROC 2023" style="width:100%; height:100%; object-fit:cover; display:block;">
             <div style="position:absolute; inset:0; background:rgba(0,0,0,0.25); display:flex; align-items:center; justify-content:center;">
               <div style="width:56px; height:56px; background:rgba(255,0,0,0.92); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(0,0,0,0.4);">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
@@ -878,18 +1185,18 @@
             </div>
           </div>
           <div style="padding:20px 24px;">
-            <div style="font-size:8px; font-weight:600; letter-spacing:0.2em; color:#1e3a6a; text-transform:uppercase; margin-bottom:6px;">Patient Story · YouTube</div>
-            <div style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:#1a2a3a; margin-bottom:6px;">Inspiring Recovery After Knee Replacement</div>
-            <div style="font-size:11px; font-weight:300; color:#666;">A patient shares their journey back to full mobility following surgery with Dr. Vinay Joshi.</div>
+            <div style="font-size:8px; font-weight:600; letter-spacing:0.2em; color:#1e3a6a; text-transform:uppercase; margin-bottom:6px;">Conference Lecture · OrthoTV</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:#1a2a3a; margin-bottom:6px;">Case Presentations: Primary &amp; Complex Hip Replacement</div>
+            <div style="font-size:11px; font-weight:300; color:#666;">Dr. Joshi presents complex primary and revision hip arthroplasty cases at ROC 2023.</div>
           </div>
         </a>
 
         <!-- YouTube 2 -->
         <a href="https://www.youtube.com/watch?v=GflyAn-G17s" target="_blank" rel="noopener" class="media-card" style="display:block; text-decoration:none;" data-anim="fade-up" class="anim-delay-1">
           <div style="position:relative; height:220px; overflow:hidden; background:#0a0a0a;">
-            <img src="https://img.youtube.com/vi/GflyAn-G17s/maxresdefault.jpg"
-                 onerror="this.src='https://img.youtube.com/vi/GflyAn-G17s/hqdefault.jpg'"
-                 alt="Expert Interview" style="width:100%; height:100%; object-fit:cover; display:block;">
+            <img decoding="async" loading="lazy" width="1280" height="720" src="https://i.ytimg.com/vi/GflyAn-G17s/maxresdefault.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/GflyAn-G17s/hqdefault.jpg'"
+                 alt="Dr. Vinay Joshi answering common patient questions about knee replacement surgery" style="width:100%; height:100%; object-fit:cover; display:block;">
             <div style="position:absolute; inset:0; background:rgba(0,0,0,0.25); display:flex; align-items:center; justify-content:center;">
               <div style="width:56px; height:56px; background:rgba(255,0,0,0.92); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(0,0,0,0.4);">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
@@ -901,17 +1208,17 @@
           </div>
           <div style="padding:20px 24px;">
             <div style="font-size:8px; font-weight:600; letter-spacing:0.2em; color:#1e3a6a; text-transform:uppercase; margin-bottom:6px;">Expert Interview · YouTube</div>
-            <div style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:#1a2a3a; margin-bottom:6px;">Joint Replacement — What Patients Need to Know</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:#1a2a3a; margin-bottom:6px;">Knee Surgery — All Your Questions Answered</div>
             <div style="font-size:11px; font-weight:300; color:#666;">Dr. Joshi answers the questions every joint replacement patient should ask before surgery.</div>
           </div>
         </a>
 
         <!-- YouTube 3 -->
-        <a href="https://www.youtube.com/watch?v=7TlaYuSl-AQ" target="_blank" rel="noopener" class="media-card" style="display:block; text-decoration:none;" data-anim="fade-up" class="anim-delay-2">
+        <a href="https://www.youtube.com/watch?v=iQm3wvjTJDs" target="_blank" rel="noopener" class="media-card" style="display:block; text-decoration:none;" data-anim="fade-up" class="anim-delay-2">
           <div style="position:relative; height:220px; overflow:hidden; background:#0a0a0a;">
-            <img src="https://img.youtube.com/vi/7TlaYuSl-AQ/maxresdefault.jpg"
-                 onerror="this.src='https://img.youtube.com/vi/7TlaYuSl-AQ/hqdefault.jpg'"
-                 alt="Robotic Surgery" style="width:100%; height:100%; object-fit:cover; display:block;">
+            <img decoding="async" loading="lazy" width="1280" height="720" src="https://i.ytimg.com/vi/iQm3wvjTJDs/maxresdefault.jpg"
+                 onerror="this.src='https://i.ytimg.com/vi/iQm3wvjTJDs/hqdefault.jpg'"
+                 alt="Dr. Vinay Joshi explaining joint and knee replacement surgery at Kokilaben Dhirubhai Ambani Hospital" style="width:100%; height:100%; object-fit:cover; display:block;">
             <div style="position:absolute; inset:0; background:rgba(0,0,0,0.25); display:flex; align-items:center; justify-content:center;">
               <div style="width:56px; height:56px; background:rgba(255,0,0,0.92); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(0,0,0,0.4);">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
@@ -922,9 +1229,9 @@
             </div>
           </div>
           <div style="padding:20px 24px;">
-            <div style="font-size:8px; font-weight:600; letter-spacing:0.2em; color:#1e3a6a; text-transform:uppercase; margin-bottom:6px;">Robotic Surgery · YouTube</div>
-            <div style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:#1a2a3a; margin-bottom:6px;">Robotic-Assisted Joint Replacement at KDAH</div>
-            <div style="font-size:11px; font-weight:300; color:#666;">Dr. Joshi explains how robotic technology is transforming precision and outcomes in knee replacement.</div>
+            <div style="font-size:8px; font-weight:600; letter-spacing:0.2em; color:#1e3a6a; text-transform:uppercase; margin-bottom:6px;">Kokilaben Hospital · YouTube</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:#1a2a3a; margin-bottom:6px;">Dr. Vinay Joshi: Joint &amp; Knee Replacement Surgery</div>
+            <div style="font-size:11px; font-weight:300; color:#666;">Dr. Joshi introduces his approach to joint and knee replacement at Kokilaben Dhirubhai Ambani Hospital.</div>
           </div>
         </a>
 
@@ -953,31 +1260,31 @@
   <section style="background:#f5f8fa; padding:88px 0; border-top:1px solid #eef2f6;">
     <div style="max-width:1100px; margin:0 auto; padding:0 60px;">
       <div class="text-center mb-4" data-anim="fade-up">
-        <div class="section-label">RESEARCH · PUBLICATIONS · ACADEMIC CONTRIBUTIONS</div>
+        <div class="section-label">TEACHING · FACULTY · PEER-REVIEWED PUBLICATION</div>
         <div class="divider mt-4 mb-8"></div>
       </div>
       <div class="text-center mb-12" data-anim="fade-up">
-        <h3 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; line-height:1.35; max-width:580px; margin:0 auto; color:#111;">Advancing the science of joint replacement through peer-reviewed research.</h3>
+        <h2 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; line-height:1.35; max-width:580px; margin:0 auto; color:#111;">Training other surgeons, and contributing to the literature.</h2>
       </div>
       <div class="grid grid-cols-3 gap-8">
         <div style="background:#fff; border:1px solid #e0e8f2; border-left:4px solid #1e3a6a; padding:32px 28px; transition:box-shadow 0.3s;" onmouseover="this.style.boxShadow='0 8px 32px rgba(30,58,106,0.12)'" onmouseout="this.style.boxShadow='none'" data-anim="fade-up">
-          <div style="font-size:7px; font-weight:600; letter-spacing:0.22em; color:#1e3a6a; text-transform:uppercase; margin-bottom:12px;">Journal of Shoulder &amp; Elbow Surgery</div>
+          <div style="font-size:7px; font-weight:600; letter-spacing:0.22em; color:#1e3a6a; text-transform:uppercase; margin-bottom:12px;">International Journal of Shoulder Surgery · 2011</div>
           <div style="font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:500; color:#1a2a3a; line-height:1.55; margin-bottom:14px;">Use of a partial humeral head resurfacing system for management of osseous mechanical block to glenohumeral joint range of movement</div>
-          <div style="font-size:9px; font-weight:300; color:#888; letter-spacing:0.08em;">Peer-Reviewed Publication</div>
+          <div style="font-size:9px; font-weight:300; color:#888; letter-spacing:0.08em;">Peer-Reviewed Publication · PMID 21660193</div>
+          <div style="margin-top:12px;"><a href="https://pubmed.ncbi.nlm.nih.gov/21660193/" target="_blank" rel="noopener" style="font-size:9px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#1e3a6a; text-decoration:none; border-bottom:1px solid #c8d4e4; padding-bottom:2px;">View on PubMed &rarr;</a></div>
         </div>
         <div style="background:#fff; border:1px solid #e0e8f2; border-left:4px solid #1e3a6a; padding:32px 28px; transition:box-shadow 0.3s;" onmouseover="this.style.boxShadow='0 8px 32px rgba(30,58,106,0.12)'" onmouseout="this.style.boxShadow='none'" data-anim="fade-up" class="anim-delay-1">
-          <div style="font-size:7px; font-weight:600; letter-spacing:0.22em; color:#1e3a6a; text-transform:uppercase; margin-bottom:12px;">Bombay Hospital Journal · 1996</div>
-          <div style="font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:500; color:#1a2a3a; line-height:1.55; margin-bottom:14px;">A study of 25 cases of T-Y Intercondylar Fracture Humerus treated with Bipillar Plating</div>
-          <div style="font-size:9px; font-weight:300; color:#888; letter-spacing:0.08em;">Clinical Study</div>
+          <div style="font-size:7px; font-weight:600; letter-spacing:0.22em; color:#1e3a6a; text-transform:uppercase; margin-bottom:12px;">Faculty · Bangkok &amp; Bangalore</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:500; color:#1a2a3a; line-height:1.55; margin-bottom:14px;">Cadaveric robotic arthroplasty courses</div>
+          <div style="font-size:9px; font-weight:300; color:#888; letter-spacing:0.08em;">Teaching faculty · surgeon training</div>
         </div>
         <div style="background:#fff; border:1px solid #e0e8f2; border-left:4px solid #1e3a6a; padding:32px 28px; transition:box-shadow 0.3s;" onmouseover="this.style.boxShadow='0 8px 32px rgba(30,58,106,0.12)'" onmouseout="this.style.boxShadow='none'" data-anim="fade-up" class="anim-delay-2">
-          <div style="font-size:7px; font-weight:600; letter-spacing:0.22em; color:#1e3a6a; text-transform:uppercase; margin-bottom:12px;">Injury Journal</div>
-          <div style="font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:500; color:#1a2a3a; line-height:1.55; margin-bottom:14px;">Case report: Missed presentation of rare isolated trochlea fracture — diagnosis, management and outcome</div>
-          <div style="font-size:9px; font-weight:300; color:#888; letter-spacing:0.08em;">Case Report</div>
+          <div style="font-size:7px; font-weight:600; letter-spacing:0.22em; color:#1e3a6a; text-transform:uppercase; margin-bottom:12px;">ROC · WIROC</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:500; color:#1a2a3a; line-height:1.55; margin-bottom:14px;">Regular faculty at the Ranawat Orthopaedic Course, and debates at WIROC</div>
+          <div style="font-size:9px; font-weight:300; color:#888; letter-spacing:0.08em;">Conference faculty · India</div>
         </div>
-      </div>
-    </div>
-  </section>
+        
+      </section>
 
   <!-- ========== FAQ SECTION ========== -->
   <section style="background:#fff; padding:88px 0; border-top:1px solid #eef2f6;">
@@ -986,7 +1293,7 @@
         <div class="section-label">FREQUENTLY ASKED QUESTIONS</div>
         <div class="divider mt-4 mb-8"></div>
       </div>
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:52px; color:#111;">Common Questions About Joint Replacement</h3>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:52px; color:#111;">Common Questions About Joint Replacement</h2>
       <div id="faq-list">
         <div class="faq-item" style="border-bottom:1px solid #dde4ec; padding:24px 0;">
           <button onclick="toggleFAQ(this)" style="width:100%; text-align:left; display:flex; justify-content:space-between; align-items:center; background:none; border:none; cursor:pointer; padding:0;">
@@ -1014,7 +1321,7 @@
             <span style="font-size:15px; font-weight:400; color:#1a2a3a;">What is a high-flex knee replacement and who is it for?</span>
             <span class="faq-icon" style="font-size:20px; color:#1e3a6a; transition:transform 0.3s; flex-shrink:0; margin-left:16px;">+</span>
           </button>
-          <div class="faq-answer" style="display:none; padding-top:16px; font-size:13px; font-weight:300; color:#555; line-height:1.9;">A high-flex knee implant allows bending up to 150° — essential for Indian patients who sit cross-legged, kneel for prayer, or squat. Dr. Joshi specialises in high-flex knee replacements to ensure patients resume traditional activities comfortably.</div>
+          <div class="faq-answer" style="display:none; padding-top:16px; font-size:13px; font-weight:300; color:#555; line-height:1.9;">A high-flex knee implant allows bending up to 150° — essential for Indian patients who sit cross-legged, kneel for prayer, or squat. Dr. Joshi specialises in high-flex knee replacements so that patients can resume these activities. His advice is that they are done occasionally rather than every day: repeated deep flexion loads the implant and shortens the life of the prosthesis.</div>
         </div>
         <div class="faq-item" style="padding:24px 0;">
           <button onclick="toggleFAQ(this)" style="width:100%; text-align:left; display:flex; justify-content:space-between; align-items:center; background:none; border:none; cursor:pointer; padding:0;">
@@ -1023,6 +1330,53 @@
           </button>
           <div class="faq-answer" style="display:none; padding-top:16px; font-size:13px; font-weight:300; color:#555; line-height:1.9;">Yes. Dr. Joshi offers both in-person consultations at Kokilaben Dhirubhai Ambani Hospital (Andheri West, Mumbai) and virtual consultations. Call +91 22 4269 6969 to schedule.</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PATIENT GUIDES ========== -->
+  <section style="background:#f5f8fa;padding:88px 0;border-top:1px solid #eef2f6;">
+    <div style="max-width:1180px;margin:0 auto;padding:0 60px;">
+      <div class="text-center mb-4">
+        <div class="section-label">PATIENT GUIDES · WRITTEN &amp; MEDICALLY REVIEWED BY DR. JOSHI</div>
+        <div class="divider mt-4 mb-8" style="margin-left:auto;margin-right:auto;"></div>
+      </div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:18px; color:#111;">In-Depth Guides for Patients</h2>
+      <p style="font-size:14px;font-weight:300;color:#555;line-height:1.9;max-width:640px;margin:0 auto 46px;text-align:center;">Detailed answers on recovery, exercises, costs, robotic surgery, AVN and choosing a surgeon — each guide written and medically reviewed by Dr. Vinay S. Joshi.</p>
+      <div class="pg-grid">
+        <a class="pg-card" href="/articles/signs-you-need-knee-replacement.html">
+          <div style="font-size:7.5px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:8px;">Symptoms</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:#1a2a3a;line-height:1.35;margin-bottom:8px;">Signs You May Need a Knee Replacement</div>
+          <div style="font-size:11.5px;font-weight:300;color:#666;line-height:1.7;">Night pain, failed injections and a shrinking walking distance.</div>
+        </a>
+        <a class="pg-card" href="/articles/robotic-knee-replacement-mumbai.html">
+          <div style="font-size:7.5px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:8px;">Robotic Surgery</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:#1a2a3a;line-height:1.35;margin-bottom:8px;">Robotic Knee Replacement — How VELYS Works</div>
+          <div style="font-size:11.5px;font-weight:300;color:#666;line-height:1.7;">No pre-operative CT scan, live intra-operative mapping.</div>
+        </a>
+        <a class="pg-card" href="/articles/knee-replacement-recovery-time.html">
+          <div style="font-size:7.5px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:8px;">Recovery</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:#1a2a3a;line-height:1.35;margin-bottom:8px;">Knee Replacement Recovery Time</div>
+          <div style="font-size:11.5px;font-weight:300;color:#666;line-height:1.7;">Day one to twelve months, week by week.</div>
+        </a>
+        <a class="pg-card" href="/articles/knee-replacement-cost-mumbai.html">
+          <div style="font-size:7.5px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:8px;">Costs</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:#1a2a3a;line-height:1.35;margin-bottom:8px;">Knee Replacement Cost in Mumbai</div>
+          <div style="font-size:11.5px;font-weight:300;color:#666;line-height:1.7;">What is in the package and what moves the price.</div>
+        </a>
+        <a class="pg-card" href="/articles/avn-hip-treatment-mumbai.html">
+          <div style="font-size:7.5px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:8px;">Hip Conditions</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:#1a2a3a;line-height:1.35;margin-bottom:8px;">Avascular Necrosis of the Hip</div>
+          <div style="font-size:11.5px;font-weight:300;color:#666;line-height:1.7;">Stages, Regrow therapy, and when replacement is needed.</div>
+        </a>
+        <a class="pg-card" href="/articles/how-to-choose-a-joint-replacement-surgeon-in-mumbai.html">
+          <div style="font-size:7.5px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:8px;">Choosing Care</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:#1a2a3a;line-height:1.35;margin-bottom:8px;">How to Choose a Joint Replacement Surgeon</div>
+          <div style="font-size:11.5px;font-weight:300;color:#666;line-height:1.7;">The six criteria that actually predict a good outcome.</div>
+        </a>
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <a href="/health-tips.html" class="btn-gold">VIEW ALL PATIENT GUIDES</a>
       </div>
     </div>
   </section>
@@ -1042,40 +1396,40 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
         <div class="gallery-track" id="gallery-track">
-          <div class="gallery-item" onclick="openLightbox(0)"><img src="gallery/gallery-01.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 1"></div>
-          <div class="gallery-item" onclick="openLightbox(1)"><img src="gallery/gallery-02.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 2"></div>
-          <div class="gallery-item" onclick="openLightbox(2)"><img src="gallery/gallery-03.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 3"></div>
-          <div class="gallery-item" onclick="openLightbox(3)"><img src="gallery/gallery-04.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 4"></div>
-          <div class="gallery-item" onclick="openLightbox(4)"><img src="gallery/gallery-05.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 5"></div>
-          <div class="gallery-item" onclick="openLightbox(5)"><img src="gallery/gallery-06.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 6"></div>
-          <div class="gallery-item" onclick="openLightbox(6)"><img src="gallery/gallery-07.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 7"></div>
-          <div class="gallery-item" onclick="openLightbox(7)"><img src="gallery/gallery-08.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 8"></div>
-          <div class="gallery-item" onclick="openLightbox(8)"><img src="gallery/gallery-09.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 9"></div>
-          <div class="gallery-item" onclick="openLightbox(9)"><img src="gallery/gallery-10.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 10"></div>
-          <div class="gallery-item" onclick="openLightbox(10)"><img src="gallery/gallery-11.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 11"></div>
-          <div class="gallery-item" onclick="openLightbox(11)"><img src="gallery/gallery-12.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 12"></div>
-          <div class="gallery-item" onclick="openLightbox(12)"><img src="gallery/gallery-13.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 13"></div>
-          <div class="gallery-item" onclick="openLightbox(13)"><img src="gallery/gallery-14.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 14"></div>
-          <div class="gallery-item" onclick="openLightbox(14)"><img src="gallery/gallery-15.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 15"></div>
-          <div class="gallery-item" onclick="openLightbox(15)"><img src="gallery/gallery-16.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 16"></div>
-          <div class="gallery-item" onclick="openLightbox(16)"><img src="gallery/gallery-17.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 17"></div>
-          <div class="gallery-item" onclick="openLightbox(17)"><img src="gallery/gallery-18.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 18"></div>
-          <div class="gallery-item" onclick="openLightbox(18)"><img src="gallery/gallery-19.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 19"></div>
-          <div class="gallery-item" onclick="openLightbox(19)"><img src="gallery/gallery-20.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 20"></div>
-          <div class="gallery-item" onclick="openLightbox(20)"><img src="gallery/gallery-21.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 21"></div>
-          <div class="gallery-item" onclick="openLightbox(21)"><img src="gallery/gallery-22.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 22"></div>
-          <div class="gallery-item" onclick="openLightbox(22)"><img src="gallery/gallery-23.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 23"></div>
-          <div class="gallery-item" onclick="openLightbox(23)"><img src="gallery/gallery-24.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 24"></div>
-          <div class="gallery-item" onclick="openLightbox(24)"><img src="gallery/gallery-25.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 25"></div>
-          <div class="gallery-item" onclick="openLightbox(25)"><img src="gallery/gallery-26.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 26"></div>
-          <div class="gallery-item" onclick="openLightbox(26)"><img src="gallery/gallery-27.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 27"></div>
-          <div class="gallery-item" onclick="openLightbox(27)"><img src="gallery/gallery-28.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 28"></div>
-          <div class="gallery-item" onclick="openLightbox(28)"><img src="gallery/gallery-29.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 29"></div>
-          <div class="gallery-item" onclick="openLightbox(29)"><img src="gallery/gallery-30.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 30"></div>
-          <div class="gallery-item" onclick="openLightbox(30)"><img src="gallery/gallery-31.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 31"></div>
-          <div class="gallery-item" onclick="openLightbox(31)"><img src="gallery/gallery-32.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 32"></div>
-          <div class="gallery-item" onclick="openLightbox(32)"><img src="gallery/gallery-33.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 33"></div>
-          <div class="gallery-item" onclick="openLightbox(33)"><img src="gallery/gallery-34.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 34"></div>
+          <div class="gallery-item" onclick="openLightbox(0)"><picture><source srcset="gallery/gallery-01.webp" type="image/webp"><img decoding="async" width="1280" height="693" src="gallery/gallery-01.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 1"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(1)"><picture><source srcset="gallery/gallery-02.webp" type="image/webp"><img decoding="async" width="1056" height="1280" src="gallery/gallery-02.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 2"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(2)"><picture><source srcset="gallery/gallery-03.webp" type="image/webp"><img decoding="async" width="960" height="1280" src="gallery/gallery-03.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 3"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(3)"><picture><source srcset="gallery/gallery-04.webp" type="image/webp"><img decoding="async" width="960" height="1280" src="gallery/gallery-04.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 4"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(4)"><picture><source srcset="gallery/gallery-05.webp" type="image/webp"><img decoding="async" width="960" height="1280" src="gallery/gallery-05.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 5"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(5)"><picture><source srcset="gallery/gallery-06.webp" type="image/webp"><img decoding="async" width="960" height="1280" src="gallery/gallery-06.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 6"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(6)"><picture><source srcset="gallery/gallery-07.webp" type="image/webp"><img decoding="async" width="1280" height="960" src="gallery/gallery-07.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 7"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(7)"><picture><source srcset="gallery/gallery-08.webp" type="image/webp"><img decoding="async" width="960" height="1280" src="gallery/gallery-08.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 8"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(8)"><picture><source srcset="gallery/gallery-09.webp" type="image/webp"><img decoding="async" width="1280" height="960" src="gallery/gallery-09.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 9"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(9)"><picture><source srcset="gallery/gallery-10.webp" type="image/webp"><img decoding="async" width="960" height="1280" src="gallery/gallery-10.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 10"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(10)"><picture><source srcset="gallery/gallery-11.webp" type="image/webp"><img decoding="async" width="960" height="1280" src="gallery/gallery-11.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 11"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(11)"><picture><source srcset="gallery/gallery-12.webp" type="image/webp"><img decoding="async" width="1280" height="616" src="gallery/gallery-12.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 12"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(12)"><picture><source srcset="gallery/gallery-13.webp" type="image/webp"><img decoding="async" width="1280" height="960" src="gallery/gallery-13.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 13"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(13)"><picture><source srcset="gallery/gallery-14.webp" type="image/webp"><img decoding="async" width="960" height="1280" src="gallery/gallery-14.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 14"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(14)"><picture><source srcset="gallery/gallery-15.webp" type="image/webp"><img decoding="async" width="1024" height="768" src="gallery/gallery-15.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 15"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(15)"><picture><source srcset="gallery/gallery-16.webp" type="image/webp"><img decoding="async" width="1024" height="768" src="gallery/gallery-16.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 16"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(16)"><picture><source srcset="gallery/gallery-17.webp" type="image/webp"><img decoding="async" width="960" height="1280" src="gallery/gallery-17.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 17"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(17)"><picture><source srcset="gallery/gallery-18.webp" type="image/webp"><img decoding="async" width="591" height="1280" src="gallery/gallery-18.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 18"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(18)"><picture><source srcset="gallery/gallery-19.webp" type="image/webp"><img decoding="async" width="591" height="1280" src="gallery/gallery-19.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 19"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(19)"><picture><source srcset="gallery/gallery-20.webp" type="image/webp"><img decoding="async" width="591" height="1280" src="gallery/gallery-20.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 20"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(20)"><picture><source srcset="gallery/gallery-21.webp" type="image/webp"><img decoding="async" width="1024" height="768" src="gallery/gallery-21.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 21"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(21)"><picture><source srcset="gallery/gallery-22.webp" type="image/webp"><img decoding="async" width="1024" height="768" src="gallery/gallery-22.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 22"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(22)"><picture><source srcset="gallery/gallery-23.webp" type="image/webp"><img decoding="async" width="960" height="1280" src="gallery/gallery-23.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 23"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(23)"><picture><source srcset="gallery/gallery-24.webp" type="image/webp"><img decoding="async" width="591" height="1280" src="gallery/gallery-24.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 24"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(24)"><picture><source srcset="gallery/gallery-25.webp" type="image/webp"><img decoding="async" width="960" height="1280" src="gallery/gallery-25.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 25"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(25)"><picture><source srcset="gallery/gallery-26.webp" type="image/webp"><img decoding="async" width="914" height="1280" src="gallery/gallery-26.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 26"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(26)"><picture><source srcset="gallery/gallery-27.webp" type="image/webp"><img decoding="async" width="768" height="1024" src="gallery/gallery-27.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 27"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(27)"><picture><source srcset="gallery/gallery-28.webp" type="image/webp"><img decoding="async" width="1024" height="576" src="gallery/gallery-28.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 28"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(28)"><picture><source srcset="gallery/gallery-29.webp" type="image/webp"><img decoding="async" width="960" height="1280" src="gallery/gallery-29.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 29"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(29)"><picture><source srcset="gallery/gallery-30.webp" type="image/webp"><img decoding="async" width="1024" height="768" src="gallery/gallery-30.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 30"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(30)"><picture><source srcset="gallery/gallery-31.webp" type="image/webp"><img decoding="async" width="494" height="624" src="gallery/gallery-31.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 31"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(31)"><picture><source srcset="gallery/gallery-32.webp" type="image/webp"><img decoding="async" width="768" height="1024" src="gallery/gallery-32.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 32"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(32)"><picture><source srcset="gallery/gallery-33.webp" type="image/webp"><img decoding="async" width="1280" height="960" src="gallery/gallery-33.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 33"></picture></div>
+          <div class="gallery-item" onclick="openLightbox(33)"><picture><source srcset="gallery/gallery-34.webp" type="image/webp"><img decoding="async" width="960" height="1280" src="gallery/gallery-34.jpg" loading="lazy" alt="Dr. Vinay Joshi — gallery photo 34"></picture></div>
         </div>
       </div>
     </div>
@@ -1107,16 +1461,16 @@
         <div>
           <div style="font-size:8px; font-weight:600; letter-spacing:0.25em; color:#7a8fa8; text-transform:uppercase; margin-bottom:12px;">Specialties</div>
           <ul style="font-size:12px; font-weight:300; color:#666; line-height:2.2; list-style:none; padding:0;">
-            <li><a href="https://drvinayjoshi.com/knee.html" style="color:#666; text-decoration:none;">Total Knee Replacement</a></li>
-            <li><a href="https://drvinayjoshi.com/hip.html" style="color:#666; text-decoration:none;">Total Hip Replacement</a></li>
-            <li><a href="https://drvinayjoshi.com/robotic.html" style="color:#666; text-decoration:none;">Robotic Joint Replacement</a></li>
-            <li><a href="https://drvinayjoshi.com/revision.html" style="color:#666; text-decoration:none;">Revision Joint Surgery</a></li>
-            <li><a href="https://drvinayjoshi.com/testimonials.html" style="color:#666; text-decoration:none;">Patient Testimonials</a></li>
+            <li><a href="/knee.html" style="color:#666; text-decoration:none;">Total Knee Replacement</a></li>
+            <li><a href="/hip.html" style="color:#666; text-decoration:none;">Total Hip Replacement</a></li>
+            <li><a href="/robotic.html" style="color:#666; text-decoration:none;">Robotic Joint Replacement</a></li>
+            <li><a href="/revision.html" style="color:#666; text-decoration:none;">Revision Joint Surgery</a></li>
+            <li><a href="/testimonials.html" style="color:#666; text-decoration:none;">Patient Testimonials</a></li>
           </ul>
         </div>
       </div>
       <div style="border-top:1px solid #eef2f6; padding-top:20px; display:flex; justify-content:space-between; align-items:center;">
-        <div style="font-size:9px; font-weight:300; color:#aaa; letter-spacing:0.08em;">© 2024 Dr. Vinay S. Joshi. Kokilaben Dhirubhai Ambani Hospital. All Rights Reserved.</div>
+        <div style="font-size:9px; font-weight:300; color:#aaa; letter-spacing:0.08em;">© <span class="cyear">2026</span> Dr. Vinay S. Joshi. Kokilaben Dhirubhai Ambani Hospital. All Rights Reserved.</div>
         <div style="font-size:9px; font-weight:300; color:#aaa; letter-spacing:0.08em;">kokilabenhospital.com</div>
       </div>
     </div>
@@ -1199,5 +1553,7 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('[data-anim]').forEach(el => animObserver.observe(el));
   </script>
+
+  <script>document.querySelectorAll(".cyear").forEach(function(e){e.textContent=new Date().getFullYear();});</script>
 </body>
 </html>

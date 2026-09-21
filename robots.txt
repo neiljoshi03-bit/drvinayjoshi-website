@@ -1,3 +1,89 @@
+# robots.txt — drvinayjoshi.com
+# Dr. Vinay S. Joshi · Joint Replacement Surgeon · Kokilaben Dhirubhai Ambani Hospital, Mumbai
+
+# ── Default: everything is open to every well-behaved crawler ──
 User-agent: *
 Allow: /
+
+# ── Search engines ──
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# ── AI answer engines & assistants ──
+# Explicitly permitted so that patient-facing clinical information can be
+# surfaced accurately in AI-generated answers about joint replacement in Mumbai.
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google — Gemini / AI Overviews grounding
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl (training corpus many assistants are grounded on)
+User-agent: CCBot
+Allow: /
+
+# Meta
+User-agent: meta-externalagent
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+# Mistral
+User-agent: MistralAI-User
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
 Sitemap: https://drvinayjoshi.com/sitemap.xml

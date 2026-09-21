@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* <picture> is only a wrapper for <source> negotiation — it must not create a
+     box, or images sized with height:100% against their parent (the hero and the
+     gallery tiles) would resolve against the <picture> and collapse. */
+  picture {
+    display: contents;
+  }
+
+  /* Because display:contents removes the <picture> box, its children are promoted
+     into the parent's formatting context. <source> computes to display:block here,
+     so inside a flex/grid parent it would become a real item and add an extra gap
+     (this cost the article author box exactly one 16px gap). Keep it out of flow. */
+  picture > source {
+    display: none;
+  }
+}
+
+@layer base {
+  /* The site header is fixed (~66px). Without this, any in-page anchor — every
+     article's table of contents, and every #id deep link — scrolls the target
+     to y=0, i.e. underneath the header, leaving the heading invisible. */
+  [id] {
+    scroll-margin-top: 88px;
+  }
+}

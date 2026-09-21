@@ -5,87 +5,17 @@
       <link rel="shortcut icon" href="favicon.svg">
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book a Consultation | Dr. Vinay Joshi | Joint Replacement Surgeon Mumbai</title>
-  <meta name="description" content="Book a consultation with Dr. Vinay Joshi, Mumbai's leading joint replacement surgeon at Kokilaben Dhirubhai Ambani Hospital. Request an appointment online.">
-  <meta name="keywords" content="book appointment Dr Vinay Joshi, joint replacement consultation Mumbai, orthopaedic surgeon appointment Mumbai">
-  <meta name="robots" content="index, follow">
+  <title>Book a Consultation | Dr. Vinay Joshi, Mumbai</title>
+  <meta name="description" content="Book an in-person or video consultation with Dr. Vinay Joshi, joint replacement surgeon at Kokilaben Hospital, Mumbai. OPD Monday to Saturday, 9 AM to 5 PM.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <meta name="author" content="Dr. Vinay S. Joshi">
   <meta property="og:site_name" content="Dr. Vinay Joshi - Joint Replacement Surgeon Mumbai">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Book a Consultation | Dr. Vinay Joshi Mumbai">
-  <meta property="og:description" content="Book a consultation with Dr. Vinay Joshi, Mumbai's leading joint replacement surgeon at Kokilaben Dhirubhai Ambani Hospital. Request an appointment online.">
-  <meta property="og:image" content="https://drvinayjoshi.com/hero.png">
+  <meta property="og:title" content="Book a Consultation | Dr. Vinay Joshi, Mumbai">
+  <meta property="og:description" content="Book an in-person or video consultation with Dr. Vinay Joshi, joint replacement surgeon at Kokilaben Hospital, Mumbai. OPD Monday to Saturday, 9 AM to 5 PM.">
+  <meta property="og:image" content="https://drvinayjoshi.com/dr-vinay-joshi-joint-replacement-surgeon-mumbai.jpg">
   <meta property="og:url" content="https://drvinayjoshi.com/consultation.html">
   <link rel="canonical" href="https://drvinayjoshi.com/consultation.html">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://drvinayjoshi.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Consultation",
-        "item": "https://drvinayjoshi.com/consultation.html"
-      }
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How do I book a consultation with Dr. Vinay Joshi?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You can book a consultation with Dr. Vinay Joshi at Kokilaben Dhirubhai Ambani Hospital by calling the hospital appointments desk or using the online booking form on this website. Both in-person and virtual consultations are available."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What should I bring to my first consultation?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Please bring any previous X-rays, MRI scans, blood test reports, a list of current medications and your insurance details. Dr. Joshi's team will advise you on any specific requirements when you book."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does Dr. Joshi offer virtual consultations?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Dr. Vinay Joshi offers virtual consultations for patients who are unable to visit Kokilaben Dhirubhai Ambani Hospital in person. Contact the team to arrange a video consultation."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does a consultation with Dr. Joshi take?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A first consultation with Dr. Joshi typically takes 30 to 45 minutes and includes a full clinical assessment, review of any investigations, and a detailed discussion of treatment options."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which insurance plans does Dr. Joshi accept?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Dr. Joshi works with most major health insurance providers at Kokilaben Dhirubhai Ambani Hospital. Contact the team with your insurance details and they will confirm coverage before your appointment."
-        }
-      }
-    ]
-  }
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -183,7 +113,371 @@
       /* --- Footer --- */
       footer > div > div.flex { flex-direction: column !important; gap: 20px !important; }
     }
+
+    .pg-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; max-width:1080px; margin:0 auto; }
+    .pg-card { display:block; background:#fff; border:1px solid #e0e8f2; border-left:3px solid #1e3a6a; padding:22px 24px; text-decoration:none; transition:box-shadow .25s, transform .25s; }
+    .pg-card:hover { box-shadow:0 10px 30px rgba(30,58,106,.12); transform:translateY(-3px); }
+    @media (max-width:1024px){ .pg-grid { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:700px){ .pg-grid { grid-template-columns:1fr; } }
+
+    /* ── Mobile horizontal-overflow guard (≤420px) ───────────────────────────
+       [data-anim="right"] holds elements at translateX(36px) until they scroll
+       into view: 320px content + 56px offset = 376px on a 360px screen. Enter
+       vertically instead so nothing is ever parked outside the viewport. */
+    @media (max-width: 420px) {
+      [data-anim="left"],
+      [data-anim="right"] { transform: translateY(24px); }
+
+      /* The footer is a 3-column flex row (identity / nav / copyright) with no
+         stacking rule — the existing `footer > div > div.flex` selector matches a
+         structure this page does not have. At 360px the copyright column is pushed
+         past the right edge. Stack the row instead. */
+      footer[style*="display:flex"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 20px !important;
+      }
+    }
   </style>
+  <!-- Tailwind: compiled and minified from tailwind.config.js. Loaded AFTER the inline
+       styles on purpose: the old in-browser JIT build injected its stylesheet last, so
+       preflight's body{line-height:inherit} won over this page's body{line-height:1.75}.
+       Moving this link earlier would change every line-height on the page.
+       Rebuild with: npm run build:css -->
+  <link rel="stylesheet" href="assets/tw.css">
+  <link rel="preload" as="image" href="gallery/gallery-07.webp" type="image/webp" fetchpriority="high">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Physician",
+        "@id": "https://drvinayjoshi.com/#physician",
+        "name": "Dr. Vinay S. Joshi",
+        "honorificPrefix": "Dr.",
+        "honorificSuffix": "MBBS, MS (Orth), DNB, FRCS, FCPS",
+        "url": "https://drvinayjoshi.com/",
+        "image": "https://drvinayjoshi.com/dr-vinay-joshi-orthopaedic-surgeon.jpg",
+        "description": "Dr. Vinay S. Joshi is a consultant orthopaedic and joint replacement surgeon who leads the Arthroplasty team at Kokilaben Dhirubhai Ambani Hospital, Mumbai. He practises exclusively in primary and complex revision hip and knee replacement, has performed more than 4,500 joint replacements, and uses the VELYS robotic-assisted platform.",
+        "medicalSpecialty": [
+          "Orthopedic",
+          "https://schema.org/Orthopedic"
+        ],
+        "jobTitle": "Consultant Orthopaedic & Joint Replacement Surgeon",
+        "telephone": "+91-22-4269-6969",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rao Saheb Achutrao Patwardhan Marg, Four Bungalows, Andheri West",
+          "addressLocality": "Mumbai",
+          "addressRegion": "Maharashtra",
+          "postalCode": "400053",
+          "addressCountry": "IN"
+        },
+        "worksFor": {
+          "@id": "https://drvinayjoshi.com/#hospital"
+        },
+        "memberOf": {
+          "@id": "https://drvinayjoshi.com/#hospital"
+        },
+        "hospitalAffiliation": {
+          "@id": "https://drvinayjoshi.com/#hospital"
+        },
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Topiwala National Medical College & Nair Hospital",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Mumbai",
+              "addressCountry": "IN"
+            }
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "Royal College of Surgeons of England",
+            "url": "https://www.rcseng.ac.uk/",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "London",
+              "addressCountry": "GB"
+            }
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "College of Physicians and Surgeons of Mumbai",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Mumbai",
+              "addressCountry": "IN"
+            }
+          }
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "MBBS"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "MS (Orthopaedics)"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "DNB (Orthopaedics)"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Fellowship",
+            "name": "FRCS — Fellow of the Royal College of Surgeons of England"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Fellowship",
+            "name": "FCPS — Fellow of the College of Physicians and Surgeons, Mumbai"
+          }
+        ],
+        "knowsAbout": [
+          "Knee replacement surgery",
+          "Total knee replacement",
+          "Hip replacement surgery",
+          "Total hip replacement",
+          "Robotic joint replacement",
+          "VELYS robotic-assisted knee replacement",
+          "Revision knee replacement",
+          "Revision hip replacement",
+          "Complex primary arthroplasty",
+          "Avascular necrosis of the hip",
+          "Osteonecrosis of the femoral head",
+          "High flex knee replacement",
+          "Unicompartmental knee replacement",
+          "Ceramic-on-ceramic hip replacement",
+          "Periprosthetic joint infection",
+          "Minimally invasive joint replacement",
+          "Gender-specific knee replacement"
+        ],
+        "knowsLanguage": [
+          "English",
+          "Hindi",
+          "Marathi",
+          "Gujarati"
+        ],
+        "availableService": [
+          {
+            "@type": "MedicalProcedure",
+            "name": "Total Knee Replacement",
+            "procedureType": "https://schema.org/SurgicalProcedure",
+            "url": "https://drvinayjoshi.com/knee.html"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Total Hip Replacement",
+            "procedureType": "https://schema.org/SurgicalProcedure",
+            "url": "https://drvinayjoshi.com/hip.html"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Robotic-Assisted Joint Replacement (VELYS)",
+            "procedureType": "https://schema.org/SurgicalProcedure",
+            "url": "https://drvinayjoshi.com/robotic.html"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Revision Joint Replacement",
+            "procedureType": "https://schema.org/SurgicalProcedure",
+            "url": "https://drvinayjoshi.com/revision.html"
+          }
+        ],
+        "sameAs": [
+          "https://www.kokilabenhospital.com/professionals/vinaysjoshi.html"
+        ]
+      },
+      {
+        "@type": "Hospital",
+        "@id": "https://drvinayjoshi.com/#hospital",
+        "name": "Kokilaben Dhirubhai Ambani Hospital",
+        "url": "https://www.kokilabenhospital.com",
+        "telephone": "+91-22-4269-6969",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rao Saheb Achutrao Patwardhan Marg, Four Bungalows, Andheri West",
+          "addressLocality": "Mumbai",
+          "addressRegion": "Maharashtra",
+          "postalCode": "400053",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 19.1307,
+          "longitude": 72.8253
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://drvinayjoshi.com/#website",
+        "url": "https://drvinayjoshi.com/",
+        "name": "Dr. Vinay S. Joshi — Joint Replacement Surgeon, Mumbai",
+        "inLanguage": "en-GB",
+        "publisher": {
+          "@id": "https://drvinayjoshi.com/#physician"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://drvinayjoshi.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Book a Consultation",
+            "item": "https://drvinayjoshi.com/consultation.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I book a consultation with Dr. Vinay Joshi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can book a consultation with Dr. Vinay Joshi at Kokilaben Dhirubhai Ambani Hospital by calling +91 22 4269 6969, or by completing the appointment request form on this page. Dr. Joshi's team will contact you within 24 hours to confirm your appointment."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What should I bring to my first consultation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Please bring any previous X-rays, MRI or CT scans, blood test reports, a list of your current medications and your insurance details. If you have had previous joint surgery, bring the operation record and implant details if you have them."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Dr. Joshi offer virtual consultations?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Dr. Vinay Joshi offers virtual video consultations for patients who are unable to travel to Kokilaben Dhirubhai Ambani Hospital in person, including patients from outside Mumbai and overseas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a consultation with Dr. Joshi take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A first consultation typically takes 30 to 45 minutes and includes a full clinical assessment, a review of your imaging and investigations, and a detailed discussion of the treatment options open to you."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are Dr. Joshi's OPD hours?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Outpatient consultations run Monday to Saturday, 9:00 AM to 5:00 PM, at Kokilaben Dhirubhai Ambani Hospital, Four Bungalows, Andheri West, Mumbai 400053."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "MedicalClinic",
+        "name": "Dr. Vinay S. Joshi — Joint Replacement Clinic",
+        "url": "https://drvinayjoshi.com/consultation.html",
+        "parentOrganization": {
+          "@id": "https://drvinayjoshi.com/#hospital"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rao Saheb Achutrao Patwardhan Marg, Four Bungalows, Andheri West",
+          "addressLocality": "Mumbai",
+          "addressRegion": "Maharashtra",
+          "postalCode": "400053",
+          "addressCountry": "IN"
+        },
+        "telephone": "+91-22-4269-6969",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 19.1307,
+          "longitude": 72.8253
+        },
+        "medicalSpecialty": "Orthopedic",
+        "availableService": [
+          {
+            "@type": "MedicalProcedure",
+            "name": "Total Knee Replacement",
+            "procedureType": "https://schema.org/SurgicalProcedure",
+            "url": "https://drvinayjoshi.com/knee.html"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Total Hip Replacement",
+            "procedureType": "https://schema.org/SurgicalProcedure",
+            "url": "https://drvinayjoshi.com/hip.html"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Robotic-Assisted Joint Replacement (VELYS)",
+            "procedureType": "https://schema.org/SurgicalProcedure",
+            "url": "https://drvinayjoshi.com/robotic.html"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Revision Joint Replacement",
+            "procedureType": "https://schema.org/SurgicalProcedure",
+            "url": "https://drvinayjoshi.com/revision.html"
+          }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "09:00",
+            "closes": "17:00"
+          }
+        ]
+      },
+      {
+        "@type": [
+          "MedicalWebPage",
+          "WebPage"
+        ],
+        "@id": "https://drvinayjoshi.com/consultation.html#webpage",
+        "url": "https://drvinayjoshi.com/consultation.html",
+        "name": "Book a Consultation — Dr. Vinay Joshi, Mumbai",
+        "description": "Request an in-person or virtual consultation with Dr. Vinay Joshi in Mumbai.",
+        "inLanguage": "en-GB",
+        "isPartOf": {
+          "@id": "https://drvinayjoshi.com/#website"
+        },
+        "about": {
+          "@id": "https://drvinayjoshi.com/#physician"
+        },
+        "reviewedBy": {
+          "@id": "https://drvinayjoshi.com/#physician"
+        },
+        "lastReviewed": "2026-09-21",
+        "audience": {
+          "@type": "MedicalAudience",
+          "audienceType": "Patient"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body style="background:#f0f4f9;">
   <!-- MENU OVERLAY -->
@@ -191,14 +485,15 @@
     <button onclick="closeMenu()" style="position:absolute;top:32px;right:48px;font-size:28px;color:rgba(255,255,255,0.6);background:none;border:none;cursor:pointer;font-weight:300;">&#x2715;</button>
     <div style="text-align:center;margin-bottom:24px;">
       <div style="font-size:8px;font-weight:500;letter-spacing:0.35em;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:20px;">DR. VINAY S. JOSHI &middot; KOKILABEN DHIRUBHAI AMBANI HOSPITAL</div>
-      <a href="https://drvinayjoshi.com/" class="menu-link">Home</a>
-      <a href="https://drvinayjoshi.com/knee.html" class="menu-link">Knee Replacement</a>
-      <a href="https://drvinayjoshi.com/hip.html" class="menu-link">Hip Replacement</a>
-      <a href="https://drvinayjoshi.com/robotic.html" class="menu-link">Robotic Surgery</a>
-      <a href="https://drvinayjoshi.com/revision.html" class="menu-link">Revision Surgery</a>
-      <a href="https://drvinayjoshi.com/health-tips.html" class="menu-link">Health Tips</a>
-      <a href="https://drvinayjoshi.com/testimonials.html" class="menu-link">Testimonials</a>
-      <a href="https://drvinayjoshi.com/consultation.html" class="menu-link" style="color:#fff;border-bottom:1px solid rgba(255,255,255,0.6);">Consultation</a>
+      <a href="/" class="menu-link">Home</a>
+      <a href="/about.html" class="menu-link">About Dr. Joshi</a>
+      <a href="/knee.html" class="menu-link">Knee Replacement</a>
+      <a href="/hip.html" class="menu-link">Hip Replacement</a>
+      <a href="/robotic.html" class="menu-link">Robotic Surgery</a>
+      <a href="/revision.html" class="menu-link">Revision Surgery</a>
+      <a href="/health-tips.html" class="menu-link">Health Tips</a>
+      <a href="/testimonials.html" class="menu-link">Testimonials</a>
+      <a href="/consultation.html" class="menu-link" style="color:#fff;border-bottom:1px solid rgba(255,255,255,0.6);">Consultation</a>
     </div>
     <div style="margin-top:40px;text-align:center;">
       <a href="tel:+912242696969" style="font-size:20px;font-weight:500;color:#fff;text-decoration:none;">+91 22 4269 6969</a>
@@ -208,20 +503,21 @@
 
   <header id="site-header">
     <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 48px;">
-      <a href="https://drvinayjoshi.com/" style="text-decoration:none;flex-shrink:0;">
+      <a href="/" style="text-decoration:none;flex-shrink:0;">
         <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.22em;color:#fff;text-transform:uppercase;line-height:1.1;">DR. VINAY S. JOSHI</div>
         <div style="font-size:7px;font-weight:400;letter-spacing:0.3em;color:rgba(255,255,255,0.65);text-transform:uppercase;margin-top:3px;">MBBS · MS · DNB · FRCS · FCPS</div>
       </a>
       <nav style="display:flex;align-items:center;gap:22px;">
-        <a href="https://drvinayjoshi.com/" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Home</a>
-        <a href="https://drvinayjoshi.com/knee.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Knee</a>
-        <a href="https://drvinayjoshi.com/hip.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Hip</a>
-        <a href="https://drvinayjoshi.com/robotic.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Robotic</a>
-        <a href="https://drvinayjoshi.com/revision.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Revision</a>
-        <a href="https://drvinayjoshi.com/health-tips.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Health Tips</a>
-        <a href="https://drvinayjoshi.com/testimonials.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Testimonials</a>
+        <a href="/" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Home</a>
+        <a href="/about.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">About</a>
+        <a href="/knee.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Knee</a>
+        <a href="/hip.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Hip</a>
+        <a href="/robotic.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Robotic</a>
+        <a href="/revision.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Revision</a>
+        <a href="/health-tips.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Health Tips</a>
+        <a href="/testimonials.html" style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:rgba(255,255,255,0.7);text-transform:uppercase;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Testimonials</a>
         <div style="width:1px;height:18px;background:rgba(255,255,255,0.25);"></div>
-        <a href="https://drvinayjoshi.com/consultation.html" style="font-size:9px;font-weight:600;letter-spacing:0.18em;color:#fff;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.45);padding:7px 16px;background:rgba(255,255,255,0.1);">Book Consult</a>
+        <a href="/consultation.html" style="font-size:9px;font-weight:600;letter-spacing:0.18em;color:#fff;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.45);padding:7px 16px;background:rgba(255,255,255,0.1);">Book Consult</a>
       </nav>
       <button onclick="openMenu()" style="font-size:10px;font-weight:500;letter-spacing:0.15em;color:#fff;text-transform:uppercase;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;margin-left:16px;">Menu &#8801;</button>
     </div>
@@ -229,8 +525,7 @@
 
   <!-- HERO -->
   <section class="relative" style="height:380px; overflow:hidden;">
-    <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1440&h=380&fit=crop&crop=center"
-         onerror="this.src='https://placehold.co/1440x380/1a2a3a/4a6a8a'" alt="Consultation" class="w-full h-full object-cover">
+    <picture><source srcset="gallery/gallery-07.webp" type="image/webp"><img decoding="async" fetchpriority="high" width="1280" height="960" src="gallery/gallery-07.jpg" alt="Dr. Vinay Joshi, consultant joint replacement surgeon, at Kokilaben Dhirubhai Ambani Hospital, Andheri West, Mumbai" class="w-full h-full object-cover"></picture>
     <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(10,20,35,0.65) 0%, rgba(10,20,35,0.55) 100%);"></div>
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center" style="padding-top:80px;">
       <div style="font-size:9px; font-weight:500; letter-spacing:0.32em; color:rgba(255,255,255,0.65); text-transform:uppercase; margin-bottom:16px;">Kokilaben Dhirubhai Ambani Hospital · Mumbai</div>
@@ -370,6 +665,55 @@
     </div>
   </section>
 
+
+  <!-- ========== FAQ ========== -->
+  <section style="background:#fff; padding:88px 0; border-top:1px solid #eef2f6;">
+    <div style="max-width:860px; margin:0 auto; padding:0 60px;">
+      <div class="text-center" style="margin-bottom:16px;">
+        <div class="section-label">FREQUENTLY ASKED QUESTIONS</div>
+        <div class="divider mt-4 mb-8" style="margin-left:auto; margin-right:auto;"></div>
+      </div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; text-align:center; margin-bottom:52px; color:#111;">Booking a Consultation — Common Questions</h2>
+      <div id="faq-list">
+        <div class="faq-item" style="border-bottom:1px solid #dde4ec; padding:24px 0;">
+          <button onclick="toggleFAQ(this)" style="width:100%; text-align:left; display:flex; justify-content:space-between; align-items:center; background:none; border:none; cursor:pointer; padding:0;">
+            <span style="font-size:15px; font-weight:400; color:#1a2a3a;">How do I book a consultation with Dr. Vinay Joshi?</span>
+            <span class="faq-icon" style="font-size:20px; color:#1e3a6a; transition:transform 0.3s; flex-shrink:0; margin-left:16px;">+</span>
+          </button>
+          <div class="faq-answer" style="display:none; padding-top:16px; font-size:13px; font-weight:300; color:#555; line-height:1.9;">You can book a consultation with Dr. Vinay Joshi at Kokilaben Dhirubhai Ambani Hospital by calling +91 22 4269 6969, or by completing the appointment request form on this page. Dr. Joshi&#x27;s team will contact you within 24 hours to confirm your appointment.</div>
+        </div>
+        <div class="faq-item" style="border-bottom:1px solid #dde4ec; padding:24px 0;">
+          <button onclick="toggleFAQ(this)" style="width:100%; text-align:left; display:flex; justify-content:space-between; align-items:center; background:none; border:none; cursor:pointer; padding:0;">
+            <span style="font-size:15px; font-weight:400; color:#1a2a3a;">What should I bring to my first consultation?</span>
+            <span class="faq-icon" style="font-size:20px; color:#1e3a6a; transition:transform 0.3s; flex-shrink:0; margin-left:16px;">+</span>
+          </button>
+          <div class="faq-answer" style="display:none; padding-top:16px; font-size:13px; font-weight:300; color:#555; line-height:1.9;">Please bring any previous X-rays, MRI or CT scans, blood test reports, a list of your current medications and your insurance details. If you have had previous joint surgery, bring the operation record and implant details if you have them.</div>
+        </div>
+        <div class="faq-item" style="border-bottom:1px solid #dde4ec; padding:24px 0;">
+          <button onclick="toggleFAQ(this)" style="width:100%; text-align:left; display:flex; justify-content:space-between; align-items:center; background:none; border:none; cursor:pointer; padding:0;">
+            <span style="font-size:15px; font-weight:400; color:#1a2a3a;">Does Dr. Joshi offer virtual consultations?</span>
+            <span class="faq-icon" style="font-size:20px; color:#1e3a6a; transition:transform 0.3s; flex-shrink:0; margin-left:16px;">+</span>
+          </button>
+          <div class="faq-answer" style="display:none; padding-top:16px; font-size:13px; font-weight:300; color:#555; line-height:1.9;">Yes. Dr. Vinay Joshi offers virtual video consultations for patients who are unable to travel to Kokilaben Dhirubhai Ambani Hospital in person, including patients from outside Mumbai and overseas.</div>
+        </div>
+        <div class="faq-item" style="border-bottom:1px solid #dde4ec; padding:24px 0;">
+          <button onclick="toggleFAQ(this)" style="width:100%; text-align:left; display:flex; justify-content:space-between; align-items:center; background:none; border:none; cursor:pointer; padding:0;">
+            <span style="font-size:15px; font-weight:400; color:#1a2a3a;">How long does a consultation with Dr. Joshi take?</span>
+            <span class="faq-icon" style="font-size:20px; color:#1e3a6a; transition:transform 0.3s; flex-shrink:0; margin-left:16px;">+</span>
+          </button>
+          <div class="faq-answer" style="display:none; padding-top:16px; font-size:13px; font-weight:300; color:#555; line-height:1.9;">A first consultation typically takes 30 to 45 minutes and includes a full clinical assessment, a review of your imaging and investigations, and a detailed discussion of the treatment options open to you.</div>
+        </div>
+        <div class="faq-item" style="padding:24px 0;">
+          <button onclick="toggleFAQ(this)" style="width:100%; text-align:left; display:flex; justify-content:space-between; align-items:center; background:none; border:none; cursor:pointer; padding:0;">
+            <span style="font-size:15px; font-weight:400; color:#1a2a3a;">What are Dr. Joshi&#x27;s OPD hours?</span>
+            <span class="faq-icon" style="font-size:20px; color:#1e3a6a; transition:transform 0.3s; flex-shrink:0; margin-left:16px;">+</span>
+          </button>
+          <div class="faq-answer" style="display:none; padding-top:16px; font-size:13px; font-weight:300; color:#555; line-height:1.9;">Outpatient consultations run Monday to Saturday, 9:00 AM to 5:00 PM, at Kokilaben Dhirubhai Ambani Hospital, Four Bungalows, Andheri West, Mumbai 400053.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA STRIP -->
   <section style="background:#1e3a6a; padding:56px 0; text-align:center;">
     <div style="max-width:600px; margin:0 auto; padding:0 40px;">
@@ -379,18 +723,48 @@
     </div>
   </section>
 
+  <!-- ========== RELATED PATIENT GUIDES ========== -->
+  <section style="background:#f5f8fa;padding:76px 0;border-top:1px solid #eef2f6;">
+    <div style="max-width:1180px;margin:0 auto;padding:0 60px;">
+      <div style="text-align:center;margin-bottom:36px;">
+        <div class="section-label">Patient Guides</div>
+        <div class="divider" style="margin:14px auto 22px;"></div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#111;line-height:1.25;">Read More on This Topic</h2>
+      </div>
+      <div class="pg-grid">
+        <a class="pg-card" href="/articles/knee-replacement-cost-mumbai.html">
+          <div style="font-size:7.5px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:8px;">Costs</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:#1a2a3a;line-height:1.35;">Knee Replacement Cost in Mumbai</div>
+        </a>
+        <a class="pg-card" href="/articles/hip-replacement-cost-mumbai.html">
+          <div style="font-size:7.5px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:8px;">Costs</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:#1a2a3a;line-height:1.35;">Hip Replacement Cost in Mumbai</div>
+        </a>
+        <a class="pg-card" href="/articles/signs-you-need-knee-replacement.html">
+          <div style="font-size:7.5px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:8px;">Symptoms</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:#1a2a3a;line-height:1.35;">Signs You May Need a Knee Replacement</div>
+        </a>
+        <a class="pg-card" href="/articles/how-to-choose-a-joint-replacement-surgeon-in-mumbai.html">
+          <div style="font-size:7.5px;font-weight:600;letter-spacing:0.2em;color:#7a8fa8;text-transform:uppercase;margin-bottom:8px;">Choosing Care</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:#1a2a3a;line-height:1.35;">How to Choose a Joint Replacement Surgeon</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <footer style="background:#fff; padding:40px 60px; border-top:1px solid #eef2f6; display:flex; justify-content:space-between; align-items:center;">
     <div>
       <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.22em; color:#1a2a3a; text-transform:uppercase;">DR. VINAY S. JOSHI</div>
       <div style="font-size:8px; color:#7a8fa8; letter-spacing:0.2em; text-transform:uppercase; margin-top:4px;">Consultant Orthopaedic Surgeon · Kokilaben Dhirubhai Ambani Hospital, Mumbai</div>
+      <div style="font-size:11px; font-weight:300; color:#666; margin-top:8px; line-height:1.8;">Kokilaben Dhirubhai Ambani Hospital, Rao Saheb Achutrao Patwardhan Marg, Four Bungalows, Andheri West, Mumbai &ndash; 400053, Maharashtra<br><a href="tel:+912242696969" style="color:#1a2a3a; text-decoration:none; font-weight:500;">+91 22 4269 6969</a></div>
     </div>
     <div style="display:flex; gap:20px; align-items:center;">
-      <a href="https://drvinayjoshi.com/" style="font-size:9px; font-weight:500; letter-spacing:0.15em; color:#7a8fa8; text-decoration:none; text-transform:uppercase;">Home</a>
-      <a href="https://drvinayjoshi.com/knee.html" style="font-size:9px; font-weight:500; letter-spacing:0.15em; color:#7a8fa8; text-decoration:none; text-transform:uppercase;">Knee</a>
-      <a href="https://drvinayjoshi.com/hip.html" style="font-size:9px; font-weight:500; letter-spacing:0.15em; color:#7a8fa8; text-decoration:none; text-transform:uppercase;">Hip</a>
-      <a href="https://drvinayjoshi.com/testimonials.html" style="font-size:9px; font-weight:500; letter-spacing:0.15em; color:#7a8fa8; text-decoration:none; text-transform:uppercase;">Testimonials</a>
+      <a href="/" style="font-size:9px; font-weight:500; letter-spacing:0.15em; color:#7a8fa8; text-decoration:none; text-transform:uppercase;">Home</a>
+      <a href="/knee.html" style="font-size:9px; font-weight:500; letter-spacing:0.15em; color:#7a8fa8; text-decoration:none; text-transform:uppercase;">Knee</a>
+      <a href="/hip.html" style="font-size:9px; font-weight:500; letter-spacing:0.15em; color:#7a8fa8; text-decoration:none; text-transform:uppercase;">Hip</a>
+      <a href="/testimonials.html" style="font-size:9px; font-weight:500; letter-spacing:0.15em; color:#7a8fa8; text-decoration:none; text-transform:uppercase;">Testimonials</a>
     </div>
-    <div style="font-size:9px; font-weight:300; color:#aaa;">© 2024 Dr. Vinay S. Joshi. All Rights Reserved.</div>
+    <div style="font-size:9px; font-weight:300; color:#aaa;">© <span class="cyear">2026</span> Dr. Vinay S. Joshi. All Rights Reserved.</div>
   </footer>
 
   <script>
@@ -483,12 +857,13 @@
 
       <!-- FOOTER -->
       <tr><td style="background:#1a2a3a;padding:20px 48px;text-align:center;">
-        <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;">© 2024 Dr. Vinay S. Joshi &nbsp;·&nbsp; All Rights Reserved</p>
+        <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;">© 2026 Dr. Vinay S. Joshi &nbsp;·&nbsp; All Rights Reserved</p>
       </td></tr>
 
     </table>
   </td></tr>
 </table>
+
 </body></html>`;
     }
 
@@ -675,5 +1050,14 @@
     document.querySelectorAll('[data-anim]').forEach(el=>_obs.observe(el));
   </script>
 
+  <script>document.querySelectorAll(".cyear").forEach(function(e){e.textContent=new Date().getFullYear();});</script>
+  <script>
+    function toggleFAQ(btn){
+      var item=btn.parentElement, ans=item.querySelector('.faq-answer'), ic=item.querySelector('.faq-icon');
+      var open=ans.style.display==='block';
+      ans.style.display=open?'none':'block';
+      ic.style.transform=open?'rotate(0deg)':'rotate(45deg)';
+    }
+  </script>
 </body>
 </html>
