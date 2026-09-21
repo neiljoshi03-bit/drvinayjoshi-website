@@ -17,37 +17,37 @@
       "permanent": true
     },
     {
-      "source": "/presentations/Frequently Asked Questions (FAQs) _compressed.pdf",
+      "source": "/presentations/Frequently%20Asked%20Questions%20\\(FAQs\\)%20_compressed.pdf",
       "destination": "/presentations/joint-replacement-faq-guide.pdf",
       "permanent": true
     },
     {
-      "source": "/presentations/Patient's Journey and Recovery_compressed.pdf",
+      "source": "/presentations/Patient's%20Journey%20and%20Recovery_compressed.pdf",
       "destination": "/presentations/joint-replacement-patient-journey-recovery.pdf",
       "permanent": true
     },
     {
-      "source": "/presentations/Patients Guide to Hip Replacements_compressed.pdf",
+      "source": "/presentations/Patients%20Guide%20to%20Hip%20Replacements_compressed.pdf",
       "destination": "/presentations/hip-replacement-patient-guide.pdf",
       "permanent": true
     },
     {
-      "source": "/presentations/Patients Guide to Knee Replacements_compressed.pdf",
+      "source": "/presentations/Patients%20Guide%20to%20Knee%20Replacements_compressed.pdf",
       "destination": "/presentations/knee-replacement-patient-guide.pdf",
       "permanent": true
     },
     {
-      "source": "/Knee photo.jpg",
+      "source": "/Knee%20photo.jpg",
       "destination": "/knee-replacement-mumbai.jpg",
       "permanent": true
     },
     {
-      "source": "/Hip Image.jpg",
+      "source": "/Hip%20Image.jpg",
       "destination": "/hip-replacement-mumbai.jpg",
       "permanent": true
     },
     {
-      "source": "/Hip .jpg",
+      "source": "/Hip%20.jpg",
       "destination": "/hip-replacement-surgery-mumbai.jpg",
       "permanent": true
     },
@@ -67,17 +67,17 @@
       "permanent": true
     },
     {
-      "source": "/Inspiring patient whose knee replaced.jpeg",
+      "source": "/Inspiring%20patient%20whose%20knee%20replaced.jpeg",
       "destination": "/high-flex-knee-replacement-patient-mumbai.jpg",
       "permanent": true
     },
     {
-      "source": "/Dancing patient video.mp4",
+      "source": "/Dancing%20patient%20video.mp4",
       "destination": "/knee-replacement-patient-recovery-mumbai.mp4",
       "permanent": true
     },
     {
-      "source": "/Profile picture.png",
+      "source": "/Profile%20picture.png",
       "destination": "/dr-vinay-joshi-profile-mumbai.png",
       "permanent": true
     }
