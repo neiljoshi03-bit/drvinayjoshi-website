@@ -113,6 +113,7 @@ doing work they were not shot for, and would benefit from purpose-shot replaceme
 | `signs-you-need-knee-replacement.html` | `gallery/gallery-12.jpg` (consultation) | A consultation or X-ray review photograph |
 | `avn-hip-treatment-mumbai.html` | `hip-replacement-mumbai.jpg` | An MRI or hip imaging photograph |
 | Article author boxes | `dr-vinay-joshi-orthopaedic-surgeon.jpg` | Fine as is — the white-coat portrait (`gallery/gallery-02.jpg`) is an alternative |
+| Homepage **Revision** panel | `hip-replacement-surgery-mumbai.jpg` | **A purpose-made revision render.** The other three panels are photoreal implant/equipment renders; the only local image in that family is this implant illustration, and at 500×333 it upscales into the 400×480 panel. A revision-specific render — long-stem or hinged components, or an X-ray of a loose implant — would match the set properly. Implant manufacturers (DePuy, Smith &amp; Nephew) will usually supply these for a surgeon's own site on request. |
 
 **Patient consent:** several gallery images show identifiable patients. Please confirm written
 consent is on file for each image used on the public site.
